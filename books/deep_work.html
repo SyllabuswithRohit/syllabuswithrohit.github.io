@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Work | SyllabusWithRohit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg: #fdfbf7; --text: #111111; --accent: #8b5a2b; }
+        body.sepia { --bg: #f4ecd8; --text: #433422; }
+        body.dark { --bg: #121212; --text: #d1d1d1; --accent: #b37339; }
+        body.red-mode { --bg: #000000; --text: #ff3333; --accent: #ff0000; }
+        
+        body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: background-color 0.4s, color 0.4s; }
+        #pb { position:fixed; top:0; left:0; height:3px; background: var(--accent); width:0%; z-index:100; transition: width 0.2s; }
+        
+        article p { margin-bottom: 2.5rem; font-size: 21px; line-height: 1.85; text-align: justify; hyphens: auto; letter-spacing: -0.01em; }
+        article p:first-of-type::first-letter { float:left; font-size:4.5rem; line-height:0.8; padding-right:12px; font-weight:bold; color: var(--accent); }
+        
+        .nav-btn { padding: 4px 12px; border: 1px solid currentColor; border-radius: 4px; font-size: 12px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+        .nav-btn:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div id="pb"></div>
+    <nav style="border-bottom: 1px solid rgba(128,128,128,0.2); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: inherit; z-index: 50;">
+        <a href="../index.html" style="font-family: sans-serif; font-size: 12px; font-weight: bold; text-decoration: none; color: inherit; text-transform: uppercase; letter-spacing: 2px;">← Library</a>
+        <div style="display: flex; gap: 10px; font-family: sans-serif;">
+            <button onclick="setTheme('light')" class="nav-btn">Light</button>
+            <button onclick="setTheme('sepia')" class="nav-btn">Sepia</button>
+            <button onclick="setTheme('dark')" class="nav-btn">Dark</button>
+            <button onclick="setTheme('red-mode')" class="nav-btn" style="border-color:#ff3333; color:#ff3333;">Red</button>
+        </div>
+    </nav>
+    <main style="max-width: 680px; margin: 0 auto; padding: 60px 20px 100px;">
+        <header style="text-align: center; margin-bottom: 60px;">
+            <div style="font-family: sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 15px; font-weight: bold;">Self-Help</div>
+            <h1 style="font-size: 2.8rem; font-weight: bold; font-style: italic; margin-bottom: 15px; line-height: 1.2;">Deep Work</h1>
+            <p style="font-size: 1.2rem; opacity: 0.7; font-style: italic;">By Cal Newport</p>
+        </header>
+        <article><p>﻿Agar aap deep work karte hain, toh duniya ki koi bhi taqat aapko aage badhne se nahi rok sakti.</p></article>
+    </main>
+    <script>
+        window.onscroll = () => { document.getElementById("pb").style.width = ((document.documentElement.scrollTop)/(document.documentElement.scrollHeight-document.documentElement.clientHeight)*100)+"%"; };
+        function setTheme(t) {
+            document.body.className = t;
+            localStorage.setItem('theme', t);
+        }
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

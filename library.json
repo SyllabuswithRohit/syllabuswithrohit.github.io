@@ -4,5 +4,11 @@
         "author": "mannG\\",
         "category": "",
         "link": "books/road_to_freedom.html"
+    },
+    {
+        "title": "Deep Work",
+        "author": "Cal Newport",
+        "category": "Self-Help",
+        "link": "books/deep_work.html"
     }
 ]

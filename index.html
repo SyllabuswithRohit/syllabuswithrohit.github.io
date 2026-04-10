@@ -1,12 +1,60 @@
-<!DOCTYPE html><html lang="hi" class="scroll-smooth"><head><meta charset="UTF-8"><title>Library | SyllabusWithRohit</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:'class',theme:{extend:{colors:{paper:'#fdfbf7',ink:'#1a1a1a',darkPaper:'#121212',darkInk:'#d1d1d1'},fontFamily:{kindle:['Lora','serif']}}}}</script></head><body class="bg-paper text-ink dark:bg-[#0a0a0a] dark:text-darkInk font-serif transition-colors duration-500"><nav class="w-full bg-paper/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-ink/5 sticky top-0 z-50"><div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"><div class="text-xl font-bold italic font-sans uppercase tracking-widest">Syllabus<span class="text-[#8b5a2b]">With</span>Rohit</div></div></nav><header class="max-w-6xl mx-auto px-6 py-24"><h1 class="text-5xl md:text-7xl font-bold italic mb-6 leading-tight">Gyan Sabke <span class="text-[#8b5a2b]">Liye.</span></h1><p class="text-xl opacity-70 max-w-lg leading-relaxed">Bhari kitabein, aasaan Hinglish mein. Aapki apni digital library.</p></header><main class="max-w-6xl mx-auto px-6 pb-32"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <a href="books/road_to_freedom.html" class="group relative flex flex-col justify-between bg-white dark:bg-[#1a1a1a] border border-ink/5 dark:border-darkInk/10 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-[#8b5a2b] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library | SyllabusWithRohit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fdfbf7; color: #111; font-family: 'Lora', serif; margin: 0; padding: 0; }
+        nav { padding: 20px 40px; border-bottom: 1px solid rgba(0,0,0,0.05); background: #fdfbf7; }
+        .logo { font-family: sans-serif; font-size: 18px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; }
+        header { text-align: center; padding: 80px 20px; }
+        .search-container { max-width: 500px; margin: 40px auto 0; }
+        #searchBox { width: 100%; padding: 15px 20px; font-size: 16px; font-family: sans-serif; border: 1px solid #ccc; border-radius: 30px; outline: none; transition: border-color 0.3s; background: transparent; }
+        #searchBox:focus { border-color: #8b5a2b; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; padding: 0 20px 100px; }
+        .book-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Syllabus<span style="color: #8b5a2b;">With</span>Rohit</div>
+    </nav>
+    <header>
+        <h1 style="font-size: 3.5rem; font-style: italic; margin: 0 0 15px 0;">Gyan Sabke <span style="color: #8b5a2b;">Liye.</span></h1>
+        <p style="font-size: 1.2rem; opacity: 0.7; max-width: 600px; margin: auto;">Zero distractions. Premium reading experience.</p>
+        <div class="search-container">
+            <input type="text" id="searchBox" onkeyup="filterBooks()" placeholder="Kitaab ka naam dhoondhein...">
+        </div>
+    </header>
+    <main class="grid" id="bookGrid">
+    <a href="books/deep_work.html" class="book-card" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; padding: 30px; border-radius: 4px; text-decoration: none; color: #111; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; border-left: 12px solid #8b5a2b; transition: transform 0.3s, box-shadow 0.3s; min-height: 250px;">
         <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-[#8b5a2b] mb-3 block font-sans"></span>
-            <h3 class="text-2xl font-bold italic mb-2 leading-snug">road to freedom</h3>
-            <p class="text-sm opacity-70 italic font-sans">mannG\</p>
+            <span style="font-family: sans-serif; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #8b5a2b; display: block; margin-bottom: 10px;">Self-Help</span>
+            <h3 style="font-family: 'Lora', serif; font-size: 24px; font-weight: bold; font-style: italic; margin: 0 0 10px 0; line-height: 1.3;">Deep Work</h3>
+            <p style="font-family: sans-serif; font-size: 14px; opacity: 0.7; margin: 0;">Cal Newport</p>
         </div>
-        <div class="mt-8 flex items-center text-sm font-sans font-bold opacity-70 group-hover:text-[#8b5a2b] group-hover:opacity-100 transition-colors">
-            <span>Read Book</span><span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+        <div style="font-family: sans-serif; font-size: 12px; font-weight: bold; color: #8b5a2b; text-transform: uppercase; letter-spacing: 1px; margin-top: 30px;">Read →</div>
+    </a>
+    <a href="books/road_to_freedom.html" class="book-card" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; padding: 30px; border-radius: 4px; text-decoration: none; color: #111; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; border-left: 12px solid #8b5a2b; transition: transform 0.3s, box-shadow 0.3s; min-height: 250px;">
+        <div>
+            <span style="font-family: sans-serif; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #8b5a2b; display: block; margin-bottom: 10px;"></span>
+            <h3 style="font-family: 'Lora', serif; font-size: 24px; font-weight: bold; font-style: italic; margin: 0 0 10px 0; line-height: 1.3;">road to freedom</h3>
+            <p style="font-family: sans-serif; font-size: 14px; opacity: 0.7; margin: 0;">mannG\</p>
         </div>
-    </a></div></main></body></html>
+        <div style="font-family: sans-serif; font-size: 12px; font-weight: bold; color: #8b5a2b; text-transform: uppercase; letter-spacing: 1px; margin-top: 30px;">Read →</div>
+    </a></main>
+    <script>
+        function filterBooks() {
+            let input = document.getElementById('searchBox').value.toLowerCase();
+            let cards = document.getElementsByClassName('book-card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].querySelector('h3').innerText.toLowerCase();
+                if (title.indexOf(input) > -1) cards[i].style.display = 'flex';
+                else cards[i].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
