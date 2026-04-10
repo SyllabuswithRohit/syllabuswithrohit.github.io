@@ -3,7 +3,7 @@ import json
 import subprocess
 
 print("=========================================")
-print("🌟 SyllabuswithRohit - V21 ULTIMATE PRO")
+print("🌟 SyllabuswithRohit - V22 POLISHED PRO")
 print("=========================================")
 
 # --- CONFIG ---
@@ -29,12 +29,13 @@ category = input("🏷️ Category: ")
 filename = title.lower().replace(" ", "_") + ".html"
 filepath = f"books/{filename}"
 
-# --- CSS SHARED CLASSES ---
+# --- CSS SHARED CLASSES (Sepia visibility FIXED) ---
 shared_styles = """
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; }
-    body.sepia { --bg: #f4ecd8; --text: #4a3c2b; --accent: #8b5a2b; }
+    body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; } /* Fixed: Darker text for visibility */
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #555555; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
+    
     body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: 0.4s; overflow-x: hidden; }
     .nav-btn { font-size: 10px; font-weight: bold; letter-spacing: 1px; opacity: 0.6; transition: 0.3s; padding: 4px 8px; border: 1px solid transparent; }
     .nav-btn:hover { opacity: 1; border-color: currentColor; }
@@ -56,6 +57,7 @@ book_html = f"""<!DOCTYPE html>
     <style>{shared_styles} article p {{ margin-bottom: 2.8rem; font-size: 21px; line-height: 1.85; text-align: justify; }}</style>
 </head>
 <body>
+    <div id="pb"></div>
     <nav class="flex justify-between items-center px-6 py-3 sticky top-0 bg-inherit border-b border-black/5 z-50">
         <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px]">SyllabuswithRohit</a>
         <div class="flex items-center gap-6">
@@ -80,15 +82,17 @@ book_html = f"""<!DOCTYPE html>
             <button onclick="closeModal()" class="absolute top-4 right-4 text-2xl opacity-40">&times;</button>
             <h2 class="text-2xl font-bold mb-6 italic">Support My Work</h2>
             <img src="{QR_IMAGE}" class="w-40 h-40 mx-auto mb-6 rounded-lg bg-white p-2">
-            <a href="{COFFEE_LINK}" target="_blank" class="block bg-yellow-500 text-black py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase mb-3">Buy me a Coffee</a>
-            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="block bg-white text-black py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase">UPI: {UPI_ID}</a>
+            <p class="text-sm opacity-70 mb-6">Aapka support mujhe aur books laane me madad karega.</p>
+            <div class="text-[10px] opacity-40 uppercase tracking-widest mb-2 font-mono">{UPI_ID}</div>
+            <a href="{COFFEE_LINK}" target="_blank" class="block bg-yellow-500 text-black py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase mb-3 hover:bg-yellow-400 transition-colors">Buy me a Coffee</a>
+            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="block bg-black text-white py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase hover:bg-zinc-800 transition-colors">Pay via UPI App</a>
         </div>
     </div>
     <script>
         function setTheme(t) {{ document.body.className = t; localStorage.setItem('theme', t); }}
         setTheme(localStorage.getItem('theme') || 'light');
         function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
-        setTimeout(() => {{ document.getElementById('supportModal').style.display = 'flex'; }}, 900000);
+        setTimeout(() => {{ document.getElementById('supportModal').style.display = 'flex'; }}, 900000); // 15 Minute pop-up
     </script>
 </body>
 </html>"""
@@ -109,7 +113,7 @@ for book in reversed(library):
     cards += f"""
     <a href="{book['link']}" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">{book['category']}</span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black">{book['category']}</span>
             <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">{book['title']}</h3>
             <p class="text-sm opacity-60 italic text-black">{book['author']}</p>
         </div>
@@ -154,8 +158,8 @@ with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
 # --- 4. PUSH ---
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
-print("⏳ GitHub par Push ho raha hai... Ultimate Pro Launch!")
+print("⏳ GitHub par Push ho raha hai... Polished Pro Launch!")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", f"V21 Ultimate: Profile top-right, BMAC link, Global Modes"], check=True)
+subprocess.run(["git", "commit", "-m", f"V22 Polished: Sepia fixed, Modal text & BMAC link"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 MISSION ACCOMPLISHED! Site check karein.")
+print("🌟 SUCCESS! Website polished ho gayi hai. 1 minute baad check karein.")

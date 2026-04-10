@@ -7,9 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; }
-    body.sepia { --bg: #f4ecd8; --text: #4a3c2b; --accent: #8b5a2b; }
+    body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; } /* Fixed: Darker text for visibility */
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #555555; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
+    
     body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: 0.4s; overflow-x: hidden; }
     .nav-btn { font-size: 10px; font-weight: bold; letter-spacing: 1px; opacity: 0.6; transition: 0.3s; padding: 4px 8px; border: 1px solid transparent; }
     .nav-btn:hover { opacity: 1; border-color: currentColor; }
@@ -35,9 +36,17 @@
     <main class="max-w-6xl mx-auto px-6 py-20">
         <h1 class="text-center text-4xl md:text-6xl font-bold italic mb-20 tracking-tight">SyllabuswithRohit</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <a href="books/ok_ok_okfh.html" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black">author</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">ok ok okfh</h3>
+            <p class="text-sm opacity-60 italic text-black">lsjdi</p>
+        </div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase text-black">Read Book →</div>
+    </a>
     <a href="books/schopenhauer's_philosophy.html" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">Schopenhauer's philosophy</span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black">Schopenhauer's philosophy</span>
             <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">Schopenhauer's philosophy</h3>
             <p class="text-sm opacity-60 italic text-black">Schopenhauer's philosophy</p>
         </div>
@@ -45,7 +54,7 @@
     </a>
     <a href="books/book_of_philosophyh.html" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">books and coats</span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black">books and coats</span>
             <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">book of philosophyh</h3>
             <p class="text-sm opacity-60 italic text-black">origianl author</p>
         </div>
@@ -53,7 +62,7 @@
     </a>
     <a href="books/crime_and_punishment.html" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">philosophy</span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black">philosophy</span>
             <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">Crime and Punishment</h3>
             <p class="text-sm opacity-60 italic text-black">Fyodor</p>
         </div>
@@ -61,7 +70,7 @@
     </a>
     <a href="books/deep_work.html" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">Self-Help</span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black">Self-Help</span>
             <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">Deep Work</h3>
             <p class="text-sm opacity-60 italic text-black">Cal Newport</p>
         </div>
@@ -69,7 +78,7 @@
     </a>
     <a href="books/road_to_freedom.html" class="group bg-white p-10 border-l-[12px] border-black hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase"></span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase text-black"></span>
             <h3 class="text-2xl font-bold italic leading-tight mb-2 text-black">road to freedom</h3>
             <p class="text-sm opacity-60 italic text-black">mannG\</p>
         </div>
