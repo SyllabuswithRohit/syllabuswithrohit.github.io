@@ -47,5 +47,12 @@
         "category": "red coach club",
         "link": "books/something_nmoice.html",
         "time": 7
+    },
+    {
+        "title": "good book",
+        "author": "author",
+        "category": "books",
+        "link": "books/good_book.html",
+        "time": 7
     }
 ]

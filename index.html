@@ -8,96 +8,138 @@
     <style>
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; }
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
-    body.dark { --bg: #121212; --text: #d1d1d1; --accent: #555555; }
+    body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: 0.4s; }
     
-    /* Mobile First Adjustments */
-    .nav-btn { font-size: 12px; font-weight: bold; padding: 10px 15px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); }
-    .profile-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; transition: 0.3s; }
-    article p { margin-bottom: 2.5rem; font-size: 20px; line-height: 1.8; text-align: justify; }
-    @media (max-width: 640px) { 
-        article p { font-size: 18px; line-height: 1.7; } 
-        .nav-text { display: none; } /* Hide name on mobile nav to save space */
-    }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: 0.4s; overflow-x: hidden; }
+    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit;}
+    .profile-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; transition: 0.3s; border: 2px solid var(--accent); }
+    
+    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; }
+    article p { margin-bottom: 2.8rem; font-size: 21px; line-height: 1.85; text-align: justify; }
+    @media (max-width: 640px) { article p { font-size: 19px; line-height: 1.75; } }
+
+    /* Theme-Sync Modal Styles */
+    #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
+    .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+    .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; padding:0; }
+    .close-btn:hover { opacity:1; }
+    .theme-btn-primary { background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none; transition:opacity 0.3s; }
+    .theme-btn-primary:hover { opacity:0.8; }
 </style>
 </head>
 <body>
-    <nav class="flex justify-between items-center px-6 py-4 sticky top-0 bg-inherit border-b border-black/5 z-50">
-        <div class="text-xs font-bold tracking-[3px]">SyllabuswithRohit</div>
-        <a href="https://www.youtube.com/@SyllabuswithRohit" target="_blank"><img src="myprofile.jpg" class="profile-img"></a>
+    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50">
+        <div class="text-xs font-bold tracking-[3px] uppercase">SyllabuswithRohit</div>
+        <div class="flex items-center gap-2 md:gap-4">
+            <button onclick="setTheme('light')" class="nav-btn">L</button>
+            <button onclick="setTheme('sepia')" class="nav-btn">S</button>
+            <button onclick="setTheme('dark')" class="nav-btn">D</button>
+            <button onclick="setTheme('red-mode')" class="nav-btn" style="color:#ff0000; border-color:#ff0000;">R</button>
+            <button onclick="showModal()" class="nav-btn ml-2">SUPPORT</button>
+            <a href="https://www.youtube.com/@SyllabuswithRohit" target="_blank" title="YouTube Community" class="ml-2 hidden md:block">
+                <img src="myprofile.jpg" class="profile-img">
+            </a>
+        </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-12">
-        <h1 class="text-center text-4xl md:text-6xl font-bold italic mb-16">SyllabuswithRohit</h1>
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
+            <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <a href="books/something_nmoice.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/good_book.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">red coach club • 7 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">something nmoice</h3>
-            <p class="text-sm opacity-60 italic">mozaic</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books • 7 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">good book</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">author</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/nice_nook.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/something_nmoice.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">literature • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">nice nook</h3>
-            <p class="text-sm opacity-60 italic">someone</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">red coach club • 7 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something nmoice</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">mozaic</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/ok_ok_okfh.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/nice_nook.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">author • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">ok ok okfh</h3>
-            <p class="text-sm opacity-60 italic">lsjdi</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">literature • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">nice nook</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">someone</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/schopenhauer's_philosophy.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/ok_ok_okfh.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">Schopenhauer's philosophy • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">Schopenhauer's philosophy</h3>
-            <p class="text-sm opacity-60 italic">Schopenhauer's philosophy</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">author • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">ok ok okfh</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">lsjdi</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/book_of_philosophyh.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/schopenhauer's_philosophy.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">books and coats • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">book of philosophyh</h3>
-            <p class="text-sm opacity-60 italic">origianl author</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Schopenhauer's philosophy • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Schopenhauer's philosophy</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">Schopenhauer's philosophy</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/crime_and_punishment.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/book_of_philosophyh.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">philosophy • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">Crime and Punishment</h3>
-            <p class="text-sm opacity-60 italic">Fyodor</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books and coats • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">book of philosophyh</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">origianl author</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/deep_work.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/crime_and_punishment.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase">Self-Help • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">Deep Work</h3>
-            <p class="text-sm opacity-60 italic">Cal Newport</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">philosophy • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Crime and Punishment</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">Fyodor</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/road_to_freedom.html" class="bg-white p-8 border-l-[12px] border-black hover:shadow-xl transition-all flex flex-col justify-between min-h-[250px]">
+    <a href="books/deep_work.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[2px] opacity-40 mb-3 block uppercase"> • 5 MIN</span>
-            <h3 class="text-xl font-bold italic leading-tight mb-2">road to freedom</h3>
-            <p class="text-sm opacity-60 italic">mannG\</p>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Self-Help • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Deep Work</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">Cal Newport</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6">Read →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+    </a>
+    <a href="books/road_to_freedom.html" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans"> • 5 MIN</span>
+            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">road to freedom</h3>
+            <p class="text-sm opacity-70 italic" style="color:var(--text);">mannG\</p>
+        </div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
     </a></div>
     </main>
+
+    <div id="supportModal">
+        <div class="modal-content">
+            <button onclick="closeModal()" class="close-btn">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
+            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);">
+                <img src="qr.png" class="w-40 h-40 object-contain">
+            </div>
+            <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
+            <a href="upi://pay?pa=syllabuswithrohit@upi&pn=SyllabuswithRohit" class="theme-btn-primary">Pay via UPI App</a>
+            <a href="https://buymeacoffee.com/SyllabuswithRohit" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
+        </div>
+    </div>
+
     <script>
         function setTheme(t) { document.body.className = t; localStorage.setItem('theme', t); }
         setTheme(localStorage.getItem('theme') || 'light');
+        function showModal() { document.getElementById('supportModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('supportModal').style.display = 'none'; }
     </script>
 </body>
 </html>
