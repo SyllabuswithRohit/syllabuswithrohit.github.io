@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("🏔️ SyllabuswithRohit - V36 THE SUMMIT")
+print("🛡️ SyllabuswithRohit - V37 BULLETPROOF")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -23,19 +23,30 @@ shared_styles = """
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
     body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
+    
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
-    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif;}
+    
+    /* Mobile Optimized Nav */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .nav-btn { font-size: 13px; font-weight: bold; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
     .nav-btn:hover { background: var(--text); color: var(--bg); }
-    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; }
+    @media (min-width: 640px) { .nav-btn { font-size: 11px; padding: 6px 10px; } }
+    
+    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; pointer-events: none;}
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
+    
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
-    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:6px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.2); font-family:sans-serif; gap:8px; align-items:center;}
-    .toolbar-btn { background:none; border:none; color:#fff; font-size:12px; font-weight:bold; cursor:pointer; padding:4px 8px; border-radius:4px; }
+    
+    /* Touch-Safe Selection Toolbar */
+    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
+    .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
     .toolbar-btn:hover { background:#333; }
     .toolbar-arrow { position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #111; }
+    
     #dictModal { display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:var(--bg); color:var(--text); border:2px solid var(--accent); padding:20px; border-radius:12px; z-index:10000; max-width:90%; width:400px; box-shadow:0 15px 30px rgba(0,0,0,0.2); font-family:sans-serif;}
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
@@ -46,7 +57,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     return f"""<!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{book_title} | SyllabuswithRohit</title>
     <meta name="theme-color" content="#fdfbf7">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -62,34 +73,32 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
         <button onclick="defineWord()" class="toolbar-btn">📖 Define</button>
         <button onclick="saveQuote('{filename}', '{book_title}')" class="toolbar-btn" style="color:#FFDD00;">📝 Save</button>
         <button onclick="shareQuote('{book_title}')" class="toolbar-btn" style="color:#00e676;">📤 Share</button>
-        <div class="toolbar-arrow"></div>
+        <div class="toolbar-arrow" id="toolbar-arrow"></div>
     </div>
 
     <div id="dictModal"><button onclick="document.getElementById('dictModal').style.display='none'" class="absolute top-2 right-4 text-xl opacity-50">&times;</button><h3 id="dictWord" class="font-bold text-xl mb-2 italic"></h3><p id="dictDef" class="text-sm opacity-80 leading-relaxed"></p></div>
 
-    <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
-        <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4" hx-target="body">← Library</a>
-        <div class="flex items-center gap-2 shrink-0">
-            <button onclick="toggleFullscreen()" class="nav-btn" title="Fullscreen Mode">⛶</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button id="audioBtn" onclick="toggleAudio()" class="nav-btn" title="Focus Audio">🎧</button>
-            <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn" title="Auto Scroll">⏷</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading">⚡</button>
-            <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn" title="Save Bookmark">🔖</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="cycleFont()" class="nav-btn" title="Change Font">Aa</button>
-            <button onclick="changeFont(-2)" class="nav-btn">A-</button>
-            <button onclick="changeFont(2)" class="nav-btn">A+</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="setTheme('light')" class="nav-btn">L</button>
-            <button onclick="setTheme('sepia')" class="nav-btn">S</button>
-            <button onclick="setTheme('dark')" class="nav-btn">D</button>
-            <button onclick="setTheme('red-mode')" class="nav-btn" style="color:#ff0000; border-color:#ff0000;">R</button>
-        </div>
+    <nav id="navbar" class="zen-nav flex items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
+        <a href="../index.html" class="font-sans text-[12px] font-bold tracking-[2px] uppercase shrink-0 mr-2" hx-target="body">← Library</a>
+        <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen Mode">⛶</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button id="audioBtn" onclick="toggleAudio()" class="nav-btn shrink-0" title="Focus Audio">🎧</button>
+        <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn shrink-0" title="Auto Scroll">⏷</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="toggleBionic()" class="nav-btn shrink-0" title="Speed Reading">⚡</button>
+        <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn shrink-0" title="Save Bookmark">🔖</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="cycleFont()" class="nav-btn shrink-0" title="Change Font">Aa</button>
+        <button onclick="changeFont(-2)" class="nav-btn shrink-0">A-</button>
+        <button onclick="changeFont(2)" class="nav-btn shrink-0">A+</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
+        <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
+        <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
+        <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
     </nav>
 
-    <main class="max-w-[680px] mx-auto px-6 pt-28 pb-16">
+    <main class="max-w-[680px] mx-auto px-6 pt-32 pb-16">
         <header class="text-center mb-16">
             <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{book_category} • {book_time} MIN READ • <span id="finish-time"></span></div>
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{book_title}</h1>
@@ -104,8 +113,8 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
             <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="../qr.png" class="w-40 h-40 object-contain"></div>
             <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
-            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a>
-            <a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
+            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a>
+            <a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
         </div>
     </div>
 
@@ -130,8 +139,11 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             if (lastRead !== today) {{ let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); if (lastRead === yesterday.toDateString()) {{ streak++; }} else if (lastRead !== today) {{ streak = 1; }} localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today); }}
 
             let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
+            
+            // Bugfix: Clean old listeners to prevent HTMX memory leaks
             window.onscroll = () => {{
-                const winScroll = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop; 
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
                 document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
                 if (scrolled > 80 && !hasCounted) {{ localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }}
@@ -145,37 +157,60 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             setTimeout(() => {{ if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }}, 900000);
             window.saveBookmark = function(id, title) {{ let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]'); if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }} }}
 
-            // Selection API & Web Share
-            const toolbar = document.getElementById('selection-toolbar'); let selectedText = "";
-            document.addEventListener('selectionchange', () => {{
-                const selection = window.getSelection(); selectedText = selection.toString().trim();
-                if(selectedText.length > 0 && selectedText.length < 300) {{
-                    const rect = selection.getRangeAt(0).getBoundingClientRect(); toolbar.style.display = 'flex';
-                    toolbar.style.top = (window.scrollY + rect.top - 45) + 'px'; toolbar.style.left = (rect.left + (rect.width / 2) - (toolbar.offsetWidth / 2)) + 'px';
-                }} else {{ toolbar.style.display = 'none'; }}
-            }});
+            // Selection API: Bugfix for Mobile UI Clash & Memory Leaks
+            if(!window.hasSelectionListener) {{
+                window.hasSelectionListener = true;
+                const toolbar = document.getElementById('selection-toolbar'); const arrow = document.getElementById('toolbar-arrow');
+                document.addEventListener('selectionchange', () => {{
+                    const selection = window.getSelection(); window.selectedText = selection.toString().trim();
+                    if(window.selectedText.length > 0 && window.selectedText.length < 300) {{
+                        toolbar.style.display = 'flex';
+                        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+                        if(isTouch) {{
+                            // Mobile Fix: Dock to bottom to avoid clashing with iOS/Android copy menu
+                            toolbar.style.position = 'fixed'; toolbar.style.bottom = '20px'; toolbar.style.top = 'auto'; toolbar.style.left = '50%'; toolbar.style.transform = 'translateX(-50%)'; arrow.style.display = 'none';
+                        }} else {{
+                            // Desktop: Float above text
+                            const rect = selection.getRangeAt(0).getBoundingClientRect();
+                            toolbar.style.position = 'absolute'; toolbar.style.top = (window.scrollY + rect.top - 50) + 'px'; toolbar.style.left = (rect.left + (rect.width / 2) - (toolbar.offsetWidth / 2)) + 'px'; toolbar.style.transform = 'none'; arrow.style.display = 'block';
+                        }}
+                    }} else {{ toolbar.style.display = 'none'; }}
+                }});
+            }}
+
             window.saveQuote = function(bookId, bookTitle) {{
-                if(!selectedText) return; let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
-                quotes.push({{text: selectedText, book: bookTitle}}); localStorage.setItem('myQuotes', JSON.stringify(quotes));
-                toolbar.style.display = 'none'; window.getSelection().removeAllRanges(); alert("Quote Saved to Notebook!");
+                if(!window.selectedText) return; let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
+                quotes.push({{text: window.selectedText, book: bookTitle}}); localStorage.setItem('myQuotes', JSON.stringify(quotes));
+                document.getElementById('selection-toolbar').style.display = 'none'; window.getSelection().removeAllRanges(); alert("Quote Saved to Notebook!");
             }};
             window.shareQuote = async function(bookTitle) {{
-                if(!selectedText) return;
-                if (navigator.share) {{
-                    try {{ await navigator.share({{ title: bookTitle, text: `"${{selectedText}}" — Read on SyllabuswithRohit`, url: window.location.href }}); }} catch(e) {{}}
-                }} else {{ alert("Sharing not supported on this browser. Quote copied to clipboard!"); navigator.clipboard.writeText(`"${{selectedText}}" — SyllabuswithRohit: ${{window.location.href}}`); }}
-                toolbar.style.display = 'none'; window.getSelection().removeAllRanges();
+                if(!window.selectedText) return;
+                if (navigator.share) {{ try {{ await navigator.share({{ title: bookTitle, text: `"${{window.selectedText}}" — Read on SyllabuswithRohit`, url: window.location.href }}); }} catch(e) {{}}
+                }} else {{ alert("Sharing not supported on this browser. Quote copied to clipboard!"); navigator.clipboard.writeText(`"${{window.selectedText}}" — SyllabuswithRohit: ${{window.location.href}}`); }}
+                document.getElementById('selection-toolbar').style.display = 'none'; window.getSelection().removeAllRanges();
             }};
             window.defineWord = async function() {{
-                if(!selectedText || selectedText.includes(" ")) {{ alert("Please select a single word to define."); return; }}
-                try {{ let res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + selectedText); let data = await res.json(); let def = data[0].meanings[0].definitions[0].definition; document.getElementById('dictWord').innerText = selectedText; document.getElementById('dictDef').innerText = def; document.getElementById('dictModal').style.display = 'block'; toolbar.style.display = 'none'; }} catch(e) {{ alert("Meaning not found for: " + selectedText); }}
+                if(!window.selectedText || window.selectedText.includes(" ")) {{ alert("Please select a single word to define."); return; }}
+                try {{ let res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + window.selectedText); let data = await res.json(); let def = data[0].meanings[0].definitions[0].definition; document.getElementById('dictWord').innerText = window.selectedText; document.getElementById('dictDef').innerText = def; document.getElementById('dictModal').style.display = 'block'; document.getElementById('selection-toolbar').style.display = 'none'; }} catch(e) {{ alert("Meaning not found for: " + window.selectedText); }}
             }};
 
-            window.isBionic = false; window.originalHTML = document.getElementById('content').innerHTML;
+            window.isBionic = false; 
             window.toggleBionic = function() {{
                 const contentDiv = document.getElementById('content');
-                if (window.isBionic) {{ contentDiv.innerHTML = window.originalHTML; window.isBionic = false; }} 
-                else {{ let pTags = contentDiv.getElementsByTagName('p'); for (let p of pTags) {{ let words = p.innerText.split(' '); let bionicWords = words.map(word => {{ if (word.length <= 1) return word; let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`; }}); p.innerHTML = bionicWords.join(' '); }} window.isBionic = true; }}
+                if (window.isBionic) {{ location.reload(); }} // Cleanest way to undo bionic safely
+                else {{ 
+                    // Bugfix: Safe Bionic replacement without breaking HTML tags
+                    let pTags = contentDiv.getElementsByTagName('p');
+                    for (let p of pTags) {{
+                        let html = p.innerHTML;
+                        p.innerHTML = html.replace(/(<[^>]+>)|([A-Za-z\u0900-\u097F]+)/g, function(match, tag, word) {{
+                            if (tag) return tag; // Ignore HTML tags
+                            if (word.length <= 1) return word;
+                            let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`;
+                        }});
+                    }}
+                    window.isBionic = true; 
+                }}
             }};
 
             window.scrollInterval = null; window.isScrolling = false;
@@ -197,7 +232,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
 </body>
 </html>"""
 
-# --- LIBRARY PROCESSING & BULK UPDATE ---
+# --- BULK UPDATE LIBRARY ---
 library_file = "library.json"
 library = []
 if os.path.exists(library_file):
@@ -235,7 +270,7 @@ if content:
 
 with open(library_file, "w", encoding='utf-8') as f: json.dump(library, f, indent=4)
 
-# --- GENERATE HOMEPAGE (WITH BACKUP ENGINE) ---
+# --- GENERATE HOMEPAGE ---
 cards = ""
 for book in reversed(library):
     cards += f"""
@@ -251,7 +286,7 @@ for book in reversed(library):
 index_html = f"""<!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Library | SyllabuswithRohit</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#fdfbf7">
@@ -261,17 +296,15 @@ index_html = f"""<!DOCTYPE html>
     <style>{shared_styles}</style>
 </head>
 <body hx-boost="true">
-    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50">
-        <div class="text-[11px] font-bold tracking-[2px] font-sans uppercase opacity-80">LIBRARY</div>
-        <div class="flex items-center gap-2 md:gap-4">
-            <button onclick="toggleFullscreen()" class="nav-btn" title="Fullscreen">⛶</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="setTheme('light')" class="nav-btn">L</button>
-            <button onclick="setTheme('sepia')" class="nav-btn">S</button>
-            <button onclick="setTheme('dark')" class="nav-btn">D</button>
-            <button onclick="setTheme('red-mode')" class="nav-btn" style="color:#ff0000; border-color:#ff0000;">R</button>
-            <button onclick="showModal()" class="nav-btn ml-2">SUPPORT</button>
-        </div>
+    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
+        <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
+        <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
+        <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
+        <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
+        <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
+        <button onclick="showModal()" class="nav-btn ml-2 shrink-0">SUPPORT</button>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-10">
@@ -287,9 +320,9 @@ index_html = f"""<!DOCTYPE html>
             </div>
             
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[10px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity">☁️ Backup Data</button>
-                <label class="text-[10px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity">
-                    📥 Restore Data <input type="file" accept=".json" onchange="importData(event)" class="hidden">
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity">☁️ Backup</button>
+                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity">
+                    📥 Restore <input type="file" accept=".json" onchange="importData(event)" class="hidden">
                 </label>
             </div>
         </div>
@@ -304,14 +337,14 @@ index_html = f"""<!DOCTYPE html>
         </div>
         
         <div id="notebook-section" class="mb-16 hidden">
-            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">📝 My Notebook (Saved Quotes)</h2>
+            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">📝 My Notebook</h2>
             <div id="quotes-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bookGrid">{cards}</div>
     </main>
 
-    <div id="supportModal"><div class="modal-content"><button onclick="closeModal()" class="close-btn">&times;</button><h2 class="text-2xl font-bold mb-4 italic">Support</h2><div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="qr.png" class="w-40 h-40 object-contain"></div><p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p><a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="theme-btn-primary">Pay via UPI App</a><a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a></div></div>
+    <div id="supportModal"><div class="modal-content"><button onclick="closeModal()" class="close-btn">&times;</button><h2 class="text-2xl font-bold mb-4 italic">Support</h2><div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="qr.png" class="w-40 h-40 object-contain"></div><p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p><a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="theme-btn-primary" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a><a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a></div></div>
 
     <script>
         (function() {{
@@ -341,34 +374,13 @@ index_html = f"""<!DOCTYPE html>
                 quotes.forEach(q => {{ qContainer.innerHTML += `<div class="p-6 rounded-lg" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${{q.text}}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${{q.book}}</p></div>`; }});
             }}
 
-            // Data Export/Import Engine
             window.exportData = function() {{
-                const data = {{
-                    myBookmarks: localStorage.getItem('myBookmarks'), myQuotes: localStorage.getItem('myQuotes'),
-                    wordsRead: localStorage.getItem('wordsRead'), readingStreak: localStorage.getItem('readingStreak'),
-                    lastReadDate: localStorage.getItem('lastReadDate')
-                }};
-                const blob = new Blob([JSON.stringify(data)], {{type: 'application/json'}});
-                const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'SyllabusWithRohit_Backup.json'; a.click();
+                const data = {{ myBookmarks: localStorage.getItem('myBookmarks'), myQuotes: localStorage.getItem('myQuotes'), wordsRead: localStorage.getItem('wordsRead'), readingStreak: localStorage.getItem('readingStreak'), lastReadDate: localStorage.getItem('lastReadDate') }};
+                const blob = new Blob([JSON.stringify(data)], {{type: 'application/json'}}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'SyllabusWithRohit_Backup.json'; a.click();
             }};
-            
             window.importData = function(event) {{
                 const file = event.target.files[0];
-                if (file) {{
-                    const reader = new FileReader();
-                    reader.onload = function(e) {{
-                        try {{
-                            const data = JSON.parse(e.target.result);
-                            if(data.myBookmarks) localStorage.setItem('myBookmarks', data.myBookmarks);
-                            if(data.myQuotes) localStorage.setItem('myQuotes', data.myQuotes);
-                            if(data.wordsRead) localStorage.setItem('wordsRead', data.wordsRead);
-                            if(data.readingStreak) localStorage.setItem('readingStreak', data.readingStreak);
-                            if(data.lastReadDate) localStorage.setItem('lastReadDate', data.lastReadDate);
-                            alert('Data Restored Successfully! Refreshing...'); location.reload();
-                        }} catch(err) {{ alert('Invalid Backup File.'); }}
-                    }};
-                    reader.readAsText(file);
-                }}
+                if (file) {{ const reader = new FileReader(); reader.onload = function(e) {{ try {{ const data = JSON.parse(e.target.result); if(data.myBookmarks) localStorage.setItem('myBookmarks', data.myBookmarks); if(data.myQuotes) localStorage.setItem('myQuotes', data.myQuotes); if(data.wordsRead) localStorage.setItem('wordsRead', data.wordsRead); if(data.readingStreak) localStorage.setItem('readingStreak', data.readingStreak); if(data.lastReadDate) localStorage.setItem('lastReadDate', data.lastReadDate); alert('Data Restored! Refreshing...'); location.reload(); }} catch(err) {{ alert('Invalid Backup File.'); }} }}; reader.readAsText(file); }}
             }};
 
             if('serviceWorker' in navigator) {{ navigator.serviceWorker.register('sw.js'); }}
@@ -379,6 +391,6 @@ index_html = f"""<!DOCTYPE html>
 with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V36 The Summit: Cloud Backup, Web Share & Fullscreen"], check=True)
+subprocess.run(["git", "commit", "-m", "V37 Bulletproof: Fixed Mobile UX, Memory Leaks, Bionic Regex"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 THE SUMMIT REACHED! Everything is complete.")
+print("🌟 BULLETPROOF LIVE! Saari galtiyan sudhar di gayi hain.")

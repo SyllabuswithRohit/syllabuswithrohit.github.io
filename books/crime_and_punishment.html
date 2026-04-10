@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Crime and Punishment | SyllabuswithRohit</title>
     <meta name="theme-color" content="#fdfbf7">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -14,19 +14,30 @@
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
     body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
+    
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
-    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif;}
+    
+    /* Mobile Optimized Nav */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .nav-btn { font-size: 13px; font-weight: bold; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
     .nav-btn:hover { background: var(--text); color: var(--bg); }
-    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; }
+    @media (min-width: 640px) { .nav-btn { font-size: 11px; padding: 6px 10px; } }
+    
+    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; pointer-events: none;}
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
+    
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
-    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:6px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.2); font-family:sans-serif; gap:8px; align-items:center;}
-    .toolbar-btn { background:none; border:none; color:#fff; font-size:12px; font-weight:bold; cursor:pointer; padding:4px 8px; border-radius:4px; }
+    
+    /* Touch-Safe Selection Toolbar */
+    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
+    .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
     .toolbar-btn:hover { background:#333; }
     .toolbar-arrow { position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #111; }
+    
     #dictModal { display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:var(--bg); color:var(--text); border:2px solid var(--accent); padding:20px; border-radius:12px; z-index:10000; max-width:90%; width:400px; box-shadow:0 15px 30px rgba(0,0,0,0.2); font-family:sans-serif;}
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
@@ -41,34 +52,32 @@
         <button onclick="defineWord()" class="toolbar-btn">📖 Define</button>
         <button onclick="saveQuote('crime_and_punishment', 'Crime and Punishment')" class="toolbar-btn" style="color:#FFDD00;">📝 Save</button>
         <button onclick="shareQuote('Crime and Punishment')" class="toolbar-btn" style="color:#00e676;">📤 Share</button>
-        <div class="toolbar-arrow"></div>
+        <div class="toolbar-arrow" id="toolbar-arrow"></div>
     </div>
 
     <div id="dictModal"><button onclick="document.getElementById('dictModal').style.display='none'" class="absolute top-2 right-4 text-xl opacity-50">&times;</button><h3 id="dictWord" class="font-bold text-xl mb-2 italic"></h3><p id="dictDef" class="text-sm opacity-80 leading-relaxed"></p></div>
 
-    <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
-        <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4" hx-target="body">← Library</a>
-        <div class="flex items-center gap-2 shrink-0">
-            <button onclick="toggleFullscreen()" class="nav-btn" title="Fullscreen Mode">⛶</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button id="audioBtn" onclick="toggleAudio()" class="nav-btn" title="Focus Audio">🎧</button>
-            <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn" title="Auto Scroll">⏷</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading">⚡</button>
-            <button onclick="saveBookmark('crime_and_punishment', 'Crime and Punishment')" class="nav-btn" title="Save Bookmark">🔖</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="cycleFont()" class="nav-btn" title="Change Font">Aa</button>
-            <button onclick="changeFont(-2)" class="nav-btn">A-</button>
-            <button onclick="changeFont(2)" class="nav-btn">A+</button>
-            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
-            <button onclick="setTheme('light')" class="nav-btn">L</button>
-            <button onclick="setTheme('sepia')" class="nav-btn">S</button>
-            <button onclick="setTheme('dark')" class="nav-btn">D</button>
-            <button onclick="setTheme('red-mode')" class="nav-btn" style="color:#ff0000; border-color:#ff0000;">R</button>
-        </div>
+    <nav id="navbar" class="zen-nav flex items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
+        <a href="../index.html" class="font-sans text-[12px] font-bold tracking-[2px] uppercase shrink-0 mr-2" hx-target="body">← Library</a>
+        <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen Mode">⛶</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button id="audioBtn" onclick="toggleAudio()" class="nav-btn shrink-0" title="Focus Audio">🎧</button>
+        <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn shrink-0" title="Auto Scroll">⏷</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="toggleBionic()" class="nav-btn shrink-0" title="Speed Reading">⚡</button>
+        <button onclick="saveBookmark('crime_and_punishment', 'Crime and Punishment')" class="nav-btn shrink-0" title="Save Bookmark">🔖</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="cycleFont()" class="nav-btn shrink-0" title="Change Font">Aa</button>
+        <button onclick="changeFont(-2)" class="nav-btn shrink-0">A-</button>
+        <button onclick="changeFont(2)" class="nav-btn shrink-0">A+</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
+        <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
+        <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
+        <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
     </nav>
 
-    <main class="max-w-[680px] mx-auto px-6 pt-28 pb-16">
+    <main class="max-w-[680px] mx-auto px-6 pt-32 pb-16">
         <header class="text-center mb-16">
             <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">philosophy • 5 MIN READ • <span id="finish-time"></span></div>
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">Crime and Punishment</h1>
@@ -83,8 +92,8 @@
             <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
             <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="../qr.png" class="w-40 h-40 object-contain"></div>
             <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
-            <a href="upi://pay?pa=syllabuswithrohit@upi&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a>
-            <a href="https://buymeacoffee.com/SyllabuswithRohit" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
+            <a href="upi://pay?pa=syllabuswithrohit@upi&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a>
+            <a href="https://buymeacoffee.com/SyllabuswithRohit" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
         </div>
     </div>
 
@@ -109,8 +118,11 @@
             if (lastRead !== today) { let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); if (lastRead === yesterday.toDateString()) { streak++; } else if (lastRead !== today) { streak = 1; } localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today); }
 
             let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
+            
+            // Bugfix: Clean old listeners to prevent HTMX memory leaks
             window.onscroll = () => {
-                const winScroll = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop; 
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
                 document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
                 if (scrolled > 80 && !hasCounted) { localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }
@@ -124,37 +136,60 @@
             setTimeout(() => { if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }, 900000);
             window.saveBookmark = function(id, title) { let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]'); if(!marks.find(b => b.id === id)) { marks.push({id: id, title: title, link: "books/" + id + ".html"}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); } else { alert("Already saved in your Library."); } }
 
-            // Selection API & Web Share
-            const toolbar = document.getElementById('selection-toolbar'); let selectedText = "";
-            document.addEventListener('selectionchange', () => {
-                const selection = window.getSelection(); selectedText = selection.toString().trim();
-                if(selectedText.length > 0 && selectedText.length < 300) {
-                    const rect = selection.getRangeAt(0).getBoundingClientRect(); toolbar.style.display = 'flex';
-                    toolbar.style.top = (window.scrollY + rect.top - 45) + 'px'; toolbar.style.left = (rect.left + (rect.width / 2) - (toolbar.offsetWidth / 2)) + 'px';
-                } else { toolbar.style.display = 'none'; }
-            });
+            // Selection API: Bugfix for Mobile UI Clash & Memory Leaks
+            if(!window.hasSelectionListener) {
+                window.hasSelectionListener = true;
+                const toolbar = document.getElementById('selection-toolbar'); const arrow = document.getElementById('toolbar-arrow');
+                document.addEventListener('selectionchange', () => {
+                    const selection = window.getSelection(); window.selectedText = selection.toString().trim();
+                    if(window.selectedText.length > 0 && window.selectedText.length < 300) {
+                        toolbar.style.display = 'flex';
+                        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+                        if(isTouch) {
+                            // Mobile Fix: Dock to bottom to avoid clashing with iOS/Android copy menu
+                            toolbar.style.position = 'fixed'; toolbar.style.bottom = '20px'; toolbar.style.top = 'auto'; toolbar.style.left = '50%'; toolbar.style.transform = 'translateX(-50%)'; arrow.style.display = 'none';
+                        } else {
+                            // Desktop: Float above text
+                            const rect = selection.getRangeAt(0).getBoundingClientRect();
+                            toolbar.style.position = 'absolute'; toolbar.style.top = (window.scrollY + rect.top - 50) + 'px'; toolbar.style.left = (rect.left + (rect.width / 2) - (toolbar.offsetWidth / 2)) + 'px'; toolbar.style.transform = 'none'; arrow.style.display = 'block';
+                        }
+                    } else { toolbar.style.display = 'none'; }
+                });
+            }
+
             window.saveQuote = function(bookId, bookTitle) {
-                if(!selectedText) return; let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
-                quotes.push({text: selectedText, book: bookTitle}); localStorage.setItem('myQuotes', JSON.stringify(quotes));
-                toolbar.style.display = 'none'; window.getSelection().removeAllRanges(); alert("Quote Saved to Notebook!");
+                if(!window.selectedText) return; let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
+                quotes.push({text: window.selectedText, book: bookTitle}); localStorage.setItem('myQuotes', JSON.stringify(quotes));
+                document.getElementById('selection-toolbar').style.display = 'none'; window.getSelection().removeAllRanges(); alert("Quote Saved to Notebook!");
             };
             window.shareQuote = async function(bookTitle) {
-                if(!selectedText) return;
-                if (navigator.share) {
-                    try { await navigator.share({ title: bookTitle, text: `"${selectedText}" — Read on SyllabuswithRohit`, url: window.location.href }); } catch(e) {}
-                } else { alert("Sharing not supported on this browser. Quote copied to clipboard!"); navigator.clipboard.writeText(`"${selectedText}" — SyllabuswithRohit: ${window.location.href}`); }
-                toolbar.style.display = 'none'; window.getSelection().removeAllRanges();
+                if(!window.selectedText) return;
+                if (navigator.share) { try { await navigator.share({ title: bookTitle, text: `"${window.selectedText}" — Read on SyllabuswithRohit`, url: window.location.href }); } catch(e) {}
+                } else { alert("Sharing not supported on this browser. Quote copied to clipboard!"); navigator.clipboard.writeText(`"${window.selectedText}" — SyllabuswithRohit: ${window.location.href}`); }
+                document.getElementById('selection-toolbar').style.display = 'none'; window.getSelection().removeAllRanges();
             };
             window.defineWord = async function() {
-                if(!selectedText || selectedText.includes(" ")) { alert("Please select a single word to define."); return; }
-                try { let res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + selectedText); let data = await res.json(); let def = data[0].meanings[0].definitions[0].definition; document.getElementById('dictWord').innerText = selectedText; document.getElementById('dictDef').innerText = def; document.getElementById('dictModal').style.display = 'block'; toolbar.style.display = 'none'; } catch(e) { alert("Meaning not found for: " + selectedText); }
+                if(!window.selectedText || window.selectedText.includes(" ")) { alert("Please select a single word to define."); return; }
+                try { let res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + window.selectedText); let data = await res.json(); let def = data[0].meanings[0].definitions[0].definition; document.getElementById('dictWord').innerText = window.selectedText; document.getElementById('dictDef').innerText = def; document.getElementById('dictModal').style.display = 'block'; document.getElementById('selection-toolbar').style.display = 'none'; } catch(e) { alert("Meaning not found for: " + window.selectedText); }
             };
 
-            window.isBionic = false; window.originalHTML = document.getElementById('content').innerHTML;
+            window.isBionic = false; 
             window.toggleBionic = function() {
                 const contentDiv = document.getElementById('content');
-                if (window.isBionic) { contentDiv.innerHTML = window.originalHTML; window.isBionic = false; } 
-                else { let pTags = contentDiv.getElementsByTagName('p'); for (let p of pTags) { let words = p.innerText.split(' '); let bionicWords = words.map(word => { if (word.length <= 1) return word; let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`; }); p.innerHTML = bionicWords.join(' '); } window.isBionic = true; }
+                if (window.isBionic) { location.reload(); } // Cleanest way to undo bionic safely
+                else { 
+                    // Bugfix: Safe Bionic replacement without breaking HTML tags
+                    let pTags = contentDiv.getElementsByTagName('p');
+                    for (let p of pTags) {
+                        let html = p.innerHTML;
+                        p.innerHTML = html.replace(/(<[^>]+>)|([A-Za-zऀ-ॿ]+)/g, function(match, tag, word) {
+                            if (tag) return tag; // Ignore HTML tags
+                            if (word.length <= 1) return word;
+                            let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
+                        });
+                    }
+                    window.isBionic = true; 
+                }
             };
 
             window.scrollInterval = null; window.isScrolling = false;
