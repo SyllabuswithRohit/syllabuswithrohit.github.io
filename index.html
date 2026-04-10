@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library | SyllabuswithRohit</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#fdfbf7">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"><title>Library | SyllabuswithRohit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.11"></script>
     <style>
@@ -14,7 +10,7 @@
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
     
-    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
+    body { opacity: 1; transition: opacity 0.3s ease-out, background-color: 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
     
     .zen-nav { transition: transform 0.3s ease-in-out; }
@@ -24,187 +20,148 @@
     
     #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; }
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
-    @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
+    
+    /* Progress Bar for Homepage Cards */
+    .card-progress { height: 4px; background: rgba(128,128,128,0.1); border-radius: 2px; margin-top: 15px; overflow: hidden; }
+    .card-progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.5s ease-out; }
 
     .bionic-word b { font-weight: 800; opacity: 1; }
-    .bionic-word { opacity: 0.85; }
-
-    #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
-    .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
 </style>
 </head>
 <body hx-boost="true">
-    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50">
-        <div class="text-[11px] font-bold tracking-[2px] font-sans uppercase opacity-80">LIBRARY</div>
-        <div class="flex items-center gap-2 md:gap-4">
-            <button onclick="setTheme('light')" class="nav-btn">L</button>
-            <button onclick="setTheme('sepia')" class="nav-btn">S</button>
-            <button onclick="setTheme('dark')" class="nav-btn">D</button>
-            <button onclick="setTheme('red-mode')" class="nav-btn" style="color:#ff0000; border-color:#ff0000;">R</button>
-            <button onclick="showModal()" class="nav-btn ml-2">SUPPORT</button>
-        </div>
-    </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-10">
-            <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
-            
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
-            </div>
-            
-            <div class="flex justify-center gap-6 font-sans">
-                <div class="text-center">
-                    <div id="streak-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div>
-                    <div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Day Streak 🔥</div>
-                </div>
-                <div class="w-px bg-black opacity-10"></div>
-                <div class="text-center">
-                    <div id="words-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div>
-                    <div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Words Read 📚</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-md mx-auto mb-16 relative">
-            <input type="text" id="searchBox" onkeyup="filterBooks()" placeholder="Search books..." class="w-full px-6 py-4 rounded-full border-2 text-sm font-sans focus:outline-none transition-colors" style="background:transparent; border-color:var(--accent); color:var(--text);">
-        </div>
-        
-        <div id="bookmarks-section" class="mb-16 hidden">
-            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">🔖 Your Bookmarks</h2>
-            <div id="bookmarks-container" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar"></div>
-        </div>
-
+        <h1 class="text-center text-4xl font-bold italic mb-20">SyllabuswithRohit</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bookGrid">
-    <a href="books/game_achanger.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/game_achanger.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">wow • 7 MIN</span>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">wow • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">game achanger</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">something else</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/something_extra.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">testing • 7 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-game_achanger"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/something_extra.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">testing • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something extra</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">writer</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/good_book.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books • 7 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-something_extra"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/good_book.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">books • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">good book</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">author</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/something_nmoice.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">red coach club • 7 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-good_book"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/something_nmoice.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">red coach club • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something nmoice</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">mozaic</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/nice_nook.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">literature • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-something_nmoice"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/nice_nook.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">literature • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">nice nook</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">someone</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/ok_ok_okfh.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">author • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-nice_nook"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/ok_ok_okfh.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">author • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">ok ok okfh</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">lsjdi</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/schopenhauer's_philosophy.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Schopenhauer's philosophy • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-ok_ok_okfh"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/schopenhauer's_philosophy.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">Schopenhauer's philosophy • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Schopenhauer's philosophy</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">Schopenhauer's philosophy</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/book_of_philosophyh.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books and coats • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-schopenhauer's_philosophy"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/book_of_philosophyh.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">books and coats • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">book of philosophyh</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">origianl author</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/crime_and_punishment.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">philosophy • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-book_of_philosophyh"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/crime_and_punishment.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">philosophy • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Crime and Punishment</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">Fyodor</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/deep_work.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Self-Help • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-crime_and_punishment"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/deep_work.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase">Self-Help • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Deep Work</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">Cal Newport</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/road_to_freedom.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans"> • 5 MIN</span>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-deep_work"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
+    </a>
+    <a href="books/road_to_freedom.html" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+        <div>
+            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase"> • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">road to freedom</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">mannG\</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div>
+            <div class="card-progress"><div class="card-progress-fill" id="prog-road_to_freedom"></div></div>
+            <div class="text-[10px] font-bold tracking-[2px] uppercase mt-4" style="color:var(--text);">Read Book →</div>
+        </div>
     </a></div>
     </main>
-
-    <div id="supportModal">
-        <div class="modal-content">
-            <button onclick="closeModal()" class="close-btn">&times;</button>
-            <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
-            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="qr.png" class="w-40 h-40 object-contain"></div>
-            <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
-            <a href="upi://pay?pa=syllabuswithrohit@upi&pn=SyllabuswithRohit" class="theme-btn-primary">Pay via UPI App</a>
-            <a href="https://buymeacoffee.com/SyllabuswithRohit" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
-        </div>
-    </div>
-
     <script>
-        (function() {
-            window.setTheme = function(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
-            setTheme(localStorage.getItem('theme') || 'light');
-            window.showModal = function() { document.getElementById('supportModal').style.display = 'flex'; }
-            window.closeModal = function() { document.getElementById('supportModal').style.display = 'none'; }
-            
-            window.filterBooks = function() {
-                let input = document.getElementById('searchBox').value.toLowerCase();
-                let cards = document.getElementsByClassName('book-card');
-                for (let i = 0; i < cards.length; i++) {
-                    let title = cards[i].querySelector('.book-title').innerText.toLowerCase();
-                    if (title.indexOf(input) > -1) cards[i].style.display = 'flex';
-                    else cards[i].style.display = 'none';
-                }
-            }
-
-            document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
-            document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            
-            let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
-            if(marks.length > 0) {
-                document.getElementById('bookmarks-section').classList.remove('hidden');
-                let container = document.getElementById('bookmarks-container');
-                marks.forEach(m => { container.innerHTML += `<a href="${m.link}" hx-target="body" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; });
-            }
-            if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
-        })();
+        // Update Card Progress Bars
+        document.querySelectorAll('.card-progress-fill').forEach(bar => {
+            const slug = bar.id.replace('prog-', '');
+            const progress = localStorage.getItem('perc_' + slug) || 0;
+            bar.style.width = progress + '%';
+        });
     </script>
 </body>
 </html>
