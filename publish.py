@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("⚡ SyllabuswithRohit - V33 SEAMLESS ENGINE")
+print("🏔️ SyllabuswithRohit - V34 ZENITH EDITION")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -22,7 +22,6 @@ shared_styles = """
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
     
-    /* HTMX Seamless Transitions */
     body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
     
@@ -62,12 +61,18 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
         <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4" hx-target="body">← Library</a>
         <div class="flex items-center gap-2 shrink-0">
-            <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading Mode">⚡ <span class="hidden sm:inline">Speed</span></button>
-            <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn" title="Save to My Books">🔖 <span class="hidden sm:inline">Save</span></button>
+            <button id="audioBtn" onclick="toggleAudio()" class="nav-btn" title="Deep Work Focus Audio">🎧 Focus</button>
+            <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn" title="Hands-free Reading">⏷ Auto</button>
             <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
+            
+            <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading Mode">⚡ Speed</button>
+            <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn" title="Save to My Books">🔖 Save</button>
+            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
+            
             <button onclick="changeFont(-2)" class="nav-btn" title="Decrease Font">A-</button>
             <button onclick="changeFont(2)" class="nav-btn" title="Increase Font">A+</button>
             <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
+            
             <button onclick="setTheme('light')" class="nav-btn">L</button>
             <button onclick="setTheme('sepia')" class="nav-btn">S</button>
             <button onclick="setTheme('dark')" class="nav-btn">D</button>
@@ -131,6 +136,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
 
             window.saveBookmark = function(id, title) {{ let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]'); if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }} }}
 
+            // Bionic Engine
             window.isBionic = false; window.originalHTML = document.getElementById('content').innerHTML;
             window.toggleBionic = function() {{
                 const contentDiv = document.getElementById('content');
@@ -141,18 +147,45 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
                     window.isBionic = true;
                 }}
             }}
+
+            // Auto-Scroll Engine
+            window.scrollInterval = null; window.isScrolling = false;
+            window.toggleAutoScroll = function() {{
+                if(window.isScrolling) {{ clearInterval(window.scrollInterval); window.isScrolling = false; document.getElementById('scrollBtn').innerText = '⏷ Auto'; }}
+                else {{ window.scrollInterval = setInterval(() => window.scrollBy(0, 1), 30); window.isScrolling = true; document.getElementById('scrollBtn').innerText = '⏹ Stop'; }}
+            }}
+
+            // Synthesized Web Audio Focus Engine (Brown Noise)
+            window.audioCtx = null; window.brownNoise = null; window.noiseNode = null; window.isPlaying = false;
+            window.toggleAudio = function() {{
+                if(!window.audioCtx) {{
+                    window.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    let bufferSize = 2 * window.audioCtx.sampleRate, noiseBuffer = window.audioCtx.createBuffer(1, bufferSize, window.audioCtx.sampleRate), output = noiseBuffer.getChannelData(0);
+                    let lastOut = 0;
+                    for (let i = 0; i < bufferSize; i++) {{
+                        let white = Math.random() * 2 - 1;
+                        output[i] = (lastOut + (0.02 * white)) / 1.02; lastOut = output[i]; output[i] *= 3.5;
+                    }}
+                    window.brownNoise = window.audioCtx.createBufferSource(); window.brownNoise.buffer = noiseBuffer; window.brownNoise.loop = true;
+                    window.noiseNode = window.audioCtx.createGain(); window.noiseNode.gain.value = 0.1; // Volume
+                    window.brownNoise.connect(window.noiseNode); window.noiseNode.connect(window.audioCtx.destination);
+                    window.brownNoise.start(0);
+                }}
+                if(window.isPlaying) {{ window.audioCtx.suspend(); window.isPlaying = false; document.getElementById('audioBtn').innerText = '🎧 Focus'; }}
+                else {{ window.audioCtx.resume(); window.isPlaying = true; document.getElementById('audioBtn').innerText = '⏸ Pause'; }}
+            }}
         }})();
     </script>
 </body>
 </html>"""
 
-# --- LIBRARY PROCESSING & BULK UPDATE ---
+# --- BULK UPDATE LIBRARY ---
 library_file = "library.json"
 library = []
 if os.path.exists(library_file):
     with open(library_file, 'r', encoding='utf-8') as f: library = json.load(f)
 
-print("🔄 Installing 15KB Bypass Engine across all books...")
+print("🔄 Installing Zenith Engines across all books...")
 for b in library:
     old_filepath = b['link']
     if os.path.exists(old_filepath):
@@ -302,6 +335,6 @@ with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
 print("⏳ GitHub par Push ho raha hai...")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V33 Seamless Engine: HTMX integration for instant navigation"], check=True)
+subprocess.run(["git", "commit", "-m", "V34 Zenith: Brown Noise Focus Audio & Hands-Free Auto-Scroll"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 SEAMLESS ENGINE LIVE! Ab website reload nahi hogi, App ki tarah chalegi.")
+print("🌟 THE ZENITH EDITION LIVE! App banne ka safar poora hua.")
