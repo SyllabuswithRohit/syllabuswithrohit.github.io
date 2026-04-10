@@ -10,5 +10,11 @@
         "author": "Cal Newport",
         "category": "Self-Help",
         "link": "books/deep_work.html"
+    },
+    {
+        "title": "Crime and Punishment",
+        "author": "Fyodor",
+        "category": "philosophy",
+        "link": "books/crime_and_punishment.html"
     }
 ]

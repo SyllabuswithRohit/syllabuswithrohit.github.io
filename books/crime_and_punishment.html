@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth animate-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime and Punishment | SyllabusWithRohit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #333333; }
+        body.sepia { --bg: #f4ecd8; --text: #4a3c2b; }
+        body.dark { --bg: #121212; --text: #d1d1d1; --accent: #555555; }
+        body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
+        
+        body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: background-color 0.4s, color 0.4s; overflow-x: hidden; }
+        #pb { position:fixed; top:0; left:0; height:3px; background: var(--accent); width:0%; z-index:100; transition: width 0.15s ease-out; }
+        
+        article p { margin-bottom: 2.8rem; font-size: 21px; line-height: 1.85; text-align: justify; hyphens: auto; letter-spacing: -0.01em; }
+        article p:first-of-type::first-letter { float:left; font-size:4.8rem; line-height:0.8; padding-right:12px; font-weight:bold; color: var(--accent); }
+        
+        .nav-btn { padding: 5px 12px; border: 1px solid currentColor; border-radius: 4px; font-size: 11px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; font-family: sans-serif; font-weight:bold; transition: opacity 0.3s; }
+        .nav-btn:hover { opacity: 1; }
+        
+        /* Entrance Fade-In (Premium lightweight animation) */
+        .animate-in { animation: fadeIn 0.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+    <div id="pb"></div>
+    <nav style="border-bottom: 1px solid rgba(128,128,128,0.1); padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: inherit; z-index: 50; backdrop-blur-md: backdrop-filter;">
+        <a href="../index.html" style="font-family: sans-serif; font-size: 11px; font-weight: bold; text-decoration: none; color: inherit; text-transform: uppercase; letter-spacing: 3px; opacity: 0.7; transition: opacity 0.3s;">← Library</a>
+        <div style="display: flex; gap: 8px;">
+            <button onclick="setTheme('light')" class="nav-btn light-btn">Light</button>
+            <button onclick="setTheme('sepia')" class="nav-btn sepia-btn">Sepia</button>
+            <button onclick="setTheme('dark')" class="nav-btn dark-btn">Dark</button>
+            <button onclick="setTheme('red-mode')" class="nav-btn red-btn" style="border-color:#ff3333; color:#ff3333;">Red</button>
+        </div>
+    </nav>
+    <main style="max-width: 680px; margin: 0 auto; padding: 70px 20px 100px;">
+        <header style="text-align: center; margin-bottom: 60px;">
+            <div style="font-family: sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 15px; font-weight: bold; opacity: 0.9;">philosophy</div>
+            <h1 style="font-size: 3rem; font-weight: bold; font-style: italic; margin-bottom: 15px; line-height: 1.2;">Crime and Punishment</h1>
+            <p style="font-size: 1.2rem; opacity: 0.7; font-style: italic;">By Fyodor</p>
+        </header>
+        <article><p>﻿Yoga is the premium way to connect your physical mind with the sophisitcated universe. Deep Work and Sepia concentration are built into this monochrome philosophy.</p></article>
+    </main>
+    <script>
+        window.onscroll = () => { document.getElementById("pb").style.width = ((document.documentElement.scrollTop)/(document.documentElement.scrollHeight-document.documentElement.clientHeight)*100)+"%"; };
+        function setTheme(t) {
+            document.body.className = t;
+            localStorage.setItem('theme', t);
+        }
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>
