@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("💎 SyllabuswithRohit - V32 MASTERPIECE")
+print("⚡ SyllabuswithRohit - V33 SEAMLESS ENGINE")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -21,7 +21,10 @@ shared_styles = """
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: background-color 0.4s, color 0.4s; overflow-x: hidden; }
+    
+    /* HTMX Seamless Transitions */
+    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
+    body.htmx-swapping { opacity: 0 !important; }
     
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
@@ -49,14 +52,15 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     <meta name="theme-color" content="#fdfbf7">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
     <style>{shared_styles}</style>
 </head>
-<body>
+<body hx-boost="true">
     <div id="pb" style="position:fixed; top:0; left:0; height:3px; background:var(--accent); width:0%; z-index:100;"></div>
     <div id="scrollPercent">0%</div>
 
     <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
-        <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4">← Library</a>
+        <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4" hx-target="body">← Library</a>
         <div class="flex items-center gap-2 shrink-0">
             <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading Mode">⚡ <span class="hidden sm:inline">Speed</span></button>
             <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn" title="Save to My Books">🔖 <span class="hidden sm:inline">Save</span></button>
@@ -92,78 +96,52 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     </div>
 
     <script>
-        // Predict Finish Time
-        const readMins = {book_time};
-        const finishDate = new Date(new Date().getTime() + readMins * 60000);
-        document.getElementById('finish-time').innerText = "FINISH BY " + finishDate.toLocaleTimeString([], {{hour: '2-digit', minute:'2-digit'}});
+        (function() {{
+            const readMins = {book_time}; const finishDate = new Date(new Date().getTime() + readMins * 60000);
+            document.getElementById('finish-time').innerText = "FINISH BY " + finishDate.toLocaleTimeString([], {{hour: '2-digit', minute:'2-digit'}});
 
-        let wordsRead = parseInt(localStorage.getItem('wordsRead') || 0);
-        let articleWords = parseInt(document.getElementById('content').getAttribute('data-words'));
-        let hasCounted = false;
+            let wordsRead = parseInt(localStorage.getItem('wordsRead') || 0); let articleWords = parseInt(document.getElementById('content').getAttribute('data-words')); let hasCounted = false;
 
-        function setTheme(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
-        setTheme(localStorage.getItem('theme') || 'light');
-        
-        let currentFont = parseInt(localStorage.getItem('fontSize')) || 21;
-        document.documentElement.style.setProperty('--font-size', currentFont + 'px');
-        function changeFont(step) {{ currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }}
-
-        const bookId = "pos_{filename}";
-        window.onload = () => {{ 
-            let savedPos = localStorage.getItem(bookId); 
-            if(savedPos) window.scrollTo({{top: savedPos, behavior: 'smooth'}}); 
-            updateStreak();
-        }};
-
-        function updateStreak() {{
-            const today = new Date().toDateString();
-            let lastRead = localStorage.getItem('lastReadDate');
-            let streak = parseInt(localStorage.getItem('readingStreak') || 0);
-            if (lastRead !== today) {{
-                let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-                if (lastRead === yesterday.toDateString()) {{ streak++; }} else if (lastRead !== today) {{ streak = 1; }}
-                localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today);
-            }}
-        }}
-
-        let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
-        window.onscroll = () => {{
-            const winScroll = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
-            document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
+            window.setTheme = function(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
+            setTheme(localStorage.getItem('theme') || 'light');
             
-            if (scrolled > 80 && !hasCounted) {{ localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }}
-            if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} else {{ navbar.classList.remove('hidden-nav'); }}
-            lastScrollTop = winScroll <= 0 ? 0 : winScroll;
-            localStorage.setItem(bookId, winScroll);
-            clearTimeout(timer); timer = setTimeout(() => {{ scrollLabel.style.opacity = "0"; }}, 2000);
-        }};
+            let currentFont = parseInt(localStorage.getItem('fontSize')) || 21; document.documentElement.style.setProperty('--font-size', currentFont + 'px');
+            window.changeFont = function(step) {{ currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }}
 
-        function showModal() {{ document.getElementById('supportModal').style.display = 'flex'; }}
-        function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
-        setTimeout(() => {{ if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }}, 900000);
+            const bookId = "pos_{filename}";
+            let savedPos = localStorage.getItem(bookId); if(savedPos) window.scrollTo({{top: savedPos, behavior: 'auto'}});
+            
+            const today = new Date().toDateString(); let lastRead = localStorage.getItem('lastReadDate'); let streak = parseInt(localStorage.getItem('readingStreak') || 0);
+            if (lastRead !== today) {{ let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); if (lastRead === yesterday.toDateString()) {{ streak++; }} else if (lastRead !== today) {{ streak = 1; }} localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today); }}
 
-        function saveBookmark(id, title) {{
-            let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
-            if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }}
-        }}
+            let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
+            window.onscroll = () => {{
+                const winScroll = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
+                document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
+                if (scrolled > 80 && !hasCounted) {{ localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }}
+                if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} else {{ navbar.classList.remove('hidden-nav'); }}
+                lastScrollTop = winScroll <= 0 ? 0 : winScroll; localStorage.setItem(bookId, winScroll);
+                clearTimeout(timer); timer = setTimeout(() => {{ scrollLabel.style.opacity = "0"; }}, 2000);
+            }};
 
-        let isBionic = false; const contentDiv = document.getElementById('content'); const originalHTML = contentDiv.innerHTML;
-        function toggleBionic() {{
-            if (isBionic) {{ contentDiv.innerHTML = originalHTML; isBionic = false; }} 
-            else {{
-                let pTags = contentDiv.getElementsByTagName('p');
-                for (let p of pTags) {{
-                    let words = p.innerText.split(' ');
-                    let bionicWords = words.map(word => {{
-                        if (word.length <= 1) return word;
-                        let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`;
-                    }});
-                    p.innerHTML = bionicWords.join(' ');
+            window.showModal = function() {{ document.getElementById('supportModal').style.display = 'flex'; }}
+            window.closeModal = function() {{ document.getElementById('supportModal').style.display = 'none'; }}
+            setTimeout(() => {{ if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }}, 900000);
+
+            window.saveBookmark = function(id, title) {{ let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]'); if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }} }}
+
+            window.isBionic = false; window.originalHTML = document.getElementById('content').innerHTML;
+            window.toggleBionic = function() {{
+                const contentDiv = document.getElementById('content');
+                if (window.isBionic) {{ contentDiv.innerHTML = window.originalHTML; window.isBionic = false; }} 
+                else {{
+                    let pTags = contentDiv.getElementsByTagName('p');
+                    for (let p of pTags) {{ let words = p.innerText.split(' '); let bionicWords = words.map(word => {{ if (word.length <= 1) return word; let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`; }}); p.innerHTML = bionicWords.join(' '); }}
+                    window.isBionic = true;
                 }}
-                isBionic = true;
             }}
-        }}
+        }})();
     </script>
 </body>
 </html>"""
@@ -174,7 +152,7 @@ library = []
 if os.path.exists(library_file):
     with open(library_file, 'r', encoding='utf-8') as f: library = json.load(f)
 
-print("🔄 Update Process Started: Pichli kitabon mein naye features dal rahe hain...")
+print("🔄 Installing 15KB Bypass Engine across all books...")
 for b in library:
     old_filepath = b['link']
     if os.path.exists(old_filepath):
@@ -196,7 +174,6 @@ if content:
     filename = title.lower().replace(" ", "_")
     filepath = f"books/{filename}.html"
     paras = "".join([f"<p>{p.strip()}</p>" for p in content.split('\n\n') if p.strip()])
-    
     new_html = generate_book_html(title, author, category, reading_time, paras, filename, word_count)
     with open(filepath, 'w', encoding='utf-8') as f: f.write(new_html)
     
@@ -212,7 +189,7 @@ with open(library_file, "w", encoding='utf-8') as f: json.dump(library, f, inden
 cards = ""
 for book in reversed(library):
     cards += f"""
-    <a href="{book['link']}" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="{book['link']}" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">{book['category']} • {book.get('time', 5)} MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">{book['title']}</h3>
@@ -230,9 +207,10 @@ index_html = f"""<!DOCTYPE html>
     <meta name="theme-color" content="#fdfbf7">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
     <style>{shared_styles}</style>
 </head>
-<body>
+<body hx-boost="true">
     <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50">
         <div class="text-[11px] font-bold tracking-[2px] font-sans uppercase opacity-80">LIBRARY</div>
         <div class="flex items-center gap-2 md:gap-4">
@@ -288,33 +266,33 @@ index_html = f"""<!DOCTYPE html>
     </div>
 
     <script>
-        function setTheme(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
-        setTheme(localStorage.getItem('theme') || 'light');
-        function showModal() {{ document.getElementById('supportModal').style.display = 'flex'; }}
-        function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
-        
-        // Search Engine
-        function filterBooks() {{
-            let input = document.getElementById('searchBox').value.toLowerCase();
-            let cards = document.getElementsByClassName('book-card');
-            for (let i = 0; i < cards.length; i++) {{
-                let title = cards[i].querySelector('.book-title').innerText.toLowerCase();
-                if (title.indexOf(input) > -1) cards[i].style.display = 'flex';
-                else cards[i].style.display = 'none';
+        (function() {{
+            window.setTheme = function(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
+            setTheme(localStorage.getItem('theme') || 'light');
+            window.showModal = function() {{ document.getElementById('supportModal').style.display = 'flex'; }}
+            window.closeModal = function() {{ document.getElementById('supportModal').style.display = 'none'; }}
+            
+            window.filterBooks = function() {{
+                let input = document.getElementById('searchBox').value.toLowerCase();
+                let cards = document.getElementsByClassName('book-card');
+                for (let i = 0; i < cards.length; i++) {{
+                    let title = cards[i].querySelector('.book-title').innerText.toLowerCase();
+                    if (title.indexOf(input) > -1) cards[i].style.display = 'flex';
+                    else cards[i].style.display = 'none';
+                }}
             }}
-        }}
 
-        // Load Stats
-        document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
-        document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{{3}})+(?!\d))/g, ",");
-        
-        let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
-        if(marks.length > 0) {{
-            document.getElementById('bookmarks-section').classList.remove('hidden');
-            let container = document.getElementById('bookmarks-container');
-            marks.forEach(m => {{ container.innerHTML += `<a href="${{m.link}}" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; }});
-        }}
-        if('serviceWorker' in navigator) {{ navigator.serviceWorker.register('sw.js'); }}
+            document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
+            document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{{3}})+(?!\d))/g, ",");
+            
+            let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
+            if(marks.length > 0) {{
+                document.getElementById('bookmarks-section').classList.remove('hidden');
+                let container = document.getElementById('bookmarks-container');
+                marks.forEach(m => {{ container.innerHTML += `<a href="${{m.link}}" hx-target="body" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; }});
+            }}
+            if('serviceWorker' in navigator) {{ navigator.serviceWorker.register('sw.js'); }}
+        }})();
     </script>
 </body>
 </html>"""
@@ -322,8 +300,8 @@ with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
 # --- PUSH ---
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
-print("⏳ GitHub par Push ho raha hai... (Bulk Update Done)")
+print("⏳ GitHub par Push ho raha hai...")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V32 Masterpiece: Library Nav, Finish Time & Search Bar added"], check=True)
+subprocess.run(["git", "commit", "-m", "V33 Seamless Engine: HTMX integration for instant navigation"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 MASTERPIECE LIVE! Ek dum fresh aur powerful update.")
+print("🌟 SEAMLESS ENGINE LIVE! Ab website reload nahi hogi, App ki tarah chalegi.")
