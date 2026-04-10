@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("📚 SyllabuswithRohit - V43 CLASSIC PRO")
+print("🎛️ SyllabuswithRohit - V44 POWER USER")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -29,10 +29,10 @@ shared_styles = """
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Spacious Top Nav Buttons (No Fat Finger) */
-    .nav-btn { font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
+    /* V44: The Explicit "Cluttered" Nav Buttons (Best for Power Users) */
+    .nav-btn { font-size: 13px; font-weight: bold; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
     .nav-btn:hover { background: var(--text); color: var(--bg); }
-    @media (min-width: 640px) { .nav-btn { font-size: 12px; padding: 6px 12px; } }
+    @media (min-width: 640px) { .nav-btn { font-size: 11px; padding: 6px 10px; } }
     
     #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; pointer-events: none;}
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
@@ -99,25 +99,33 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     <div id="dictModal"><button onclick="document.getElementById('dictModal').style.display='none'" class="absolute top-2 right-4 text-xl opacity-50">&times;</button><h3 id="dictWord" class="font-bold text-xl mb-2 italic"></h3><p id="dictDef" class="text-sm opacity-80 leading-relaxed"></p></div>
 
     <nav id="navbar" class="zen-nav flex items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
-        <a href="../index.html" class="nav-btn font-sans uppercase shrink-0 mr-2" hx-target="body">← Library</a>
-        <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
+        <a href="../index.html" class="nav-btn font-sans uppercase shrink-0 mr-2 relative" hx-target="body" style="padding-left:32px;">
+            <svg class="absolute left-2 top-1/2 -translate-y-1/2 w-5 h-5 -rotate-90" viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="100, 100" class="opacity-20"/><path id="navProgress" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="0, 100" class="transition-all duration-300 ease-out"/></svg>
+            Library
+        </a>
+        <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen Mode">⛶</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
         <button id="audioBtn" onclick="toggleAudio()" class="nav-btn shrink-0" title="Focus Audio">🎧</button>
         <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn shrink-0" title="Auto Scroll">⏷</button>
-        <button onclick="toggleBionic()" class="nav-btn shrink-0" title="Speed Reading">⚡</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="toggleBionic()" class="nav-btn shrink-0" title="Speed Reading">⚡</button>
         <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn shrink-0" title="Save Bookmark">🔖</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
-        <button onclick="cycleFontFamily()" class="nav-btn shrink-0" title="Change Font Style">T</button>
-        <button onclick="cycleFontSize()" class="nav-btn shrink-0" title="Change Font Size">Aa</button>
-        <button onclick="cycleTheme()" class="nav-btn shrink-0" title="Change Theme">🌓</button>
+        <button onclick="cycleFont()" class="nav-btn shrink-0" title="Change Font">Aa</button>
+        <button onclick="changeFont(-2)" class="nav-btn shrink-0">A-</button>
+        <button onclick="changeFont(2)" class="nav-btn shrink-0">A+</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
+        <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
+        <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
+        <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
     </nav>
 
     <main class="max-w-[680px] mx-auto px-6 pt-32 pb-16">
         <header class="text-center mb-16">
             <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{book_category} • {book_time} MIN READ • <span id="finish-time"></span></div>
-            <h1 class="text-4xl md:text-5xl font-bold italic mb-4 leading-tight">{book_title}</h1>
-            <p class="text-lg opacity-60 italic">By {book_author}</p>
+            <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{book_title}</h1>
+            <p class="opacity-60 italic">By {book_author}</p>
         </header>
         <article id="content" data-words="{word_count}">{paragraphs_html}</article>
     </main>
@@ -141,27 +149,28 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
 
             window.setTheme = function(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#000000', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
             setTheme(localStorage.getItem('theme') || 'light');
-            window.cycleTheme = function() {{ const themes = ['light', 'sepia', 'dark', 'red-mode']; let curr = themes.indexOf(localStorage.getItem('theme')); window.setTheme(themes[(curr + 1) % themes.length]); }};
-
-            let sizes = [18, 21, 24, 28]; let currentFont = parseInt(localStorage.getItem('fontSize')) || 21; document.documentElement.style.setProperty('--font-size', currentFont + 'px');
-            window.cycleFontSize = function() {{ let curr = sizes.indexOf(currentFont) !== -1 ? sizes.indexOf(currentFont) : 1; currentFont = sizes[(curr + 1) % sizes.length]; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }};
             
+            let currentFont = parseInt(localStorage.getItem('fontSize')) || 21; document.documentElement.style.setProperty('--font-size', currentFont + 'px');
+            window.changeFont = function(step) {{ currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }}
             const fonts = ["'Lora', serif", "'Inter', sans-serif", "monospace"]; let fontIdx = parseInt(localStorage.getItem('fontIdx') || 0); document.documentElement.style.setProperty('--font-family', fonts[fontIdx]);
-            window.cycleFontFamily = function() {{ fontIdx = (fontIdx + 1) % fonts.length; document.documentElement.style.setProperty('--font-family', fonts[fontIdx]); localStorage.setItem('fontIdx', fontIdx); }}
+            window.cycleFont = function() {{ fontIdx = (fontIdx + 1) % fonts.length; document.documentElement.style.setProperty('--font-family', fonts[fontIdx]); localStorage.setItem('fontIdx', fontIdx); }}
 
             window.toggleFullscreen = function() {{ if (!document.fullscreenElement) {{ document.documentElement.requestFullscreen().catch(err => {{}}); }} else {{ if (document.exitFullscreen) {{ document.exitFullscreen(); }} }} }}
 
             const bookId = "pos_{filename}"; let savedPos = localStorage.getItem(bookId); if(savedPos) window.scrollTo({{top: savedPos, behavior: 'auto'}});
+            
             const today = new Date().toDateString(); let lastRead = localStorage.getItem('lastReadDate'); let streak = parseInt(localStorage.getItem('readingStreak') || 0);
             if (lastRead !== today) {{ let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); if (lastRead === yesterday.toDateString()) {{ streak++; }} else if (lastRead !== today) {{ streak = 1; }} localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today); }}
 
-            let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
+            let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent'); const navProgress = document.getElementById('navProgress');
             
             window.onscroll = () => {{
                 const winScroll = document.documentElement.scrollTop || document.body.scrollTop; 
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
-                document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
+                document.getElementById("pb").style.width = scrolled + "%"; 
+                scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
+                if(navProgress) navProgress.setAttribute('stroke-dasharray', `${{scrolled}}, 100`);
                 
                 if (scrolled > 80 && !hasCounted) {{ localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }}
                 if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} else {{ navbar.classList.remove('hidden-nav'); }}
@@ -195,35 +204,24 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             
             window.openQuoteGenerator = function(bookTitle) {{
                 if(!window.selectedText) return;
-                document.getElementById('selection-toolbar').style.display = 'none';
-                document.getElementById('quoteGenModal').style.display = 'flex';
-                
-                const canvas = document.getElementById('quoteCanvas'); const ctx = canvas.getContext('2d');
-                const theme = localStorage.getItem('theme') || 'light';
+                document.getElementById('selection-toolbar').style.display = 'none'; document.getElementById('quoteGenModal').style.display = 'flex';
+                const canvas = document.getElementById('quoteCanvas'); const ctx = canvas.getContext('2d'); const theme = localStorage.getItem('theme') || 'light';
                 const bgCol = theme === 'dark' || theme === 'red-mode' ? '#121212' : (theme === 'sepia' ? '#f4ecd8' : '#fdfbf7');
                 const textCol = theme === 'dark' ? '#ffffff' : (theme === 'red-mode' ? '#ff0000' : '#1a1a1a');
                 const accentCol = theme === 'red-mode' ? '#ff0000' : '#888888';
-
+                
                 ctx.fillStyle = bgCol; ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = textCol; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
                 ctx.font = 'italic 120px Lora, serif'; ctx.globalAlpha = 0.1; ctx.fillText('"', 100, 150); ctx.globalAlpha = 1.0;
-
-                ctx.font = 'italic 52px Lora, serif';
-                const words = window.selectedText.split(' ');
-                let line = ''; let y = 450 - (Math.min(window.selectedText.length / 50, 4) * 30);
-                const maxWidth = 800;
                 
-                for(let n = 0; n < words.length; n++) {{
-                    let testLine = line + words[n] + ' '; let metrics = ctx.measureText(testLine);
-                    if (metrics.width > maxWidth && n > 0) {{ ctx.fillText(line, canvas.width / 2, y); line = words[n] + ' '; y += 75; }} else {{ line = testLine; }}
-                }}
+                ctx.font = 'italic 52px Lora, serif'; const words = window.selectedText.split(' '); let line = ''; let y = 450 - (Math.min(window.selectedText.length / 50, 4) * 30); const maxWidth = 800;
+                for(let n = 0; n < words.length; n++) {{ let testLine = line + words[n] + ' '; let metrics = ctx.measureText(testLine); if (metrics.width > maxWidth && n > 0) {{ ctx.fillText(line, canvas.width / 2, y); line = words[n] + ' '; y += 75; }} else {{ line = testLine; }} }}
                 ctx.fillText(line, canvas.width / 2, y);
-
+                
                 ctx.fillStyle = accentCol; ctx.font = 'bold 30px Inter, sans-serif'; ctx.fillText(`— ${{bookTitle}} —`, canvas.width / 2, y + 120);
                 ctx.font = 'bold 22px Inter, sans-serif'; ctx.letterSpacing = '5px'; ctx.fillText('SYLLABUSWITHROHIT', canvas.width / 2, 1000);
                 
-                if (navigator.share && navigator.canShare) {{ document.getElementById('nativeShareBtn').style.display = 'block'; }}
-                window.getSelection().removeAllRanges();
+                if (navigator.share && navigator.canShare) {{ document.getElementById('nativeShareBtn').style.display = 'block'; }} window.getSelection().removeAllRanges();
             }};
 
             window.downloadQuote = function() {{ const canvas = document.getElementById('quoteCanvas'); const link = document.createElement('a'); link.download = 'Syllabus_Quote.png'; link.href = canvas.toDataURL('image/png'); link.click(); }};
@@ -236,7 +234,15 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             window.scrollInterval = null; window.isScrolling = false;
             window.toggleAutoScroll = function() {{ if(window.isScrolling) {{ clearInterval(window.scrollInterval); window.isScrolling = false; }} else {{ window.scrollInterval = setInterval(() => window.scrollBy(0, 1), 30); window.isScrolling = true; }} }};
             window.audioCtx = null; window.isPlaying = false;
-            window.toggleAudio = function() {{ if(!window.audioCtx) {{ window.audioCtx = new (window.AudioContext || window.webkitAudioContext)(); let bufferSize = 2 * window.audioCtx.sampleRate, noiseBuffer = window.audioCtx.createBuffer(1, bufferSize, window.audioCtx.sampleRate), output = noiseBuffer.getChannelData(0); let lastOut = 0; for (let i = 0; i < bufferSize; i++) {{ let white = Math.random() * 2 - 1; output[i] = (lastOut + (0.02 * white)) / 1.02; lastOut = output[i]; output[i] *= 3.5; }} let brownNoise = window.audioCtx.createBufferSource(); brownNoise.buffer = noiseBuffer; brownNoise.loop = true; let noiseNode = window.audioCtx.createGain(); noiseNode.gain.value = 0.1; brownNoise.connect(noiseNode); noiseNode.connect(window.audioCtx.destination); brownNoise.start(0); }} if(window.isPlaying) {{ window.audioCtx.suspend(); window.isPlaying = false; }} else {{ window.audioCtx.resume(); window.isPlaying = true; }} }};
+            window.toggleAudio = function() {{
+                if(!window.audioCtx) {{
+                    window.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    let bufferSize = 2 * window.audioCtx.sampleRate, noiseBuffer = window.audioCtx.createBuffer(1, bufferSize, window.audioCtx.sampleRate), output = noiseBuffer.getChannelData(0); let lastOut = 0;
+                    for (let i = 0; i < bufferSize; i++) {{ let white = Math.random() * 2 - 1; output[i] = (lastOut + (0.02 * white)) / 1.02; lastOut = output[i]; output[i] *= 3.5; }}
+                    let brownNoise = window.audioCtx.createBufferSource(); brownNoise.buffer = noiseBuffer; brownNoise.loop = true; let noiseNode = window.audioCtx.createGain(); noiseNode.gain.value = 0.1; brownNoise.connect(noiseNode); noiseNode.connect(window.audioCtx.destination); brownNoise.start(0);
+                }}
+                if(window.isPlaying) {{ window.audioCtx.suspend(); window.isPlaying = false; }} else {{ window.audioCtx.resume(); window.isPlaying = true; }}
+            }};
         }})();
     </script>
 </body>
@@ -307,11 +313,14 @@ index_html = f"""<!DOCTYPE html>
     <style>{shared_styles}</style>
 </head>
 <body hx-boost="true">
-    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
+    <nav class="flex items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
         <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
         <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
-        <button onclick="cycleTheme()" class="nav-btn shrink-0" title="Change Theme">🌓</button>
+        <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
+        <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
+        <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
+        <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
         <button onclick="showModal()" class="nav-btn ml-2 shrink-0">SUPPORT</button>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
@@ -319,8 +328,8 @@ index_html = f"""<!DOCTYPE html>
             <div class="ambient-aura mx-auto mb-6"><img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover relative z-10 shadow-xl" style="border: 3px solid var(--accent);"></div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10"><h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1></div>
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup Data</button>
-                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">📥 Restore Data<input type="file" accept=".json" onchange="importData(event)" class="hidden"></label>
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup</button>
+                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">📥 Restore<input type="file" accept=".json" onchange="importData(event)" class="hidden"></label>
             </div>
         </div>
 
@@ -339,8 +348,6 @@ index_html = f"""<!DOCTYPE html>
         (function() {{
             window.setTheme = function(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#000000', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
             setTheme(localStorage.getItem('theme') || 'light');
-            window.cycleTheme = function() {{ const themes = ['light', 'sepia', 'dark', 'red-mode']; let curr = themes.indexOf(localStorage.getItem('theme')); window.setTheme(themes[(curr + 1) % themes.length]); }};
-
             window.showModal = function() {{ document.getElementById('supportModal').style.display = 'flex'; }}
             window.closeModal = function() {{ document.getElementById('supportModal').style.display = 'none'; }}
             window.toggleFullscreen = function() {{ if (!document.fullscreenElement) {{ document.documentElement.requestFullscreen().catch(err => {{}}); }} else {{ if (document.exitFullscreen) {{ document.exitFullscreen(); }} }} }}
@@ -364,6 +371,6 @@ index_html = f"""<!DOCTYPE html>
 with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V43 Classic Pro: Clean top navbar with smart cycle buttons"], check=True)
+subprocess.run(["git", "commit", "-m", "V44 Power User: Brought back explicit Navbar controls for direct access"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 CLASSIC PRO LIVE! Top Navbar is back and better than ever.")
+print("🌟 POWER-USER EDITION LIVE! Saare controls 1-click door hain.")

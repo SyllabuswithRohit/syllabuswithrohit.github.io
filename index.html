@@ -21,10 +21,10 @@
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* Spacious Top Nav Buttons (No Fat Finger) */
-    .nav-btn { font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
+    /* V44: The Explicit "Cluttered" Nav Buttons (Best for Power Users) */
+    .nav-btn { font-size: 13px; font-weight: bold; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
     .nav-btn:hover { background: var(--text); color: var(--bg); }
-    @media (min-width: 640px) { .nav-btn { font-size: 12px; padding: 6px 12px; } }
+    @media (min-width: 640px) { .nav-btn { font-size: 11px; padding: 6px 10px; } }
     
     #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; pointer-events: none;}
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
@@ -57,11 +57,14 @@
 </style>
 </head>
 <body hx-boost="true">
-    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
+    <nav class="flex items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
         <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
         <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
-        <button onclick="cycleTheme()" class="nav-btn shrink-0" title="Change Theme">🌓</button>
+        <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
+        <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
+        <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
+        <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
         <button onclick="showModal()" class="nav-btn ml-2 shrink-0">SUPPORT</button>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
@@ -69,8 +72,8 @@
             <div class="ambient-aura mx-auto mb-6"><img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover relative z-10 shadow-xl" style="border: 3px solid var(--accent);"></div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10"><h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1></div>
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup Data</button>
-                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">📥 Restore Data<input type="file" accept=".json" onchange="importData(event)" class="hidden"></label>
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup</button>
+                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">📥 Restore<input type="file" accept=".json" onchange="importData(event)" class="hidden"></label>
             </div>
         </div>
 
@@ -188,8 +191,6 @@
         (function() {
             window.setTheme = function(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#000000', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
             setTheme(localStorage.getItem('theme') || 'light');
-            window.cycleTheme = function() { const themes = ['light', 'sepia', 'dark', 'red-mode']; let curr = themes.indexOf(localStorage.getItem('theme')); window.setTheme(themes[(curr + 1) % themes.length]); };
-
             window.showModal = function() { document.getElementById('supportModal').style.display = 'flex'; }
             window.closeModal = function() { document.getElementById('supportModal').style.display = 'none'; }
             window.toggleFullscreen = function() { if (!document.fullscreenElement) { document.documentElement.requestFullscreen().catch(err => {}); } else { if (document.exitFullscreen) { document.exitFullscreen(); } } }
