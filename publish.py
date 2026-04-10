@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("👑 SyllabuswithRohit - V30 ELITE ECOSYSTEM")
+print("🎓 SyllabuswithRohit - V31 SCHOLAR EDITION")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -16,7 +16,6 @@ draft_file = "draft.txt"
 if not os.path.exists(draft_file): open(draft_file, 'w').close()
 with open(draft_file, 'r', encoding='utf-8') as f: content = f.read().strip()
 
-# --- CSS & JS TEMPLATES ---
 shared_styles = """
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; }
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
@@ -33,12 +32,16 @@ shared_styles = """
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
 
+    /* Bionic Reading Bold Style */
+    .bionic-word b { font-weight: 800; opacity: 1; }
+    .bionic-word { opacity: 0.85; }
+
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
     .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
 """
 
-def generate_book_html(book_title, book_author, book_category, book_time, paragraphs_html, filename):
+def generate_book_html(book_title, book_author, book_category, book_time, paragraphs_html, filename, word_count):
     return f"""<!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -56,7 +59,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
         <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4">← Library</a>
         <div class="flex items-center gap-2 shrink-0">
-            <button onclick="toggleAudio()" class="nav-btn" title="Listen to Book">🎧 <span class="hidden sm:inline">Listen</span></button>
+            <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading Mode">⚡ <span class="hidden sm:inline">Speed</span></button>
             <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn" title="Save to My Books">🔖 <span class="hidden sm:inline">Save</span></button>
             <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
             <button onclick="changeFont(-2)" class="nav-btn" title="Decrease Font">A-</button>
@@ -75,7 +78,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{book_title}</h1>
             <p class="opacity-60 italic">By {book_author}</p>
         </header>
-        <article id="content">{paragraphs_html}</article>
+        <article id="content" data-words="{word_count}">{paragraphs_html}</article>
     </main>
 
     <div id="supportModal">
@@ -90,6 +93,11 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     </div>
 
     <script>
+        // Track Words Read
+        let wordsRead = parseInt(localStorage.getItem('wordsRead') || 0);
+        let articleWords = parseInt(document.getElementById('content').getAttribute('data-words'));
+        let hasCounted = false;
+
         function setTheme(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
         setTheme(localStorage.getItem('theme') || 'light');
         
@@ -98,7 +106,26 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
         function changeFont(step) {{ currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }}
 
         const bookId = "pos_{filename}";
-        window.onload = () => {{ let savedPos = localStorage.getItem(bookId); if(savedPos) window.scrollTo({{top: savedPos, behavior: 'smooth'}}); }};
+        window.onload = () => {{ 
+            let savedPos = localStorage.getItem(bookId); 
+            if(savedPos) window.scrollTo({{top: savedPos, behavior: 'smooth'}}); 
+            updateStreak();
+        }};
+
+        // Streak Engine
+        function updateStreak() {{
+            const today = new Date().toDateString();
+            let lastRead = localStorage.getItem('lastReadDate');
+            let streak = parseInt(localStorage.getItem('readingStreak') || 0);
+            
+            if (lastRead !== today) {{
+                let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+                if (lastRead === yesterday.toDateString()) {{ streak++; }} 
+                else if (lastRead !== today) {{ streak = 1; }} // Reset
+                localStorage.setItem('readingStreak', streak);
+                localStorage.setItem('lastReadDate', today);
+            }}
+        }}
 
         let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
         window.onscroll = () => {{
@@ -106,6 +133,12 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
             document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
             
+            // Count words when 80% read
+            if (scrolled > 80 && !hasCounted) {{
+                localStorage.setItem('wordsRead', wordsRead + articleWords);
+                hasCounted = true;
+            }}
+
             if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} else {{ navbar.classList.remove('hidden-nav'); }}
             lastScrollTop = winScroll <= 0 ? 0 : winScroll;
             localStorage.setItem(bookId, winScroll);
@@ -116,25 +149,32 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
         function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
         setTimeout(() => {{ if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }}, 900000);
 
-        // Bookmark Engine
         function saveBookmark(id, title) {{
             let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
-            if(!marks.find(b => b.id === id)) {{
-                marks.push({{id: id, title: title, link: "books/" + id + ".html"}});
-                localStorage.setItem('myBookmarks', JSON.stringify(marks));
-                alert("Book saved to your Library!");
-            }} else {{ alert("Already saved in your Library."); }}
+            if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }}
         }}
 
-        // Audio Engine
-        let synth = window.speechSynthesis; let isSpeaking = false;
-        function toggleAudio() {{
-            if(isSpeaking) {{ synth.cancel(); isSpeaking = false; }}
-            else {{
-                let text = document.getElementById('content').innerText;
-                let utterance = new SpeechSynthesisUtterance(text);
-                synth.speak(utterance); isSpeaking = true;
-                utterance.onend = () => {{ isSpeaking = false; }}
+        // Bionic Reading Engine (The Gamechanger)
+        let isBionic = false;
+        const contentDiv = document.getElementById('content');
+        const originalHTML = contentDiv.innerHTML;
+
+        function toggleBionic() {{
+            if (isBionic) {{
+                contentDiv.innerHTML = originalHTML;
+                isBionic = false;
+            }} else {{
+                let pTags = contentDiv.getElementsByTagName('p');
+                for (let p of pTags) {{
+                    let words = p.innerText.split(' ');
+                    let bionicWords = words.map(word => {{
+                        if (word.length <= 1) return word;
+                        let mid = Math.ceil(word.length / 2);
+                        return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`;
+                    }});
+                    p.innerHTML = bionicWords.join(' ');
+                }}
+                isBionic = true;
             }}
         }}
     </script>
@@ -147,7 +187,7 @@ library = []
 if os.path.exists(library_file):
     with open(library_file, 'r', encoding='utf-8') as f: library = json.load(f)
 
-print("🔄 Pichli saari kitabon ko V30 par update kar rahe hain...")
+print("🔄 Pichli kitabon se Listen hatakar Speed aur Stats laga rahe hain...")
 for b in library:
     old_filepath = b['link']
     if os.path.exists(old_filepath):
@@ -155,8 +195,9 @@ for b in library:
         article_match = re.search(r'<article[^>]*>(.*?)</article>', old_html, re.DOTALL)
         if article_match:
             old_paras = article_match.group(1)
+            b_word_count = len(re.sub(r'<[^>]+>', '', old_paras).split())
             b_filename = old_filepath.split('/')[-1].replace('.html', '')
-            new_html = generate_book_html(b['title'], b['author'], b['category'], b.get('time', 5), old_paras, b_filename)
+            new_html = generate_book_html(b['title'], b['author'], b['category'], b.get('time', 5), old_paras, b_filename, b_word_count)
             with open(old_filepath, 'w', encoding='utf-8') as new_f: new_f.write(new_html)
 
 # --- PROCESS NEW BOOK (If draft exists) ---
@@ -170,10 +211,10 @@ if content:
     filepath = f"books/{filename}.html"
     paras = "".join([f"<p>{p.strip()}</p>" for p in content.split('\n\n') if p.strip()])
     
-    new_html = generate_book_html(title, author, category, reading_time, paras, filename)
+    new_html = generate_book_html(title, author, category, reading_time, paras, filename, word_count)
     with open(filepath, 'w', encoding='utf-8') as f: f.write(new_html)
     
-    new_book = {"title": title, "author": author, "category": category, "link": filepath, "time": reading_time}
+    new_book = {"title": title, "author": author, "category": category, "link": filepath, "time": reading_time, "words": word_count}
     if not any(b['title'] == title for b in library): library.append(new_book)
     else:
         for idx, b in enumerate(library):
@@ -181,7 +222,7 @@ if content:
 
 with open(library_file, "w", encoding='utf-8') as f: json.dump(library, f, indent=4)
 
-# --- GENERATE HOMEPAGE ---
+# --- GENERATE HOMEPAGE (With Gamification Dashboard) ---
 cards = ""
 for book in reversed(library):
     cards += f"""
@@ -217,9 +258,21 @@ index_html = f"""<!DOCTYPE html>
         </div>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-16">
+        <div class="text-center mb-10">
             <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
-            <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+            <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight mb-6">SyllabuswithRohit</h1>
+            
+            <div class="flex justify-center gap-6 font-sans">
+                <div class="text-center">
+                    <div id="streak-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div>
+                    <div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Day Streak 🔥</div>
+                </div>
+                <div class="w-px bg-black opacity-10"></div>
+                <div class="text-center">
+                    <div id="words-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div>
+                    <div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Words Read 📚</div>
+                </div>
+            </div>
         </div>
         
         <div id="bookmarks-section" class="mb-16 hidden">
@@ -247,38 +300,26 @@ index_html = f"""<!DOCTYPE html>
         function showModal() {{ document.getElementById('supportModal').style.display = 'flex'; }}
         function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
         
-        // Load Bookmarks dynamically
+        // Load Stats
+        document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
+        document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{{3}})+(?!\d))/g, ",");
+        
         let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
         if(marks.length > 0) {{
             document.getElementById('bookmarks-section').classList.remove('hidden');
             let container = document.getElementById('bookmarks-container');
-            marks.forEach(m => {{
-                container.innerHTML += `<a href="${{m.link}}" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`;
-            }});
+            marks.forEach(m => {{ container.innerHTML += `<a href="${{m.link}}" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; }});
         }}
-        
-        // Register Service Worker for Offline App
         if('serviceWorker' in navigator) {{ navigator.serviceWorker.register('sw.js'); }}
     </script>
 </body>
 </html>"""
 with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
-# --- 4. GENERATE TRUE OFFLINE APP FILES ---
-manifest_json = """{ "name": "SyllabuswithRohit", "short_name": "Syllabus", "display": "standalone", "background_color": "#fdfbf7", "theme_color": "#fdfbf7", "icons": [{"src": "myprofile.jpg", "sizes": "512x512", "type": "image/jpeg"}], "start_url": "/index.html" }"""
-with open("manifest.json", 'w', encoding='utf-8') as f: f.write(manifest_json)
-
-sw_js = """
-const CACHE_NAME = 'syllabus-v1';
-self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(['/', '/index.html', '/manifest.json', '/myprofile.jpg']))); });
-self.addEventListener('fetch', e => { e.respondWith(caches.match(e.request).then(res => res || fetch(e.request))); });
-"""
-with open("sw.js", 'w', encoding='utf-8') as f: f.write(sw_js)
-
 # --- 5. PUSH ---
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
-print("⏳ GitHub par Push ho raha hai... ALL OLD BOOKS UPDATED!")
+print("⏳ GitHub par Push ho raha hai... (Bulk Update Done)")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V30: Elite Update - Bookmarks, TTS, PWA, Bulk Update"], check=True)
+subprocess.run(["git", "commit", "-m", "V31 Scholar: Bionic Reading & Gamification Stats Added"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 WELCOME TO THE ELITE LEAGUE! Platform 100% upgrade ho gaya.")
+print("🌟 SCHOLAR EDITION LIVE! Reading ab ek aadat banegi.")

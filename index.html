@@ -23,6 +23,10 @@
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
 
+    /* Bionic Reading Bold Style */
+    .bionic-word b { font-weight: 800; opacity: 1; }
+    .bionic-word { opacity: 0.85; }
+
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
     .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
@@ -40,9 +44,21 @@
         </div>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-16">
+        <div class="text-center mb-10">
             <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
-            <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+            <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight mb-6">SyllabuswithRohit</h1>
+            
+            <div class="flex justify-center gap-6 font-sans">
+                <div class="text-center">
+                    <div id="streak-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div>
+                    <div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Day Streak 🔥</div>
+                </div>
+                <div class="w-px bg-black opacity-10"></div>
+                <div class="text-center">
+                    <div id="words-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div>
+                    <div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Words Read 📚</div>
+                </div>
+            </div>
         </div>
         
         <div id="bookmarks-section" class="mb-16 hidden">
@@ -158,17 +174,16 @@
         function showModal() { document.getElementById('supportModal').style.display = 'flex'; }
         function closeModal() { document.getElementById('supportModal').style.display = 'none'; }
         
-        // Load Bookmarks dynamically
+        // Load Stats
+        document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
+        document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        
         let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
         if(marks.length > 0) {
             document.getElementById('bookmarks-section').classList.remove('hidden');
             let container = document.getElementById('bookmarks-container');
-            marks.forEach(m => {
-                container.innerHTML += `<a href="${m.link}" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`;
-            });
+            marks.forEach(m => { container.innerHTML += `<a href="${m.link}" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; });
         }
-        
-        // Register Service Worker for Offline App
         if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     </script>
 </body>

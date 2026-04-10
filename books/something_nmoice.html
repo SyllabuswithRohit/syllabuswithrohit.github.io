@@ -22,6 +22,10 @@
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
 
+    /* Bionic Reading Bold Style */
+    .bionic-word b { font-weight: 800; opacity: 1; }
+    .bionic-word { opacity: 0.85; }
+
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
     .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
@@ -34,7 +38,7 @@
     <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
         <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4">← Library</a>
         <div class="flex items-center gap-2 shrink-0">
-            <button onclick="toggleAudio()" class="nav-btn" title="Listen to Book">🎧 <span class="hidden sm:inline">Listen</span></button>
+            <button onclick="toggleBionic()" class="nav-btn" title="Speed Reading Mode">⚡ <span class="hidden sm:inline">Speed</span></button>
             <button onclick="saveBookmark('something_nmoice', 'something nmoice')" class="nav-btn" title="Save to My Books">🔖 <span class="hidden sm:inline">Save</span></button>
             <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
             <button onclick="changeFont(-2)" class="nav-btn" title="Decrease Font">A-</button>
@@ -53,7 +57,7 @@
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">something nmoice</h1>
             <p class="opacity-60 italic">By mozaic</p>
         </header>
-        <article id="content"><p>He received his early schooling at a preparatory school, and later
+        <article id="content" data-words="1276"><p>He received his early schooling at a preparatory school, and later
 at a grammar school in Naumburg. In the autumn of 1858, when he was
 fourteen years of age, he entered the Pforta school, so famous for the
 scholars it has produced. There, too, very severe discipline prevailed,
@@ -174,6 +178,11 @@ Schopenhauer's philosophy.</p></article>
     </div>
 
     <script>
+        // Track Words Read
+        let wordsRead = parseInt(localStorage.getItem('wordsRead') || 0);
+        let articleWords = parseInt(document.getElementById('content').getAttribute('data-words'));
+        let hasCounted = false;
+
         function setTheme(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
         setTheme(localStorage.getItem('theme') || 'light');
         
@@ -182,7 +191,26 @@ Schopenhauer's philosophy.</p></article>
         function changeFont(step) { currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }
 
         const bookId = "pos_something_nmoice";
-        window.onload = () => { let savedPos = localStorage.getItem(bookId); if(savedPos) window.scrollTo({top: savedPos, behavior: 'smooth'}); };
+        window.onload = () => { 
+            let savedPos = localStorage.getItem(bookId); 
+            if(savedPos) window.scrollTo({top: savedPos, behavior: 'smooth'}); 
+            updateStreak();
+        };
+
+        // Streak Engine
+        function updateStreak() {
+            const today = new Date().toDateString();
+            let lastRead = localStorage.getItem('lastReadDate');
+            let streak = parseInt(localStorage.getItem('readingStreak') || 0);
+            
+            if (lastRead !== today) {
+                let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+                if (lastRead === yesterday.toDateString()) { streak++; } 
+                else if (lastRead !== today) { streak = 1; } // Reset
+                localStorage.setItem('readingStreak', streak);
+                localStorage.setItem('lastReadDate', today);
+            }
+        }
 
         let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
         window.onscroll = () => {
@@ -190,6 +218,12 @@ Schopenhauer's philosophy.</p></article>
             let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
             document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
             
+            // Count words when 80% read
+            if (scrolled > 80 && !hasCounted) {
+                localStorage.setItem('wordsRead', wordsRead + articleWords);
+                hasCounted = true;
+            }
+
             if (winScroll > lastScrollTop && winScroll > 100) { navbar.classList.add('hidden-nav'); } else { navbar.classList.remove('hidden-nav'); }
             lastScrollTop = winScroll <= 0 ? 0 : winScroll;
             localStorage.setItem(bookId, winScroll);
@@ -200,25 +234,32 @@ Schopenhauer's philosophy.</p></article>
         function closeModal() { document.getElementById('supportModal').style.display = 'none'; }
         setTimeout(() => { if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }, 900000);
 
-        // Bookmark Engine
         function saveBookmark(id, title) {
             let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
-            if(!marks.find(b => b.id === id)) {
-                marks.push({id: id, title: title, link: "books/" + id + ".html"});
-                localStorage.setItem('myBookmarks', JSON.stringify(marks));
-                alert("Book saved to your Library!");
-            } else { alert("Already saved in your Library."); }
+            if(!marks.find(b => b.id === id)) { marks.push({id: id, title: title, link: "books/" + id + ".html"}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); } else { alert("Already saved in your Library."); }
         }
 
-        // Audio Engine
-        let synth = window.speechSynthesis; let isSpeaking = false;
-        function toggleAudio() {
-            if(isSpeaking) { synth.cancel(); isSpeaking = false; }
-            else {
-                let text = document.getElementById('content').innerText;
-                let utterance = new SpeechSynthesisUtterance(text);
-                synth.speak(utterance); isSpeaking = true;
-                utterance.onend = () => { isSpeaking = false; }
+        // Bionic Reading Engine (The Gamechanger)
+        let isBionic = false;
+        const contentDiv = document.getElementById('content');
+        const originalHTML = contentDiv.innerHTML;
+
+        function toggleBionic() {
+            if (isBionic) {
+                contentDiv.innerHTML = originalHTML;
+                isBionic = false;
+            } else {
+                let pTags = contentDiv.getElementsByTagName('p');
+                for (let p of pTags) {
+                    let words = p.innerText.split(' ');
+                    let bionicWords = words.map(word => {
+                        if (word.length <= 1) return word;
+                        let mid = Math.ceil(word.length / 2);
+                        return `<span class="bionic-word"><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
+                    });
+                    p.innerHTML = bionicWords.join(' ');
+                }
+                isBionic = true;
             }
         }
     </script>
