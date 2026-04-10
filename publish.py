@@ -2,69 +2,48 @@
 import json
 import subprocess
 import math
+import re
 
 print("=========================================")
-print("🚀 SyllabuswithRohit - V29 THE GAMECHANGER")
+print("👑 SyllabuswithRohit - V30 ELITE ECOSYSTEM")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
 COFFEE_LINK = "https://buymeacoffee.com/SyllabuswithRohit"
 YT_LINK = "https://www.youtube.com/@SyllabuswithRohit"
-QR_IMAGE_BOOK = "../qr.png" 
-QR_IMAGE_HOME = "qr.png"
 
 draft_file = "draft.txt"
+if not os.path.exists(draft_file): open(draft_file, 'w').close()
 with open(draft_file, 'r', encoding='utf-8') as f: content = f.read().strip()
-if not content:
-    print("❌ Error: 'draft.txt' khali hai. Kuch text daaliye.")
-    exit()
 
-word_count = len(content.split())
-reading_time = math.ceil(word_count / 200)
-
-title = input("📚 Kitab ka Title: ")
-author = input("✍️ Original Writer: ")
-category = input("🏷️ Category: ")
-
-filename = title.lower().replace(" ", "_") + ".html"
-filepath = f"books/{filename}"
-
-# --- CSS WITH FOCUS MODE ---
+# --- CSS & JS TEMPLATES ---
 shared_styles = """
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; }
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
-    
     body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; transition: background-color 0.4s, color 0.4s; overflow-x: hidden; }
     
-    /* Zen Navbar (Hides on down-scroll) */
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
-    
-    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s;}
+    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px;}
     .nav-btn:hover { background: var(--text); color: var(--bg); }
-    .profile-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; transition: 0.3s; border: 2px solid var(--accent); }
     
     #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; }
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
-    @media (max-width: 640px) { article p { line-height: 1.75; } }
+    @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
 
-    /* Modal Styles */
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
-    .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; padding:0; }
+    .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
 """
 
-paras = "".join([f"<p>{p.strip()}</p>" for p in content.split('\n\n') if p.strip()])
-
-# --- 1. BOOK PAGE ---
-book_html = f"""<!DOCTYPE html>
+def generate_book_html(book_title, book_author, book_category, book_time, paragraphs_html, filename):
+    return f"""<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | SyllabuswithRohit</title>
-    <link rel="manifest" href="../manifest.json">
+    <title>{book_title} | SyllabuswithRohit</title>
     <meta name="theme-color" content="#fdfbf7">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,11 +53,12 @@ book_html = f"""<!DOCTYPE html>
     <div id="pb" style="position:fixed; top:0; left:0; height:3px; background:var(--accent); width:0%; z-index:100;"></div>
     <div id="scrollPercent">0%</div>
 
-    <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50">
-        <div class="flex items-center gap-4">
-            <a href="../index.html" class="font-sans text-[10px] font-bold tracking-[2px] uppercase">← Library</a>
-        </div>
-        <div class="flex items-center gap-2 md:gap-3">
+    <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto whitespace-nowrap hide-scrollbar">
+        <a href="../index.html" class="font-sans text-[11px] font-bold tracking-[2px] uppercase shrink-0 mr-4">← Library</a>
+        <div class="flex items-center gap-2 shrink-0">
+            <button onclick="toggleAudio()" class="nav-btn" title="Listen to Book">🎧 <span class="hidden sm:inline">Listen</span></button>
+            <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn" title="Save to My Books">🔖 <span class="hidden sm:inline">Save</span></button>
+            <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
             <button onclick="changeFont(-2)" class="nav-btn" title="Decrease Font">A-</button>
             <button onclick="changeFont(2)" class="nav-btn" title="Increase Font">A+</button>
             <div class="w-px h-4 bg-gray-400 opacity-50 mx-1"></div>
@@ -89,22 +69,20 @@ book_html = f"""<!DOCTYPE html>
         </div>
     </nav>
 
-    <main class="max-w-[680px] mx-auto px-6 pt-24 pb-16">
+    <main class="max-w-[680px] mx-auto px-6 pt-28 pb-16">
         <header class="text-center mb-16">
-            <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{category} • {reading_time} MIN</div>
-            <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{title}</h1>
-            <p class="opacity-60 italic">By {author}</p>
+            <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{book_category} • {book_time} MIN READ</div>
+            <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{book_title}</h1>
+            <p class="opacity-60 italic">By {book_author}</p>
         </header>
-        <article>{paras}</article>
+        <article id="content">{paragraphs_html}</article>
     </main>
 
     <div id="supportModal">
         <div class="modal-content">
             <button onclick="closeModal()" class="close-btn">&times;</button>
             <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
-            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);">
-                <img src="{QR_IMAGE_BOOK}" class="w-40 h-40 object-contain">
-            </div>
+            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="../qr.png" class="w-40 h-40 object-contain"></div>
             <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
             <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a>
             <a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
@@ -112,82 +90,98 @@ book_html = f"""<!DOCTYPE html>
     </div>
 
     <script>
-        // Theme Engine
-        function setTheme(t) {{ 
-            document.body.className = t; 
-            localStorage.setItem('theme', t);
-            // Update meta theme color for mobile app feel
-            let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }};
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]);
-        }}
+        function setTheme(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
         setTheme(localStorage.getItem('theme') || 'light');
-
-        // Typography Engine
+        
         let currentFont = parseInt(localStorage.getItem('fontSize')) || 21;
         document.documentElement.style.setProperty('--font-size', currentFont + 'px');
-        function changeFont(step) {{
-            currentFont += step;
-            if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32;
-            document.documentElement.style.setProperty('--font-size', currentFont + 'px');
-            localStorage.setItem('fontSize', currentFont);
-        }}
+        function changeFont(step) {{ currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }}
 
-        // Auto-Resume
         const bookId = "pos_{filename}";
-        window.onload = () => {{
-            let savedPos = localStorage.getItem(bookId);
-            if(savedPos) window.scrollTo({{top: savedPos, behavior: 'smooth'}});
-        }};
+        window.onload = () => {{ let savedPos = localStorage.getItem(bookId); if(savedPos) window.scrollTo({{top: savedPos, behavior: 'smooth'}}); }};
 
-        // Focus Mode & Tracking
-        let timer;
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('navbar');
-        const scrollLabel = document.getElementById('scrollPercent');
-        
+        let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
         window.onscroll = () => {{
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
+            const winScroll = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
+            document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
             
-            document.getElementById("pb").style.width = scrolled + "%";
-            scrollLabel.innerText = Math.round(scrolled) + "%";
-            scrollLabel.style.opacity = "1";
-            
-            // Focus Mode Logic (Hide nav when scrolling down)
-            if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} 
-            else {{ navbar.classList.remove('hidden-nav'); }}
+            if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} else {{ navbar.classList.remove('hidden-nav'); }}
             lastScrollTop = winScroll <= 0 ? 0 : winScroll;
-            
             localStorage.setItem(bookId, winScroll);
-            clearTimeout(timer);
-            timer = setTimeout(() => {{ scrollLabel.style.opacity = "0"; }}, 2000);
+            clearTimeout(timer); timer = setTimeout(() => {{ scrollLabel.style.opacity = "0"; }}, 2000);
         }};
 
         function showModal() {{ document.getElementById('supportModal').style.display = 'flex'; }}
         function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
         setTimeout(() => {{ if(document.getElementById('supportModal').style.display !== 'flex') showModal(); }}, 900000);
+
+        // Bookmark Engine
+        function saveBookmark(id, title) {{
+            let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
+            if(!marks.find(b => b.id === id)) {{
+                marks.push({{id: id, title: title, link: "books/" + id + ".html"}});
+                localStorage.setItem('myBookmarks', JSON.stringify(marks));
+                alert("Book saved to your Library!");
+            }} else {{ alert("Already saved in your Library."); }}
+        }}
+
+        // Audio Engine
+        let synth = window.speechSynthesis; let isSpeaking = false;
+        function toggleAudio() {{
+            if(isSpeaking) {{ synth.cancel(); isSpeaking = false; }}
+            else {{
+                let text = document.getElementById('content').innerText;
+                let utterance = new SpeechSynthesisUtterance(text);
+                synth.speak(utterance); isSpeaking = true;
+                utterance.onend = () => {{ isSpeaking = false; }}
+            }}
+        }}
     </script>
 </body>
 </html>"""
 
-with open(filepath, 'w', encoding='utf-8') as f: f.write(book_html)
-
-# --- 2. UPDATE LIBRARY ---
+# --- LIBRARY PROCESSING & BULK UPDATE ---
 library_file = "library.json"
 library = []
 if os.path.exists(library_file):
     with open(library_file, 'r', encoding='utf-8') as f: library = json.load(f)
 
-new_book = {"title": title, "author": author, "category": category, "link": f"books/{filename}", "time": reading_time}
-if not any(b['title'] == title for b in library): library.append(new_book)
-else:
-    for idx, b in enumerate(library):
-        if b['title'] == title: library[idx] = new_book
-            
+print("🔄 Pichli saari kitabon ko V30 par update kar rahe hain...")
+for b in library:
+    old_filepath = b['link']
+    if os.path.exists(old_filepath):
+        with open(old_filepath, 'r', encoding='utf-8') as old_f: old_html = old_f.read()
+        article_match = re.search(r'<article[^>]*>(.*?)</article>', old_html, re.DOTALL)
+        if article_match:
+            old_paras = article_match.group(1)
+            b_filename = old_filepath.split('/')[-1].replace('.html', '')
+            new_html = generate_book_html(b['title'], b['author'], b['category'], b.get('time', 5), old_paras, b_filename)
+            with open(old_filepath, 'w', encoding='utf-8') as new_f: new_f.write(new_html)
+
+# --- PROCESS NEW BOOK (If draft exists) ---
+if content:
+    word_count = len(content.split())
+    reading_time = math.ceil(word_count / 200)
+    title = input("📚 Nayi Kitab ka Title: ")
+    author = input("✍️ Original Writer: ")
+    category = input("🏷️ Category: ")
+    filename = title.lower().replace(" ", "_")
+    filepath = f"books/{filename}.html"
+    paras = "".join([f"<p>{p.strip()}</p>" for p in content.split('\n\n') if p.strip()])
+    
+    new_html = generate_book_html(title, author, category, reading_time, paras, filename)
+    with open(filepath, 'w', encoding='utf-8') as f: f.write(new_html)
+    
+    new_book = {"title": title, "author": author, "category": category, "link": filepath, "time": reading_time}
+    if not any(b['title'] == title for b in library): library.append(new_book)
+    else:
+        for idx, b in enumerate(library):
+            if b['title'] == title: library[idx] = new_book
+
 with open(library_file, "w", encoding='utf-8') as f: json.dump(library, f, indent=4)
 
+# --- GENERATE HOMEPAGE ---
 cards = ""
 for book in reversed(library):
     cards += f"""
@@ -212,24 +206,27 @@ index_html = f"""<!DOCTYPE html>
     <style>{shared_styles}</style>
 </head>
 <body>
-    <nav id="navbar" class="zen-nav flex justify-between items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50">
-        <div class="text-xs font-bold tracking-[3px] uppercase">SyllabuswithRohit</div>
+    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50">
+        <div class="text-[11px] font-bold tracking-[2px] font-sans">SyllabuswithRohit</div>
         <div class="flex items-center gap-2 md:gap-4">
             <button onclick="setTheme('light')" class="nav-btn">L</button>
             <button onclick="setTheme('sepia')" class="nav-btn">S</button>
             <button onclick="setTheme('dark')" class="nav-btn">D</button>
             <button onclick="setTheme('red-mode')" class="nav-btn" style="color:#ff0000; border-color:#ff0000;">R</button>
             <button onclick="showModal()" class="nav-btn ml-2">SUPPORT</button>
-            <a href="{YT_LINK}" target="_blank" title="YouTube Community" class="ml-2 hidden md:block">
-                <img src="myprofile.jpg" class="profile-img">
-            </a>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 pt-24 pb-16">
+    <main class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-16">
             <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
             <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
         </div>
+        
+        <div id="bookmarks-section" class="mb-16 hidden">
+            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">🔖 Your Bookmarks</h2>
+            <div id="bookmarks-container" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar"></div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">{cards}</div>
     </main>
 
@@ -237,9 +234,7 @@ index_html = f"""<!DOCTYPE html>
         <div class="modal-content">
             <button onclick="closeModal()" class="close-btn">&times;</button>
             <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
-            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);">
-                <img src="{QR_IMAGE_HOME}" class="w-40 h-40 object-contain">
-            </div>
+            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="qr.png" class="w-40 h-40 object-contain"></div>
             <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
             <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="theme-btn-primary">Pay via UPI App</a>
             <a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
@@ -247,58 +242,43 @@ index_html = f"""<!DOCTYPE html>
     </div>
 
     <script>
-        function setTheme(t) {{ 
-            document.body.className = t; 
-            localStorage.setItem('theme', t);
-            let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }};
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]);
-        }}
+        function setTheme(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
         setTheme(localStorage.getItem('theme') || 'light');
         function showModal() {{ document.getElementById('supportModal').style.display = 'flex'; }}
         function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
         
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('navbar');
-        window.onscroll = () => {{
-            const winScroll = document.documentElement.scrollTop;
-            if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} 
-            else {{ navbar.classList.remove('hidden-nav'); }}
-            lastScrollTop = winScroll <= 0 ? 0 : winScroll;
-        }};
+        // Load Bookmarks dynamically
+        let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
+        if(marks.length > 0) {{
+            document.getElementById('bookmarks-section').classList.remove('hidden');
+            let container = document.getElementById('bookmarks-container');
+            marks.forEach(m => {{
+                container.innerHTML += `<a href="${{m.link}}" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`;
+            }});
+        }}
+        
+        // Register Service Worker for Offline App
+        if('serviceWorker' in navigator) {{ navigator.serviceWorker.register('sw.js'); }}
     </script>
 </body>
 </html>"""
-
 with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
-# --- 3. CREATE APP MANIFEST (PWA) ---
-manifest_json = """{
-  "name": "SyllabuswithRohit",
-  "short_name": "Syllabus",
-  "description": "Premium Digital Library by Rohit",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#fdfbf7",
-  "theme_color": "#fdfbf7",
-  "icons": [
-    {
-      "src": "myprofile.jpg",
-      "sizes": "192x192",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "myprofile.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg"
-    }
-  ]
-}"""
+# --- 4. GENERATE TRUE OFFLINE APP FILES ---
+manifest_json = """{ "name": "SyllabuswithRohit", "short_name": "Syllabus", "display": "standalone", "background_color": "#fdfbf7", "theme_color": "#fdfbf7", "icons": [{"src": "myprofile.jpg", "sizes": "512x512", "type": "image/jpeg"}], "start_url": "/index.html" }"""
 with open("manifest.json", 'w', encoding='utf-8') as f: f.write(manifest_json)
 
-# --- 4. PUSH ---
+sw_js = """
+const CACHE_NAME = 'syllabus-v1';
+self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(['/', '/index.html', '/manifest.json', '/myprofile.jpg']))); });
+self.addEventListener('fetch', e => { e.respondWith(caches.match(e.request).then(res => res || fetch(e.request))); });
+"""
+with open("sw.js", 'w', encoding='utf-8') as f: f.write(sw_js)
+
+# --- 5. PUSH ---
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
-print("⏳ GitHub par Push ho raha hai... GAMECHANGER Update!")
+print("⏳ GitHub par Push ho raha hai... ALL OLD BOOKS UPDATED!")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V29: Focus Mode, PWA Manifest, Sync Theme-Color"], check=True)
+subprocess.run(["git", "commit", "-m", "V30: Elite Update - Bookmarks, TTS, PWA, Bulk Update"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 GAMECHANGER LIVE! Website ab App banne ke liye ready hai.")
+print("🌟 WELCOME TO THE ELITE LEAGUE! Platform 100% upgrade ho gaya.")
