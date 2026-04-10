@@ -13,36 +13,37 @@
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
     body.dark { --bg: #000000; --text: #e0e0e0; --accent: #555555; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
+    
     body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
-    
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* V42: The Floating Dock Style */
-    .dynamic-dock { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 40px; padding: 6px 12px; display: flex; align-items: center; gap: 8px; z-index: 999; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s; }
-    .dynamic-dock.hidden-dock { transform: translate(-50%, 150%); opacity: 0; pointer-events: none; }
-    .dock-btn { background: transparent; color: #fff; border: none; border-radius: 50px; padding: 8px 12px; font-size: 13px; font-weight: bold; cursor: pointer; transition: 0.2s; font-family: sans-serif; display: flex; align-items: center; justify-content: center; opacity: 0.8; }
-    .dock-btn:hover { opacity: 1; background: rgba(255,255,255,0.15); }
-    .dock-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.2); }
+    /* Spacious Top Nav Buttons (No Fat Finger) */
+    .nav-btn { font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
+    .nav-btn:hover { background: var(--text); color: var(--bg); }
+    @media (min-width: 640px) { .nav-btn { font-size: 12px; padding: 6px 12px; } }
     
-    /* Clean Top Nav Buttons */
-    .top-btn { font-size: 10px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; padding: 6px 12px; border-radius: 20px; background: transparent; border: 1px solid var(--accent); color: var(--text); cursor: pointer; transition: 0.2s; opacity: 0.6; }
-    .top-btn:hover { opacity: 1; background: var(--text); color: var(--bg); }
-
-    #scrollPercent { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); width: 0%; z-index: 100; transition: width 0.1s; }
-    #timeRemaining { position: fixed; top: 15px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: bold; font-family: sans-serif; letter-spacing: 2px; opacity: 0; transition: opacity 0.3s; z-index: 99; color: var(--text); background: var(--bg); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(128,128,128,0.2); pointer-events: none;}
-    
+    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; pointer-events: none;}
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
+    
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
+    
+    .ambient-aura { position: relative; z-index: 1; display: inline-block; }
+    .ambient-aura::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; background: conic-gradient(from 0deg, transparent, var(--text), transparent); animation: spinAura 5s linear infinite; z-index: -1; opacity: 0.15; filter: blur(12px); }
+    @keyframes spinAura { 100% { transform: rotate(360deg); } }
+    .shimmer-text { background: linear-gradient(90deg, var(--text) 0%, rgba(128,128,128,0.4) 50%, var(--text) 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shimmer 4s linear infinite; }
+    @keyframes shimmer { 100% { background-position: 200% center; } }
+    .organic-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; }
+    .organic-hover:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15) !important; }
 
-    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:12px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:6px; align-items:center;}
-    .toolbar-btn { background:none; border:none; color:#fff; font-size:13px; font-weight:bold; cursor:pointer; padding:6px 12px; border-radius:6px; }
-    .toolbar-btn:hover { background:rgba(255,255,255,0.1); }
+    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
+    .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
+    .toolbar-btn:hover { background:#333; }
     .toolbar-arrow { position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #111; }
     
     #dictModal { display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:var(--bg); color:var(--text); border:2px solid var(--accent); padding:20px; border-radius:12px; z-index:10000; max-width:90%; width:400px; box-shadow:0 15px 30px rgba(0,0,0,0.2); font-family:sans-serif;}
@@ -56,17 +57,20 @@
 </style>
 </head>
 <body hx-boost="true">
-    <nav class="flex justify-between items-center px-4 py-4 sticky top-0 bg-transparent z-50 pointer-events-none">
-        <div class="top-btn font-sans uppercase opacity-80 pointer-events-auto" style="background:var(--bg); border:none;">LIBRARY</div>
-        <button onclick="showModal()" class="top-btn pointer-events-auto" style="background:var(--bg);">SUPPORT</button>
+    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
+        <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
+        <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
+        <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
+        <button onclick="cycleTheme()" class="nav-btn shrink-0" title="Change Theme">🌓</button>
+        <button onclick="showModal()" class="nav-btn ml-2 shrink-0">SUPPORT</button>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-8">
+    <main class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-12">
             <div class="ambient-aura mx-auto mb-6"><img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover relative z-10 shadow-xl" style="border: 3px solid var(--accent);"></div>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10"><h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1></div>
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup</button>
-                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">📥 Restore<input type="file" accept=".json" onchange="importData(event)" class="hidden"></label>
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup Data</button>
+                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">📥 Restore Data<input type="file" accept=".json" onchange="importData(event)" class="hidden"></label>
             </div>
         </div>
 
@@ -184,8 +188,11 @@
         (function() {
             window.setTheme = function(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#000000', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
             setTheme(localStorage.getItem('theme') || 'light');
+            window.cycleTheme = function() { const themes = ['light', 'sepia', 'dark', 'red-mode']; let curr = themes.indexOf(localStorage.getItem('theme')); window.setTheme(themes[(curr + 1) % themes.length]); };
+
             window.showModal = function() { document.getElementById('supportModal').style.display = 'flex'; }
             window.closeModal = function() { document.getElementById('supportModal').style.display = 'none'; }
+            window.toggleFullscreen = function() { if (!document.fullscreenElement) { document.documentElement.requestFullscreen().catch(err => {}); } else { if (document.exitFullscreen) { document.exitFullscreen(); } } }
             
             window.filterBooks = function() { let input = document.getElementById('searchBox').value.toLowerCase(); let cards = document.getElementsByClassName('book-card'); for (let i = 0; i < cards.length; i++) { let title = cards[i].querySelector('.book-title').innerText.toLowerCase(); if (title.indexOf(input) > -1) cards[i].style.display = 'flex'; else cards[i].style.display = 'none'; } }
             
