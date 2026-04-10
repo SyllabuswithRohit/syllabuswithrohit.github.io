@@ -40,5 +40,12 @@
         "author": "someone",
         "category": "literature",
         "link": "books/nice_nook.html"
+    },
+    {
+        "title": "something nmoice",
+        "author": "mozaic",
+        "category": "red coach club",
+        "link": "books/something_nmoice.html",
+        "time": 7
     }
 ]
