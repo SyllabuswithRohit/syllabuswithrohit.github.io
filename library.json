@@ -54,5 +54,12 @@
         "category": "books",
         "link": "books/good_book.html",
         "time": 7
+    },
+    {
+        "title": "something extra",
+        "author": "writer",
+        "category": "testing",
+        "link": "books/something_extra.html",
+        "time": 7
     }
 ]
