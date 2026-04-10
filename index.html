@@ -5,21 +5,21 @@
     <title>Library | SyllabuswithRohit</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#fdfbf7">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.11"></script>
     <style>
-    :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; }
+    :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; --font-family: 'Lora', serif; }
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
     
-    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
+    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
     
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
-    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px;}
+    .nav-btn { font-size: 11px; font-weight: bold; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif;}
     .nav-btn:hover { background: var(--text); color: var(--bg); }
     
     #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; }
@@ -28,6 +28,14 @@
 
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
+
+    /* Selection Toolbar & Dictionary Modal */
+    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:6px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.2); font-family:sans-serif; gap:8px; align-items:center;}
+    .toolbar-btn { background:none; border:none; color:#fff; font-size:12px; font-weight:bold; cursor:pointer; padding:4px 8px; border-radius:4px; }
+    .toolbar-btn:hover { background:#333; }
+    .toolbar-arrow { position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #111; }
+    
+    #dictModal { display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:var(--bg); color:var(--text); border:2px solid var(--accent); padding:20px; border-radius:12px; z-index:10000; max-width:90%; width:400px; box-shadow:0 15px 30px rgba(0,0,0,0.2); font-family:sans-serif;}
 
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
@@ -70,9 +78,14 @@
             <input type="text" id="searchBox" onkeyup="filterBooks()" placeholder="Search books..." class="w-full px-6 py-4 rounded-full border-2 text-sm font-sans focus:outline-none transition-colors" style="background:transparent; border-color:var(--accent); color:var(--text);">
         </div>
         
-        <div id="bookmarks-section" class="mb-16 hidden">
+        <div id="bookmarks-section" class="mb-12 hidden">
             <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">🔖 Your Bookmarks</h2>
             <div id="bookmarks-container" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar"></div>
+        </div>
+        
+        <div id="notebook-section" class="mb-16 hidden">
+            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">📝 My Notebook (Saved Quotes)</h2>
+            <div id="quotes-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bookGrid">
@@ -197,12 +210,22 @@
             document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
             document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             
+            // Render Bookmarks
             let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
             if(marks.length > 0) {
                 document.getElementById('bookmarks-section').classList.remove('hidden');
                 let container = document.getElementById('bookmarks-container');
                 marks.forEach(m => { container.innerHTML += `<a href="${m.link}" hx-target="body" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; });
             }
+
+            // Render Notebook (Quotes)
+            let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
+            if(quotes.length > 0) {
+                document.getElementById('notebook-section').classList.remove('hidden');
+                let qContainer = document.getElementById('quotes-container');
+                quotes.forEach(q => { qContainer.innerHTML += `<div class="p-6 rounded-lg" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${q.text}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${q.book}</p></div>`; });
+            }
+
             if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
         })();
     </script>
