@@ -22,5 +22,11 @@
         "author": "origianl author",
         "category": "books and coats",
         "link": "books/book_of_philosophyh.html"
+    },
+    {
+        "title": "Schopenhauer's philosophy",
+        "author": "Schopenhauer's philosophy",
+        "category": "Schopenhauer's philosophy",
+        "link": "books/schopenhauer's_philosophy.html"
     }
 ]
