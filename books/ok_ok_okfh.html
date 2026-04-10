@@ -22,7 +22,6 @@
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
 
-    /* Bionic Reading Bold Style */
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
 
@@ -53,7 +52,7 @@
 
     <main class="max-w-[680px] mx-auto px-6 pt-28 pb-16">
         <header class="text-center mb-16">
-            <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">author • 5 MIN READ</div>
+            <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">author • 5 MIN READ • <span id="finish-time"></span></div>
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">ok ok okfh</h1>
             <p class="opacity-60 italic">By lsjdi</p>
         </header>
@@ -178,7 +177,11 @@ Schopenhauer's philosophy.</p></article>
     </div>
 
     <script>
-        // Track Words Read
+        // Predict Finish Time
+        const readMins = 5;
+        const finishDate = new Date(new Date().getTime() + readMins * 60000);
+        document.getElementById('finish-time').innerText = "FINISH BY " + finishDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
         let wordsRead = parseInt(localStorage.getItem('wordsRead') || 0);
         let articleWords = parseInt(document.getElementById('content').getAttribute('data-words'));
         let hasCounted = false;
@@ -197,18 +200,14 @@ Schopenhauer's philosophy.</p></article>
             updateStreak();
         };
 
-        // Streak Engine
         function updateStreak() {
             const today = new Date().toDateString();
             let lastRead = localStorage.getItem('lastReadDate');
             let streak = parseInt(localStorage.getItem('readingStreak') || 0);
-            
             if (lastRead !== today) {
                 let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-                if (lastRead === yesterday.toDateString()) { streak++; } 
-                else if (lastRead !== today) { streak = 1; } // Reset
-                localStorage.setItem('readingStreak', streak);
-                localStorage.setItem('lastReadDate', today);
+                if (lastRead === yesterday.toDateString()) { streak++; } else if (lastRead !== today) { streak = 1; }
+                localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today);
             }
         }
 
@@ -218,12 +217,7 @@ Schopenhauer's philosophy.</p></article>
             let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
             document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
             
-            // Count words when 80% read
-            if (scrolled > 80 && !hasCounted) {
-                localStorage.setItem('wordsRead', wordsRead + articleWords);
-                hasCounted = true;
-            }
-
+            if (scrolled > 80 && !hasCounted) { localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }
             if (winScroll > lastScrollTop && winScroll > 100) { navbar.classList.add('hidden-nav'); } else { navbar.classList.remove('hidden-nav'); }
             lastScrollTop = winScroll <= 0 ? 0 : winScroll;
             localStorage.setItem(bookId, winScroll);
@@ -239,23 +233,16 @@ Schopenhauer's philosophy.</p></article>
             if(!marks.find(b => b.id === id)) { marks.push({id: id, title: title, link: "books/" + id + ".html"}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); } else { alert("Already saved in your Library."); }
         }
 
-        // Bionic Reading Engine (The Gamechanger)
-        let isBionic = false;
-        const contentDiv = document.getElementById('content');
-        const originalHTML = contentDiv.innerHTML;
-
+        let isBionic = false; const contentDiv = document.getElementById('content'); const originalHTML = contentDiv.innerHTML;
         function toggleBionic() {
-            if (isBionic) {
-                contentDiv.innerHTML = originalHTML;
-                isBionic = false;
-            } else {
+            if (isBionic) { contentDiv.innerHTML = originalHTML; isBionic = false; } 
+            else {
                 let pTags = contentDiv.getElementsByTagName('p');
                 for (let p of pTags) {
                     let words = p.innerText.split(' ');
                     let bionicWords = words.map(word => {
                         if (word.length <= 1) return word;
-                        let mid = Math.ceil(word.length / 2);
-                        return `<span class="bionic-word"><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
+                        let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${word.slice(0, mid)}</b>${word.slice(mid)}</span>`;
                     });
                     p.innerHTML = bionicWords.join(' ');
                 }

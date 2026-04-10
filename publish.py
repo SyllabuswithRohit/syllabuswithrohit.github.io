@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("🎓 SyllabuswithRohit - V31 SCHOLAR EDITION")
+print("💎 SyllabuswithRohit - V32 MASTERPIECE")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -32,7 +32,6 @@ shared_styles = """
     article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
     @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
 
-    /* Bionic Reading Bold Style */
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
 
@@ -74,7 +73,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
 
     <main class="max-w-[680px] mx-auto px-6 pt-28 pb-16">
         <header class="text-center mb-16">
-            <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{book_category} • {book_time} MIN READ</div>
+            <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{book_category} • {book_time} MIN READ • <span id="finish-time"></span></div>
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{book_title}</h1>
             <p class="opacity-60 italic">By {book_author}</p>
         </header>
@@ -93,7 +92,11 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     </div>
 
     <script>
-        // Track Words Read
+        // Predict Finish Time
+        const readMins = {book_time};
+        const finishDate = new Date(new Date().getTime() + readMins * 60000);
+        document.getElementById('finish-time').innerText = "FINISH BY " + finishDate.toLocaleTimeString([], {{hour: '2-digit', minute:'2-digit'}});
+
         let wordsRead = parseInt(localStorage.getItem('wordsRead') || 0);
         let articleWords = parseInt(document.getElementById('content').getAttribute('data-words'));
         let hasCounted = false;
@@ -112,18 +115,14 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             updateStreak();
         }};
 
-        // Streak Engine
         function updateStreak() {{
             const today = new Date().toDateString();
             let lastRead = localStorage.getItem('lastReadDate');
             let streak = parseInt(localStorage.getItem('readingStreak') || 0);
-            
             if (lastRead !== today) {{
                 let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-                if (lastRead === yesterday.toDateString()) {{ streak++; }} 
-                else if (lastRead !== today) {{ streak = 1; }} // Reset
-                localStorage.setItem('readingStreak', streak);
-                localStorage.setItem('lastReadDate', today);
+                if (lastRead === yesterday.toDateString()) {{ streak++; }} else if (lastRead !== today) {{ streak = 1; }}
+                localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today);
             }}
         }}
 
@@ -133,12 +132,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
             document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
             
-            // Count words when 80% read
-            if (scrolled > 80 && !hasCounted) {{
-                localStorage.setItem('wordsRead', wordsRead + articleWords);
-                hasCounted = true;
-            }}
-
+            if (scrolled > 80 && !hasCounted) {{ localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }}
             if (winScroll > lastScrollTop && winScroll > 100) {{ navbar.classList.add('hidden-nav'); }} else {{ navbar.classList.remove('hidden-nav'); }}
             lastScrollTop = winScroll <= 0 ? 0 : winScroll;
             localStorage.setItem(bookId, winScroll);
@@ -154,23 +148,16 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }}
         }}
 
-        // Bionic Reading Engine (The Gamechanger)
-        let isBionic = false;
-        const contentDiv = document.getElementById('content');
-        const originalHTML = contentDiv.innerHTML;
-
+        let isBionic = false; const contentDiv = document.getElementById('content'); const originalHTML = contentDiv.innerHTML;
         function toggleBionic() {{
-            if (isBionic) {{
-                contentDiv.innerHTML = originalHTML;
-                isBionic = false;
-            }} else {{
+            if (isBionic) {{ contentDiv.innerHTML = originalHTML; isBionic = false; }} 
+            else {{
                 let pTags = contentDiv.getElementsByTagName('p');
                 for (let p of pTags) {{
                     let words = p.innerText.split(' ');
                     let bionicWords = words.map(word => {{
                         if (word.length <= 1) return word;
-                        let mid = Math.ceil(word.length / 2);
-                        return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`;
+                        let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`;
                     }});
                     p.innerHTML = bionicWords.join(' ');
                 }}
@@ -187,7 +174,7 @@ library = []
 if os.path.exists(library_file):
     with open(library_file, 'r', encoding='utf-8') as f: library = json.load(f)
 
-print("🔄 Pichli kitabon se Listen hatakar Speed aur Stats laga rahe hain...")
+print("🔄 Update Process Started: Pichli kitabon mein naye features dal rahe hain...")
 for b in library:
     old_filepath = b['link']
     if os.path.exists(old_filepath):
@@ -200,7 +187,6 @@ for b in library:
             new_html = generate_book_html(b['title'], b['author'], b['category'], b.get('time', 5), old_paras, b_filename, b_word_count)
             with open(old_filepath, 'w', encoding='utf-8') as new_f: new_f.write(new_html)
 
-# --- PROCESS NEW BOOK (If draft exists) ---
 if content:
     word_count = len(content.split())
     reading_time = math.ceil(word_count / 200)
@@ -222,14 +208,14 @@ if content:
 
 with open(library_file, "w", encoding='utf-8') as f: json.dump(library, f, indent=4)
 
-# --- GENERATE HOMEPAGE (With Gamification Dashboard) ---
+# --- GENERATE HOMEPAGE ---
 cards = ""
 for book in reversed(library):
     cards += f"""
-    <a href="{book['link']}" class="group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="{book['link']}" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">{book['category']} • {book.get('time', 5)} MIN</span>
-            <h3 class="text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">{book['title']}</h3>
+            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">{book['title']}</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">{book['author']}</p>
         </div>
         <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
@@ -239,7 +225,7 @@ index_html = f"""<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyllabuswithRohit</title>
+    <title>Library | SyllabuswithRohit</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#fdfbf7">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -248,7 +234,7 @@ index_html = f"""<!DOCTYPE html>
 </head>
 <body>
     <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50">
-        <div class="text-[11px] font-bold tracking-[2px] font-sans">SyllabuswithRohit</div>
+        <div class="text-[11px] font-bold tracking-[2px] font-sans uppercase opacity-80">LIBRARY</div>
         <div class="flex items-center gap-2 md:gap-4">
             <button onclick="setTheme('light')" class="nav-btn">L</button>
             <button onclick="setTheme('sepia')" class="nav-btn">S</button>
@@ -260,7 +246,10 @@ index_html = f"""<!DOCTYPE html>
     <main class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-10">
             <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
-            <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight mb-6">SyllabuswithRohit</h1>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
+                <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+            </div>
             
             <div class="flex justify-center gap-6 font-sans">
                 <div class="text-center">
@@ -274,13 +263,17 @@ index_html = f"""<!DOCTYPE html>
                 </div>
             </div>
         </div>
+
+        <div class="max-w-md mx-auto mb-16 relative">
+            <input type="text" id="searchBox" onkeyup="filterBooks()" placeholder="Search books..." class="w-full px-6 py-4 rounded-full border-2 text-sm font-sans focus:outline-none transition-colors" style="background:transparent; border-color:var(--accent); color:var(--text);">
+        </div>
         
         <div id="bookmarks-section" class="mb-16 hidden">
             <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">🔖 Your Bookmarks</h2>
             <div id="bookmarks-container" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">{cards}</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bookGrid">{cards}</div>
     </main>
 
     <div id="supportModal">
@@ -300,6 +293,17 @@ index_html = f"""<!DOCTYPE html>
         function showModal() {{ document.getElementById('supportModal').style.display = 'flex'; }}
         function closeModal() {{ document.getElementById('supportModal').style.display = 'none'; }}
         
+        // Search Engine
+        function filterBooks() {{
+            let input = document.getElementById('searchBox').value.toLowerCase();
+            let cards = document.getElementsByClassName('book-card');
+            for (let i = 0; i < cards.length; i++) {{
+                let title = cards[i].querySelector('.book-title').innerText.toLowerCase();
+                if (title.indexOf(input) > -1) cards[i].style.display = 'flex';
+                else cards[i].style.display = 'none';
+            }}
+        }}
+
         // Load Stats
         document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
         document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{{3}})+(?!\d))/g, ",");
@@ -316,10 +320,10 @@ index_html = f"""<!DOCTYPE html>
 </html>"""
 with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
-# --- 5. PUSH ---
+# --- PUSH ---
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
 print("⏳ GitHub par Push ho raha hai... (Bulk Update Done)")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V31 Scholar: Bionic Reading & Gamification Stats Added"], check=True)
+subprocess.run(["git", "commit", "-m", "V32 Masterpiece: Library Nav, Finish Time & Search Bar added"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 SCHOLAR EDITION LIVE! Reading ab ek aadat banegi.")
+print("🌟 MASTERPIECE LIVE! Ek dum fresh aur powerful update.")
