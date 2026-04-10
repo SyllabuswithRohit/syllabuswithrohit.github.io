@@ -11,11 +11,11 @@
     <style>
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; --font-family: 'Lora', serif; }
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
-    body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
+    body.dark { --bg: #000000; --text: #e0e0e0; --accent: #555555; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
+    
     body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
-    
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -31,17 +31,13 @@
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
     
-    /* V39: PREMIUM ANIMATIONS (GPU Accelerated) */
     .ambient-aura { position: relative; z-index: 1; display: inline-block; }
     .ambient-aura::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; background: conic-gradient(from 0deg, transparent, var(--text), transparent); animation: spinAura 5s linear infinite; z-index: -1; opacity: 0.15; filter: blur(12px); }
     @keyframes spinAura { 100% { transform: rotate(360deg); } }
-    
     .shimmer-text { background: linear-gradient(90deg, var(--text) 0%, rgba(128,128,128,0.4) 50%, var(--text) 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shimmer 4s linear infinite; }
     @keyframes shimmer { 100% { background-position: 200% center; } }
-
     .organic-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; }
     .organic-hover:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15) !important; }
-    /* ----------------------------------------- */
 
     #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
     .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
@@ -52,6 +48,10 @@
     #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
     .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
     .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
+
+    #quoteGenModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:10000; align-items:center; justify-content:center; padding:20px; flex-direction:column; backdrop-blur: 10px;}
+    #quoteCanvas { background: #1a1a1a; max-width: 100%; height: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border-radius: 12px; }
+    .canvas-controls { margin-top: 20px; display: flex; gap: 10px; }
 </style>
 </head>
 <body hx-boost="true">
@@ -75,16 +75,10 @@
                 <h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
             </div>
             
-            <div class="flex justify-center gap-6 font-sans mb-8">
-                <div class="text-center"><div id="streak-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div><div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Day Streak 🔥</div></div>
-                <div class="w-px bg-black opacity-10"></div>
-                <div class="text-center"><div id="words-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div><div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Words Read 📚</div></div>
-            </div>
-            
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup</button>
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup Data</button>
                 <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">
-                    📥 Restore <input type="file" accept=".json" onchange="importData(event)" class="hidden">
+                    📥 Restore Data <input type="file" accept=".json" onchange="importData(event)" class="hidden">
                 </label>
             </div>
         </div>
@@ -209,7 +203,7 @@
 
     <script>
         (function() {
-            window.setTheme = function(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
+            window.setTheme = function(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#000000', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
             setTheme(localStorage.getItem('theme') || 'light');
             window.showModal = function() { document.getElementById('supportModal').style.display = 'flex'; }
             window.closeModal = function() { document.getElementById('supportModal').style.display = 'none'; }
@@ -219,9 +213,6 @@
                 let input = document.getElementById('searchBox').value.toLowerCase(); let cards = document.getElementsByClassName('book-card');
                 for (let i = 0; i < cards.length; i++) { let title = cards[i].querySelector('.book-title').innerText.toLowerCase(); if (title.indexOf(input) > -1) cards[i].style.display = 'flex'; else cards[i].style.display = 'none'; }
             }
-
-            document.getElementById('streak-counter').innerText = localStorage.getItem('readingStreak') || 0;
-            document.getElementById('words-counter').innerText = (localStorage.getItem('wordsRead') || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             
             let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
             if(marks.length > 0) {
@@ -236,12 +227,12 @@
             }
 
             window.exportData = function() {
-                const data = { myBookmarks: localStorage.getItem('myBookmarks'), myQuotes: localStorage.getItem('myQuotes'), wordsRead: localStorage.getItem('wordsRead'), readingStreak: localStorage.getItem('readingStreak'), lastReadDate: localStorage.getItem('lastReadDate') };
+                const data = { myBookmarks: localStorage.getItem('myBookmarks'), myQuotes: localStorage.getItem('myQuotes') };
                 const blob = new Blob([JSON.stringify(data)], {type: 'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'SyllabusWithRohit_Backup.json'; a.click();
             };
             window.importData = function(event) {
                 const file = event.target.files[0];
-                if (file) { const reader = new FileReader(); reader.onload = function(e) { try { const data = JSON.parse(e.target.result); if(data.myBookmarks) localStorage.setItem('myBookmarks', data.myBookmarks); if(data.myQuotes) localStorage.setItem('myQuotes', data.myQuotes); if(data.wordsRead) localStorage.setItem('wordsRead', data.wordsRead); if(data.readingStreak) localStorage.setItem('readingStreak', data.readingStreak); if(data.lastReadDate) localStorage.setItem('lastReadDate', data.lastReadDate); alert('Data Restored! Refreshing...'); location.reload(); } catch(err) { alert('Invalid Backup File.'); } }; reader.readAsText(file); }
+                if (file) { const reader = new FileReader(); reader.onload = function(e) { try { const data = JSON.parse(e.target.result); if(data.myBookmarks) localStorage.setItem('myBookmarks', data.myBookmarks); if(data.myQuotes) localStorage.setItem('myQuotes', data.myQuotes); alert('Data Restored! Refreshing...'); location.reload(); } catch(err) { alert('Invalid Backup File.'); } }; reader.readAsText(file); }
             };
 
             if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
