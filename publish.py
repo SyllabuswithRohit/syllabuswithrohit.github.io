@@ -3,7 +3,7 @@ import json
 import subprocess
 
 print("=========================================")
-print("🌟 SyllabuswithRohit - V22 POLISHED PRO")
+print("🌟 SyllabuswithRohit - V23 PERFECT POLISH")
 print("=========================================")
 
 # --- CONFIG ---
@@ -80,12 +80,12 @@ book_html = f"""<!DOCTYPE html>
     <div id="supportModal">
         <div class="bg-inherit border border-white/10 p-10 rounded-2xl max-w-sm w-full text-center relative">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-2xl opacity-40">&times;</button>
-            <h2 class="text-2xl font-bold mb-6 italic">Support My Work</h2>
+            <h2 class="text-2xl font-bold mb-6 italic">Support</h2>
             <img src="{QR_IMAGE}" class="w-40 h-40 mx-auto mb-6 rounded-lg bg-white p-2">
             <p class="text-sm opacity-70 mb-6">Aapka support mujhe aur books laane me madad karega.</p>
             <div class="text-[10px] opacity-40 uppercase tracking-widest mb-2 font-mono">{UPI_ID}</div>
-            <a href="{COFFEE_LINK}" target="_blank" class="block bg-yellow-500 text-black py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase mb-3 hover:bg-yellow-400 transition-colors">Buy me a Coffee</a>
-            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="block bg-black text-white py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase hover:bg-zinc-800 transition-colors">Pay via UPI App</a>
+            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" class="block bg-black text-white py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase mb-3 hover:bg-zinc-800 transition-colors">Pay via UPI App</a>
+            <a href="{COFFEE_LINK}" target="_blank" class="block bg-yellow-500 text-black py-3 rounded-full text-[10px] font-bold tracking-[2px] uppercase hover:bg-yellow-400 transition-colors">Buy me a Coffee</a>
         </div>
     </div>
     <script>
@@ -158,8 +158,8 @@ with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
 # --- 4. PUSH ---
 with open(draft_file, "w", encoding='utf-8') as f: f.write("")
-print("⏳ GitHub par Push ho raha hai... Polished Pro Launch!")
+print("⏳ GitHub par Push ho raha hai... Final Polish Launch!")
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", f"V22 Polished: Sepia fixed, Modal text & BMAC link"], check=True)
+subprocess.run(["git", "commit", "-m", f"V23: Sepia visibility fixed, Modal text updated, BMAC link added"], check=True)
 subprocess.run(["git", "push"], check=True)
 print("🌟 SUCCESS! Website polished ho gayi hai. 1 minute baad check karein.")

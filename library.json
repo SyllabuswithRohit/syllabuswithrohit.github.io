@@ -34,5 +34,11 @@
         "author": "lsjdi",
         "category": "author",
         "link": "books/ok_ok_okfh.html"
+    },
+    {
+        "title": "nice nook",
+        "author": "someone",
+        "category": "literature",
+        "link": "books/nice_nook.html"
     }
 ]
