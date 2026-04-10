@@ -8,19 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.11"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.11/dist/ext/preload.js"></script>
     <style>
     :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; --font-family: 'Lora', serif; }
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
-    body { opacity: 1; transition: opacity 0.2s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
-    
-    /* HTMX Swapping Animation & Top Loader */
+    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
-    #top-loader { position: fixed; top: 0; left: 0; height: 3px; background: #FFDD00; width: 0%; z-index: 99999; transition: width 0.2s; pointer-events: none; opacity: 0; }
-    body.htmx-request #top-loader { opacity: 1; width: 60%; transition: width 2s cubic-bezier(0.1, 0.5, 0.1, 1); }
-    body.htmx-request.htmx-settling #top-loader { width: 100%; transition: width 0.1s; }
     
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
@@ -37,9 +31,17 @@
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
     
-    /* Focus Ruler */
-    #focus-ruler { display: none; position: fixed; left: 0; width: 100%; height: 50px; background: rgba(128,128,128,0.05); border-top: 1px solid rgba(128,128,128,0.2); border-bottom: 1px solid rgba(128,128,128,0.2); pointer-events: none; z-index: 99; transform: translateY(-50%); box-shadow: 0 0 30px 30px rgba(0,0,0,0.4) inset; }
-    body.light #focus-ruler, body.sepia #focus-ruler { box-shadow: 0 0 30px 30px rgba(255,255,255,0.4) inset; }
+    /* V39: PREMIUM ANIMATIONS (GPU Accelerated) */
+    .ambient-aura { position: relative; z-index: 1; display: inline-block; }
+    .ambient-aura::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; background: conic-gradient(from 0deg, transparent, var(--text), transparent); animation: spinAura 5s linear infinite; z-index: -1; opacity: 0.15; filter: blur(12px); }
+    @keyframes spinAura { 100% { transform: rotate(360deg); } }
+    
+    .shimmer-text { background: linear-gradient(90deg, var(--text) 0%, rgba(128,128,128,0.4) 50%, var(--text) 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shimmer 4s linear infinite; }
+    @keyframes shimmer { 100% { background-position: 200% center; } }
+
+    .organic-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; }
+    .organic-hover:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15) !important; }
+    /* ----------------------------------------- */
 
     #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
     .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
@@ -52,8 +54,7 @@
     .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
 </style>
 </head>
-<body hx-boost="true" hx-ext="preload">
-    <div id="top-loader"></div>
+<body hx-boost="true">
     <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
         <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
         <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
@@ -65,19 +66,24 @@
         <button onclick="showModal()" class="nav-btn ml-2 shrink-0">SUPPORT</button>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-10">
-            <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+        <div class="text-center mb-12">
+            <div class="ambient-aura mx-auto mb-6">
+                <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover relative z-10 shadow-xl" style="border: 3px solid var(--accent);">
             </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
+                <h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+            </div>
+            
             <div class="flex justify-center gap-6 font-sans mb-8">
                 <div class="text-center"><div id="streak-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div><div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Day Streak 🔥</div></div>
                 <div class="w-px bg-black opacity-10"></div>
                 <div class="text-center"><div id="words-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div><div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Words Read 📚</div></div>
             </div>
+            
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity">☁️ Backup</button>
-                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity">
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup</button>
+                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">
                     📥 Restore <input type="file" accept=".json" onchange="importData(event)" class="hidden">
                 </label>
             </div>
@@ -98,93 +104,104 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bookGrid">
-    <a href="books/game_achanger.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/game_achanger.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">wow • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">game achanger</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">something else</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/something_extra.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/something_extra.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">testing • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something extra</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">writer</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/good_book.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/good_book.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">good book</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">author</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/something_nmoice.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/something_nmoice.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">red coach club • 7 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something nmoice</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">mozaic</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/nice_nook.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/nice_nook.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">literature • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">nice nook</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">someone</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/ok_ok_okfh.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/ok_ok_okfh.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">author • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">ok ok okfh</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">lsjdi</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/schopenhauer's_philosophy.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/schopenhauer's_philosophy.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Schopenhauer's philosophy • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Schopenhauer's philosophy</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">Schopenhauer's philosophy</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/book_of_philosophyh.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/book_of_philosophyh.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books and coats • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">book of philosophyh</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">origianl author</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/crime_and_punishment.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/crime_and_punishment.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">philosophy • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Crime and Punishment</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">Fyodor</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/deep_work.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/deep_work.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Self-Help • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Deep Work</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">Cal Newport</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>
-    <a href="books/road_to_freedom.html" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="books/road_to_freedom.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans"> • 5 MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">road to freedom</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">mannG\</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a></div>
     </main>
 
@@ -209,13 +226,13 @@
             let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
             if(marks.length > 0) {
                 document.getElementById('bookmarks-section').classList.remove('hidden'); let container = document.getElementById('bookmarks-container');
-                marks.forEach(m => { container.innerHTML += `<a href="${m.link}" preload="mouseover" hx-target="body" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; });
+                marks.forEach(m => { container.innerHTML += `<a href="${m.link}" hx-target="body" class="organic-hover shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; });
             }
 
             let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
             if(quotes.length > 0) {
                 document.getElementById('notebook-section').classList.remove('hidden'); let qContainer = document.getElementById('quotes-container');
-                quotes.forEach(q => { qContainer.innerHTML += `<div class="p-6 rounded-lg" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${q.text}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${q.book}</p></div>`; });
+                quotes.forEach(q => { qContainer.innerHTML += `<div class="p-6 rounded-lg organic-hover" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${q.text}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${q.book}</p></div>`; });
             }
 
             window.exportData = function() {

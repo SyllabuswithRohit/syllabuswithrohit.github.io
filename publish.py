@@ -5,7 +5,7 @@ import math
 import re
 
 print("=========================================")
-print("🧠 SyllabuswithRohit - V38 TELEPATHIC")
+print("✨ SyllabuswithRohit - V39 AESTHETIC")
 print("=========================================")
 
 UPI_ID = "syllabuswithrohit@upi"
@@ -21,13 +21,8 @@ shared_styles = """
     body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
     body.dark { --bg: #121212; --text: #d1d1d1; --accent: #888888; }
     body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
-    body { opacity: 1; transition: opacity 0.2s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
-    
-    /* HTMX Swapping Animation & Top Loader */
+    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
     body.htmx-swapping { opacity: 0 !important; }
-    #top-loader { position: fixed; top: 0; left: 0; height: 3px; background: #FFDD00; width: 0%; z-index: 99999; transition: width 0.2s; pointer-events: none; opacity: 0; }
-    body.htmx-request #top-loader { opacity: 1; width: 60%; transition: width 2s cubic-bezier(0.1, 0.5, 0.1, 1); }
-    body.htmx-request.htmx-settling #top-loader { width: 100%; transition: width 0.1s; }
     
     .zen-nav { transition: transform 0.3s ease-in-out; }
     .zen-nav.hidden-nav { transform: translateY(-100%); }
@@ -44,9 +39,17 @@ shared_styles = """
     .bionic-word b { font-weight: 800; opacity: 1; }
     .bionic-word { opacity: 0.85; }
     
-    /* Focus Ruler */
-    #focus-ruler { display: none; position: fixed; left: 0; width: 100%; height: 50px; background: rgba(128,128,128,0.05); border-top: 1px solid rgba(128,128,128,0.2); border-bottom: 1px solid rgba(128,128,128,0.2); pointer-events: none; z-index: 99; transform: translateY(-50%); box-shadow: 0 0 30px 30px rgba(0,0,0,0.4) inset; }
-    body.light #focus-ruler, body.sepia #focus-ruler { box-shadow: 0 0 30px 30px rgba(255,255,255,0.4) inset; }
+    /* V39: PREMIUM ANIMATIONS (GPU Accelerated) */
+    .ambient-aura { position: relative; z-index: 1; display: inline-block; }
+    .ambient-aura::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; background: conic-gradient(from 0deg, transparent, var(--text), transparent); animation: spinAura 5s linear infinite; z-index: -1; opacity: 0.15; filter: blur(12px); }
+    @keyframes spinAura { 100% { transform: rotate(360deg); } }
+    
+    .shimmer-text { background: linear-gradient(90deg, var(--text) 0%, rgba(128,128,128,0.4) 50%, var(--text) 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shimmer 4s linear infinite; }
+    @keyframes shimmer { 100% { background-position: 200% center; } }
+
+    .organic-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; }
+    .organic-hover:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15) !important; }
+    /* ----------------------------------------- */
 
     #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
     .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
@@ -69,14 +72,11 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.11"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.11/dist/ext/preload.js"></script>
     <style>{shared_styles}</style>
 </head>
-<body hx-boost="true" hx-ext="preload">
-    <div id="top-loader"></div>
+<body hx-boost="true">
     <div id="pb" style="position:fixed; top:0; left:0; height:3px; background:var(--accent); width:0%; z-index:100;"></div>
     <div id="scrollPercent">0%</div>
-    <div id="focus-ruler"></div>
 
     <div id="selection-toolbar">
         <button onclick="defineWord()" class="toolbar-btn">📖 Define</button>
@@ -88,12 +88,11 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
     <div id="dictModal"><button onclick="document.getElementById('dictModal').style.display='none'" class="absolute top-2 right-4 text-xl opacity-50">&times;</button><h3 id="dictWord" class="font-bold text-xl mb-2 italic"></h3><p id="dictDef" class="text-sm opacity-80 leading-relaxed"></p></div>
 
     <nav id="navbar" class="zen-nav flex items-center px-4 py-3 fixed w-full top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
-        <a href="../index.html" preload="mouseover" class="font-sans text-[12px] font-bold tracking-[2px] uppercase shrink-0 mr-2" hx-target="body">← Library</a>
+        <a href="../index.html" class="font-sans text-[12px] font-bold tracking-[2px] uppercase shrink-0 mr-2 hover:opacity-70 transition-opacity" hx-target="body">← Library</a>
         <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen Mode">⛶</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
         <button id="audioBtn" onclick="toggleAudio()" class="nav-btn shrink-0" title="Focus Audio">🎧</button>
         <button id="scrollBtn" onclick="toggleAutoScroll()" class="nav-btn shrink-0" title="Auto Scroll">⏷</button>
-        <button id="rulerBtn" onclick="toggleRuler()" class="nav-btn shrink-0" title="Focus Ruler">📏</button>
         <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
         <button onclick="toggleBionic()" class="nav-btn shrink-0" title="Speed Reading">⚡</button>
         <button onclick="saveBookmark('{filename}', '{book_title}')" class="nav-btn shrink-0" title="Save Bookmark">🔖</button>
@@ -108,7 +107,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
         <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
     </nav>
 
-    <main class="max-w-[680px] mx-auto px-6 pt-32 pb-16 relative">
+    <main class="max-w-[680px] mx-auto px-6 pt-32 pb-16">
         <header class="text-center mb-16">
             <div class="text-[10px] tracking-[4px] uppercase font-bold opacity-50 mb-4">{book_category} • {book_time} MIN READ • <span id="finish-time"></span></div>
             <h1 class="text-4xl md:text-5xl font-bold italic mb-4">{book_title}</h1>
@@ -117,16 +116,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
         <article id="content" data-words="{word_count}">{paragraphs_html}</article>
     </main>
 
-    <div id="supportModal">
-        <div class="modal-content">
-            <button onclick="closeModal()" class="close-btn">&times;</button>
-            <h2 class="text-2xl font-bold mb-4 italic">Support</h2>
-            <div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="../qr.png" class="w-40 h-40 object-contain"></div>
-            <p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p>
-            <a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a>
-            <a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a>
-        </div>
-    </div>
+    <div id="supportModal"><div class="modal-content"><button onclick="closeModal()" class="close-btn">&times;</button><h2 class="text-2xl font-bold mb-4 italic">Support</h2><div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="../qr.png" class="w-40 h-40 object-contain"></div><p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p><a href="upi://pay?pa={UPI_ID}&pn=SyllabuswithRohit" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a><a href="{COFFEE_LINK}" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a></div></div>
 
     <script>
         (function() {{
@@ -136,7 +126,6 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
 
             window.setTheme = function(t) {{ document.body.className = t; localStorage.setItem('theme', t); let colors = {{ 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#121212', 'red-mode': '#000000' }}; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }}
             setTheme(localStorage.getItem('theme') || 'light');
-            
             let currentFont = parseInt(localStorage.getItem('fontSize')) || 21; document.documentElement.style.setProperty('--font-size', currentFont + 'px');
             window.changeFont = function(step) {{ currentFont += step; if(currentFont < 16) currentFont = 16; if(currentFont > 32) currentFont = 32; document.documentElement.style.setProperty('--font-size', currentFont + 'px'); localStorage.setItem('fontSize', currentFont); }}
             const fonts = ["'Lora', serif", "'Inter', sans-serif", "monospace"]; let fontIdx = parseInt(localStorage.getItem('fontIdx') || 0); document.documentElement.style.setProperty('--font-family', fonts[fontIdx]);
@@ -149,21 +138,8 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             if (lastRead !== today) {{ let yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1); if (lastRead === yesterday.toDateString()) {{ streak++; }} else if (lastRead !== today) {{ streak = 1; }} localStorage.setItem('readingStreak', streak); localStorage.setItem('lastReadDate', today); }}
 
             let timer; let lastScrollTop = 0; const navbar = document.getElementById('navbar'); const scrollLabel = document.getElementById('scrollPercent');
-            
-            // Focus Ruler Engine
-            window.isRulerActive = false; const ruler = document.getElementById('focus-ruler');
-            window.toggleRuler = function() {{
-                window.isRulerActive = !window.isRulerActive;
-                ruler.style.display = window.isRulerActive ? 'block' : 'none';
-                document.getElementById('rulerBtn').style.background = window.isRulerActive ? 'var(--text)' : 'transparent';
-                document.getElementById('rulerBtn').style.color = window.isRulerActive ? 'var(--bg)' : 'inherit';
-            }};
-            document.addEventListener('mousemove', e => {{ if(window.isRulerActive) ruler.style.top = e.clientY + 'px'; }});
-            document.addEventListener('touchmove', e => {{ if(window.isRulerActive) ruler.style.top = e.touches[0].clientY + 'px'; }});
-
             window.onscroll = () => {{
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop; 
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 let scrolled = (winScroll / height) * 100; if (scrolled < 0) scrolled = 0; if (scrolled > 100) scrolled = 100;
                 document.getElementById("pb").style.width = scrolled + "%"; scrollLabel.innerText = Math.round(scrolled) + "%"; scrollLabel.style.opacity = "1";
                 if (scrolled > 80 && !hasCounted) {{ localStorage.setItem('wordsRead', wordsRead + articleWords); hasCounted = true; }}
@@ -178,8 +154,7 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
             window.saveBookmark = function(id, title) {{ let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]'); if(!marks.find(b => b.id === id)) {{ marks.push({{id: id, title: title, link: "books/" + id + ".html"}}); localStorage.setItem('myBookmarks', JSON.stringify(marks)); alert("Book saved to your Library!"); }} else {{ alert("Already saved in your Library."); }} }}
 
             if(!window.hasSelectionListener) {{
-                window.hasSelectionListener = true;
-                const toolbar = document.getElementById('selection-toolbar'); const arrow = document.getElementById('toolbar-arrow');
+                window.hasSelectionListener = true; const toolbar = document.getElementById('selection-toolbar'); const arrow = document.getElementById('toolbar-arrow');
                 document.addEventListener('selectionchange', () => {{
                     const selection = window.getSelection(); window.selectedText = selection.toString().trim();
                     if(window.selectedText.length > 0 && window.selectedText.length < 300) {{
@@ -189,18 +164,28 @@ def generate_book_html(book_title, book_author, book_category, book_time, paragr
                     }} else {{ toolbar.style.display = 'none'; }}
                 }});
             }}
-
             window.saveQuote = function(bookId, bookTitle) {{ if(!window.selectedText) return; let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]'); quotes.push({{text: window.selectedText, book: bookTitle}}); localStorage.setItem('myQuotes', JSON.stringify(quotes)); document.getElementById('selection-toolbar').style.display = 'none'; window.getSelection().removeAllRanges(); alert("Quote Saved to Notebook!"); }};
             window.shareQuote = async function(bookTitle) {{ if(!window.selectedText) return; if (navigator.share) {{ try {{ await navigator.share({{ title: bookTitle, text: `"${{window.selectedText}}" — Read on SyllabuswithRohit`, url: window.location.href }}); }} catch(e) {{}} }} else {{ alert("Sharing not supported on this browser. Quote copied to clipboard!"); navigator.clipboard.writeText(`"${{window.selectedText}}" — SyllabuswithRohit: ${{window.location.href}}`); }} document.getElementById('selection-toolbar').style.display = 'none'; window.getSelection().removeAllRanges(); }};
             window.defineWord = async function() {{ if(!window.selectedText || window.selectedText.includes(" ")) {{ alert("Please select a single word to define."); return; }} try {{ let res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + window.selectedText); let data = await res.json(); let def = data[0].meanings[0].definitions[0].definition; document.getElementById('dictWord').innerText = window.selectedText; document.getElementById('dictDef').innerText = def; document.getElementById('dictModal').style.display = 'block'; document.getElementById('selection-toolbar').style.display = 'none'; }} catch(e) {{ alert("Meaning not found for: " + window.selectedText); }} }};
 
             window.isBionic = false; 
-            window.toggleBionic = function() {{ const contentDiv = document.getElementById('content'); if (window.isBionic) {{ location.reload(); }} else {{ let pTags = contentDiv.getElementsByTagName('p'); for (let p of pTags) {{ let html = p.innerHTML; p.innerHTML = html.replace(/(<[^>]+>)|([A-Za-z\u0900-\u097F]+)/g, function(match, tag, word) {{ if (tag) return tag; if (word.length <= 1) return word; let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`; }}); }} window.isBionic = true; }} }};
+            window.toggleBionic = function() {{
+                const contentDiv = document.getElementById('content');
+                if (window.isBionic) {{ location.reload(); }} else {{ let pTags = contentDiv.getElementsByTagName('p'); for (let p of pTags) {{ let html = p.innerHTML; p.innerHTML = html.replace(/(<[^>]+>)|([A-Za-z\u0900-\u097F]+)/g, function(match, tag, word) {{ if (tag) return tag; if (word.length <= 1) return word; let mid = Math.ceil(word.length / 2); return `<span class="bionic-word"><b>${{word.slice(0, mid)}}</b>${{word.slice(mid)}}</span>`; }}); }} window.isBionic = true; }}
+            }};
 
             window.scrollInterval = null; window.isScrolling = false;
             window.toggleAutoScroll = function() {{ if(window.isScrolling) {{ clearInterval(window.scrollInterval); window.isScrolling = false; }} else {{ window.scrollInterval = setInterval(() => window.scrollBy(0, 1), 30); window.isScrolling = true; }} }};
             window.audioCtx = null; window.isPlaying = false;
-            window.toggleAudio = function() {{ if(!window.audioCtx) {{ window.audioCtx = new (window.AudioContext || window.webkitAudioContext)(); let bufferSize = 2 * window.audioCtx.sampleRate, noiseBuffer = window.audioCtx.createBuffer(1, bufferSize, window.audioCtx.sampleRate), output = noiseBuffer.getChannelData(0); let lastOut = 0; for (let i = 0; i < bufferSize; i++) {{ let white = Math.random() * 2 - 1; output[i] = (lastOut + (0.02 * white)) / 1.02; lastOut = output[i]; output[i] *= 3.5; }} let brownNoise = window.audioCtx.createBufferSource(); brownNoise.buffer = noiseBuffer; brownNoise.loop = true; let noiseNode = window.audioCtx.createGain(); noiseNode.gain.value = 0.1; brownNoise.connect(noiseNode); noiseNode.connect(window.audioCtx.destination); brownNoise.start(0); }} if(window.isPlaying) {{ window.audioCtx.suspend(); window.isPlaying = false; }} else {{ window.audioCtx.resume(); window.isPlaying = true; }} }};
+            window.toggleAudio = function() {{
+                if(!window.audioCtx) {{
+                    window.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    let bufferSize = 2 * window.audioCtx.sampleRate, noiseBuffer = window.audioCtx.createBuffer(1, bufferSize, window.audioCtx.sampleRate), output = noiseBuffer.getChannelData(0); let lastOut = 0;
+                    for (let i = 0; i < bufferSize; i++) {{ let white = Math.random() * 2 - 1; output[i] = (lastOut + (0.02 * white)) / 1.02; lastOut = output[i]; output[i] *= 3.5; }}
+                    let brownNoise = window.audioCtx.createBufferSource(); brownNoise.buffer = noiseBuffer; brownNoise.loop = true; let noiseNode = window.audioCtx.createGain(); noiseNode.gain.value = 0.1; brownNoise.connect(noiseNode); noiseNode.connect(window.audioCtx.destination); brownNoise.start(0);
+                }}
+                if(window.isPlaying) {{ window.audioCtx.suspend(); window.isPlaying = false; }} else {{ window.audioCtx.resume(); window.isPlaying = true; }}
+            }};
         }})();
     </script>
 </body>
@@ -244,17 +229,18 @@ if content:
 
 with open(library_file, "w", encoding='utf-8') as f: json.dump(library, f, indent=4)
 
-# --- GENERATE HOMEPAGE ---
+# --- GENERATE HOMEPAGE (WITH ANIMATIONS) ---
 cards = ""
 for book in reversed(library):
     cards += f"""
-    <a href="{book['link']}" preload="mouseover" hx-target="body" class="book-card group p-8 border-l-[10px] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[250px]" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);">
+    <a href="{book['link']}" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
         <div>
             <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">{book['category']} • {book.get('time', 5)} MIN</span>
             <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">{book['title']}</h3>
             <p class="text-sm opacity-70 italic" style="color:var(--text);">{book['author']}</p>
         </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6" style="color:var(--text);">Read Book →</div>
+        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
     </a>"""
 
 index_html = f"""<!DOCTYPE html>
@@ -267,11 +253,9 @@ index_html = f"""<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.11"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.11/dist/ext/preload.js"></script>
     <style>{shared_styles}</style>
 </head>
-<body hx-boost="true" hx-ext="preload">
-    <div id="top-loader"></div>
+<body hx-boost="true">
     <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
         <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
         <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen">⛶</button>
@@ -283,19 +267,24 @@ index_html = f"""<!DOCTYPE html>
         <button onclick="showModal()" class="nav-btn ml-2 shrink-0">SUPPORT</button>
     </nav>
     <main class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-10">
-            <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover mx-auto mb-6 shadow-xl" style="border: 3px solid var(--accent);">
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+        <div class="text-center mb-12">
+            <div class="ambient-aura mx-auto mb-6">
+                <img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover relative z-10 shadow-xl" style="border: 3px solid var(--accent);">
             </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
+                <h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1>
+            </div>
+            
             <div class="flex justify-center gap-6 font-sans mb-8">
                 <div class="text-center"><div id="streak-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div><div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Day Streak 🔥</div></div>
                 <div class="w-px bg-black opacity-10"></div>
                 <div class="text-center"><div id="words-counter" class="text-3xl font-bold" style="color:var(--accent);">0</div><div class="text-[9px] font-bold tracking-[2px] uppercase opacity-50">Words Read 📚</div></div>
             </div>
+            
             <div class="flex justify-center gap-4 mb-10">
-                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity">☁️ Backup</button>
-                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity">
+                <button onclick="exportData()" class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full transition-opacity hover:-translate-y-1">☁️ Backup</button>
+                <label class="text-[11px] font-bold tracking-[1px] uppercase opacity-60 hover:opacity-100 border border-current px-4 py-2 rounded-full cursor-pointer transition-opacity hover:-translate-y-1">
                     📥 Restore <input type="file" accept=".json" onchange="importData(event)" class="hidden">
                 </label>
             </div>
@@ -339,13 +328,13 @@ index_html = f"""<!DOCTYPE html>
             let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
             if(marks.length > 0) {{
                 document.getElementById('bookmarks-section').classList.remove('hidden'); let container = document.getElementById('bookmarks-container');
-                marks.forEach(m => {{ container.innerHTML += `<a href="${{m.link}}" preload="mouseover" hx-target="body" class="shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; }});
+                marks.forEach(m => {{ container.innerHTML += `<a href="${{m.link}}" hx-target="body" class="organic-hover shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${{m.title}}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; }});
             }}
 
             let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
             if(quotes.length > 0) {{
                 document.getElementById('notebook-section').classList.remove('hidden'); let qContainer = document.getElementById('quotes-container');
-                quotes.forEach(q => {{ qContainer.innerHTML += `<div class="p-6 rounded-lg" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${{q.text}}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${{q.book}}</p></div>`; }});
+                quotes.forEach(q => {{ qContainer.innerHTML += `<div class="p-6 rounded-lg organic-hover" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${{q.text}}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${{q.book}}</p></div>`; }});
             }}
 
             window.exportData = function() {{
@@ -365,6 +354,6 @@ index_html = f"""<!DOCTYPE html>
 with open("index.html", 'w', encoding='utf-8') as f: f.write(index_html)
 
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "V38 Telepathic: Preloading, CSS Loader & Focus Ruler added"], check=True)
+subprocess.run(["git", "commit", "-m", "V39 Aesthetic: Pure CSS Ambient Aura, Shimmer Text & Organic Hover"], check=True)
 subprocess.run(["git", "push"], check=True)
-print("🌟 TELEPATHIC MODE LIVE! Site ab dimaag padhegi.")
+print("🌟 AESTHETIC UPGRADE LIVE! Website ab zinda mehsoos hogi.")
