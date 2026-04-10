@@ -1,77 +1,58 @@
 <!DOCTYPE html>
-<html lang="hi" class="scroll-smooth">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library | SyllabusWithRohit</title>
+    <title>SyllabuswithRohit Library</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #fdfbf7; color: #111; font-family: 'Lora', serif; margin: 0; padding: 0; transition: background-color 0.4s; overflow-x: hidden; }
-        nav { padding: 20px 40px; border-bottom: 1px solid rgba(0,0,0,0.03); background: #fdfbf7; backdrop-blur-md: backdrop-filter; sticky top-0 z-50; }
-        .logo { font-family: sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; text-decoration:none; color:inherit; }
-        .search-container { max-width: 500px; margin: 40px auto 0; }
-        #searchBox { width: 100%; padding: 15px 25px; font-size: 16px; font-family: sans-serif; border: 1px solid rgba(0,0,0,0.06); border-radius: 30px; outline: none; transition: border-color 0.3s, box-shadow 0.3s; background: transparent; }
-        #searchBox:focus { border-color: #333; box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; padding: 0 20px 100px; }
-        
-        /* Premium Hover interactions */
-        .book-card:hover { transform: translateY(-7px) scale(1.02); box-shadow: 0 15px 25px rgba(0,0,0,0.1); border-left-color: #000 !important; }
-    </style>
 </head>
-<body>
-    <nav>
-        <div class="logo">Syllabus<span style="color: #444;">With</span>Rohit Library</div>
+<body class="bg-[#fdfbf7] text-[#1a1a1a] font-['Lora',serif]">
+    <nav class="p-6 border-b border-black/5 flex justify-between items-center sticky top-0 bg-[#fdfbf7]/90 backdrop-blur-md z-50">
+        <div class="text-xs font-bold tracking-[4px] uppercase">SyllabuswithRohit</div>
+        <a href="https://www.youtube.com/@SyllabuswithRohit" target="_blank" class="text-xs font-bold tracking-[2px] uppercase opacity-60 hover:opacity-100 border-b border-black">YouTube Community</a>
     </nav>
-    <main style="max-width: 1000px; margin: 0 auto; padding: 80px 20px 0;">
-        
-    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-        <img src="myprofile.jpg" alt="Rohit" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 15px rgba(0,0,0,0.2); border: 4px solid #fff;">
-    </div>
-    <div style="text-align: center; margin-bottom: 60px;">
-        <h1 style="font-size: 1.8rem; font-family: sans-serif; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: #111; margin: 0 0 10px 0;">Syllabus<span style="color: #444;">With</span>Rohit</h1>
-        <p style="font-size: 1.2rem; font-style: italic; opacity: 0.7; max-width: 550px; margin: auto;">Zero distractions. Grayscale sophisticated library.</p>
-    </div>
-    
-        <div class="grid" id="bookGrid">
-    <a href="books/crime_and_punishment.html" class="book-card" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; padding: 30px; border-radius: 4px; text-decoration: none; color: #111; box-shadow: 0 4px 6px rgba(0,0,0,0.03); position: relative; border-left: 12px solid #333; transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; min-height: 250px;">
-        <div style="absolute top-0 left-0 w-full h-1 bg-black/5"></div>
-        <div>
-            <span style="font-family: sans-serif; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #111; display: block; margin-bottom: 12px; opacity: 0.8;">philosophy</span>
-            <h3 style="font-family: 'Lora', serif; font-size: 24px; font-weight: bold; font-style: italic; margin: 0 0 10px 0; line-height: 1.3;">Crime and Punishment</h3>
-            <p style="font-family: sans-serif; font-size: 14px; opacity: 0.7; margin: 0;">Fyodor</p>
+    <main class="max-w-6xl mx-auto px-6 py-24">
+        <div class="flex flex-col items-center mb-24 text-center">
+            <img src="myprofile.jpg" class="w-32 h-32 rounded-full object-cover mb-8 shadow-2xl border-4 border-white">
+            <h1 class="text-3xl font-bold tracking-[5px] uppercase mb-4">SyllabuswithRohit</h1>
+            <div class="h-px w-20 bg-black/20"></div>
         </div>
-        <div style="font-family: sans-serif; font-size: 12px; font-weight: bold; color: #111; text-transform: uppercase; letter-spacing: 2px; margin-top: 30px; opacity: 0.8;">Read →</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+    <a href="books/book_of_philosophyh.html" class="group bg-white p-10 border-l-[12px] border-black shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
+        <div>
+            <span class="text-[10px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">books and coats</span>
+            <h3 class="text-2xl font-bold italic leading-snug mb-2">book of philosophyh</h3>
+            <p class="text-sm opacity-60 italic">origianl author</p>
+        </div>
+        <div class="text-[11px] font-bold tracking-[2px] uppercase mt-8 group-hover:translate-x-2 transition-transform">Read Book →</div>
     </a>
-    <a href="books/deep_work.html" class="book-card" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; padding: 30px; border-radius: 4px; text-decoration: none; color: #111; box-shadow: 0 4px 6px rgba(0,0,0,0.03); position: relative; border-left: 12px solid #333; transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; min-height: 250px;">
-        <div style="absolute top-0 left-0 w-full h-1 bg-black/5"></div>
+    <a href="books/crime_and_punishment.html" class="group bg-white p-10 border-l-[12px] border-black shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span style="font-family: sans-serif; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #111; display: block; margin-bottom: 12px; opacity: 0.8;">Self-Help</span>
-            <h3 style="font-family: 'Lora', serif; font-size: 24px; font-weight: bold; font-style: italic; margin: 0 0 10px 0; line-height: 1.3;">Deep Work</h3>
-            <p style="font-family: sans-serif; font-size: 14px; opacity: 0.7; margin: 0;">Cal Newport</p>
+            <span class="text-[10px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">philosophy</span>
+            <h3 class="text-2xl font-bold italic leading-snug mb-2">Crime and Punishment</h3>
+            <p class="text-sm opacity-60 italic">Fyodor</p>
         </div>
-        <div style="font-family: sans-serif; font-size: 12px; font-weight: bold; color: #111; text-transform: uppercase; letter-spacing: 2px; margin-top: 30px; opacity: 0.8;">Read →</div>
+        <div class="text-[11px] font-bold tracking-[2px] uppercase mt-8 group-hover:translate-x-2 transition-transform">Read Book →</div>
     </a>
-    <a href="books/road_to_freedom.html" class="book-card" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; padding: 30px; border-radius: 4px; text-decoration: none; color: #111; box-shadow: 0 4px 6px rgba(0,0,0,0.03); position: relative; border-left: 12px solid #333; transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; min-height: 250px;">
-        <div style="absolute top-0 left-0 w-full h-1 bg-black/5"></div>
+    <a href="books/deep_work.html" class="group bg-white p-10 border-l-[12px] border-black shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
         <div>
-            <span style="font-family: sans-serif; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #111; display: block; margin-bottom: 12px; opacity: 0.8;"></span>
-            <h3 style="font-family: 'Lora', serif; font-size: 24px; font-weight: bold; font-style: italic; margin: 0 0 10px 0; line-height: 1.3;">road to freedom</h3>
-            <p style="font-family: sans-serif; font-size: 14px; opacity: 0.7; margin: 0;">mannG\</p>
+            <span class="text-[10px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase">Self-Help</span>
+            <h3 class="text-2xl font-bold italic leading-snug mb-2">Deep Work</h3>
+            <p class="text-sm opacity-60 italic">Cal Newport</p>
         </div>
-        <div style="font-family: sans-serif; font-size: 12px; font-weight: bold; color: #111; text-transform: uppercase; letter-spacing: 2px; margin-top: 30px; opacity: 0.8;">Read →</div>
-    </a></div>
+        <div class="text-[11px] font-bold tracking-[2px] uppercase mt-8 group-hover:translate-x-2 transition-transform">Read Book →</div>
+    </a>
+    <a href="books/road_to_freedom.html" class="group bg-white p-10 border-l-[12px] border-black shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[280px]">
+        <div>
+            <span class="text-[10px] font-bold tracking-[3px] opacity-40 mb-4 block uppercase"></span>
+            <h3 class="text-2xl font-bold italic leading-snug mb-2">road to freedom</h3>
+            <p class="text-sm opacity-60 italic">mannG\</p>
+        </div>
+        <div class="text-[11px] font-bold tracking-[2px] uppercase mt-8 group-hover:translate-x-2 transition-transform">Read Book →</div>
+    </a>
+        </div>
     </main>
-    <script>
-        function filterBooks() {
-            let input = document.getElementById('searchBox').value.toLowerCase();
-            let cards = document.getElementsByClassName('book-card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].querySelector('h3').innerText.toLowerCase();
-                if (title.indexOf(input) > -1) cards[i].style.display = 'flex';
-                else cards[i].style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
