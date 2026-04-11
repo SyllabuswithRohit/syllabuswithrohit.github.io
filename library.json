@@ -1,72 +1,86 @@
 [
-    {
-        "title": "road to freedom",
-        "author": "mannG\\",
-        "category": "",
-        "link": "books/road_to_freedom.html"
-    },
-    {
-        "title": "Deep Work",
-        "author": "Cal Newport",
-        "category": "Self-Help",
-        "link": "books/deep_work.html"
-    },
-    {
-        "title": "Crime and Punishment",
-        "author": "Fyodor",
-        "category": "philosophy",
-        "link": "books/crime_and_punishment.html"
-    },
-    {
-        "title": "book of philosophyh",
-        "author": "origianl author",
-        "category": "books and coats",
-        "link": "books/book_of_philosophyh.html"
-    },
-    {
-        "title": "Schopenhauer's philosophy",
-        "author": "Schopenhauer's philosophy",
-        "category": "Schopenhauer's philosophy",
-        "link": "books/schopenhauer's_philosophy.html"
-    },
-    {
-        "title": "ok ok okfh",
-        "author": "lsjdi",
-        "category": "author",
-        "link": "books/ok_ok_okfh.html"
-    },
-    {
-        "title": "nice nook",
-        "author": "someone",
-        "category": "literature",
-        "link": "books/nice_nook.html"
-    },
-    {
-        "title": "something nmoice",
-        "author": "mozaic",
-        "category": "red coach club",
-        "link": "books/something_nmoice.html",
-        "time": 7
-    },
-    {
-        "title": "good book",
-        "author": "author",
-        "category": "books",
-        "link": "books/good_book.html",
-        "time": 7
-    },
-    {
-        "title": "something extra",
-        "author": "writer",
-        "category": "testing",
-        "link": "books/something_extra.html",
-        "time": 7
-    },
-    {
-        "title": "game achanger",
-        "author": "something else",
-        "category": "wow",
-        "link": "books/game_achanger.html",
-        "time": 7
-    }
+  {
+    "title": "The Origin of Consciousness",
+    "author": "Julian Jaynes",
+    "category": "Psychology",
+    "link": "books/the_origin_of_consciousness.html",
+    "time": 1
+  },
+  {
+    "title": "Three Essays on the Theory of Sexuality",
+    "author": "Sigmund Freud",
+    "category": "Psychology",
+    "link": "books/three_essays_on_the_theory_of_sexuality.html",
+    "time": 1
+  },
+  {
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "category": "Philosophy",
+    "link": "books/meditations.html",
+    "time": 1
+  },
+  {
+    "title": "The Republic",
+    "author": "Plato",
+    "category": "Philosophy",
+    "link": "books/the_republic.html",
+    "time": 2
+  },
+  {
+    "title": "Tao Te Ching",
+    "author": "Laozi",
+    "category": "Spirituality",
+    "link": "books/tao_te_ching.html",
+    "time": 1
+  },
+  {
+    "title": "Siddhartha",
+    "author": "Hermann Hesse",
+    "category": "Fiction",
+    "link": "books/siddhartha.html",
+    "time": 1
+  },
+  {
+    "title": "Notes from Underground",
+    "author": "Fyodor Dostoevsky",
+    "category": "Literature",
+    "link": "books/notes_from_underground.html",
+    "time": 1
+  },
+  {
+    "title": "Beyond Good and Evil",
+    "author": "Friedrich Nietzsche",
+    "category": "Philosophy",
+    "link": "books/beyond_good_and_evil.html",
+    "time": 2
+  },
+  {
+    "title": "On the Shortness of Life",
+    "author": "Seneca",
+    "category": "Philosophy",
+    "link": "books/on_the_shortness_of_life.html",
+    "time": 2
+  },
+  {
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "category": "Strategy",
+    "link": "books/the_art_of_war.html",
+    "time": 1
+  },
+  {
+    "title": "Relativity",
+    "author": "Albert Einstein",
+    "category": "Science",
+    "link": "books/relativity.html",
+    "time": 1
+  },
+  {
+    "title": "The Prince",
+    "author": "Niccolò Machiavelli",
+    "category": "Politics",
+    "link": "books/the_prince.html",
+    "time": 1
+  }
 ]

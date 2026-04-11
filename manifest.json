@@ -1,1 +1,21 @@
-{ "name": "SyllabuswithRohit", "short_name": "Syllabus", "display": "standalone", "background_color": "#fdfbf7", "theme_color": "#fdfbf7", "icons": [{"src": "myprofile.jpg", "sizes": "512x512", "type": "image/jpeg"}], "start_url": "/index.html" }
+{
+  "name": "SyllabusWithRohit",
+  "short_name": "SyllabusWithRohit",
+  "description": "A focused, Kindle-like reading experience for translated books.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fdfbf7",
+  "theme_color": "#fdfbf7",
+  "icons": [
+    {
+      "src": "myprofile.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "myprofile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

@@ -1,210 +1,135 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Library | SyllabuswithRohit</title>
+    <meta name="theme-color" content="#fdfbf7" id="themeColorMeta">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#fdfbf7">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="myprofile.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400..700;1,400..700&family=Rye&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
     <style>
-    :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: #000; --font-size: 21px; --font-family: 'Lora', serif; }
-    body.sepia { --bg: #f4ecd8; --text: #2c1e0f; --accent: #6f421a; }
-    body.dark { --bg: #000000; --text: #e0e0e0; --accent: #555555; }
-    body.red-mode { --bg: #000000; --text: #ff0000; --accent: #ff0000; }
-    
-    body { opacity: 1; transition: opacity 0.3s ease-out, background-color 0.4s, color 0.4s; background-color: var(--bg); color: var(--text); font-family: var(--font-family); overflow-x: hidden; }
-    body.htmx-swapping { opacity: 0 !important; }
-    .zen-nav { transition: transform 0.3s ease-in-out; }
-    .zen-nav.hidden-nav { transform: translateY(-100%); }
-    .hide-scrollbar::-webkit-scrollbar { display: none; }
-    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    .nav-btn { font-size: 13px; font-weight: bold; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(128,128,128,0.2); cursor:pointer; background:transparent; color:inherit; transition: 0.2s; display:flex; align-items:center; gap:4px; font-family: sans-serif; white-space: nowrap; }
-    .nav-btn:hover { background: var(--text); color: var(--bg); }
-    @media (min-width: 640px) { .nav-btn { font-size: 11px; padding: 6px 10px; } }
-    
-    #scrollPercent { position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-family: sans-serif; opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: bold; pointer-events: none;}
-    article p { margin-bottom: 2.8rem; font-size: var(--font-size); line-height: 1.85; text-align: justify; transition: font-size 0.3s; }
-    @media (max-width: 640px) { article p { line-height: 1.75; font-size: calc(var(--font-size) - 2px); } }
-    
-    .bionic-word b { font-weight: 800; opacity: 1; }
-    .bionic-word { opacity: 0.85; }
-    
-    .ambient-aura { position: relative; z-index: 1; display: inline-block; }
-    .ambient-aura::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; background: conic-gradient(from 0deg, transparent, var(--text), transparent); animation: spinAura 5s linear infinite; z-index: -1; opacity: 0.15; filter: blur(12px); }
-    @keyframes spinAura { 100% { transform: rotate(360deg); } }
-    .shimmer-text { background: linear-gradient(90deg, var(--text) 0%, rgba(128,128,128,0.4) 50%, var(--text) 100%); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: shimmer 4s linear infinite; }
-    @keyframes shimmer { 100% { background-position: 200% center; } }
-    .organic-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; }
-    .organic-hover:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15) !important; }
-
-    #selection-toolbar { display:none; position:absolute; background:#111; color:#fff; padding:8px; border-radius:8px; z-index:9999; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-family:sans-serif; gap:12px; align-items:center;}
-    .toolbar-btn { background:none; border:none; color:#fff; font-size:14px; font-weight:bold; cursor:pointer; padding:6px 10px; border-radius:4px; }
-    .toolbar-btn:hover { background:#333; }
-    .toolbar-arrow { position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #111; }
-    
-    #dictModal { display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:var(--bg); color:var(--text); border:2px solid var(--accent); padding:20px; border-radius:12px; z-index:10000; max-width:90%; width:400px; box-shadow:0 15px 30px rgba(0,0,0,0.2); font-family:sans-serif;}
-    #supportModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center; padding:20px; backdrop-blur: 5px; }
-    .modal-content { background:var(--bg); color:var(--text); padding:40px; border-radius:15px; max-width:380px; width:100%; text-align:center; border: 2px solid var(--accent); position:relative; }
-    .close-btn { position:absolute; top:10px; right:20px; font-size:32px; color:var(--text); opacity:0.6; cursor:pointer; background:none; border:none; }
-
-    #quoteGenModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:10000; align-items:center; justify-content:center; padding:20px; flex-direction:column; backdrop-blur: 10px;}
-    #quoteCanvas { background: #1a1a1a; max-width: 100%; height: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border-radius: 12px; }
-    .canvas-controls { margin-top: 20px; display: flex; gap: 10px; }
-</style>
+        :root { --bg: #fdfbf7; --text: #1a1a1a; --accent: rgba(0,0,0,0.1); --accent-strong: #000; --font-size: 21px; --nav-bg: rgba(253, 251, 247, 0.85); --btn-hover: rgba(0,0,0,0.05); }
+        body.sepia { --bg: #F4EAD5; --text: #43302b; --accent: rgba(94, 66, 61, 0.15); --accent-strong: #5e423d; --nav-bg: rgba(244, 234, 213, 0.85); --btn-hover: rgba(0,0,0,0.05); }
+        body.dark { --bg: #121212; --text: #e0e0e0; --accent: rgba(255,255,255,0.1); --accent-strong: #fff; --nav-bg: rgba(18, 18, 18, 0.85); --btn-hover: rgba(255,255,255,0.1); }
+        body.vampire { --bg: #000000; --text: #ff4a4a; --accent: rgba(139,0,0,0.4); --accent-strong: #8b0000; --nav-bg: rgba(0, 0, 0, 0.85); --btn-hover: rgba(255, 74, 74, 0.15); }
+        body.reader { --bg: #f5f5f5; --text: #222222; --accent: rgba(0,0,0,0.08); --accent-strong: #333; --nav-bg: rgba(245, 245, 245, 0.85); --btn-hover: rgba(0,0,0,0.05); }
+        
+        body { background-color: var(--bg); color: var(--text); font-family: 'Lora', serif; font-size: var(--font-size); transition: background-color 0.4s ease, color 0.4s ease; overflow-x: hidden; -webkit-tap-highlight-color: transparent;}
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .nav-btn { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--accent-strong); opacity: 0.7; cursor: pointer; background: transparent; color: inherit; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; text-decoration: none;}
+        .nav-btn:hover, .nav-btn.active { opacity: 1; background: var(--btn-hover); transform: scale(1.02); }
+        .nav-btn.theme-btn { padding: 8px; border-radius: 50%; width: 34px; height: 34px; border: 1px solid var(--accent-strong); }
+        .glass-nav { background-color: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--accent); }
+    </style>
 </head>
-<body hx-boost="true">
-    <nav class="flex justify-between items-center px-4 py-3 sticky top-0 bg-inherit border-b border-black/10 z-50 overflow-x-auto hide-scrollbar gap-3">
-        <div class="text-[12px] font-bold tracking-[2px] font-sans uppercase opacity-80 shrink-0 mr-2">LIBRARY</div>
-        <div class="flex items-center gap-2 shrink-0 ml-auto">
-            <button onclick="toggleFullscreen()" class="nav-btn shrink-0" title="Fullscreen Mode">⛶</button>
-            <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
-            <button onclick="setTheme('light')" class="nav-btn shrink-0">L</button>
-            <button onclick="setTheme('sepia')" class="nav-btn shrink-0">S</button>
-            <button onclick="setTheme('dark')" class="nav-btn shrink-0">D</button>
-            <button onclick="setTheme('red-mode')" class="nav-btn shrink-0" style="color:#ff0000; border-color:#ff0000;">R</button>
-            <div class="w-px h-6 bg-gray-400 opacity-50 shrink-0"></div>
-            <button onclick="showModal()" class="nav-btn shrink-0">SUPPORT</button>
+<body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => console.error('SW reg failed', err));
+        });
+      }
+    </script>
+
+    <!-- Support Modal -->
+    <div id="supportModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div id="supportModalContent" class="text-(var(--text)) max-w-md w-full rounded-3xl shadow-2xl p-8 relative transform scale-95 transition-all duration-300" style="background-color: var(--bg);">
+            <button onclick="toggleSupportModal()" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 font-bold p-2 text-xl font-sans transition-colors">✕</button>
+            <h2 class="text-3xl font-bold font-sans mb-3 tracking-tight">Support This Work</h2>
+            <p class="opacity-80 mb-6 text-sm md:text-base font-sans leading-relaxed">Translating these books into Hinglish and maintaining the website takes time and effort. If you enjoy reading here, consider supporting so I can keep bringing more content!</p>
+            
+            <div class="flex justify-center mb-6">
+                <div class="p-2 rounded-2xl" style="background: white;">
+                  <img src="qr.png" alt="UPI QR Code" class="w-48 h-48 rounded-xl object-contain">
+                </div>
+            </div>
+            
+            <div class="flex flex-col gap-3 font-sans">
+                <!-- Replace 'YOUR_UPI_ID' -->
+                <a href="upi://pay?pa=syllabuswithrohit@upi&pn=SyllabuswithRohit" class="w-full text-center py-3.5 rounded-xl font-bold bg-[#1ca148] text-white hover:bg-[#168839] shadow-md transition-transform hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">Pay via UPI App</a>
+                <!-- Replace 'yourlink' -->
+                <a href="https://buymeacoffee.com/syllabuswithrohit" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3.5 rounded-xl font-bold bg-[#FFDD00] text-black hover:bg-[#e5c700] shadow-md transition-transform hover:-translate-y-0.5">☕ Buy me a coffee</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="flex items-center px-4 py-3 sticky top-0 z-50 gap-2 glass-nav">
+        <a href="index.html" class="nav-btn shrink-0 tracking-wide bg-black text-white hover:bg-gray-800 transition shadow-sm" style="border:none; opacity:1;">Library</a>
+        <div class="flex items-center gap-1.5 ml-auto shrink-0 hide-scrollbar overflow-x-auto">
+            <button type="button" onclick="toggleFullscreen()" class="nav-btn theme-btn" title="Fullscreen">⛶</button>
+            <span class="w-px h-5 bg-gray-400 opacity-30 shrink-0 mx-1" aria-hidden="true"></span>
+            <button type="button" onclick="setTheme('light')" class="nav-btn theme-btn" title="Light" style="background:#fff; color:#000; border-color:#ccc;">L</button>
+            <button type="button" onclick="setTheme('sepia')" class="nav-btn theme-btn" title="Sepia" style="background:#f4ead5; color:#43302b; border-color:#d4caab;">S</button>
+            <button type="button" onclick="setTheme('dark')" class="nav-btn theme-btn" title="Dark" style="background:#121212; color:#fff; border-color:#444;">D</button>
+            <button type="button" onclick="setTheme('vampire')" class="nav-btn theme-btn" title="Vampire" style="background:#000; color:#ff4a4a; border-color:#8b0000;">V</button>
+            <span class="w-px h-5 bg-gray-400 opacity-30 shrink-0 mx-1" aria-hidden="true"></span>
+            <button type="button" onclick="toggleSupportModal()" class="nav-btn font-sans border-dashed border-gray-500 hover:border-gray-800" title="Support">❤ Support</button>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-16">
-            <div class="ambient-aura mx-auto mb-6"><img src="myprofile.jpg" class="w-24 h-24 rounded-full object-cover relative z-10 shadow-xl" style="border: 3px solid var(--accent);"></div>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10"><h1 class="shimmer-text text-4xl md:text-5xl font-bold italic tracking-tight">SyllabuswithRohit</h1></div>
+    <main class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="flex flex-col items-center text-center mb-20 relative">
+            <div class="relative mb-8 group cursor-pointer inline-block" onclick="toggleSupportModal()">
+                <div class="absolute inset-0 bg-gradient-to-tr from-yellow-400 to-pink-500 rounded-full blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
+                <img src="myprofile.jpg" alt="Profile" class="relative w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shadow-2xl transition-transform duration-500 group-hover:scale-105" style="border: 4px solid var(--accent-strong);">
+                <div class="absolute -bottom-3 -right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg font-sans border-2 border-white">Donate</div>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-8xl tracking-widest mb-6 font-normal uppercase" style="font-family: 'Rye', cursive; color: var(--accent-strong); text-shadow: 2px 2px 0px var(--bg), 4px 4px 0px rgba(0,0,0,0.1);">Syllabus<br/><span style="opacity: 0.8; font-size: 0.7em;">With Rohit</span></h1>
+            <p class="max-w-xl mx-auto text-lg md:text-xl opacity-80 font-sans tracking-wide leading-relaxed font-medium">Curated public domain books meticulously translated into Hinglish. An elegant, calm reading space built for native comfort.</p>
         </div>
-
-        <div id="bookmarks-section" class="mb-12 hidden">
-            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">🔖 Your Bookmarks</h2>
-            <div id="bookmarks-container" class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar"></div>
-        </div>
-        
-        <div id="notebook-section" class="mb-16 hidden">
-            <h2 class="text-xs font-bold tracking-[3px] uppercase opacity-50 mb-6 font-sans">📝 My Notebook</h2>
-            <div id="quotes-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bookGrid">
-    <a href="books/game_achanger.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">wow • 7 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">game achanger</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">something else</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/something_extra.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">testing • 7 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something extra</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">writer</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/good_book.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books • 7 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">good book</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">author</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/something_nmoice.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">red coach club • 7 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">something nmoice</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">mozaic</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/nice_nook.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">literature • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">nice nook</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">someone</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/ok_ok_okfh.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">author • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">ok ok okfh</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">lsjdi</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/schopenhauer's_philosophy.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Schopenhauer's philosophy • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Schopenhauer's philosophy</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">Schopenhauer's philosophy</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/book_of_philosophyh.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">books and coats • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">book of philosophyh</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">origianl author</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/crime_and_punishment.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">philosophy • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Crime and Punishment</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">Fyodor</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/deep_work.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans">Self-Help • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">Deep Work</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">Cal Newport</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a>
-    <a href="books/road_to_freedom.html" hx-target="body" class="organic-hover book-card group p-8 border-l-[10px] flex flex-col justify-between min-h-[250px] relative overflow-hidden" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2); box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 4px;">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--text)] to-transparent opacity-[0.03] rounded-bl-full pointer-events-none"></div>
-        <div>
-            <span class="text-[9px] font-bold tracking-[3px] opacity-50 mb-4 block uppercase font-sans"> • 5 MIN</span>
-            <h3 class="book-title text-2xl font-bold italic leading-tight mb-2" style="color:var(--text);">road to freedom</h3>
-            <p class="text-sm opacity-70 italic" style="color:var(--text);">mannG\</p>
-        </div>
-        <div class="text-[10px] font-bold tracking-[2px] uppercase mt-6 group-hover:translate-x-2 transition-transform duration-300" style="color:var(--text);">Read Book →</div>
-    </a></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"><a href="books/the_origin_of_consciousness.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Psychology • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">The Origin of Consciousness</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Julian Jaynes</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/three_essays_on_the_theory_of_sexuality.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Psychology • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Three Essays on the Theory of Sexuality</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Sigmund Freud</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/meditations.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Philosophy • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Meditations</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Marcus Aurelius</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/the_republic.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Philosophy • 2 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">The Republic</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Plato</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/tao_te_ching.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Spirituality • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Tao Te Ching</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Laozi</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/siddhartha.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Fiction • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Siddhartha</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Hermann Hesse</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/notes_from_underground.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Literature • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Notes from Underground</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Fyodor Dostoevsky</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/beyond_good_and_evil.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Philosophy • 2 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Beyond Good and Evil</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Friedrich Nietzsche</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/on_the_shortness_of_life.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Philosophy • 2 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">On the Shortness of Life</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Seneca</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/the_art_of_war.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Strategy • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">The Art of War</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Sun Tzu</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/relativity.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Science • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">Relativity</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Albert Einstein</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a><a href="books/the_prince.html" class="group relative flex flex-col justify-between p-8 min-h-[280px] rounded-3xl transition-all duration-300 transform hover:-translate-y-2 focus:-translate-y-2 outline-none aspect-[3/4] overflow-hidden" style="background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);"><div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><div class="relative z-10"><span class="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full mb-5 transition-colors" style="border: 1px solid var(--accent); color: var(--accent);">Politics • 1 MIN READ</span><h3 class="text-2xl font-bold italic leading-snug mb-3 tracking-tight" style="color:var(--text);">The Prince</h3><p class="text-sm font-medium opacity-80" style="color:var(--text); font-family: 'Inter', sans-serif;">Niccolò Machiavelli</p></div><div class="relative z-10 mt-auto flex items-center justify-between"><div class="h-8 w-8 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity flex items-center justify-center">→</div></div></a></div>
     </main>
-
-    <div id="supportModal"><div class="modal-content"><button onclick="closeModal()" class="close-btn">&times;</button><h2 class="text-2xl font-bold mb-4 italic">Support</h2><div style="background:white; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px; border: 2px solid var(--accent);"><img src="qr.png" class="w-40 h-40 object-contain"></div><p class="text-sm opacity-80 mb-6 font-sans">Aapka support mujhe aur books laane me madad karega.</p><a href="upi://pay?pa=syllabuswithrohit@upi&pn=SyllabuswithRohit" class="theme-btn-primary" style="background:var(--accent); color:var(--bg); padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; text-decoration:none;">Pay via UPI App</a><a href="https://buymeacoffee.com/SyllabuswithRohit" target="_blank" style="background:#FFDD00; color:#000; padding:14px; border-radius:30px; display:block; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; text-decoration:none;">Buy me a Coffee</a></div></div>
+    
+    <footer class="text-center pb-12 opacity-50 font-sans text-sm">
+        <p>&copy; SyllabuswithRohit. Built with ❤️ for readers.</p>
+    </footer>
 
     <script>
-        (function() {
-            window.setTheme = function(t) { document.body.className = t; localStorage.setItem('theme', t); let colors = { 'light': '#fdfbf7', 'sepia': '#f4ecd8', 'dark': '#000000', 'red-mode': '#000000' }; document.querySelector('meta[name="theme-color"]').setAttribute('content', colors[t]); }
-            setTheme(localStorage.getItem('theme') || 'light');
-            window.showModal = function() { document.getElementById('supportModal').style.display = 'flex'; }
-            window.closeModal = function() { document.getElementById('supportModal').style.display = 'none'; }
-            window.toggleFullscreen = function() { if (!document.fullscreenElement) { document.documentElement.requestFullscreen().catch(err => {}); } else { if (document.exitFullscreen) { document.exitFullscreen(); } } }
-            
-            let marks = JSON.parse(localStorage.getItem('myBookmarks') || '[]');
-            if(marks.length > 0) { document.getElementById('bookmarks-section').classList.remove('hidden'); let container = document.getElementById('bookmarks-container'); marks.forEach(m => { container.innerHTML += `<a href="${m.link}" hx-target="body" class="organic-hover shrink-0 w-64 p-6 border-l-[6px] transition-transform hover:-translate-y-1" style="background:var(--bg); border-color:var(--accent); border-top:1px solid rgba(128,128,128,0.2); border-right:1px solid rgba(128,128,128,0.2); border-bottom:1px solid rgba(128,128,128,0.2);"><h3 class="font-bold italic text-lg" style="color:var(--text);">${m.title}</h3><p class="text-[9px] uppercase tracking-[2px] mt-4 opacity-50" style="color:var(--text);">Resume →</p></a>`; }); }
+        function setTheme(t) {
+            document.body.className = t;
+            localStorage.setItem('theme', t);
+            const metaTheme = document.getElementById('themeColorMeta');
+            if(t === 'dark') metaTheme.content = '#121212';
+            else if(t === 'vampire') metaTheme.content = '#000000';
+            else if(t === 'sepia') metaTheme.content = '#F4EAD5';
+            else if(t === 'reader') metaTheme.content = '#f5f5f5';
+            else metaTheme.content = '#fdfbf7';
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(function () {});
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
 
-            let quotes = JSON.parse(localStorage.getItem('myQuotes') || '[]');
-            if(quotes.length > 0) { document.getElementById('notebook-section').classList.remove('hidden'); let qContainer = document.getElementById('quotes-container'); quotes.forEach(q => { qContainer.innerHTML += `<div class="p-6 rounded-lg organic-hover" style="background:var(--bg); border:1px solid rgba(128,128,128,0.2);"><p class="italic opacity-80 mb-3" style="color:var(--text);">"${q.text}"</p><p class="text-[10px] font-bold tracking-[2px] uppercase opacity-50" style="color:var(--text);">- ${q.book}</p></div>`; }); }
+        // Support Modal Logic
+        const supportModal = document.getElementById('supportModal');
+        const modalContent = document.getElementById('supportModalContent');
+        let modalOpen = false;
 
-            if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
-        })();
+        function toggleSupportModal() {
+            modalOpen = !modalOpen;
+            if(modalOpen) {
+                supportModal.classList.remove('opacity-0', 'pointer-events-none');
+                supportModal.classList.add('opacity-100', 'pointer-events-auto');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            } else {
+                supportModal.classList.remove('opacity-100', 'pointer-events-auto');
+                supportModal.classList.add('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+            }
+        }
+        supportModal.addEventListener('click', (e) => {
+            if (e.target === supportModal) toggleSupportModal();
+        });
     </script>
 </body>
 </html>
