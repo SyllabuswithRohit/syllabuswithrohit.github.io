@@ -1,0 +1,79 @@
+name: Legacy static Library integrity
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - maintenance/static-library-integrity-v1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: static-library-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Links, PWA shell, and local HTTP smoke
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Compile and test the validator
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q scripts
+          python -m unittest scripts/test_validate_static_library.py -v
+
+      - name: Validate every tracked page and PWA reference
+        run: >-
+          python scripts/validate_static_library.py
+          --output build/static-library-validation.json
+
+      - name: Serve the exact tree and smoke the public shell
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m http.server 8080 --bind 127.0.0.1 >build/http-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent --show-error http://127.0.0.1:8080/index.html >/dev/null; then
+              break
+            fi
+            sleep 0.25
+          done
+          curl --fail --silent --show-error http://127.0.0.1:8080/index.html >build/index-smoke.html
+          curl --fail --silent --show-error http://127.0.0.1:8080/manifest.json >build/manifest-smoke.json
+          curl --fail --silent --show-error http://127.0.0.1:8080/sw.js >build/sw-smoke.js
+          test -s build/index-smoke.html
+          test -s build/manifest-smoke.json
+          test -s build/sw-smoke.js
+
+      - name: Upload integrity evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-library-integrity-${{ github.run_id }}
+          if-no-files-found: ignore
+          retention-days: 7
+          path: |
+            build/static-library-validation.json
+            build/http-server.log
+            build/index-smoke.html
+            build/manifest-smoke.json
+            build/sw-smoke.js
