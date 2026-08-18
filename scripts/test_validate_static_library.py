@@ -41,7 +41,7 @@ class StaticLibraryValidatorTest(unittest.TestCase):
             encoding="utf-8",
         )
         (root / "books/book.html").write_text(
-            "<!doctype html><html><body id=""book""><a href=""../index.html"">Library</a></body></html>"".replace('""', '"'),
+            '<!doctype html><html><body id="book"><a href="../index.html">Library</a></body></html>',
             encoding="utf-8",
         )
         (root / "manifest.json").write_text(
