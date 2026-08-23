@@ -1,0 +1,95 @@
+{
+  "project": "easy-roman-hindustani-classics",
+  "generator": "manto_builder.py",
+  "works": [
+    {
+      "id": "toba-tek-singh",
+      "title": "Toba Tek Singh",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 13427,
+      "output_characters": 16551,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "khol-do",
+      "title": "Khol Do",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 5908,
+      "output_characters": 7458,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "thanda-gosht",
+      "title": "Thanda Gosht",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 10784,
+      "output_characters": 13450,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "bu",
+      "title": "Bu",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 11461,
+      "output_characters": 14345,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "kali-shalwar",
+      "title": "Kali Shalwar",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 13551,
+      "output_characters": 16862,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "hatak",
+      "title": "Hatak",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 37976,
+      "output_characters": 47884,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "naya-qanoon",
+      "title": "Naya Qanoon",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 19837,
+      "output_characters": 24714,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "tetwal-ka-kutta",
+      "title": "Tetwal Ka Kutta",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 14693,
+      "output_characters": 18188,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    }
+  ],
+  "failures": []
+}
