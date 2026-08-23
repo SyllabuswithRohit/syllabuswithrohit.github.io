@@ -1,4 +1,4 @@
-exit_code=1
-source_commit=7dcf0adbb5d3fa549788391e6f1701d1f7145cbf
-run=32642149275
-recorded_at=2026-08-23T13:25:00Z
+exit_code=0
+source_commit=e105596492a5ba3dfc32bae998140b7348b2e13c
+run=32642460607
+recorded_at=2026-08-23T13:31:12Z
