@@ -11,6 +11,7 @@ from __future__ import annotations
 import re
 
 import manto_builder as builder
+import premchand_novels_builder as base_converter
 from reader_roman import romanize_devanagari
 
 _base_extract = builder.extract_story
@@ -42,9 +43,21 @@ def canonical_easy_source(text: str) -> str:
     return normalized
 
 
+def safe_reader_roman(text: str) -> str:
+    output = romanize_devanagari(text)
+    # indic-transliteration intentionally preserves a few rare/old Devanagari
+    # signs. Convert any residual token with the project's explicit fallback so
+    # Roman-only validation remains strict rather than silently deleting text.
+    output = base_converter.DEV_TOKEN_RE.sub(
+        lambda match: base_converter.transliterate_word(match.group(0)), output
+    )
+    output = output.replace("़", "")
+    return output
+
+
 builder.extract_story = paragraph_preserving_extract
 builder.easy_source = canonical_easy_source
-builder.romanize = romanize_devanagari
+builder.romanize = safe_reader_roman
 
 stale = builder.OUT / "MANTO_BUILD_FAILURE.txt"
 if stale.exists():
