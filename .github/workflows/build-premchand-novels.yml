@@ -10,6 +10,7 @@ on:
       - reopened
     paths:
       - automation/classics/premchand_novels_builder.py
+      - automation/classics/run_premchand_builder.py
       - .github/workflows/build-premchand-novels.yml
   workflow_dispatch:
 
@@ -45,7 +46,7 @@ jobs:
         run: |
           set +e
           mkdir -p automation/classics generated
-          python automation/classics/premchand_novels_builder.py > automation/classics/premchand-build.log 2>&1
+          python automation/classics/run_premchand_builder.py > automation/classics/premchand-build.log 2>&1
           code=$?
           echo "$code" > automation/classics/premchand-build.exit
           cat automation/classics/premchand-build.log
