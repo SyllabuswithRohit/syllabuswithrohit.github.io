@@ -1,13 +1,6 @@
 name: Build Manto Classics
 
 on:
-  push:
-    branches:
-      - automation/manto-classics-builder
-    paths:
-      - automation/classics/manto_builder.py
-      - automation/classics/premchand_novels_builder.py
-      - .github/workflows/build-manto-public.yml
   pull_request:
     branches:
       - main
@@ -17,12 +10,17 @@ on:
       - reopened
     paths:
       - automation/classics/manto_builder.py
+      - automation/classics/premchand_novels_builder.py
       - .github/workflows/build-manto-public.yml
   workflow_dispatch:
 
 permissions:
   contents: write
   actions: read
+
+concurrency:
+  group: manto-classics-builder
+  cancel-in-progress: true
 
 jobs:
   build-eight-stories:
@@ -60,11 +58,15 @@ jobs:
         run: |
           git config user.name 'SyllabuswithRohit editorial bot'
           git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
-          git add -- generated/works/manto generated/MANTO_QA.md generated/manto-manifest-fragment.json generated/MANTO_BUILD_FAILURE.txt automation/classics/manto-build.log automation/classics/manto-build.exit 2>/dev/null || true
+          git add -- generated/works/manto generated/MANTO_QA.md generated/manto-manifest-fragment.json automation/classics/manto-build.log automation/classics/manto-build.exit
+          if [ -f generated/MANTO_BUILD_FAILURE.txt ]; then
+            git add -- generated/MANTO_BUILD_FAILURE.txt
+          fi
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
             git commit -m 'content: generate all eight Manto first passes'
+            git pull --rebase origin automation/manto-classics-builder
             git push origin HEAD:automation/manto-classics-builder
           fi
 
