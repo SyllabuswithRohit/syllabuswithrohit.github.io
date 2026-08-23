@@ -1,10 +1,31 @@
-BUILD FAILED: RuntimeError: Download failed after 4 attempts: https://hi.wikisource.org/w/api.php: 429 Client Error: Too Many Requests for url: https://hi.wikisource.org/w/api.php?action=parse&page=%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%B2%E0%A4%BE%2F%E0%A5%A7%E0%A5%A6&prop=text&format=json&formatversion=2&disableeditsection=1
-Nirmala 01/25: निर्मला/१ — 8307 chars
-Nirmala 02/25: निर्मला/२ — 11994 chars
-Nirmala 03/25: निर्मला/३ — 26086 chars
-Nirmala 04/25: निर्मला/४ — 7386 chars
+BUILD FAILED: RuntimeError: Godaan 04.txt has suspiciously few paragraphs: 4
+Nirmala 01/25: निर्मला/१ — 7271 chars
+Nirmala 02/25: निर्मला/२ — 11445 chars
+Nirmala 03/25: निर्मला/३ — 24473 chars
+Nirmala 04/25: निर्मला/४ — 7012 chars
 Nirmala 05/25: निर्मला/५ — 11808 chars
-Nirmala 06/25: निर्मला/६ — 10420 chars
-Nirmala 07/25: निर्मला/७ — 25072 chars
+Nirmala 06/25: निर्मला/६ — 9282 chars
+Nirmala 07/25: निर्मला/७ — 22668 chars
 Nirmala 08/25: निर्मला/८ — 14095 chars
 Nirmala 09/25: निर्मला/९ — 5417 chars
+Rate limited by https://hi.wikisource.org/w/api.php; sleeping 36s (attempt 1/10)
+Nirmala 10/25: निर्मला/१० — 21649 chars
+Nirmala 11/25: निर्मला/११ — 11439 chars
+Nirmala 12/25: निर्मला/१२ — 7633 chars
+Nirmala 13/25: निर्मला/१३ — 11686 chars
+Nirmala 14/25: निर्मला/१४ — 5022 chars
+Nirmala 15/25: निर्मला/१५ — 12560 chars
+Nirmala 16/25: निर्मला/१६ — 7003 chars
+Nirmala 17/25: निर्मला/१७ — 11914 chars
+Nirmala 18/25: निर्मला/१८ — 11614 chars
+Nirmala 19/25: निर्मला/१९ — 5708 chars
+Rate limited by https://hi.wikisource.org/w/api.php; sleeping 43s (attempt 1/10)
+Nirmala 20/25: निर्मला/२० — 15171 chars
+Nirmala 21/25: निर्मला/२१ — 10684 chars
+Nirmala 22/25: निर्मला/२२ — 5005 chars
+Nirmala 23/25: निर्मला/२३ — 8233 chars
+Nirmala 24/25: निर्मला/२४ — 4071 chars
+Nirmala 25/25: निर्मला/२५ — 15547 chars
+Godaan 01/36: 15746 chars, 65 paragraphs
+Godaan 02/36: 9943 chars, 14 paragraphs
+Godaan 03/36: 21698 chars, 126 paragraphs
