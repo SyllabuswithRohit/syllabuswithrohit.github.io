@@ -1,0 +1,1 @@
+RuntimeError: Godaan chapter 1 failed Roman-only validation: Devanagari=2, Urdu=0
