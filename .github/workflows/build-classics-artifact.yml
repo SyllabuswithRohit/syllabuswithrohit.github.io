@@ -7,6 +7,17 @@ on:
     paths:
       - tools/classics_builder.py
       - .github/workflows/build-classics-artifact.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - tools/classics_builder.py
+      - .github/workflows/build-classics-artifact.yml
   workflow_dispatch:
 
 permissions:
@@ -42,6 +53,7 @@ jobs:
           retention-days: 7
 
       - name: Persist generated corpus on temporary branch
+        if: github.event_name == 'push'
         shell: bash
         run: |
           git config user.name 'SWR temporary classics builder'
