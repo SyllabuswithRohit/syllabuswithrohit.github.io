@@ -4,11 +4,14 @@ These files are complete machine-assisted first passes and require independent h
 
 | Work | Source chars | Output chars | Devanagari left | Urdu left | Roman-only |
 |---|---:|---:|---:|---:|---|
-| Toba Tek Singh | 13,427 | 16,551 | 0 | 0 | PASS |
-| Khol Do | 5,908 | 7,458 | 0 | 0 | PASS |
-| Thanda Gosht | 10,784 | 13,450 | 0 | 0 | PASS |
-| Bu | 11,461 | 14,345 | 0 | 0 | PASS |
-| Kali Shalwar | 13,551 | 16,862 | 0 | 0 | PASS |
-| Hatak | 37,976 | 47,884 | 0 | 0 | PASS |
-| Naya Qanoon | 19,837 | 24,714 | 0 | 0 | PASS |
-| Tetwal Ka Kutta | 14,693 | 18,188 | 0 | 0 | PASS |
+| Khol Do | 5,908 | 7,622 | 0 | 0 | PASS |
+| Thanda Gosht | 10,784 | 13,964 | 0 | 0 | PASS |
+
+## Failures
+
+- Toba Tek Singh: RuntimeError: Roman-only check failed: Devanagari=9, Urdu=0
+- Bu: RuntimeError: Roman-only check failed: Devanagari=1, Urdu=0
+- Kali Shalwar: RuntimeError: Roman-only check failed: Devanagari=3, Urdu=0
+- Hatak: RuntimeError: Roman-only check failed: Devanagari=8, Urdu=0
+- Naya Qanoon: RuntimeError: Roman-only check failed: Devanagari=5, Urdu=0
+- Tetwal Ka Kutta: RuntimeError: Roman-only check failed: Devanagari=1, Urdu=0
