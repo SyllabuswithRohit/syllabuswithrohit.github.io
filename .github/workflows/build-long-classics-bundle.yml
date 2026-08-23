@@ -36,6 +36,18 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
+      - name: Normalize rare Devanagari variants
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/long_bundle_builder.py')
+          s = p.read_text(encoding='utf-8')
+          old = '.replace("ऑ","ओ").replace("ॉ","ो").replace("ऍ","ए").replace("ॅ","े").replace("़","")'
+          new = old + '.replace("ऩ","न").replace("ऱ","र").replace("ऴ","ळ")'
+          if old not in s:
+              raise SystemExit('normalization target not found')
+          p.write_text(s.replace(old, new), encoding='utf-8')
+          PY
       - name: Build complete long-work bundle
         run: python tools/long_bundle_builder.py
       - name: Upload generated bundle
