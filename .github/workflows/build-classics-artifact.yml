@@ -1,15 +1,9 @@
 name: Build Classics Artifact
 
-# Temporary workflow for one unmerged public-domain accessibility build.
 on:
-  pull_request:
+  push:
     branches:
-      - main
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+      - automation/classics-artifact-20260823
     paths:
       - tools/classics_builder.py
       - .github/workflows/build-classics-artifact.yml
@@ -20,68 +14,39 @@ permissions:
 
 jobs:
   build:
-    if: github.event.pull_request.head.ref == 'automation/classics-artifact-20260823'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
+
     steps:
       - uses: actions/checkout@v4
         with:
           ref: automation/classics-artifact-20260823
           fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install text tools
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
-      - name: Normalize source signs and add request backoff
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('tools/classics_builder.py')
-          s = p.read_text(encoding='utf-8')
-          old = 'text = unicodedata.normalize("NFKC",text).translate(DEV_DIGITS).replace("�","")'
-          new = 'text = unicodedata.normalize("NFKC",text).translate(DEV_DIGITS).replace("�","").replace("ऑ","ओ").replace("ॉ","ो").replace("ऍ","ए").replace("ॅ","े").replace("़","")'
-          if old in s:
-              s = s.replace(old, new)
-          old_json = '''def get_json(url: str, **params):
-    r = SESSION.get(url, params=params, timeout=60)
-    r.raise_for_status()
-    return r.json()
-'''
-          new_json = '''def get_json(url: str, **params):
-    last = None
-    for attempt in range(10):
-        time.sleep(1.25)
-        r = SESSION.get(url, params=params, timeout=60)
-        last = r
-        if r.status_code == 429:
-            retry = r.headers.get("Retry-After")
-            delay = int(retry) if retry and retry.isdigit() else min(60, 5 * (attempt + 1))
-            time.sleep(delay)
-            continue
-        r.raise_for_status()
-        return r.json()
-    assert last is not None
-    last.raise_for_status()
-    raise RuntimeError(f"request retries exhausted: {url}")
-'''
-          if old_json in s:
-              s = s.replace(old_json, new_json)
-          p.write_text(s, encoding='utf-8')
-          PY
-      - name: Build complete first-pass files
+
+      - name: Build complete long-work first passes
         run: python tools/classics_builder.py
+
       - name: Validate and upload generated corpus
         uses: actions/upload-artifact@v4
         with:
           name: classics-generated-20260823
           path: generated
           if-no-files-found: error
-          retention-days: 2
+          retention-days: 7
+
       - name: Persist generated corpus on temporary branch
+        shell: bash
         run: |
           git config user.name 'SWR temporary classics builder'
           git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
           git add -- generated
           git commit -m 'chore: persist temporary classics build artifact'
+          git pull --rebase origin automation/classics-artifact-20260823
           git push origin HEAD:automation/classics-artifact-20260823
