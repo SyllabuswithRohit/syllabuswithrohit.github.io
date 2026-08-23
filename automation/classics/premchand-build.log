@@ -1,4 +1,4 @@
-BUILD FAILED: RuntimeError: Nirmala chapter 1 failed Roman-only validation: Devanagari=1, Urdu=0
+BUILD FAILED: RuntimeError: Godaan chapter 1 failed Roman-only validation: Devanagari=2, Urdu=0
 Nirmala 01/25: निर्मला/१ — 7271 chars
 Nirmala 02/25: निर्मला/२ — 11445 chars
 Nirmala 03/25: निर्मला/३ — 24473 chars
@@ -8,7 +8,7 @@ Nirmala 06/25: निर्मला/६ — 9282 chars
 Nirmala 07/25: निर्मला/७ — 22668 chars
 Nirmala 08/25: निर्मला/८ — 14095 chars
 Nirmala 09/25: निर्मला/९ — 5417 chars
-Rate limited by https://hi.wikisource.org/w/api.php; sleeping 14s (attempt 1/10)
+Rate limited by https://hi.wikisource.org/w/api.php; sleeping 13s (attempt 1/10)
 Nirmala 10/25: निर्मला/१० — 21649 chars
 Nirmala 11/25: निर्मला/११ — 11439 chars
 Nirmala 12/25: निर्मला/१२ — 7633 chars
@@ -19,7 +19,7 @@ Nirmala 16/25: निर्मला/१६ — 7003 chars
 Nirmala 17/25: निर्मला/१७ — 11914 chars
 Nirmala 18/25: निर्मला/१८ — 11614 chars
 Nirmala 19/25: निर्मला/१९ — 5708 chars
-Rate limited by https://hi.wikisource.org/w/api.php; sleeping 44s (attempt 1/10)
+Rate limited by https://hi.wikisource.org/w/api.php; sleeping 43s (attempt 1/10)
 Nirmala 20/25: निर्मला/२० — 15171 chars
 Nirmala 21/25: निर्मला/२१ — 10684 chars
 Nirmala 22/25: निर्मला/२२ — 5005 chars
