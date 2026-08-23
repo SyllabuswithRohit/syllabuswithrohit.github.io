@@ -7,6 +7,12 @@ on:
     paths:
       - tools/classics_builder.py
       - .github/workflows/build-classics-artifact.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - tools/classics_builder.py
+      - .github/workflows/build-classics-artifact.yml
   workflow_dispatch:
 
 permissions:
