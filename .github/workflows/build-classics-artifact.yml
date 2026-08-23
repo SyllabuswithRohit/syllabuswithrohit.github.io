@@ -1,7 +1,7 @@
 name: Build Classics Artifact
 
 # Temporary, unmerged artifact build for the private editorial branch.
-# Retriggered after source, permissions, and request-retry checks on 23 August 2026.
+# Retriggered after the default-branch workflow was installed on 23 August 2026.
 on:
   push:
     branches:
