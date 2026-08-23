@@ -24,8 +24,19 @@ def robust_paragraphs_from_plain(text: str) -> list[str]:
     return blocks
 
 
+def safe_reader_roman(text: str) -> str:
+    output = romanize_devanagari(text)
+    # Preserve rare/old Devanagari signs by converting each residual token with
+    # the project's explicit fallback rather than deleting it.
+    output = builder.DEV_TOKEN_RE.sub(
+        lambda match: builder.transliterate_word(match.group(0)), output
+    )
+    output = output.replace("़", "")
+    return output
+
+
 builder.paragraphs_from_plain = robust_paragraphs_from_plain
-builder.romanize = romanize_devanagari
+builder.romanize = safe_reader_roman
 
 # Remove stale diagnostics only when beginning a fresh, auditable run. A new
 # failure file is written by builder.main if this invocation fails.
