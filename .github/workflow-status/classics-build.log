@@ -1,10 +1,11 @@
 Traceback (most recent call last):
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 370, in <module>
-    main()
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 360, in main
-    build_godaan(qa)
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 295, in build_godaan
-    assert_roman(path)
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 204, in assert_roman
-    raise RuntimeError(f"Indic script remains in {path}: U+{ord(m.group()):04X}")
-RuntimeError: Indic script remains in generated/works/premchand/godaan/chapters/01.md: U+0929
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder_patched.py", line 34, in <module>
+    classics_builder.main()
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 361, in main
+    build_urdu(qa)
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 335, in build_urdu
+    raw, url = archive_ocr("urduemualla")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 311, in archive_ocr
+    raise RuntimeError(f"no OCR text for {identifier}")
+RuntimeError: no OCR text for urduemualla
