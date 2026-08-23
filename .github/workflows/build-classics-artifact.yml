@@ -29,7 +29,7 @@ jobs:
           python-version: '3.12'
       - name: Install text tools
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
-      - name: Normalize rare source signs
+      - name: Normalize source signs and add request backoff
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -39,7 +39,32 @@ jobs:
           new = 'text = unicodedata.normalize("NFKC",text).translate(DEV_DIGITS).replace("�","").replace("ऑ","ओ").replace("ॉ","ो").replace("ऍ","ए").replace("ॅ","े").replace("़","")'
           if old not in s:
               raise SystemExit('roman_hi normalization target not found')
-          p.write_text(s.replace(old, new), encoding='utf-8')
+          s = s.replace(old, new)
+          old_json = '''def get_json(url: str, **params):
+    r = SESSION.get(url, params=params, timeout=60)
+    r.raise_for_status()
+    return r.json()
+'''
+          new_json = '''def get_json(url: str, **params):
+    last = None
+    for attempt in range(10):
+        time.sleep(1.25)
+        r = SESSION.get(url, params=params, timeout=60)
+        last = r
+        if r.status_code == 429:
+            retry = r.headers.get("Retry-After")
+            delay = int(retry) if retry and retry.isdigit() else min(60, 5 * (attempt + 1))
+            time.sleep(delay)
+            continue
+        r.raise_for_status()
+        return r.json()
+    assert last is not None
+    last.raise_for_status()
+    raise RuntimeError(f"request retries exhausted: {url}")
+'''
+          if old_json not in s:
+              raise SystemExit('get_json target not found')
+          p.write_text(s.replace(old_json, new_json), encoding='utf-8')
           PY
       - name: Build complete first-pass files
         run: python tools/classics_builder.py
