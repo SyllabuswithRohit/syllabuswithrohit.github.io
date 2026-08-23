@@ -10,6 +10,7 @@ on:
       - reopened
     paths:
       - automation/classics/manto_builder.py
+      - automation/classics/run_manto_builder.py
       - automation/classics/premchand_novels_builder.py
       - .github/workflows/build-manto-public.yml
   workflow_dispatch:
@@ -33,20 +34,26 @@ jobs:
           ref: automation/manto-classics-builder
           fetch-depth: 0
 
+      - name: Bring in shared reader converter
+        shell: bash
+        run: |
+          git fetch origin automation/premchand-novels-builder
+          git show origin/automation/premchand-novels-builder:automation/classics/reader_roman.py > automation/classics/reader_roman.py
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
 
       - name: Build all eight complete first passes
         shell: bash
         run: |
           set +e
           mkdir -p automation/classics generated
-          python automation/classics/manto_builder.py > automation/classics/manto-build.log 2>&1
+          python automation/classics/run_manto_builder.py > automation/classics/manto-build.log 2>&1
           code=$?
           echo "$code" > automation/classics/manto-build.exit
           cat automation/classics/manto-build.log
@@ -65,7 +72,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
-            git commit -m 'content: generate all eight Manto first passes'
+            git commit -m 'content: generate all eight Manto reader-oriented first passes'
             git pull --rebase origin automation/manto-classics-builder
             git push origin HEAD:automation/manto-classics-builder
           fi
