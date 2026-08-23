@@ -7,6 +7,16 @@ on:
     paths:
       - automation/classics/premchand_novels_builder.py
       - .github/workflows/build-premchand-novels.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - automation/classics/premchand_novels_builder.py
+      - .github/workflows/build-premchand-novels.yml
   workflow_dispatch:
 
 permissions:
