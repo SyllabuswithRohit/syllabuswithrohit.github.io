@@ -1,5 +1,6 @@
 name: Build Classics Artifact
 
+# Temporary, unmerged artifact build for the private editorial branch.
 on:
   push:
     branches:
