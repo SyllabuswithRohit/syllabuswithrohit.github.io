@@ -29,14 +29,14 @@ jobs:
           python-version: '3.12'
       - name: Install text tools
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
-      - name: Normalize rare source vowel signs
+      - name: Normalize rare source signs
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('tools/classics_builder.py')
           s = p.read_text(encoding='utf-8')
           old = 'text = unicodedata.normalize("NFKC",text).translate(DEV_DIGITS).replace("�","")'
-          new = 'text = unicodedata.normalize("NFKC",text).translate(DEV_DIGITS).replace("�","").replace("ऑ","ओ").replace("ॉ","ो").replace("ऍ","ए").replace("ॅ","े")'
+          new = 'text = unicodedata.normalize("NFKC",text).translate(DEV_DIGITS).replace("�","").replace("ऑ","ओ").replace("ॉ","ो").replace("ऍ","ए").replace("ॅ","े").replace("़","")'
           if old not in s:
               raise SystemExit('roman_hi normalization target not found')
           p.write_text(s.replace(old, new), encoding='utf-8')
