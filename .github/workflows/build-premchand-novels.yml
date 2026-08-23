@@ -1,12 +1,6 @@
 name: Build Premchand Novels
 
 on:
-  push:
-    branches:
-      - automation/premchand-novels-builder
-    paths:
-      - automation/classics/premchand_novels_builder.py
-      - .github/workflows/build-premchand-novels.yml
   pull_request:
     branches:
       - main
@@ -22,6 +16,10 @@ on:
 permissions:
   contents: write
   actions: read
+
+concurrency:
+  group: premchand-novels-builder
+  cancel-in-progress: true
 
 jobs:
   build-complete-novels:
@@ -43,7 +41,6 @@ jobs:
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4
 
       - name: Build complete Nirmala and Godaan first passes
-        id: build
         shell: bash
         run: |
           set +e
@@ -65,6 +62,7 @@ jobs:
             echo 'No generated changes to commit.'
           else
             git commit -m 'content: generate complete Premchand novel first passes'
+            git pull --rebase origin automation/premchand-novels-builder
             git push origin HEAD:automation/premchand-novels-builder
           fi
 
