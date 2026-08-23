@@ -1,5 +1,6 @@
 name: Build Classics Artifact
 
+# Retry after normalizing the full precomposed Devanagari nukta set.
 on:
   push:
     branches:
