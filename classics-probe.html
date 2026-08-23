@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>Classics probe</title><pre id="out">loading</pre><script>
+(async()=>{
+ try {
+  const u='https://raw.githubusercontent.com/pandeyshikha1098/privacy_policy/45b42cf18333411f035757a9ecd8b6859fa84ae6/hindi-stories/storyBook/premchandra/godan/01.txt';
+  const t=await (await fetch(u)).text();
+  document.getElementById('out').textContent='OK '+t.length+'\n'+t.slice(0,300);
+ } catch(e){document.getElementById('out').textContent='ERR '+e;}
+})();
+</script>
