@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/classics/run_premchand_builder.py", line 14, in <module>
+    from reader_roman import romanize_devanagari
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/classics/reader_roman.py", line 14, in <module>
+    from indic_transliteration import sanscript
+ModuleNotFoundError: No module named 'indic_transliteration'
