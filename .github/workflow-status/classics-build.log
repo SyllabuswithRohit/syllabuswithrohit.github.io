@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 370, in <module>
+    main()
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 360, in main
+    build_godaan(qa)
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 295, in build_godaan
+    assert_roman(path)
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 204, in assert_roman
+    raise RuntimeError(f"Indic script remains in {path}: U+{ord(m.group()):04X}")
+RuntimeError: Indic script remains in generated/works/premchand/godaan/chapters/01.md: U+0929
