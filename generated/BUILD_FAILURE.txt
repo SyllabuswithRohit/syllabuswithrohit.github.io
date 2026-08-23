@@ -1,0 +1,1 @@
+RuntimeError: Nirmala chapter 1 failed Roman-only validation: Devanagari=1, Urdu=0
