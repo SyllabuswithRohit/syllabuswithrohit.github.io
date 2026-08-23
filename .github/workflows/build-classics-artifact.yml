@@ -1,6 +1,7 @@
 name: Build Classics Artifact
 
 # Temporary, unmerged artifact build for the private editorial branch.
+# Retriggered after source, permissions, and request-retry checks on 23 August 2026.
 on:
   push:
     branches:
@@ -80,7 +81,7 @@ jobs:
           name: classics-generated-20260823
           path: generated
           if-no-files-found: error
-          retention-days: 1
+          retention-days: 2
       - name: Persist successful corpus on temporary branch
         if: github.event_name == 'push'
         run: |
