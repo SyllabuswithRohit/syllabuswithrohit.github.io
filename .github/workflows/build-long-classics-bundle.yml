@@ -46,7 +46,12 @@ jobs:
           new = old + '.replace("ऩ","न").replace("ऱ","र").replace("ऴ","ळ")'
           if old not in s:
               raise SystemExit('normalization target not found')
-          p.write_text(s.replace(old, new), encoding='utf-8')
+          s = s.replace(old, new)
+          old_line = 'out = transliterate(text,sanscript.DEVANAGARI,sanscript.ITRANS)'
+          new_line = old_line + '\n    out = out.translate(str.maketrans({"ऩ":"n","ऱ":"r","ऴ":"l","ॉ":"o","ॅ":"e","़":""}))'
+          if old_line not in s:
+              raise SystemExit('post-transliteration cleanup target not found')
+          p.write_text(s.replace(old_line, new_line), encoding='utf-8')
           PY
       - name: Build complete long-work bundle
         run: python tools/long_bundle_builder.py
