@@ -41,24 +41,45 @@ jobs:
       - name: Install text tools
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
 
-      - name: Build complete long-work first passes
-        run: python tools/classics_builder.py
+      - name: Run complete long-work build and capture outcome
+        id: build
+        shell: bash
+        run: |
+          set +e
+          python tools/classics_builder.py > /tmp/classics-build.log 2>&1
+          code=$?
+          cat /tmp/classics-build.log
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
 
-      - name: Validate and upload generated corpus
+      - name: Persist generated corpus, log and status on temporary branch
+        shell: bash
+        run: |
+          mkdir -p .github/workflow-status
+          cp /tmp/classics-build.log .github/workflow-status/classics-build.log 2>/dev/null || echo 'Build log missing.' > .github/workflow-status/classics-build.log
+          {
+            echo "exit_code=${{ steps.build.outputs.exit_code }}"
+            echo "source_commit=${GITHUB_SHA}"
+            echo "run=${GITHUB_RUN_ID}"
+            echo "recorded_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > .github/workflow-status/classics-build.status
+
+          git config user.name 'SWR temporary classics builder'
+          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
+          git add -- generated .github/workflow-status/classics-build.log .github/workflow-status/classics-build.status
+          if git diff --cached --quiet; then
+            echo 'No generated or status changes to commit.'
+          else
+            git commit -m 'chore: record classics artifact build outcome'
+            git pull --rebase origin automation/classics-artifact-20260823
+            git push origin HEAD:automation/classics-artifact-20260823
+          fi
+
+      - name: Upload generated corpus when present
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: classics-generated-20260823
           path: generated
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 7
-
-      - name: Persist generated corpus on temporary branch
-        if: github.event_name == 'push'
-        shell: bash
-        run: |
-          git config user.name 'SWR temporary classics builder'
-          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
-          git add -- generated
-          git commit -m 'chore: persist temporary classics build artifact'
-          git pull --rebase origin automation/classics-artifact-20260823
-          git push origin HEAD:automation/classics-artifact-20260823
