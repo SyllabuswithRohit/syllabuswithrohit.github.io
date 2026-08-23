@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
-      - name: Normalize rare Devanagari variants
+      - name: Normalize source and OCR variants
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -51,7 +51,27 @@ jobs:
           new_line = old_line + '\n    out = out.translate(str.maketrans({"ऩ":"n","ऱ":"r","ऴ":"l","ॉ":"o","ॅ":"e","़":""}))'
           if old_line not in s:
               raise SystemExit('post-transliteration cleanup target not found')
-          p.write_text(s.replace(old_line, new_line), encoding='utf-8')
+          s = s.replace(old_line, new_line)
+          old_urdu = '''    raw,url=archive_ocr("urduemualla")
+    if len(raw)<100000:
+        raw,url=archive_ocr("in.ernet.dli.2015.435597")'''
+          new_urdu = '''    raw = ""
+    url = ""
+    last_error = None
+    for identifier in ("kitaburduemualla00ghal", "urduimualla01ghaluoft", "in.ernet.dli.2015.435597"):
+        try:
+            candidate, candidate_url = archive_ocr(identifier)
+            if len(candidate) > len(raw):
+                raw, url = candidate, candidate_url
+            if len(raw) >= 100000:
+                break
+        except Exception as exc:
+            last_error = exc
+    if len(raw) < 80000:
+        raise RuntimeError(f"No usable Urdu-e-Mualla OCR; last error: {last_error}")'''
+          if old_urdu not in s:
+              raise SystemExit('Urdu source target not found')
+          p.write_text(s.replace(old_urdu, new_urdu), encoding='utf-8')
           PY
       - name: Build complete long-work bundle
         run: python tools/long_bundle_builder.py
