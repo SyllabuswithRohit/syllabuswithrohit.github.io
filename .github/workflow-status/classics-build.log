@@ -1,28 +1,10 @@
-{
-  "nirmala": {
-    "source_chars": 292416,
-    "output_chars": 381895,
-    "units": 25,
-    "status": "machine_assisted_complete_first_pass"
-  },
-  "godaan": {
-    "source_chars": 782530,
-    "output_chars": 1023783,
-    "units": 36,
-    "status": "machine_assisted_complete_first_pass"
-  },
-  "urdu-e-mualla": {
-    "source_chars": 312919,
-    "output_chars": 311297,
-    "units": 24,
-    "ocr_paragraphs": 2307,
-    "status": "ocr_machine_assisted_complete_first_pass"
-  },
-  "validation": {
-    "markdown_files": 94,
-    "residual_indic_chars": 0,
-    "godaan_chapters": 36,
-    "nirmala_chapters": 25,
-    "urdu_parts": 24
-  }
-}
+Traceback (most recent call last):
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 370, in <module>
+    main()
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 360, in main
+    build_godaan(qa)
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 295, in build_godaan
+    assert_roman(path)
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/tools/classics_builder.py", line 204, in assert_roman
+    raise RuntimeError(f"Indic script remains in {path}: U+{ord(m.group()):04X}")
+RuntimeError: Indic script remains in generated/works/premchand/godaan/chapters/01.md: U+0929
