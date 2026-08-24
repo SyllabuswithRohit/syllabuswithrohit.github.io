@@ -15,7 +15,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,16 +23,18 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - run: python -m pip install --disable-pip-version-check aksharamukha
+          python-version: '3.10'
+      - name: Install transliteration engines
+        run: python -m pip install --disable-pip-version-check aksharamukha ai4bharat-transliteration==1.1.3
       - run: python automation/test_transliteration.py
       - name: Commit samples
+        if: always()
         run: |
           git config user.name 'SyllabuswithRohit editorial bot'
           git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
-          git add generated/logs/translit-samples.txt
+          git add generated/logs/translit-samples.txt 2>/dev/null || true
           if ! git diff --cached --quiet; then
-            git commit -m 'chore: record transliteration engine samples'
+            git commit -m 'chore: record Urdu transliteration engine samples'
             git pull --rebase origin automation/classics-builder
             git push origin HEAD:automation/classics-builder
           fi
