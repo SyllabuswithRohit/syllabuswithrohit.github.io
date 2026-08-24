@@ -7,6 +7,16 @@ on:
     paths:
       - automation/build_urdu_e_mualla.py
       - .github/workflows/build-urdu-e-mualla.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - automation/build_urdu_e_mualla.py
+      - .github/workflows/build-urdu-e-mualla.yml
   workflow_dispatch:
 
 permissions:
@@ -15,6 +25,7 @@ permissions:
 
 jobs:
   build:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'automation/roman-classics-long-builder'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
