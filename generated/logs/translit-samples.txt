@@ -1,0 +1,13 @@
+## hindi
+SOURCE=यूं तो बाबू उदयभानुलाल के परिवार में बीसों ही प्राणी थे; कोई ममेरा भाई था, कोई फुफेरा। बड़ी का नाम निर्मला और छोटी का कृष्णा था।
+RomanColloquial=yum to babu udayabhanulal ke parivar mem bisom hi prani the; koi mamera bhai tha, koi phuphera. bari ka nam nirmala aur chhoti ka krishna tha.
+RomanReadable=yoom' to baaboo udayabhaanulaal ke parivaar mem' beesom' hee praanee the; koee mameraa bhaaee thaa, koee phupheraa. baree kaa naam nirmalaa aur chhot'ee kaa kri'shnaa thaa.
+IAST=yūṃ to bābū udayabhānulāl ke parivār meṃ bīsoṃ hī prāṇī the; koī mamerā bhāī thā, koī phupherā. bar̤ī kā nām nirmalā aur choṭī kā kṛṣṇā thā.
+ITRANS=yUM to bAbU udayabhAnulAl ke parivAr meM bIsoM hI prANI the; koI mamerA bhAI thA, koI phupherA. ba.DI kA nAm nirmalA aur ChoTI kA kR^iShNA thA.
+
+## urdu
+SOURCE=بٹوارے کے دو تین سال بعد پاکستان اور ہندوستان کی حکومتوں کو خیال آیا کہ پاگلوں کا تبادلہ بھی ہونا چاہیے۔
+RomanColloquial=بtoare ke do teن saل بaد paکسtaن oر hنdoسtaن ke hkoمtom ko kheaل aya کh paگlom ka تbaدلh bhe hona chahee.
+RomanReadable=بt'oaare ke do teن saaل بaد paaکسtaaن oر h'نdoسtaaن ke h'koمtom' ko kheaaل aayaa کh' paaگlom' kaa تbaaدلh' bhe honaa chaahee.
+IAST=بṭoāre ke do teن sāل بaد pāکسtāن oر ḥنdoسtāن ke ḥkoمtoṃ ko k͟heāل āyā کḥ pāگloṃ kā تbāدلḥ bhe honā cāhee.
+ITRANS=بToAre ke do teن sAل بaد pAکسtAن oر HنdoسtAن ke HkoمtoM ko KeAل AyA کH pAگloM kA تbAدلH bhe honA chAhee.
