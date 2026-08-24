@@ -1,17 +1,13 @@
 Building Nirmala
 Traceback (most recent call last):
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 230, in <module>
-    try:main()
-        ^^^^^^
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 82, in <module>
+    b.main()
   File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 224, in main
     print("Building Nirmala",flush=True);qs.append(build_nirmala())
                                                    ^^^^^^^^^^^^^^^
   File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 133, in build_nirmala
     pages=fetch_wikisource_pages("निर्मला","निर्मला")
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 118, in fetch_wikisource_pages
-    r=S.get("https://hi.wikisource.org/w/api.php",params={"action":"parse","page":title,"prop":"text","format":"json","formatversion":"2"},timeout=60);r.raise_for_status()
-                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/site-packages/requests/models.py", line 1167, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://hi.wikisource.org/w/api.php?action=parse&page=%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%B2%E0%A4%BE%2F%E0%A5%A7%E0%A5%A6&prop=text&format=json&formatversion=2
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 75, in fetch_wikisource_pages
+    raise RuntimeError(f"Wikisource extract too short: {title}: {len(text)} chars")
+RuntimeError: Wikisource extract too short: निर्मला/१: 0 chars
