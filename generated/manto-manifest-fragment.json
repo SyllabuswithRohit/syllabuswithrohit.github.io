@@ -1,0 +1,36 @@
+{
+  "project": "easy-roman-hindustani-classics",
+  "generator": "manto_builder.py",
+  "works": [
+    {
+      "id": "khol-do",
+      "title": "Khol Do",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 5908,
+      "output_characters": 7622,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    },
+    {
+      "id": "thanda-gosht",
+      "title": "Thanda Gosht",
+      "author": "Saadat Hasan Manto",
+      "form": "short_story",
+      "source_characters": 10784,
+      "output_characters": 13964,
+      "translation_status": "machine_assisted_complete_first_pass",
+      "human_review": "pending",
+      "roman_only_validation": "passed"
+    }
+  ],
+  "failures": [
+    "Toba Tek Singh: RuntimeError: Roman-only check failed: Devanagari=9, Urdu=0",
+    "Bu: RuntimeError: Roman-only check failed: Devanagari=1, Urdu=0",
+    "Kali Shalwar: RuntimeError: Roman-only check failed: Devanagari=3, Urdu=0",
+    "Hatak: RuntimeError: Roman-only check failed: Devanagari=8, Urdu=0",
+    "Naya Qanoon: RuntimeError: Roman-only check failed: Devanagari=5, Urdu=0",
+    "Tetwal Ka Kutta: RuntimeError: Roman-only check failed: Devanagari=1, Urdu=0"
+  ]
+}

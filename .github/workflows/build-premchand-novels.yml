@@ -1,0 +1,91 @@
+name: Build Premchand Novels
+
+on:
+  push:
+    branches:
+      - automation/premchand-novels-builder
+    paths:
+      - automation/classics/premchand_novels_builder.py
+      - .github/workflows/build-premchand-novels.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - automation/classics/premchand_novels_builder.py
+      - .github/workflows/build-premchand-novels.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  build-complete-novels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out automation branch
+        uses: actions/checkout@v4
+        with:
+          ref: automation/premchand-novels-builder
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+
+      - name: Build complete Nirmala and Godaan first passes
+        id: build
+        shell: bash
+        run: |
+          set +e
+          mkdir -p automation/classics generated
+          python automation/classics/premchand_novels_builder.py > automation/classics/premchand-build.log 2>&1
+          code=$?
+          echo "$code" > automation/classics/premchand-build.exit
+          cat automation/classics/premchand-build.log
+          exit 0
+
+      - name: Commit generated reader files and diagnostics
+        if: always()
+        shell: bash
+        run: |
+          git config user.name 'SyllabuswithRohit editorial bot'
+          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
+          git add -- generated automation/classics/premchand-build.log automation/classics/premchand-build.exit
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'content: generate complete Premchand novel first passes'
+            git push origin HEAD:automation/premchand-novels-builder
+          fi
+
+      - name: Upload generated bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: premchand-novels-roman-hindustani
+          path: |
+            generated
+            automation/classics/premchand-build.log
+            automation/classics/premchand-build.exit
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Enforce build result
+        if: always()
+        shell: bash
+        run: |
+          code=$(cat automation/classics/premchand-build.exit 2>/dev/null || echo 1)
+          if [ "$code" -ne 0 ]; then
+            echo "Builder exited with code $code"
+            exit "$code"
+          fi
