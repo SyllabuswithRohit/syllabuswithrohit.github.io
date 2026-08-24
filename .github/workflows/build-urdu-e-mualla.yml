@@ -39,7 +39,11 @@ jobs:
       - name: Install dependency
         run: python -m pip install --disable-pip-version-check requests
       - name: Build Ghalib letters
-        run: python automation/build_urdu_e_mualla.py | tee generated/urdu-e-mualla-build.log
+        shell: bash
+        run: |
+          mkdir -p generated
+          set -o pipefail
+          python automation/build_urdu_e_mualla.py 2>&1 | tee generated/urdu-e-mualla-build.log
       - name: Commit generated work
         run: |
           git config user.name 'SyllabuswithRohit editorial bot'
