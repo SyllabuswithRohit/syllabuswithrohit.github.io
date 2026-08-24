@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
+
 from aksharamukha import transliterate
 
 samples = {
@@ -13,10 +14,28 @@ for name, text in samples.items():
         try:
             kwargs = {"pre_options": ["RemoveSchwaHindi"]} if name == "hindi" else {}
             out = transliterate.process("Devanagari" if name == "hindi" else "Urdu", target, text, **kwargs)
-            lines.append(f"{target}={out}")
+            lines.append(f"Aksharamukha-{target}={out}")
         except Exception as exc:
-            lines.append(f"{target}=ERROR {type(exc).__name__}: {exc}")
+            lines.append(f"Aksharamukha-{target}=ERROR {type(exc).__name__}: {exc}")
     lines.append("")
+
+try:
+    from ai4bharat.transliteration import XlitEngine
+
+    urdu_engine = XlitEngine("ur", src_script_type="indic", beam_width=8, rescore=False)
+    for text in [
+        samples["urdu"],
+        "معلوم نہیں یہ بات معقول تھی یا غیر معقول، بہرحال دانش مندوں کے فیصلے کے مطابق ادھر ادھر اونچی سطح کی کانفرنسیں ہوئیں۔",
+        "بشن سنگھ نے فضل دین کو ایک نظر دیکھا اور کچھ بڑبڑانے لگا۔",
+    ]:
+        try:
+            result = urdu_engine.translit_sentence(text, lang_code="ur")
+            lines.append(f"AI4Bharat-SOURCE={text}\nAI4Bharat-RESULT={result}\n")
+        except Exception as exc:
+            lines.append(f"AI4Bharat-ERROR={type(exc).__name__}: {exc}\n")
+except Exception as exc:
+    lines.append(f"AI4Bharat-INIT-ERROR={type(exc).__name__}: {exc}\n")
+
 path = Path("generated/logs/translit-samples.txt")
 path.parent.mkdir(parents=True, exist_ok=True)
 path.write_text("\n".join(lines), encoding="utf-8")
