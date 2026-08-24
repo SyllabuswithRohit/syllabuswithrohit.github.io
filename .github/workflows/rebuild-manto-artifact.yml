@@ -1,0 +1,106 @@
+name: Rebuild Manto Artifact
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: >-
+      (github.event_name == 'issues' && startsWith(github.event.issue.title, '[rebuild-manto-artifact]')) ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out Manto automation branch
+        uses: actions/checkout@v4
+        with:
+          ref: automation/manto-classics-builder
+          fetch-depth: 0
+
+      - name: Bring in shared reader converter
+        shell: bash
+        run: |
+          git fetch origin automation/premchand-novels-builder
+          git show origin/automation/premchand-novels-builder:automation/classics/reader_roman.py > automation/classics/reader_roman.py
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
+
+      - name: Rebuild all eight complete stories
+        id: build
+        shell: bash
+        run: |
+          set +e
+          mkdir -p automation/classics generated .github/workflow-status
+          python automation/classics/run_manto_builder.py > automation/classics/manto-build.log 2>&1
+          code=$?
+          cat automation/classics/manto-build.log
+          echo "$code" > automation/classics/manto-build.exit
+          {
+            echo "exit_code=$code"
+            echo "run=${GITHUB_RUN_ID}"
+            echo "source_commit=$(git rev-parse HEAD)"
+            echo "recorded_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > .github/workflow-status/manto-rebuild.status
+          exit 0
+
+      - name: Commit regenerated stories and diagnostics
+        if: always()
+        shell: bash
+        run: |
+          git config user.name 'SyllabuswithRohit editorial bot'
+          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
+          git add -- generated/works/manto \
+                     generated/MANTO_QA.md \
+                     generated/manto-manifest-fragment.json \
+                     automation/classics/manto-build.log \
+                     automation/classics/manto-build.exit \
+                     .github/workflow-status/manto-rebuild.status
+          if [ -f generated/MANTO_BUILD_FAILURE.txt ]; then
+            git add -- generated/MANTO_BUILD_FAILURE.txt
+          fi
+          if git diff --cached --quiet; then
+            echo 'No regenerated changes to commit.'
+          else
+            git commit -m 'content: rebuild all eight Manto stories from locked openings'
+            git pull --rebase origin automation/manto-classics-builder
+            git push origin HEAD:automation/manto-classics-builder
+          fi
+
+      - name: Upload regenerated bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manto-eight-stories-rebuilt
+          path: |
+            generated/works/manto
+            generated/MANTO_QA.md
+            generated/manto-manifest-fragment.json
+            generated/MANTO_BUILD_FAILURE.txt
+            automation/classics/manto-build.log
+            automation/classics/manto-build.exit
+            .github/workflow-status/manto-rebuild.status
+          if-no-files-found: warn
+          retention-days: 3
+
+      - name: Enforce builder result
+        if: always()
+        shell: bash
+        run: |
+          code=$(cat automation/classics/manto-build.exit 2>/dev/null || echo 1)
+          if [ "$code" -ne 0 ]; then
+            echo "Manto builder exited with code $code"
+            exit "$code"
+          fi
