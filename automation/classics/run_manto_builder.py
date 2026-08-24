@@ -3,7 +3,8 @@
 
 Rekhta's rendered DOM may expose individual words on separate lines. This wrapper
 reconstructs prose paragraphs, normalizes mixed nukta spellings before controlled
-vocabulary replacement, and uses the reader-oriented Roman converter.
+vocabulary replacement, fixes overly broad legacy story-opening markers, and uses
+the reader-oriented Roman converter.
 """
 
 from __future__ import annotations
@@ -13,6 +14,37 @@ import re
 import manto_builder as builder
 import premchand_novels_builder as base_converter
 from reader_roman import romanize_devanagari
+
+# Three legacy opening markers were broad enough to select a site summary or a
+# late paragraph instead of the first authorial paragraph. Tighten them before
+# any source is fetched. Minimum lengths are also raised to reject partial text.
+for story in builder.STORIES:
+    if story["id"] == "kali-shalwar":
+        story["starts"] = [
+            "दिल्ली आने से पहले वो अंबाला छावनी में थी",
+            "दिल्ली आने से पहले वह अंबाला छावनी में थी",
+            "दिल्ली आने से पहले वो अम्बाला छावनी में थी",
+            "दिल्ली आने से पहले वह अम्बाला छावनी में थी",
+            "दिल्ली आने से पहले",
+        ]
+        story["min_chars"] = 18000
+    elif story["id"] == "thanda-gosht":
+        story["starts"] = [
+            "ईशर सिंह जूंही होटल के कमरे में दाख़िल हुआ",
+            "ईशर सिंह ज्यों ही होटल के कमरे में दाख़िल हुआ",
+            "ईशर सिंह जूँही होटल के कमरे में दाख़िल हुआ",
+            "ईश्वर सिंह ज्यों ही होटल के कमरे में दाख़िल हुआ",
+            "ईशर सिंह जूंही होटल के कमरे में",
+        ]
+        story["min_chars"] = 9000
+    elif story["id"] == "naya-qanoon":
+        story["starts"] = [
+            "मंगू कोचवान अपने अड्डे में बहुत अक़लमंद आदमी समझा जाता था",
+            "मंगू कोचवान अपने अड्डे में बहुत अक्लमंद आदमी समझा जाता था",
+            "उस्ताद मंगू अपने अड्डे में बहुत अक़लमंद आदमी समझा जाता था",
+            "मंगू कोचवान अपने अड्डे में",
+        ]
+        story["min_chars"] = 14000
 
 _base_extract = builder.extract_story
 
