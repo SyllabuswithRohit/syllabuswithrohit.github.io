@@ -1,7 +1,7 @@
 # Editorial Notes — Bade Bhai Sahab
 
 - Complete source characters processed: 16861
-- Roman reader characters saved: 21409
+- Roman reader characters saved: 20458
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

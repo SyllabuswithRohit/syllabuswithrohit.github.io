@@ -1,7 +1,7 @@
 # Editorial Notes — Ishwariya Nyay
 
 - Complete source characters processed: 34292
-- Roman reader characters saved: 42895
+- Roman reader characters saved: 42206
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

@@ -1,7 +1,7 @@
 # Editorial Notes — Balidan
 
 - Complete source characters processed: 14908
-- Roman reader characters saved: 18819
+- Roman reader characters saved: 18427
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

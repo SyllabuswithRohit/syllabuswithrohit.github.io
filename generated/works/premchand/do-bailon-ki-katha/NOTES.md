@@ -1,7 +1,7 @@
 # Editorial Notes — Do Bailon Ki Katha
 
 - Complete source characters processed: 19608
-- Roman reader characters saved: 24378
+- Roman reader characters saved: 23951
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

@@ -1,7 +1,7 @@
 # Editorial Notes — Sujan Bhagat
 
 - Complete source characters processed: 19703
-- Roman reader characters saved: 24596
+- Roman reader characters saved: 24103
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

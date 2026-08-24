@@ -1,7 +1,7 @@
 # Editorial Notes — Ramleela
 
 - Complete source characters processed: 12349
-- Roman reader characters saved: 15482
+- Roman reader characters saved: 15081
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

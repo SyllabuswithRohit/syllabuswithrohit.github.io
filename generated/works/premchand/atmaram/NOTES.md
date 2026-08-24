@@ -1,7 +1,7 @@
 # Editorial Notes — Atmaram
 
 - Complete source characters processed: 12171
-- Roman reader characters saved: 14970
+- Roman reader characters saved: 14736
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

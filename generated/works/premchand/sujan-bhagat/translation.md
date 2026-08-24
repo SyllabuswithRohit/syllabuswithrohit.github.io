@@ -2,684 +2,684 @@
 
 **Munshi Premchand**
 
-seedhe-saade kisaan paisaa haath aate hee dharm aur keerti kee ora jhukate hain|
+seedhe-saade kisaan paisaa haath aate hi dharm aur keerti ki ora jhukate hain.
 
-divy samaaj kee tarah ve pahale apne bhog-vilaas kee ora nahin daudate| sujaan
+divy samaaj ki tarah ve pahale apne bhog-vilaas ki ora nahin daudate. sujaan
 
-kee khetee mein kaee saal se kanchan baras raha tha| mehanat to gaanv ke sabhee kisaan
+ki khetee mein kaee saal se kanchan baras raha tha. mehnat to gaanv ke sabhi kisaan
 
-karte the, par sujaan ke chandramaa balee the, oosar mein bhee daanaa chheent aat to
+karte the, par sujaan ke chandramaa balee the, oosar mein bhi daanaa chheent aat to
 
-kuchh na kuchh paidaa ho jat tha| teen varsh lagaataar ookh lagatee gayee| udhar
+kuchh na kuchh paidaa ho jat tha. teen varsh lagaataar ookh lagti gayi. udhar
 
-gud kaa bhaav tej tha| koee do-dhaaee hajaar haath mein aa gaye| bas chitt kee
+gud kaa bhaav tej tha. koi do-dhaaee hajaar haath mein aa gaye. bas chitt ki
 
-vritti dharm kee ora jhuk padee| saadhu-santon kaa aadar-satkaar hone lagaa, dvaar
+vritti dharm ki ora jhuk padee. saadhu-santon kaa aadar-satkaar hone lagaa, dvaar
 
 par dhoonee jalane lagee, kaanoonago ilaake mein aate, to sujaan mahato ke chaupaal
 
-mein thaharate| halke ke hed kaanstebal, thaanedaar, shikshaa-vibhaag ke aphasar, ek
+mein thaharate. halke ke hed kaanstebal, thaanedaar, shikshaa-vibhaag ke aphasar, ek
 
-na ek us chaupaal mein padaa hee rahataa| mahato maare khushee ke phoole na samaate|
+na ek us chaupaal mein padaa hi rehta. mahato maare khushi ke phoole na samaate.
 
-dhany bhaag ! usake dvaar par ab itane bade-bade haakim aa kar thaharate hain|
+dhany bhaag! usake dvaar par ab itane bade-bade haakim aa kar thaharate hain.
 
-jin haakimon ke saamane usakaa munh na khulataa tha, unheen kee ab 'mahato-mahato'
+jin haakimon ke saamane uska munh na khulataa tha, unheen ki ab 'mahato-mahato'
 
-karte jabaan sookhatee thi| kabhee-kabhee bhajan-bhaav ho jat| ek mahaatmaa ne
+karte jabaan sookhti thi. kabhi-kabhi bhajan-bhaav ho jat. ek mahaatmaa ne
 
-daul achchhaa dekh to gaanv mein aasan jamaa diya| gaanje aur charas kee bahaar
+daul achchha dekh to gaanv mein aasan jamaa diya. gaanje aur charas ki bahaar
 
-udane lagee| ek dholak aayee, majeere mangaaye gaye, satsang hone lagaa| yah
+udane lagee. ek dholak aayee, majeere mangaaye gaye, satsang hone lagaa. yah
 
-sab sujaan ke dam kaa jaloos tha| ghar mein seron doodh hot, magar sujaan ke
+sab sujaan ke dam kaa jaloos tha. ghar mein seron doodh hot, magar sujaan ke
 
-galaa tale ek boond bhee jaane kee kasam thi| kabhee haakim log chakhate, kabhee
+galaa tale ek boond bhi jaane ki kasam thi. kabhi haakim log chakhte, kabhi
 
-mahaatmaa log| kisaan ko doodh-ghee se kyaa matalab, use rotee aur saag chaahie|
+mahaatmaa log. kisaan ko doodh-ghee se kya matalab, use rotee aur saag chaahie.
 
-sujaan kee namrataa kaa ab paaraavaar na tha| sabake saamane sir jhukaaye rahataa,
+sujaan ki namrataa kaa ab paaraavaar na tha. sabake saamane sir jhukaaye rehta,
 
-kaheen log yah na kehne lagen ki paisaa paa kar use ghamand ho gaya hai| gaanv
+kaheen log yah na kehne lagen ki paisaa paa kar use ghamand ho gaya hai. gaanv
 
-mein kul teen kuen the, bahut-se kheton mein paanee na pahunchataa tha, khetee maaree jati
+mein kul teen kuen the, bahut-se kheton mein paani na pahunchta tha, khetee maaree jati
 
-thi| sujaan ne ek pakkaa kuaan banavaa diya| kuen kaa vivaah hua, yajn
+thi. sujaan ne ek pakkaa kuaan banavaa diya. kuen kaa vivaah hua, yajn
 
-hua, brahmabhoj hua| jis din pahalee baar pur chalaa, sujaan ko maano chaaron
+hua, brahmabhoj hua. jis din pahalee baar pur chalaa, sujaan ko maano chaaron
 
-padaarth mil gaye| jo kaam gaanv mein kisee ne na kiya tha, vah baap-daadaa ke
+padaarth mil gaye. jo kaam gaanv mein kisee ne na kiya tha, vah baap-daadaa ke
 
-puny-prataap se sujaan ne kar dikhaayaa|
+puny-prataap se sujaan ne kar dikhaayaa.
 
-ek din gaanv mein gaya ke yaatree aa kar thahare| sujaan hee ke dvaar par
+ek din gaanv mein gaya ke yaatree aa kar thahare. sujaan hi ke dvaar par
 
-unakaa khaanaa banaa| sujaan ke man mein bhee gaya karne kee bahut dinon se ichchhaa
+unakaa khaanaa banaa. sujaan ke man mein bhi gaya karne ki bahut dinon se ichchhaa
 
-thi| yah achchhaa avasar dekh kar vah bhee chalne ko taiyaar ho gaya|
+thi. yah achchha avasar dekh kar vah bhi chalne ko taiyaar ho gaya.
 
-usakee aurat bulaakee ne kahaa —abhee rehne do, agale saal chalenge|
+uski aurat bulaakee ne kahaa —abhi rehne do, agale saal chalenge.
 
-sujaan ne ganbheer bhaav se kahaa —agale saal kyaa hogaa, kaun jaanataa
+sujaan ne ganbheer bhaav se kahaa —agale saal kya hogaa, kaun jaanataa
 
-hai| dharm ke kaam mein meenamekh nikaalanaa achchhaa nahin| jindagaanee kaa kyaa bharosaa ?
+hai. dharm ke kaam mein meenamekh nikaalanaa achchha nahin. jindagaanee kaa kya bharosaa?
 
-bulaakee-haath khaalee ho jaayagaa|
+bulaakee-haath khaalee ho jaayagaa.
 
-sujaan-bhagavaan kee ichchhaa hogee, to phir rupaye ho jaaenge| unake yahan
+sujaan-bhagavaan ki ichchhaa hogee, to phir rupaye ho jaaenge. unake yahan
 
-kis baat kee kamee hai|
+kis baat ki kamee hai.
 
-bulaakee isakaa kyaa javaab detee ? satkaary mein baadhaa daal kar apanee
+bulaakee isakaa kya jawab detee? satkaary mein baadhaa daal kar apni
 
-mukti kyon bigaadatee ? praat:kaal aurat aur aadamee gaya karne chale| wahan se
+mukti kyon bigaadatee? praat:kaal aurat aur aadamee gaya karne chale. wahan se
 
-laute to, yajn aur brahmabhoj kee thaharee| saaree biraadaree nimantrit huee, gyaarah
+laute to, yajn aur brahmabhoj ki thaharee. sari biraadaree nimantrit hui, gyaarah
 
-gaanvon mein supaaree bantee| is dhoomadhaam se kaary hua ki chaaron ora vaah-vaah
+gaanvon mein supaaree bantee. is dhoomadhaam se kaary hua ki chaaron ora vaah-vaah
 
-mach gayee| sab yahee kehte the ki bhagavaan paisaa de, to dil bhee aisaa de| ghamand
+mach gayi. sab yahi kehte the ki bhagavaan paisaa de, to dil bhi aisaa de. ghamand
 
 to chhoo nahin gaya, apne haath se pattal uthaataa phirataa tha, kul kaa naam jagaa
 
-diya| betaa ho, to aisaa ho| baap maraa, to ghar mein bhoonee bhaang bhee nahin thi|
+diya. betaa ho, to aisaa ho. baap maraa, to ghar mein bhoonee bhaang bhi nahin thi.
 
-ab lakshmee ghutane tod kar aa baithee hain|
+ab lakshmee ghutane tod kar aa baithee hain.
 
-ek dveshee ne kahaa —kaheen gadaa hua paisaa paa gaya hai| is par chaaron ora
+ek dveshee ne kahaa —kaheen gadaa hua paisaa paa gaya hai. is par chaaron ora
 
-se us par bauchhaaren padane lageen , haan, tumhaare baap-daadaa jo khajaanaa chhod gaye
+se us par bauchhaaren padane lageen, haan, tumhaare baap-daadaa jo khajaanaa chhod gaye
 
-the, yahee usake haath lag gaya hai| are bhaiyaa, yah dharm kee kamaaee hai| tum
+the, yahi usake haath lag gaya hai. are bhaiyaa, yah dharm ki kamaaee hai. tum
 
-bhee to chhaatee phaad kar kaam karte ho, kyon aisee ookh nahin lagatee ? kyon
+bhi to chhaatee phaad kar kaam karte ho, kyon aisee ookh nahin lagti? kyon
 
-aisee phasal nahin hoti ? bhagavaan aadamee kaa dil dekhate hain| jo kharch kart
+aisee phasal nahin hoti? bhagavaan aadamee kaa dil dekhte hain. jo kharch kart
 
-hai, usee ko dete hain|
+hai, usi ko dete hain.
 
-sujaan mahato sujaan bhagat ho gaye| bhagaton ke aachaar-soch kuchh aur hote
+sujaan mahato sujaan bhagat ho gaye. bhagaton ke aachaar-soch kuchh aur hote
 
-hain| vah binaa snaan kiye kuchh nahin khaataa| gangaa jee agar ghar se door hon
+hain. vah binaa snaan kiye kuchh nahin khaataa. gangaa jee agar ghar se door hon
 
 aur vah roj snaan karake dopahar tak ghar na laut sakataa ho, to parvon ke
 
-din to use avashy hee nahaanaa chaahie| bhajan-bhaav usake ghar avashy honaa
+din to use avashy hi nahaanaa chaahie. bhajan-bhaav usake ghar avashy hona
 
-chaahie| poojaa-archanaa usake lie anivaary hai| khaan-paan mein bhee use bahut
+chaahie. poojaa-archanaa usake lie anivaary hai. khaan-paan mein bhi use bahut
 
-soch rakhanaa padataa hai| sabase badee baat yah hai ki jhooth kaa tyaag karn
+soch rakhna padataa hai. sabase badi baat yah hai ki jhooth kaa tyaag karn
 
-padataa hai| bhagat jhooth nahin bol sakataa| aam manushy ko agar jhooth kaa
+padataa hai. bhagat jhooth nahin bol sakataa. aam manushy ko agar jhooth kaa
 
-dand ek mile, to bhagat ko ek laakh se kam nahin mil sakataa| ajnaan
+dand ek mile, to bhagat ko ek laakh se kam nahin mil sakataa. ajnaan
 
-kee avasthaa mein kitane hee aparaadh kshamy ho jaate hain| jnaanee ke lie kshamaa nahin
+ki avasthaa mein kitane hi aparaadh kshamy ho jaate hain. jnaanee ke lie kshamaa nahin
 
-hai, praayashchittaa nahin hai, yadi hai to bahut hee kathin| sujaan ko bhee ab bhagaton
+hai, praayashchittaa nahin hai, yadi hai to bahut hi kathin. sujaan ko bhi ab bhagaton
 
-kee maryaadaa ko nibhaanaa padaa| ab tak usakaa jeevan majoor kaa jeevan tha|
+ki maryaadaa ko nibhaanaa padaa. ab tak uska jeevan majoor kaa jeevan tha.
 
-usakaa koee aadarsh, koee maryaadaa usake saamane na thi| ab usake jeevan
+uska koi aadarsh, koi maryaadaa usake saamane na thi. ab usake jeevan
 
-mein soch kaa uday hua, jahaan kaa raastaa kaanton se bharaa hua hai| svaarth-sevaa
+mein soch kaa uday hua, jahaan kaa raastaa kaanton se bharaa hua hai. svaarth-sevaa
 
-hee pahale usake jeevan kaa lakshy tha, isee kaante se vah paristhitiyon ko taulataa
+hi pahale usake jeevan kaa lakshy tha, isi kaante se vah paristhitiyon ko taulataa
 
-tha| vah ab unhen auchity ke kaanton par taulane lagaa| yon kaho ki jad-jagat
+tha. vah ab unhen auchity ke kaanton par taulane lagaa. yon kaho ki jad-jagat
 
-se nikal kar usane chetan-jagat mein pravesh kiya| usane kuchh len-den karn
+se nikal kar usane chetan-jagat mein pravesh kiya. usane kuchh len-den karn
 
-shuroo kiya tha par ab use byaaj lete hue aatmaglaani-see hoti thi| yahan
+shuru kiya tha par ab use byaaj lete hue aatmaglaani-see hoti thi. yahan
 
-tak ki gauon ko duhaate samay use bachhadon kaa dhyaan banaa rahataa tha , kaheen
+tak ki gauon ko duhaate samay use bachhadon kaa dhyaan banaa rehta tha, kaheen
 
-bachhadaa bhookhaa na raha jaae, nahin to usakaa roaan dukhee hogaa| vah gaanv kaa
+bachhadaa bhookhaa na raha jaae, nahin to uska roaan dukhee hogaa. vah gaanv kaa
 
-mukhiyaa tha, kitane hee mukadamon mein usane jhoothee shahaadaten banavaayee theen, kitanon
+mukhiyaa tha, kitane hi mukadamon mein usane jhoothee shahaadaten banavaayee theen, kitanon
 
-se daoda le kar maamale kaa raphaa-daphaa karaa diya tha| ab ina vyaapaaron se
+se daoda le kar maamale kaa raphaa-daphaa karaa diya tha. ab ina vyaapaaron se
 
-use napharat hoti thi| jhooth aur prapanch se koson door bhaagataa tha| pahale usakee
+use napharat hoti thi. jhooth aur prapanch se koson door bhaagataa tha. pahale uski
 
 yah cheshtaa hoti thi ki majooron se jitanaa kaam liya jaa sake lo aur majooree
 
-jitanee kam dee jaa sake do; par ab use majoor ke kaam kee kam, majooree
+jitanee kam dee jaa sake do; par ab use majoor ke kaam ki kam, majooree
 
-kee zyaadaa phikr rahatee thi , kaheen bechaare majoor kaa roaan na dukhee ho jaae|
+ki zyaadaa phikr rehti thi, kaheen bechaare majoor kaa roaan na dukhee ho jaae.
 
-vah usakaa vaakyaansh-saa ho gaya tha , kisee kaa roaan na dukhee ho jaae| usake
+vah uska vaakyaansh-saa ho gaya tha, kisee kaa roaan na dukhee ho jaae. usake
 
 donon javaan bete baat-baat mein us par phabtiyaan kasate, yahan tak ki bulaakee
 
-bhee ab use koraa bhagat samajhne lagee thi, jise ghar ke bhale-bure se koee
+bhi ab use koraa bhagat samajhne lagee thi, jise ghar ke bhale-bure se koi
 
-kaam na tha| chetan-jagat mein aa kar sujaan bhagat kore bhagat raha gaye|
+kaam na tha. chetan-jagat mein aa kar sujaan bhagat kore bhagat raha gaye.
 
-sujaan ke haathon se dheere-dheere adhikaar chheene jaane lage| kis khet mein
+sujaan ke haathon se dheere-dheere adhikar chheene jaane lage. kis khet mein
 
-kyaa bonaa hai, kisako kyaa denaa hai, kisako kyaa lenaa hai, kis bhaav kyaa
+kya bonaa hai, kisako kya dena hai, kisako kya lena hai, kis bhaav kya
 
-cheej bikee, aisee-aisee mahattvapoorn baaton mein bhee bhagat jee kee salaah na lee
+cheej bikee, aisee-aisee mahattvapoorn baaton mein bhi bhagat jee ki salaah na lee
 
-jati thi| bhagat ke paas koee jaane hee na paataa| donon ladake yaa svayan bulaakee
+jati thi. bhagat ke paas koi jaane hi na paataa. donon ladake yaa svayan bulaakee
 
-door hee se maamalaa tay kar liya karti| gaanv bhar mein sujaan kaa maan-izzat
+door hi se maamalaa tay kar liya karti. gaanv bhar mein sujaan kaa maan-izzat
 
-badhataa tha, apne ghar mein ghatataa tha| ladake usakaa satkaar ab bahut karte|
+badhta tha, apne ghar mein ghatataa tha. ladake uska satkaar ab bahut karte.
 
 haath se chaarapaaee uthaate dekh lapak kar khud uthaa laate, chilam na bharane dete,
 
-yahan tak ki usakee dhotee chhaantane ke lie bhee aagrah karte the| magar adhikaar
+yahan tak ki uski dhotee chhaantane ke lie bhi aagrah karte the. magar adhikar
 
-usake haath mein na tha| vah ab ghar kaa svaamee nahin, mandir kaa devataa tha|
+usake haath mein na tha. vah ab ghar kaa svaamee nahin, mandir kaa devataa tha.
 
-ek din bulaakee okhalee mein daal chhaant rahi thi| ek bhikhamangaa dvaar par aa
+ek din bulaakee okhalee mein daal chhaant rahi thi. ek bhikhamangaa dvaar par aa
 
-kar chillaane lagaa| bulaakee ne sochaa, daal chhaant loon, to use kuchh de doon| itane
+kar chillaane lagaa. bulaakee ne sochaa, daal chhaant loon, to use kuchh de doon. itane
 
-mein badaa ladakaa bholaa aakar bol — ammaan, ek mahaatmaa dvaar par khade galaa
+mein bada ladakaa bholaa aakar bol — ammaan, ek mahaatmaa dvaar par khade galaa
 
-phaad rahe hain ? kuchh de do| nahin to unakaa roaan dukhee ho jaayagaa|
+phaad rahe hain? kuchh de do. nahin to unakaa roaan dukhee ho jaayagaa.
 
-bulaakee ne upekshaa ke bhaav se kahaa —bhagat ke paanv mein kyaa mehandee lagee
+bulaakee ne upekshaa ke bhaav se kahaa —bhagat ke paanv mein kya mehandee lagee
 
-hai, kyon kuchh le jaa kar nahin de dete ? kyaa mere chaar haath hain ? kis-kisakaa
+hai, kyon kuchh le jaa kar nahin de dete? kya mere chaar haath hain? kis-kisakaa
 
-roaan sukhee karoon ? din bhar to taantaa lagaa rahataa hai|
+roaan sukhee karoon? din bhar to taantaa lagaa rehta hai.
 
-bholaa , chaupat karne par lage hue hain, aur kyaa ? abhee mahangoo beng dene
+bholaa, chaupat karne par lage hue hain, aur kya? abhi mahangoo beng dene
 
-aay tha| hisaab se 7 man hue| taulaa to paune saat man hee nikale| mainne
+aay tha. hisaab se 7 man hue. taulaa to paune saat man hi nikale. maine
 
-kahaa —das ser aur laa, to aap baithe-baithe kehte hain, ab itanee door kahan jaayagaa|
+kahaa —das ser aur laa, to aap baithe-baithe kehte hain, ab itanee door kahan jaayagaa.
 
-bharapaaee likh do, nahin to usakaa roaan dukhee hogaa| mainne bharapaaee nahin likhee|
+bharapaaee likh do, nahin to uska roaan dukhee hogaa. maine bharapaaee nahin likhee.
 
-das ser baakee likh dee|
+das ser baakee likh dee.
 
-bulaakee-bahut achchhaa kiya tumane, bakane diya karo| das-paanch daphe
+bulaakee-bahut achchha kiya tumne, bakane diya karo. das-paanch daphe
 
-munh kee khaa jaaenge, to aap hee bolanaa chhod denge|
+munh ki khaa jaaenge, to aap hi bolna chhod denge.
 
-bholaa-din bhar ek na ek khuchad nikaalate rahate hain| sau daphe kah
+bholaa-din bhar ek na ek khuchad nikaalate rehte hain. sau daphe kah
 
 diya ki tum ghar-ghar-parivaar ke maamale mein na bol karo, par inse binaa bole
 
-raha hee nahin jat|
+raha hi nahin jat.
 
-bulaakee-main jaanatee ki inakaa yah haal hogaa, to gurumantr na lene detee|
+bulaakee-main jaanatee ki inakaa yah haal hogaa, to gurumantr na lene detee.
 
-bholaa-bhagat kyaa hue ki deen-duniyaa donon se gaye| saaraa din poojaa-paath
+bholaa-bhagat kya hue ki deen-duniyaa donon se gaye. sara din poojaa-paath
 
-mein hee uda jat hai| abhee aise boodhe nahin ho gaye ki koee kaam hee na kar
+mein hi uda jat hai. abhi aise boodhe nahin ho gaye ki koi kaam hi na kar
 
-saken|
+saken.
 
-bulaakee ne aapatti kee , bholaa, yah tumhaaraa kunyaay hai| phaavadaa, kudaal
+bulaakee ne aapatti ki, bholaa, yah tumhara kunyaay hai. phaavadaa, kudaal
 
-ab unse nahin ho sakataa, lekin kuchh na kuchh to karte hee rahate hain| bailon
+ab unse nahin ho sakataa, lekin kuchh na kuchh to karte hi rehte hain. bailon
 
-ko saanee-paanee dete hain, gaay duhaate hain aur bhee jo kuchh ho sakataa hai, karte
+ko saanee-paani dete hain, gaay duhaate hain aur bhi jo kuchh ho sakataa hai, karte
 
-hain|
+hain.
 
-bhikshuk abhee tak khadaa chillaa raha tha| sujaan ne jab ghar mein se kisee
+bhikshuk abhi tak khadaa chillaa raha tha. sujaan ne jab ghar mein se kisee
 
 ko kuchh laate na dekh, to uth kar andar gaya aur kathor aavaaz se bol — tum
 
 logon ko kuchh sunaayee nahin detaa ki dvaar par kaun ghante bhar se khadaa bheekh
 
-maang raha hai| apanaa kaam to din bhar karn hee hai, ek chhan bhagavaan kaa
+maang raha hai. apna kaam to din bhar karn hi hai, ek chhan bhagavaan kaa
 
-kaam bhee to kiya karo|
+kaam bhi to kiya karo.
 
-bulaakee-tum to bhagavaan kaa kaam karne ko baithe hee ho, kyaa ghar bhar
+bulaakee-tum to bhagavaan kaa kaam karne ko baithe hi ho, kya ghar bhar
 
-bhagavaan hee kaa kaam karegaa ?
+bhagavaan hi kaa kaam karegaa?
 
-sujaan-kahan aat rakhaa hai, laao, main hee nikaal kar de aaoon| tum
+sujaan-kahan aat rakhaa hai, laao, main hi nikaal kar de aaoon. tum
 
-raanee ban kar baitho|
+raanee ban kar baitho.
 
-bulaakee-aat mainne mar-mar kar peesaa hai, anaaj de do| aise mudachiron
+bulaakee-aat maine mar-mar kar peesaa hai, anaaj de do. aise mudachiron
 
-ke lie pahar raat se uth kar chakkee nahin chalaatee hoon|
+ke lie pahar raat se uth kar chakkee nahin chalaatee hoon.
 
-sujaan bhandaar ghar mein gaye aur ek chhotee-see chhabadee ko jau se bhare hue
+sujaan bhandaar ghar mein gaye aur ek chhoti-see chhabadee ko jau se bhare hue
 
-nikale| jau ser bhar se kam na tha| sujaan ne jaan-boojhakar, keval bulaakee
+nikale. jau ser bhar se kam na tha. sujaan ne jaan-boojhakar, keval bulaakee
 
-aur bholaa ko chidhaane ke lie, bhikshaa paranparaa kaa ullanghan kiya tha| tis
+aur bholaa ko chidhaane ke lie, bhikshaa paranparaa kaa ullanghan kiya tha. tis
 
-par bhee yah dikhaane ke lie ki chhabadee mein bahut jyaadaa jau nahin hai, vah use
+par bhi yah dikhaane ke lie ki chhabadee mein bahut zyada jau nahin hai, vah use
 
-chutakee se pakade hue the| chutakee itanaa bojh na sanbhaal sakatee thi| haath kaanp
+chutakee se pakade hue the. chutakee itanaa bojh na sanbhaal sakatee thi. haath kaanp
 
-raha tha| ek pal vilamb hone se chhabadee ke haath se chhoot kar gir padane
+raha tha. ek pal vilamb hone se chhabadee ke haath se chhoot kar gir padane
 
-kee sambhaavanaa thi| isalie vah jaldee se baahar nikal jan chaahate the| sahasaa
+ki sambhaavanaa thi. isalie vah jaldee se baahar nikal jan chahte the. sahasaa
 
 bholaa ne chhabadee unake haath se chheen lee aur tyauriyaan badal kar bol — sent
 
-kaa maal nahin hai, jo lutaane chale ho| chhaatee phaad-phaad kar kaam karte hain,
+kaa maal nahin hai, jo lutaane chale ho. chhaatee phaad-phaad kar kaam karte hain,
 
-tab daanaa ghar mein aat hai|
+tab daanaa ghar mein aat hai.
 
-sujaan ne khisiyaa kar kahaa —main bhee to baithaa nahin rahataa|
+sujaan ne khisiyaa kar kahaa —main bhi to baithaa nahin rehta.
 
-bholaa-bheekh, bheekh kee hee tarah dee jati hai, lutaayee nahin jati| ham
+bholaa-bheekh, bheekh ki hi tarah dee jati hai, lutaayee nahin jati. ham
 
-to ek velaa khaa kar din kaatate hain ki pati-paanee banaa rahe, aur tumhen lutaane
+to ek velaa khaa kar din kaatate hain ki pati-paani banaa rahe, aur tumhen lutaane
 
-kee soojhee hai| tumhen kyaa maaloom ki ghar mein kyaa ho raha hai|
+ki soojhee hai. tumhen kya maaloom ki ghar mein kya ho raha hai.
 
-sujaan ne isakaa koee javaab na diya| baahar aa kar bhikhaaree se kah
+sujaan ne isakaa koi jawab na diya. baahar aa kar bhikhaaree se kah
 
 diya-baabaa, is samay jaao, kisee kaa haath khaalee nahin hai, aur ped ke
 
-neeche baith kar vichaaron mein magn ho gaya| apne hee ghar mein usakaa yah anaadar !
+neeche baith kar vichaaron mein magn ho gaya. apne hi ghar mein uska yah anaadar!
 
-abhee vah apaahij nahin hai; haath-paanv thake nahin hain; ghar kaa kuchh na kuchh kaam
+abhi vah apaahij nahin hai; haath-paanv thake nahin hain; ghar kaa kuchh na kuchh kaam
 
-kart hee rahataa hai| us par yah anaadar ! usee ne ghar banaayaa, yah saaree
+kart hi rehta hai. us par yah anaadar! usi ne ghar banaayaa, yah sari
 
-vibhooti usee ke shram kaa phal hai, par ab is ghar par usakaa koee adhikaar
+vibhooti usi ke shram kaa phal hai, par ab is ghar par uska koi adhikar
 
-nahin raha| ab vah dvaar kaa kuttaa hai, padaa rahe aur gharavaale jo rookhaa-sookhaa
+nahin raha. ab vah dvaar kaa kuttaa hai, padaa rahe aur gharavaale jo rookhaa-sookhaa
 
-de den, vah khaa kar pet bhar liya kare| aise jeevan ko dhikkaar hai| sujaan
+de den, vah khaa kar pet bhar liya kare. aise jeevan ko dhikkaar hai. sujaan
 
-aise ghar mein nahin raha sakataa|
+aise ghar mein nahin raha sakataa.
 
-shaam ho gayee thi| bholaa kaa chhotaa bhai shankar naariyal bhar kar laayaa|
+shaam ho gayi thi. bholaa kaa chhota bhai shankar naariyal bhar kar laayaa.
 
-sujaan ne naariyal deevaar se tikaa kar rakh diya ! dheere-dheere tambaakoo jal
+sujaan ne naariyal deevaar se tikaa kar rakh diya! dheere-dheere tambaakoo jal
 
-gaya| jaraa der mein bholaa ne dvaar par chaarapaaee daal dee| sujaan ped ke neeche
+gaya. zara der mein bholaa ne dvaar par chaarapaaee daal dee. sujaan ped ke neeche
 
-se na uthaa|
+se na uthaa.
 
-kuchh der aur gujaaree| khaanaa taiyaar hua| bholaa bulaane aay| sujaan
+kuchh der aur gujaaree. khaanaa taiyaar hua. bholaa bulaane aay. sujaan
 
-ne kahaa —bhookh nahin hai| bahut manaavan karne par bhee na uthaa| tab bulaakee ne
+ne kahaa —bhookh nahin hai. bahut manaavan karne par bhi na uthaa. tab bulaakee ne
 
-aa kar kahaa —khaanaa khaane kyon nahin chalate ? jee to achchhaa hai ?*
+aa kar kahaa —khaanaa khaane kyon nahin chalte? jee to achchha hai?*
 
-sujaan ko sabase zyaadaa gussaa bulaakee hee par tha| yah bhee ladakon
+sujaan ko sabase zyaadaa gussaa bulaakee hi par tha. yah bhi ladakon
 
-ke saath hai ! yah baithee dekhatee rahi aur bholaa ne mere haath se anaaj chheen
+ke saath hai! yah baithee dekhti rahi aur bholaa ne mere haath se anaaj chheen
 
-liya| isake munh se itanaa bhee na nikalaa ki le jaate hain, to le jaane do|
+liya. isake munh se itanaa bhi na nikalaa ki le jaate hain, to le jaane do.
 
-ladakon ko na maaloom ho ki mainne kitane shram se yah ghar-parivaar jodee hai, par
+ladakon ko na maaloom ho ki maine kitane shram se yah ghar-parivaar jodee hai, par
 
-yah to jaanatee hai| din ko din aur raat ko raat nahin samajhaa| bhaadon kee
+yah to jaanatee hai. din ko din aur raat ko raat nahin samajhaa. bhaadon ki
 
-andhoree raat mein madaiyaa lagaa ke juaar kee rakhavaalee kart tha| jeth-baisaakh
+andhoree raat mein madaiyaa lagaa ke juaar ki rakhavaalee kart tha. jeth-baisaakh
 
-kee dopaharee mein bhee dam na letaa tha, aur ab meraa ghar par itanaa bhee adhikaar
+ki dopaharee mein bhi dam na letaa tha, aur ab mera ghar par itanaa bhi adhikar
 
-nahin hai ki bheekh tak na de sakoon| maanaa ki bheekh itanee nahin dee jati lekin
+nahin hai ki bheekh tak na de sakoon. maanaa ki bheekh itanee nahin dee jati lekin
 
-inako to chup rahanaa chaahie tha, chaahe main ghar mein aag hee kyon na lagaa detaa|
+inako to chup rehna chaahie tha, chaahe main ghar mein aag hi kyon na lagaa detaa.
 
-kaanoon se bhee to meraa kuchh hot hai| main apanaa hissaa nahin khaataa, doosaron ko
+kanoon se bhi to mera kuchh hot hai. main apna hissaa nahin khaataa, doosaron ko
 
-khilaa detaa hoon; isamen kisee ke baap kaa kyaa saajhaa ? ab is vakt manaane
+khilaa detaa hoon; isamen kisee ke baap kaa kya saajhaa? ab is vakt manaane
 
-aayee hai ! ise mainne phool kee chhadee se bhee nahin chhuaa, nahin to gaanv mein aisee
+aayee hai! ise maine phool ki chhadee se bhi nahin chhuaa, nahin to gaanv mein aisee
 
-kaun aurat hai, jisane khasam kee laaten na khaayee hon, kabhee kadee nigaah se
+kaun aurat hai, jisane khasam ki laaten na khaayee hon, kabhi kadee nigaah se
 
-dekh tak nahin| rupaye-paise, lenaa-denaa, sab isee ke haath mein de rakhaa tha| ab
+dekh tak nahin. rupaye-paise, lena-dena, sab isi ke haath mein de rakhaa tha. ab
 
-rupaye jamaa kar liye hain, to mujhee se ghamand karti hai| ab ise bete pyaare hain,
+rupaye jamaa kar liye hain, to mujhee se ghamand karti hai. ab ise bete pyaare hain,
 
-main to nikhattoo; lutaaoo, ghar-phoonkoo, ghonghaa hoon| meree ise kyaa paravaah| tab ladake
+main to nikhattoo; lutaaoo, ghar-phoonkoo, ghonghaa hoon. meri ise kya paravaah. tab ladake
 
-na the, jab beemaar padee thi aur main god mein uthaa kar baid ke ghar le gaya tha|
+na the, jab beemaar padee thi aur main god mein uthaa kar baid ke ghar le gaya tha.
 
-aaj usake bete hain aur yah unakee maan hai| main to baahar kaa aadamee|
+aaj usake bete hain aur yah unki maan hai. main to baahar kaa aadamee.
 
-mujhse ghar se matalab hee kyaa| bol — ab khaa-peekar kyaa karoongaa, hal
+mujhse ghar se matalab hi kya. bol — ab khaa-peekar kya karoongaa, hal
 
-jotane se raha, phaavadaa chalaane se raha| mujhe khilaa kar daane ko kyon kharaab
+jotane se raha, phaavadaa chalaane se raha. mujhe khilaa kar daane ko kyon kharaab
 
-karegee ? rakh do, bete doosaree baar khaayange|
+karegee? rakh do, bete doosaree baar khaayange.
 
-bulaakee-tum to jaraa-jaraa-see baat par tinak jaate ho| sach kahaa hai,
+bulaakee-tum to zara-zara-see baat par tinak jaate ho. sach kahaa hai,
 
-budhaape mein aadamee kee samajh maaree jati hai| bholaa ne itanaa to kahaa tha ki
+budhaape mein aadamee ki samajh maaree jati hai. bholaa ne itanaa to kahaa tha ki
 
-itanee bheekh mata le jaao, yaa aur kuchh ?
+itanee bheekh mata le jaao, yaa aur kuchh?
 
-sujaan-haan bechaaraa itanaa kah kar raha gaya| tumhen to majaa tab aat,
+sujaan-haan bechaaraa itanaa kah kar raha gaya. tumhen to majaa tab aat,
 
-jab vah oopar se do-chaar dande lagaa detaa| kyon ? agar yahee chaah hai,
+jab vah oopar se do-chaar dande lagaa detaa. kyon? agar yahi chaah hai,
 
-to pooree kar lo| bholaa khaa chukaa hogaa, bulaa laao| nahin, bholaa ko kyon
+to pooree kar lo. bholaa khaa chukaa hogaa, bulaa laao. nahin, bholaa ko kyon
 
-bulaatee ho, tumheen na jamaa do, do-chaar haath| itanee kasar hai, vah bhee pooree ho
+bulaatee ho, tumheen na jamaa do, do-chaar haath. itanee kasar hai, vah bhi pooree ho
 
-jaae|
+jaae.
 
-bulaakee-haan, aur kyaa, yahee to naaree kaa dharam hee hai| apne bhaag
+bulaakee-haan, aur kya, yahi to naaree kaa dharam hi hai. apne bhaag
 
-saraaho ki mujh-jaisee seedhee aurat paa lee| jis bal chaahate ho, bithaate ho|
+saraaho ki mujh-jaisee seedhee aurat paa lee. jis bal chahte ho, bithaate ho.
 
-aisee munhajor hoti, to tumhaare ghar mein ek din bhee nibaah na hot|
+aisee munhajor hoti, to tumhaare ghar mein ek din bhi nibaah na hot.
 
-sujaan-haan, bhai, vah to main hee kah raha hoon ki devee theen aur ho| main
+sujaan-haan, bhai, vah to main hi kah raha hoon ki devee theen aur ho. main
 
-tab bhee raakshas tha aur ab bhee daity ho gaya hoon ! bete kamaaoo hain, unakee-see
+tab bhi raakshas tha aur ab bhi daity ho gaya hoon! bete kamaaoo hain, unki-see
 
-na kahogee, to kyaa meree-see kahogee, mujhse ab kyaa lenaa-denaa hai ?
+na kahogee, to kya meri-see kahogee, mujhse ab kya lena-dena hai?
 
 bulaakee-tum jhagadaa karne par tule baithe ho aur main jhagadaa bachaatee hoon
 
-ki chaar aadamee hansenge| chal kar khaanaa khaa lo seedhe se, nahin to main jaa kar
+ki chaar aadamee hansenge. chal kar khaanaa khaa lo seedhe se, nahin to main jaa kar
 
-so rahoongee|
+so rahoongee.
 
-sujaan-tum bhookhee kyon so rahogee ? tumhaare beton kee to kamaaee hai|
+sujaan-tum bhookhee kyon so rahogee? tumhaare beton ki to kamaaee hai.
 
-haan, main baaharee aadamee hoon|
+haan, main baaharee aadamee hoon.
 
-bulaakee-bete tumhaare bhee to hain|
+bulaakee-bete tumhaare bhi to hain.
 
-sujaan-nahin, main aise beton se baaj aay| kisee aur ke bete honge|
+sujaan-nahin, main aise beton se baaj aay. kisee aur ke bete honge.
 
-mere bete hote, to kyaa meree durgati hoti ?
+mere bete hote, to kya meri durgati hoti?
 
-bulaakee-gaaliyaan doge to main bhee kuchh kah baithoongee| sunatee thi, mard bade
+bulaakee-gaaliyaan doge to main bhi kuchh kah baithoongee. sunatee thi, mard bade
 
-samajhadaar hote hain, par tum sabase nyaare ho| aadamee ko chaahie ki jaisaa samay
+samajhadaar hote hain, par tum sabase nyaare ho. aadamee ko chaahie ki jaisaa samay
 
-dekhe vaisaa kaam kare| ab hamaaraa aur tumhaaraa nibaah isee mein hai ki naam
+dekhe vaisaa kaam kare. ab hamaaraa aur tumhara nibaah isi mein hai ki naam
 
-ke maalik bane rahen aur vahee karen jo ladakon ko achchhaa lage| main yah baat
+ke maalik bane rahen aur wahi karen jo ladakon ko achchha lage. main yah baat
 
-samajh gayee, tum kyon nahin samajh paate ? jo kamaataa hai, usee kaa ghar mein raaj
+samajh gayi, tum kyon nahin samajh paate? jo kamaataa hai, usi kaa ghar mein raaj
 
-hot hai, yahee duniyaa kaa dastoor hai| main binaa ladakon se poochhe koee kaam nahin
+hot hai, yahi duniyaa kaa dastoor hai. main binaa ladakon se poochhe koi kaam nahin
 
-karti, tum kyon apne man kee karte ho ? itane dinon tak to raaj kar liya,
+karti, tum kyon apne man ki karte ho? itane dinon tak to raaj kar liya,
 
-ab kyon is maayaa mein pade ho ? aadhee rotee khaao, bhagavaan kaa bhajan karo
+ab kyon is maayaa mein pade ho? aadhee rotee khaao, bhagavaan kaa bhajan karo
 
-aur pade raho| chalo, khaanaa khaa lo|
+aur pade raho. chalo, khaanaa khaa lo.
 
-sujaan-to ab main dvaar kaa kuttaa hoon ?
+sujaan-to ab main dvaar kaa kuttaa hoon?
 
-bulaakee-baat jo thi, vah mainne kah dee| ab apne ko jo chaaho samajho|
+bulaakee-baat jo thi, vah maine kah dee. ab apne ko jo chaaho samajho.
 
-sujaan na uthe| bulaakee haar kar chalee gayee|
+sujaan na uthe. bulaakee haar kar chalee gayi.
 
-sujaan ke saamane ab ek nayee samasyaa khadee ho gayee thi| vah bahut dinon
+sujaan ke saamane ab ek nayee samasyaa khadee ho gayi thi. vah bahut dinon
 
-se ghar kaa svaamee tha aur ab bhee aisaa hee samajhataa raha| paristhiti mein kitanaa
+se ghar kaa svaamee tha aur ab bhi aisaa hi samajhta raha. paristhiti mein kitanaa
 
-ulat pher ho gaya tha, isakee use khabar na thi| ladake usakaa sevaa-izzat
+ulat pher ho gaya tha, isakee use khabar na thi. ladake uska sevaa-izzat
 
-karte hain, yah baat use bhram mein daale hue thi| ladake usake saamane chilam nahin
+karte hain, yah baat use bhram mein daale hue thi. ladake usake saamane chilam nahin
 
-peete, khaat par nahin baithate, kyaa yah sab usake ghar-svaamee hone kaa pramaan
+peete, khaat par nahin baithte, kya yah sab usake ghar-svaamee hone kaa pramaan
 
-na tha ? par aaj use yah pataa hua ki yah keval shrriddhaa thi, usake svaamitv
+na tha? par aaj use yah pataa hua ki yah keval shrriddhaa thi, usake svaamitv
 
-kaa pramaan nahin| kyaa is shrriddhaa ke badale vah apanaa adhikaar chhod sakataa
+kaa pramaan nahin. kya is shrriddhaa ke badale vah apna adhikar chhod sakataa
 
-tha ? kabhee nahin nahin| ab tak jis ghar mein raaj kiya, usee ghar mein paraadheen
+tha? kabhi nahin nahin. ab tak jis ghar mein raaj kiya, usi ghar mein paraadheen
 
-ban kar vah nahin raha sakataa| usako shrriddhaa kee chaah nahin, sevaa kee bhookh
+ban kar vah nahin raha sakataa. usako shrriddhaa ki chaah nahin, sevaa ki bhookh
 
-nahin| use adhikaar chaahie| vah is ghar par doosaron kaa adhikaar nahin dekh
+nahin. use adhikar chaahie. vah is ghar par doosaron kaa adhikar nahin dekh
 
-sakataa| mandir kaa pujaaree ban kar vah nahin raha sakataa|
+sakataa. mandir kaa pujaaree ban kar vah nahin raha sakataa.
 
-na-jaane kitanee raat baakee thi| sujaan ne uth kar gandaase se bailon kaa
+na-jaane kitanee raat baakee thi. sujaan ne uth kar gandaase se bailon kaa
 
-chaaraa kaatanaa shuroo kiya| saaraa gaanv sotaa tha, par sujaan karavee kaat rahe
+chaaraa kaatanaa shuru kiya. sara gaanv sotaa tha, par sujaan karavee kaat rahe
 
-the| itanaa shram unhonne apne jeevan mein kabhee na kiya tha| jab se unhonne
+the. itanaa shram unhone apne jeevan mein kabhi na kiya tha. jab se unhone
 
-kaam karn chhodaa tha, baraabar chaare ke lie haay-haay padee rahatee thi| shankar
+kaam karn chhodaa tha, baraabar chaare ke lie haay-haay padee rehti thi. shankar
 
-bhee kaatataa tha, bholaa bhee kaatataa tha par chaaraa pooraa na padataa tha| aaj vah
+bhi kaatataa tha, bholaa bhi kaatataa tha par chaaraa pooraa na padataa tha. aaj vah
 
-ina laundon ko dikhaa denge, chaaraa kaise kaatanaa chaahie| unake saamane katiyaa
+ina laundon ko dikhaa denge, chaaraa kaise kaatanaa chaahie. unake saamane katiyaa
 
-kaa pahaad khadaa ho gaya| aur tukade kitane maheen aur sudaul the, maano saanche
+kaa pahaad khadaa ho gaya. aur tukade kitane maheen aur sudaul the, maano saanche
 
-mein dhaale gaye hon|
+mein dhaale gaye hon.
 
-munh-andhere bulaakee uthee to katiyaa kaa dher dekh kar dang raha gayee|
+munh-andhere bulaakee uthee to katiyaa kaa dher dekh kar dang raha gayi.
 
-bolee-kyaa bholaa aaj raat bhar katiyaa hee kaatataa raha gaya ? kitanaa kahaa
+bolee-kya bholaa aaj raat bhar katiyaa hi kaatataa raha gaya? kitanaa kahaa
 
-ki betaa, jee se jahaan hai, par maanataa hee nahin| raat ko soyaa hee nahin|
+ki betaa, jee se jahaan hai, par maanataa hi nahin. raat ko soyaa hi nahin.
 
-sujaan bhagat ne taane se kahaa —vah sotaa hee kab hai ? jab dekhataa hoon,
+sujaan bhagat ne taane se kahaa —vah sotaa hi kab hai? jab dekhta hoon,
 
-kaam hee kart rahataa hai| aisaa kamaaoo sansaar mein aur kaun hogaa ?
+kaam hi kart rehta hai. aisaa kamaaoo sansaar mein aur kaun hogaa?
 
-itane mein bholaa aankhe malataa hua baahar nikalaa| use bhee yah dher dekh
+itane mein bholaa aankhe malataa hua baahar nikalaa. use bhi yah dher dekh
 
-kar hairaanee hua| maan se bol — kyaa shankar aaj badee raat ko uthaa tha,
+kar hairaanee hua. maan se bol — kya shankar aaj badi raat ko uthaa tha,
 
-ammaan ?
+ammaan?
 
-bulaakee-vah to padaa so raha hai| mainne to samajhaa, tumane kaatee hogee|
+bulaakee-vah to padaa so raha hai. maine to samajhaa, tumne kaatee hogee.
 
-bholaa-main to sabere uth hee nahin paataa| din bhar chaahe jitanaa kaam
+bholaa-main to sabere uth hi nahin paataa. din bhar chaahe jitanaa kaam
 
-kar loon, par raat ko mujhse nahin uthaa jat|
+kar loon, par raat ko mujhse nahin uthaa jat.
 
-bulaakee-to kyaa tumhaare daadaa ne kaatee hai ?
+bulaakee-to kya tumhaare daadaa ne kaatee hai?
 
-bholaa-haan, maaloom to hot hai| raat bhar soye nahin| mujhse kal badee
+bholaa-haan, maaloom to hot hai. raat bhar soye nahin. mujhse kal badi
 
-bhool huee| are, vah to hal le kar jaa rahe hain ! jaan dene par utaaroo ho gaye
+bhool hui. are, vah to hal le kar jaa rahe hain! jaan dene par utaaroo ho gaye
 
-hain kyaa ?
+hain kya?
 
-bulaakee-krodhee to sadaa ke hain| ab kisee kee sunenge thode hee|
+bulaakee-krodhee to sadaa ke hain. ab kisee ki sunenge thode hi.
 
-bholaa-shankar ko jagaa do, main bhee jaldee se munh-haath dhokar hal le jaaoon|
+bholaa-shankar ko jagaa do, main bhi jaldee se munh-haath dhokar hal le jaaoon.
 
 jab aur kisaanon ke saath bholaa hal le kar khet mein pahunchaa, to sujaan aadhaa
 
-khet jot chuke the| bholaa ne chupake se kaam karn shuroo kiya| sujaan se
+khet jot chuke the. bholaa ne chupake se kaam karn shuru kiya. sujaan se
 
-kuchh bolane kee usakee himmat na padee|
+kuchh bolne ki uski himmat na padee.
 
-dopahar hua| sabhee kisaanon ne hal chhod diye| par sujaan bhagat apne
+dopahar hua. sabhi kisaanon ne hal chhod diye. par sujaan bhagat apne
 
-kaam mein magn hain| bholaa thak gaya hai| usakee baar-baar ichchhaa hoti hai ki
+kaam mein magn hain. bholaa thak gaya hai. uski baar-baar ichchhaa hoti hai ki
 
-bailon ko khol de| magar dar ke maare kuchh kah nahin sakataa| sabako hairaanee
+bailon ko khol de. magar dar ke maare kuchh kah nahin sakataa. sabako hairaanee
 
-ho raha hai ki daadaa kaise itanee mihanat kar rahe hain|
+ho raha hai ki daadaa kaise itanee mihanat kar rahe hain.
 
-aakhir darate-darate bol — daadaa, ab to dopahar ho gaya| hal khol
+aakhir darate-darate bol — daadaa, ab to dopahar ho gaya. hal khol
 
-den na ?
+den na?
 
-sujaan-haan, khol do| tum bailon ko le kar chalo, main daoda phenk kar
+sujaan-haan, khol do. tum bailon ko le kar chalo, main daoda phenk kar
 
-aat hoon|
+aat hoon.
 
-bholaa-main sanjhaa ko daoda phenk doongaa|
+bholaa-main sanjhaa ko daoda phenk doongaa.
 
-sujaan-tum kyaa phenk doge| dekhate nahin ho, khet katore kee tarah gaharaa
+sujaan-tum kya phenk doge. dekhte nahin ho, khet katore ki tarah gaharaa
 
-ho gaya hai| tabhee to beech mein paanee jam jat hai| is goind ke khet mein bees
+ho gaya hai. tabhee to beech mein paani jam jat hai. is goind ke khet mein bees
 
-man kaa beeghaa hot tha| tum logon ne isakaa satyaanaash kar diya|
+man kaa beeghaa hot tha. tum logon ne isakaa satyaanaash kar diya.
 
-bail khol diye gaye| bholaa bailon ko le kar ghar chalaa, par sujaan daoda
+bail khol diye gaye. bholaa bailon ko le kar ghar chalaa, par sujaan daoda
 
-phenkate rahe| aadhaa ghante ke baad daoda phenk kar vah ghar aaye| magar thakaan
+phenkate rahe. aadhaa ghante ke baad daoda phenk kar vah ghar aaye. magar thakaan
 
-kaa naam na tha| nahaa-khaa kar aaraam karne ke badale unhonne bailon ko sahalaanaa
+kaa naam na tha. nahaa-khaa kar aaraam karne ke badale unhone bailon ko sahalaanaa
 
-shuroo kiya| unakee peeth par haath pheraa, unake pair male, poonchh sahalaayee| bailon
+shuru kiya. unki peeth par haath pheraa, unake pair male, poonchh sahalaayee. bailon
 
-kee poonchhen khadee theen| sujaan kee god mein sir rakhe unhen akathaneey sukh mil
+ki poonchhen khadee theen. sujaan ki god mein sir rakhe unhen akathaneey sukh mil
 
-raha tha| bahut dinon ke baad aaj unhen yah khushee praapt hua tha| unakee
+raha tha. bahut dinon ke baad aaj unhen yah khushi praapt hua tha. unki
 
-aankhon mein kritajnataa bharee huee thi| maano ve kah rahe the, ham tumhaare saath raat-din
+aankhon mein kritajnataa bharee hui thi. maano ve kah rahe the, ham tumhaare saath raat-din
 
-kaam karne ko taiyaar hain|
+kaam karne ko taiyaar hain.
 
-any krishakon kee tarah bholaa abhee kamar seedhee kar raha tha ki sujaan
+any krishakon ki tarah bholaa abhi kamar seedhee kar raha tha ki sujaan
 
-ne phir hal uthaayaa aur khet kee ora chale| donon bail umang se bhare daude
+ne phir hal uthaayaa aur khet ki ora chale. donon bail umang se bhare daude
 
-chale jaate the, maanon unhen svayan khet mein pahunchane kee jaldee thi|
+chale jaate the, maanon unhen svayan khet mein pahunchane ki jaldee thi.
 
 bholaa ne madaiyaa mein lete-lete pitaa ko hal liye jaate dekh, par uth
 
-na sakaa| usakee himmat chhoot gayee| usane kabhee itanaa parishram na kiya tha|
+na sakaa. uski himmat chhoot gayi. usane kabhi itanaa parishram na kiya tha.
 
-use banee-banaayee girastee mil gayee thi| use jyon-tyon chalaa raha tha| ina
+use banee-banaayee girastee mil gayi thi. use jyon-tyon chalaa raha tha. ina
 
-daamon vah ghar kaa svaamee banane kaa ichchhuk na tha| javaan aadamee ko bees
+daamon vah ghar kaa svaamee banane kaa ichchhuk na tha. javaan aadamee ko bees
 
-dhandho hote hain| hansane-bolane ke lie, gaane-bajaane ke lie bhee to use kuchh samay
+dhandho hote hain. hansane-bolne ke lie, gaane-bajaane ke lie bhi to use kuchh samay
 
-chaahie| pados ke gaanv mein dangal ho raha hai| javaan aadamee kaise apne ko
+chaahie. pados ke gaanv mein dangal ho raha hai. javaan aadamee kaise apne ko
 
-wahan jaane se rokegaa ? kisee gaanv mein baaraat aayee hai, naach-gaanaa ho raha hai|
+wahan jaane se rokegaa? kisee gaanv mein baaraat aayee hai, naach-gaanaa ho raha hai.
 
-javaan aadamee kyon usake khushee se vanchit raha sakataa hai ? vriddhajanon ke lie
+javaan aadamee kyon usake khushi se vanchit raha sakataa hai? vriddhajanon ke lie
 
-ye baadhaaen nahin| unhen na naach-gaane se matalab, na khel-tamaashe se garaj, keval
+ye baadhaaen nahin. unhen na naach-gaane se matalab, na khel-tamaashe se garaj, keval
 
-apne kaam se kaam hai|
+apne kaam se kaam hai.
 
-bulaakee ne kahaa —bholaa, tumhaare daadaa hal le kar gaye|
+bulaakee ne kahaa —bholaa, tumhaare daadaa hal le kar gaye.
 
-bholaa-jaane do ammaan, mujhse yah nahin ho sakataa|
+bholaa-jaane do ammaan, mujhse yah nahin ho sakataa.
 
-sujaan bhagat ke is naveen utsaah par gaanv mein teekaaen hueen , nikal gayee saaree
+sujaan bhagat ke is naveen utsaah par gaanv mein teekaaen hueen, nikal gayi sari
 
-bhagatee| banaa hua tha| maayaa mein phansaa hua hai| aadamee kaahe ko, bhoot hai|
+bhagatee. banaa hua tha. maayaa mein phansaa hua hai. aadamee kaahe ko, bhoot hai.
 
 magar bhagat jee ke dvaar par ab phir saadhu-sant aasan jamaaye dekhe jaate
 
-hain| unakaa aadar-izzat hot hai| ab kee usakee khetee ne sonaa ugal diya
+hain. unakaa aadar-izzat hot hai. ab ki uski khetee ne sonaa ugal diya
 
-hai| bakhaaree mein anaaj rakhane kee jagah nahin milatee| jis khet mein paanch man
+hai. bakhaaree mein anaaj rakhne ki jagah nahin milatee. jis khet mein paanch man
 
-mushkil se hot tha, usee khet mein abakee das man kee upaj huee hai|
+mushkil se hot tha, usi khet mein abakee das man ki upaj hui hai.
 
-chait kaa maheenaa tha| khalihaanon mein satayug kaa raaj tha| jagah-jagah
+chait kaa mahina tha. khalihaanon mein satayug kaa raaj tha. jagah-jagah
 
-anaaj ke dher lage hue the| yahee samay hai, jab krishakon ko bhee thodee der ke
+anaaj ke dher lage hue the. yahi samay hai, jab krishakon ko bhi thodee der ke
 
-lie apanaa jeevan kaamayaab maaloom hot hai, jab garv se unakaa dil uchhalane
+lie apna jeevan kaamayaab maaloom hot hai, jab garv se unakaa dil uchhalane
 
-lagataa hai| sujaan bhagat tokare mein anaaj bhar-bhar kar dete the aur donon ladake
+lagta hai. sujaan bhagat tokare mein anaaj bhar-bhar kar dete the aur donon ladake
 
-tokare le kar ghar mein anaaj rakh aate the| kitane hee bhaat aur bhikshuk bhagat
+tokare le kar ghar mein anaaj rakh aate the. kitane hi bhaat aur bhikshuk bhagat
 
-jee ko ghere hue the| unamen vah bhikshuk bhee tha, jo aaj se aath maheene pahale
+jee ko ghere hue the. unamen vah bhikshuk bhi tha, jo aaj se aath mahine pahale
 
-bhagat ke dvaar se niraash ho kar laut gaya tha|
+bhagat ke dvaar se niraash ho kar laut gaya tha.
 
 sahasaa bhagat ne us bhikshuk se poochhaa—kyon baabaa, aaj kahan-kahan chakkar
 
-lagaa aaye ?
+lagaa aaye?
 
-bhikshuk-abhee to kaheen nahin gaya bhagat jee, pahale tumhaare hee paas aay
+bhikshuk-abhi to kaheen nahin gaya bhagat jee, pahale tumhaare hi paas aay
 
-hoon|
+hoon.
 
-bhagat-achchhaa, tumhaare saamane yah dher hai| isamen se jitanaa anaaj uthaa
+bhagat-achchha, tumhaare saamane yah dher hai. isamen se jitanaa anaaj uthaa
 
-kar le jaa sako, le jaao|
+kar le jaa sako, le jaao.
 
 bhikshuk ne kshubdh netron se dher ko dekh kar kahaa —jitanaa apne haath
 
-se uthaa kar de doge, utanaa hee loongaa|
+se uthaa kar de doge, utanaa hi loongaa.
 
-bhagat-nahin, tumse jitanaa uth sake, uthaa lo|
+bhagat-nahin, tumse jitanaa uth sake, uthaa lo.
 
-bhikshuk ke paas ek chaadar thi ! usane koee das ser anaaj usamen bharaa
+bhikshuk ke paas ek chaadar thi! usane koi das ser anaaj usamen bharaa
 
-aur uthaane lagaa| sankoch ke maare aur zyaadaa bharane kaa use saahas na hua|
+aur uthaane lagaa. sankoch ke maare aur zyaadaa bharane kaa use saahas na hua.
 
-bhagat usake man kaa bhaav samajh kar aashvaasan dete hue bole — bas|
+bhagat usake man kaa bhaav samajh kar aashvaasan dete hue bole — bas.
 
-itanaa to ek bachchaa bhee uthaa le jaayagaa|
+itanaa to ek bachchaa bhi uthaa le jaayagaa.
 
-bhikshuk ne bholaa kee ora sandigdh netron se dekh kar kahaa —mere lie
+bhikshuk ne bholaa ki ora sandigdh netron se dekh kar kahaa —mere lie
 
-itanaa hee bahut hai|
+itanaa hi bahut hai.
 
-bhagat-nahin tum sakuchaate ho| abhee aur bharo|
+bhagat-nahin tum sakuchaate ho. abhi aur bharo.
 
-bhikshuk ne ek panseree anaaj aur bharaa, aur phir bholaa kee ora sashank
+bhikshuk ne ek panseree anaaj aur bharaa, aur phir bholaa ki ora sashank
 
-nazar se dekhane lagaa|
+nazar se dekhne lagaa.
 
-bhagat-usakee ora kyaa dekhate ho, baabaa jee ? main jo keht hoon, vah
+bhagat-uski ora kya dekhte ho, baabaa jee? main jo keht hoon, vah
 
-karo| tumse jitanaa uthaayaa jaa sake, uthaa lo|
+karo. tumse jitanaa uthaayaa jaa sake, uthaa lo.
 
 bhikshuk dar raha tha ki kaheen usane anaaj bhar liya aur bholaa ne
 
-gatharee na uthaane dee, to kitanee bhadd hogee| aur bhikshukon ko hansane kaa avasar
+gatharee na uthaane dee, to kitanee bhadd hogee. aur bhikshukon ko hansane kaa avasar
 
-mil jaayagaa| sab yahee kahenge ki bhikshuk kitanaa lobhee hai| use aur anaaj
+mil jaayagaa. sab yahi kahenge ki bhikshuk kitanaa lobhee hai. use aur anaaj
 
-bharane kee himmat na padee|
+bharane ki himmat na padee.
 
 tab sujaan bhagat ne chaadar le kar usamen anaaj bharaa aur gatharee baandh
 
-kar bole — ise uthaa le jaao|
+kar bole — ise uthaa le jaao.
 
-bhikshuk , baabaa, itanaa to mujhse uth na sakegaa|
+bhikshuk, baabaa, itanaa to mujhse uth na sakegaa.
 
-bhagat-are ! itanaa bhee na uth sakegaa ! bahut hogaa to man bhar| bhalaa
+bhagat-are! itanaa bhi na uth sakegaa! bahut hogaa to man bhar. bhalaa
 
-jor to lagaao, dekhoon, uthaa sakate ho yaa nahin|
+jor to lagaao, dekhoon, uthaa sakate ho yaa nahin.
 
-bhikshuk ne gatharee ko aajamaayaa| bhaaree thi| jagah se hilee bhee nahin|
+bhikshuk ne gatharee ko aajamaayaa. bhaaree thi. jagah se hilee bhi nahin.
 
-bol — bhagat jee, yah mujh se na uth sakegee !
+bol — bhagat jee, yah mujh se na uth sakegee!
 
-bhagat-achchhaa, bataao kis gaanv mein rahate ho ?
+bhagat-achchha, bataao kis gaanv mein rehte ho?
 
-bhikshuk-badee door hai bhagat jee; amolaa kaa naam to sunaa hogaa !
+bhikshuk-badi door hai bhagat jee; amolaa kaa naam to sunaa hogaa!
 
-bhagat-achchhaa, aage-aage chalo, main pahunchaa doongaa|
+bhagat-achchha, aage-aage chalo, main pahunchaa doongaa.
 
 yah kahakar bhagat ne jor lagaa kar gatharee uthaayee aur sir par rakh
 
-kar bhikshuk ke peechhe ho liye| dekhane vaale bhagat kaa yah paurush dekh kar chakit
+kar bhikshuk ke peechhe ho liye. dekhne vaale bhagat kaa yah paurush dekh kar chakit
 
-ho gaye| unhen kyaa maaloom tha ki bhagat par is samay kaun-saa nashaa tha|
+ho gaye. unhen kya maaloom tha ki bhagat par is samay kaun-saa nashaa tha.
 
-aath maheene ke lagaataar aviral parishram kaa aaj unhen phal milaa tha| aaj
+aath mahine ke lagaataar aviral parishram kaa aaj unhen phal milaa tha. aaj
 
-unhonne apanaa khoyaa hua adhikaar phir paayaa tha| vahee talavaar, jo kele
+unhone apna khoyaa hua adhikar phir paayaa tha. wahi talavaar, jo kele
 
-ko bhee nahin kaat sakatee, saan par chadh kar lohe ko kaat detee hai| maanav-jeevan
+ko bhi nahin kaat sakatee, saan par chadh kar lohe ko kaat detee hai. maanav-jeevan
 
-mein laag bade mahattv kee vastu hai| jisamen laag hai, vah boodhaa bhee ho to javaan
+mein laag bade mahattv ki vastu hai. jisamen laag hai, vah boodhaa bhi ho to javaan
 
-hai| jisamen laag nahin, gairat nahin, vah javaan bhee mritak hai| sujaan bhagat mein
+hai. jisamen laag nahin, gairat nahin, vah javaan bhi mritak hai. sujaan bhagat mein
 
-laag thi aur usee ne unhen amaanusheey bal pradaan kar diya tha| chalate samay
+laag thi aur usi ne unhen amaanusheey bal pradaan kar diya tha. chalte samay
 
-unhonne bholaa kee ora sagarv netron se dekh aur bole — ye bhaat aur bhikshuk
+unhone bholaa ki ora sagarv netron se dekh aur bole — ye bhaat aur bhikshuk
 
-khade hain, koee khaalee haath na lautane paaye|
+khade hain, koi khaalee haath na lautane paaye.
 
-bholaa sir jhukaaye khadaa tha, use kuchh bolane kaa hausalaa na hua| vriddh
+bholaa sir jhukaaye khadaa tha, use kuchh bolne kaa hausalaa na hua. vriddh
 
-pitaa ne use paraast kar diya tha|
+pitaa ne use paraast kar diya tha.

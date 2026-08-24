@@ -1,7 +1,7 @@
 # Editorial Notes — Sawa Ser Gehun
 
 - Complete source characters processed: 11681
-- Roman reader characters saved: 14432
+- Roman reader characters saved: 14196
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

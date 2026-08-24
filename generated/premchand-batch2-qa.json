@@ -8,7 +8,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-1/BadeBhaiSahib.txt",
       "source_blob": "14cc777bd61a9814b6e1dc7d5fe46b360cb8ad08",
       "source_characters": 16861,
-      "reader_characters": 21409,
+      "reader_characters": 20458,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -19,7 +19,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-1/GulliDanda.txt",
       "source_blob": "36c58be16360a8e2c6cd32671649577fe4d5e36a",
       "source_characters": 13403,
-      "reader_characters": 16817,
+      "reader_characters": 16441,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -30,7 +30,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-1/Nasha.txt",
       "source_blob": "1191e88616e3a18f13198dcb6c3738a808d131d2",
       "source_characters": 13051,
-      "reader_characters": 16533,
+      "reader_characters": 15852,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -41,7 +41,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-2/DoBailonKiKatha.txt",
       "source_blob": "cdbb2357d62ede8487ac049ba6d390a8cf9e7e0c",
       "source_characters": 19608,
-      "reader_characters": 24378,
+      "reader_characters": 23951,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -52,7 +52,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-2/DhoodKaDaam.txt",
       "source_blob": "75729b0c696cfa2270ce2d409d4187f2dbdece90",
       "source_characters": 15109,
-      "reader_characters": 19011,
+      "reader_characters": 18628,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -63,7 +63,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-2/Lottery.txt",
       "source_blob": "6326b3065aaad0d7ca31aac8f7845cb696000c14",
       "source_characters": 25829,
-      "reader_characters": 32174,
+      "reader_characters": 31436,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -74,7 +74,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-5/Mantra2.txt",
       "source_blob": "fec736da299a584dd0795e9c9d7c6e28e7724041",
       "source_characters": 26867,
-      "reader_characters": 33304,
+      "reader_characters": 32718,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -85,7 +85,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-4/SawaSerGehun.txt",
       "source_blob": "4dff6ce6342a69cd3f2a70f4c8cda51e45bda067",
       "source_characters": 11681,
-      "reader_characters": 14432,
+      "reader_characters": 14196,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -96,7 +96,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-4/Prerna.txt",
       "source_blob": "2bee130bb7684064bea03b2dca59def21b0e5d53",
       "source_characters": 21160,
-      "reader_characters": 26310,
+      "reader_characters": 25727,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -107,7 +107,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-5/SujanBhagat.txt",
       "source_blob": "d4814f363ae843ed956e2b73dc45e94a32c55585",
       "source_characters": 19703,
-      "reader_characters": 24596,
+      "reader_characters": 24103,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -118,7 +118,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-7/AatmaRam.txt",
       "source_blob": "8cbe800664807e38f69c4f0d29409260a4ffca86",
       "source_characters": 12171,
-      "reader_characters": 14970,
+      "reader_characters": 14736,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -129,7 +129,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-7/BareyGharKiBeti.txt",
       "source_blob": "8504a2d2999f75aecf161447937c4dff43901b62",
       "source_characters": 14922,
-      "reader_characters": 18679,
+      "reader_characters": 18322,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -140,7 +140,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-7/PanchParmeshwar.txt",
       "source_blob": "91194ce1c56d0f95b1bda68454991e784ee28f93",
       "source_characters": 19210,
-      "reader_characters": 24000,
+      "reader_characters": 23537,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -151,7 +151,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-7/Juloos.txt",
       "source_blob": "23922a75160e2d3d922300ec9635a24bfd17a10a",
       "source_characters": 18624,
-      "reader_characters": 23274,
+      "reader_characters": 22826,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -162,7 +162,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-8/NamakKaDaroga.txt",
       "source_blob": "dba4a3ad99912ab2bea792129ad203cb62a72ec9",
       "source_characters": 14567,
-      "reader_characters": 18377,
+      "reader_characters": 18100,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -173,7 +173,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-8/BudhiKaki.txt",
       "source_blob": "09d951cc6f646a99e23824b8aa05bfec73d56f14",
       "source_characters": 16131,
-      "reader_characters": 20098,
+      "reader_characters": 19787,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -184,7 +184,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-8/Balidan.txt",
       "source_blob": "3f7a950eab0ffceefe82290f351a42e904ed3f19",
       "source_characters": 14908,
-      "reader_characters": 18819,
+      "reader_characters": 18427,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -195,7 +195,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-8/BetiKaDhan.txt",
       "source_blob": "ff81ae8c35abec5c53ff0572055b2af07245f493",
       "source_characters": 15293,
-      "reader_characters": 19294,
+      "reader_characters": 18929,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -206,7 +206,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-5/IshwariyaNyaya.txt",
       "source_blob": "a639191b1c09d60f0f143a6755ed5fb1052fd582",
       "source_characters": 34292,
-      "reader_characters": 42895,
+      "reader_characters": 42206,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"
@@ -217,7 +217,7 @@
       "source_path": "hindi-stories/storyBook/premchandra/mansarovar-5/Ramleela.txt",
       "source_blob": "814a5a0071065090fabadc4668f581d3a09d96f7",
       "source_characters": 12349,
-      "reader_characters": 15482,
+      "reader_characters": 15081,
       "roman_only": true,
       "complete_first_pass": true,
       "human_review": "pending"

@@ -1,7 +1,7 @@
 # Editorial Notes — Namak Ka Daroga
 
 - Complete source characters processed: 14567
-- Roman reader characters saved: 18377
+- Roman reader characters saved: 18100
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

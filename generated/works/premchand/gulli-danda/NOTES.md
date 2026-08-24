@@ -1,7 +1,7 @@
 # Editorial Notes — Gulli Danda
 
 - Complete source characters processed: 13403
-- Roman reader characters saved: 16817
+- Roman reader characters saved: 16441
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

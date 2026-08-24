@@ -1,7 +1,7 @@
 # Editorial Notes — Budhi Kaki
 
 - Complete source characters processed: 16131
-- Roman reader characters saved: 20098
+- Roman reader characters saved: 19787
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

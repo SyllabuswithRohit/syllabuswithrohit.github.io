@@ -1,7 +1,7 @@
 # Editorial Notes — Panch Parmeshwar
 
 - Complete source characters processed: 19210
-- Roman reader characters saved: 24000
+- Roman reader characters saved: 23537
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

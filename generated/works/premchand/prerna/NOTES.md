@@ -1,7 +1,7 @@
 # Editorial Notes — Prerna
 
 - Complete source characters processed: 21160
-- Roman reader characters saved: 26310
+- Roman reader characters saved: 25727
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

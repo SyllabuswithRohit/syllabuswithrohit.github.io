@@ -1,7 +1,7 @@
 # Editorial Notes — Bade Ghar Ki Beti
 
 - Complete source characters processed: 14922
-- Roman reader characters saved: 18679
+- Roman reader characters saved: 18322
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

@@ -1,7 +1,7 @@
 # Editorial Notes — Beti Ka Dhan
 
 - Complete source characters processed: 15293
-- Roman reader characters saved: 19294
+- Roman reader characters saved: 18929
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

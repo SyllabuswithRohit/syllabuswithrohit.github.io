@@ -1,7 +1,7 @@
 # Editorial Notes — Mantra
 
 - Complete source characters processed: 26867
-- Roman reader characters saved: 33304
+- Roman reader characters saved: 32718
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

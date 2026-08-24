@@ -1,7 +1,7 @@
 # Editorial Notes — Nasha
 
 - Complete source characters processed: 13051
-- Roman reader characters saved: 16533
+- Roman reader characters saved: 15852
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.

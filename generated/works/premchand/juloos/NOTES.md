@@ -1,7 +1,7 @@
 # Editorial Notes — Juloos
 
 - Complete source characters processed: 18624
-- Roman reader characters saved: 23274
+- Roman reader characters saved: 22826
 - Source order and paragraph sequence retained.
 - Controlled easy-language substitutions applied before script conversion.
 - Roman-only check: passed.
