@@ -1,0 +1,46 @@
+name: Package Manto Artifact
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    if: >-
+      (github.event_name == 'issues' && startsWith(github.event.issue.title, '[package-manto-artifact]')) ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out completed Manto branch
+        uses: actions/checkout@v4
+        with:
+          ref: automation/manto-classics-builder
+          fetch-depth: 0
+
+      - name: Record package run
+        run: |
+          mkdir -p .github/workflow-status
+          {
+            echo "run=${GITHUB_RUN_ID}"
+            echo "source_commit=$(git rev-parse HEAD)"
+            echo "recorded_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > .github/workflow-status/manto-package.status
+          git config user.name 'SWR temporary artifact packager'
+          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
+          git add .github/workflow-status/manto-package.status
+          git commit -m 'chore: record Manto package artifact run'
+          git push origin HEAD:automation/manto-classics-builder
+
+      - name: Upload completed generated directory
+        uses: actions/upload-artifact@v4
+        with:
+          name: manto-generated-package
+          path: generated
+          if-no-files-found: error
+          retention-days: 3
