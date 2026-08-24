@@ -1,0 +1,32 @@
+name: Classics Builder Smoke
+
+on:
+  push:
+    branches:
+      - automation/classics-builder-public
+    paths:
+      - .github/workflows/classics-builder-smoke.yml
+      - automation/classics-builder-smoke.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create smoke artifact
+        run: |
+          mkdir -p smoke
+          printf 'public runner works\n' > smoke/result.txt
+          python --version >> smoke/result.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: classics-builder-smoke
+          path: smoke
+          if-no-files-found: error
