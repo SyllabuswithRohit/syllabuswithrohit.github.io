@@ -1,13 +1,42 @@
 Building Nirmala
+Wikisource 01/24: निर्मला/१
+Wikisource 02/24: निर्मला/२
+Wikisource 03/24: निर्मला/३
+Wikisource 04/24: निर्मला/४
+Wikisource 05/24: निर्मला/५
+Wikisource 06/24: निर्मला/६
+Wikisource 07/24: निर्मला/७
+Wikisource 08/24: निर्मला/८
+Wikisource 09/24: निर्मला/९
+Wikisource 10/24: निर्मला/१०
+retry 429 https://hi.wikisource.org/w/api.php after 24s
+Wikisource 11/24: निर्मला/११
+Wikisource 12/24: निर्मला/१२
+Wikisource 13/24: निर्मला/१३
+Wikisource 14/24: निर्मला/१४
+Wikisource 15/24: निर्मला/१५
+Wikisource 16/24: निर्मला/१६
+Wikisource 17/24: निर्मला/१७
+Wikisource 18/24: निर्मला/१८
+Wikisource 19/24: निर्मला/१९
+Wikisource 20/24: निर्मला/२०
+retry 429 https://hi.wikisource.org/w/api.php after 28s
+Wikisource 21/24: निर्मला/२१
+Wikisource 22/24: निर्मला/२२
+Wikisource 23/24: निर्मला/२३
+Wikisource 24/24: निर्मला/२४
+Building Godaan
+Building Manto
 Traceback (most recent call last):
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 82, in <module>
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 146, in <module>
     b.main()
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 224, in main
-    print("Building Nirmala",flush=True);qs.append(build_nirmala())
-                                                   ^^^^^^^^^^^^^^^
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 133, in build_nirmala
-    pages=fetch_wikisource_pages("निर्मला","निर्मला")
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 75, in fetch_wikisource_pages
-    raise RuntimeError(f"Wikisource extract too short: {title}: {len(text)} chars")
-RuntimeError: Wikisource extract too short: निर्मला/१: 0 chars
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 226, in main
+    print("Building Manto",flush=True);qs.extend(build_manto())
+                                                 ^^^^^^^^^^^^^
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 177, in build_manto
+    src,url=extract_rekhta(f"https://www.rekhta.org/stories/{slug}?lang=hi",title,minc);rom=devanagari_to_roman(src);root=WORKS/"manto"/wid
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 163, in extract_rekhta
+    if not cands:write(LOGS/(re.sub(r"[^a-z0-9]+","-",title.lower())+".html"),raw);raise RuntimeError(f"Rekhta extraction too short: {title}")
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Rekhta extraction too short: Toba Tek Singh
