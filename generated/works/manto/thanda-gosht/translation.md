@@ -2,130 +2,130 @@
 
 **Saadat Hasan Manto**
 
-aishr sngh jonhi hotl ke kmre mein dakhl hoa, klont kor plng pr se athe. apni tiz tiz aankhon se is ki trf ghor ke dekha aur droaze ki chtkhni bnd krdi raat ke barh bj chke the, shhr ka mzafat ek jib prasrar khamoshe mein ghrq tha.
+aishar sangh jonhi hotal ke kamray mein daakhil hawaa, klonat coor plung parr se uthee. apni teez teez aankhon se is ki taraf ghoor ke dekha aur darwazay ki chatkhani bund kardi. raat ke baarah bujj chakay thay, shehar ka mazafat ek ajeeb prasrar khamushi mein gharaq thaa.
 
-klont kor plng pr aalti palti mar krbith gaye. aishrsngh jo ghalba apne pragndh khialat ke aljhe havaye dhage khol rha hath mein krpan lee ek kone mein khra tha. chnd lmhat ase trh khamoshe mein gzr gieklont kor ko thore dir ke bd apna aasn psnd nh aya, aur woh donom tangin plng se nicheltka kar hlane lgi aishr sngh phir bhi kuchh nh bola.
+klonat coor plung parr aalti paalti maar karbeth gayee. aisharsingh jo ghaliban apne pragandah khayalat ke aljhay hoay dhagay khool rehaa, haath mein karpaan liye ek konay mein khadaa thaa. chand lamhaat asee tarah khamushi mein guzar gayey.klonat coor ko thodi deer ke baad apna aasan pasand naha aayaa, aur woh donon taangein plung se necheltika kar halanay lagee. aishar sangh phir bhi kuchh naha bolaa.
 
-klont kor bhre bhre hath perom vale aurat the. chore chkle kolhe thl thl krne vale gosht se bhrpor kuchh bahut hi zyada aopr ko atha hoasinh tiz aankhin balaye hont pr balom ka srmii ghbar thore ki sakht se pth chlta tha ki bre dhrle ki aurat he.
+klonat coor bharay bharay haath peeron waali aurat thee. choday chaklay kolhay, thall thall karnay waalay gosht se bharpur kuchh bahut hi zyada oopar ko uthaa huwasina, teez aankhein, balayi hont parr baalon ka sarmayi ghabaar, thodi ki saakhat se patah chalta tha ki baday dhadlay ki aurat hay.
 
-aishr sngh gosrniorhaie ek kone mein chp chap khra thasrpr is ki ks kar bandhi havaye pgri dhele horhi the. is ke hath jo krpan thame havaye the, thore thore lrzan the, magar is ke qdoqamt aur khdokhal se pth chlta tha ki klont kor jese aurat ke lee mozom trin mrd he.
+aishar sangh gosarniyodhaye ek konay mein chap chaap khadaa thaa.sarpar is ki kiss kar baandhi hoyee pagdi daheeli horahi thee. is ke haath jo karpaan thamay hoay thay, thoday thoday larzaan thay, magar is ke qaduqamat aur khudukhaal se patah chalta tha ki klonat coor jaisi aurat ke liye mozon tareen mard hay.
 
-chnd aur lmhat jab ase trh khamoshe se gzr gaye to klont kor chhlk pri lekin tiz tiz aankhon ko ncha kar woh srf is qdr khh ski ’’aishrsian‘‘ aishr sngh ne grdn atha kar klont kor ki trf dekha, magar is ki ngahon ki goleom ki tab nh la krmnh dosri trf mor lea. klont kor chlaii ’’aishr sianlikn foran hi aaoaz bhinch li aur plng pr se ath kar is ki janb jate havaye bole, ’’kahan rahe tum atne dn‘‘
+chand aur lamhaat jab asee tarah khamushi se guzar gaye tuu klonat coor chhalak padee. lekin teez teez aankhon ko nachaa kar woh sarf is qadr kahah skee, aisharsian. aishar sangh ne girdan uthaa kar klonat coor ki taraf dekha, magar is ki nigahon ki goliyon ki taab naha laa karmanah dosri taraf moad liyaa. klonat coor chalayi, aishar seeyan.''leakin foraan hi aawaz bhench li aur plung parr se utth kar is ki jaanib jaatay hoay bolee, kahan rahe tum atnay dunn?
 
-aishr sngh ne khshk honton pr zban phere. ’’mujhe mlom nhin‘‘
+aishar sangh ne khashak honton parr zabaan phairi. mujhe maloom nahein.
 
-klont kor bhna gaye. ’’yeh bhi koi mo ya jawab he?‘‘
+klonat coor bhanaa gayee. yeh bhi koi muu yaa jawab hay?
 
-aishr sngh ne krpan ek trf phink di aur plng pr lit gea. esa mlom hota tha ki woh kaye dnon ka bimar heklont kor ne plng ki trf dekha. jawab aishr sngh se lbalb bhra tha. is ke dil mein hmdrdi ka jzbh peda hogea. chnanchh is ke mathe pr hath rkh kar is ne bre pyaar se pochha, ’’jane kya hoa hai tmhin‘‘
+aishar sangh ne karpaan ek taraf phaink di aur plung parr lait gayaa. aisa maloom hotaa tha ki woh kayee dunon ka beemar hay.klonat coor ne plung ki taraf dekha. jawab aishar sangh se labalib bharaa thaa. is ke dil mein humdardi ka jazbah paida hogiya. chunancha is ke maathay parr haath rakh kar is ne baday pyaar se poocha, jaanee kya hawaa hai tamhein?
 
-aishr sngh chht ki trf dikh raha tha, is se ngahin hta kar is ne klont kor ke manos chhre kottolna shro kiaklont‘‘
+aishar sangh chhat ki taraf deekh raha thaa, is se nigahein hataa kar is ne klonat coor ke manus chehrey kottolna sharoo kiyaa.''klonat
 
-aaoaz mein dard tha. klont kor sare ki sare smt krapne balaye hont mein agaye.’’ham jane‘‘ khh kar woh is ko danton se katne lgi
+aawaz mein dard thaa. klonat coor saaree ki saaree simat karaapne balayi hont mein aagayi.''haan jaanee kahah kar woh is ko daanaton se kaatnay lagee.
 
-aishr sngh ne pgri atar de. klont kor ki trf shara lene vale ngahon se dekha, is ke gosht bhre kolhe pr zor se dhpa mara aur sr ko jhtka de kar apne aap se kha ’’yeh kri ya dmagh hi khrab he.‘‘
+aishar sangh ne pagdi ataar dee. klonat coor ki taraf sahara leenay waali nigahon se dekha, is ke gosht bharay kolhay parr zoor se dhapa maaraa aur sarr ko jhatka day kar apne aap se kahaa, yeh kadee yaa dimagh hi kharaab hay.
 
-jhtka dene se is ke kis khl gee. klont kor anglion se un mein knghi krne lgi esa karte havaye is ne bre pyaar se pochha, ’’aishr seam, kahan rahe tum atne dn‘‘
+jhatka deenay se is ke kees khill gayey. klonat coor angliyon se un mein kanghi karnay lagee. aisa karte hoay is ne baday pyaar se poocha, aishar seeyan, kahan rahe tum atnay dunn?
 
-’’bre ki maa ke ghar‘‘ aishr sngh ne klont kor ko ghor ke dekha aur dfta donom hathom se is ke abhre havaye sene ko mslne lga
+bray ki maa ke ghar aishar sangh ne klonat coor ko ghoor ke dekha aur dafatan donon haathon se is ke ubhray hoay seenay ko masalnay lagaa.
 
-’’qsm vahgoro ki badi jandar aurat he.‘‘
+qasm wahgoro ki badi jandar aurat hay.
 
-klont kor ne ek ada ke sath aishr sngh ke hath ek trf jhtk dee aur pochha, ’’tumhe meri qsm btao kahan rhe shhrgie the?‘‘
+klonat coor ne ek adaa ke saath aishar sangh ke haath ek taraf jhatak diye aur poocha, tumhe meri qasm batao, kahan rahay...? shahargiye thay?
 
-aishrsngh ne ek hi lpit mein apne balom ka jora bnate havaye jawab dea, ’’nhin‘‘
+aisharsingh ne ek hi lapet mein apne baalon ka jodaa banatay hoay jawab diyaa, nahein.
 
-klont kor chr gaye. ’’nahin tum zror shhr gee the... aur tum ne bahut sa rupiya lota hai jo mjh se chhpa rahe ho.‘‘
+klonat coor chadh gayee. nahin tum zaroor shehar gayey thay... aur tum ne bahut saa rupiya lotaa hai jo majh se chhapa rahe how.
 
-’’woh apne baap ka tkhm nh ho jo tum se jhot bole.‘‘
+woh apne baap ka takham naha how jo tum se jhoot bolay.
 
-klont kor thore dir ke lee khamosh hogaye, lekin foran hi bhrk athe, ’’lekin meri samajh mein nahin ata, is raat tumhe kya hoa...? achhe bhle mere sath lete the, mujhe tum ne woh tmam ghne phna rkhe the jo tum shhr se lot kar laye the. meri bhpian le rahe the, pr jane ek dm tumhe kya hoa, athe aur kpre phn kar bahr nkl gee.‘‘
+klonat coor thodi deer ke liye khamush hogayi, lekin foraan hi bhadak uthee, lekin meri samajh mein nahin aataa, is raat tumhe kya hawaa...? achhay bhalay mere saath leetay thay, mujhe tum ne woh tamaam gehnay pehna rakhay the jo tum shehar se loat kar laaye thay. meri bhapiyan lay rahe thay, parr jaanay ek dumm tumhe kya hawaa, uthay aur kapday pehan kar baahir nikal gayey.
 
-aishr sngh ka rng zrd hogea. klont kor ne yeh tbdili dekhte hi kha ’’dekha kese rng nela pr gea... aishr seam, qsm vahgoro ke, zror kuchh dal mein kala he?‘‘
+aishar sangh ka rung zard hogiya. klonat coor ne yeh tabdili dekhte hi kahaa, dekha kisay rung neela parh gayaa... aishar seeyan, qasm wahgoro kii, zaroor kuchh daal mein kaala hay?
 
-’’teri jan ki qsm kuchh bhi nhin‘‘
+teri jaan ki qasm kuchh bhi nahein.
 
-aishr sngh ki aaoaz be jan the. klont kor ka shbh aur zyada mzbot hogea, balaye hont bhinch kar is ne ek ek lfz pr zor dete havaye kha ’’aishr seam, kya baat he. tum woh nahin ho jo aaj se aath roz phle the?‘‘
+aishar sangh ki aawaz bay jaan thee. klonat coor ka shabah aur zyada mazboot hogiya, balayi hont bhench kar is ne ek ek lafz parr zoor deetay hoay kahaa, aishar seeyan, kya baat hay. tum woh nahin how jo aaj se aath roz pehley thay?
 
-aishr sngh ek dm ath betha, jese ksi ne is pr hmlh kya tha. klont kor ko apne tno mnd bazavavam mein smit kar is ne pore qot ke sath use bhnbhorna shro krdiajani mein ohe hom... ght ght pa jphian teri nkle hdam di grmi‘‘
+aishar sangh ek dumm utth betha, jeesay kasee ne is parr hamlah kya thaa. klonat coor ko apne tano mund bazoon mein sameet kar is ne poori quwat ke saath use bhanbhodna sharoo kardiya.''jaanee mein wahee hoan... ghatt ghatt paa japhiyan, teri niklay hadaan di garmi...
 
-klont kor ne mzahmt nh ke, lekin woh shkait karti rhi ’’tumhe is raat ho kya gaya tha?‘‘
+klonat coor ne mazahimat naha kii, lekin woh shikayat karti rahee. tumhe is raat how kya gaya thaa?
 
-’’bre ki maa ka woh hogea tha.‘‘
+bray ki maa ka woh hogiya thaa.
 
-’’btaoge nhin‘‘
+bataoge nahein?
 
-’’koi baat ho to btaon‘‘
+koi baat how tuu bataon.
 
-’’mujhe apne hathom se jlao agar jhot bolo.‘‘
+mujhe apne haathon se jalao agar jhoot bolo.
 
-aishr sngh ne apne bazo is ki grdn mein dal dee aur hont is ke honton mein gar dee. monchhon ke bal klont kor ke nthnon mein ghse to use chhink agaye. donom hnsne lgeaishr sngh ne apni sdri atar di aur klont kor ko shhot bhri nzron se dikh kar kha ’’ajava, ek baze tash ki ho jaye!‘‘
+aishar sangh ne apne baazo is ki girdan mein ddaal diye aur hont is ke honton mein gaad diye. monchhon ke baal klonat coor ke nathnon mein ghasey tuu use chhinak aagayi. donon hansnay lagay.aishar sangh ne apni sadri ataar di aur klonat coor ko shahut bharee nazaron se deekh kar kahaa, aajao, ek baazi taash ki how jaaye!
 
-klont kor ke balaye hont pr psine ki nnhi nnhi bondin phot ayem, ek ada ke sath is ne apni aankhon ki ptlian ghmaiin aur kha ’’chl dfan ho.‘‘
+klonat coor ke balayi hont parr pasinay ki nanhee nanhee bondein phut aayein, ek adaa ke saath is ne apni aankhon ki patliyan gahmayein aur kahaa, chull dafaan how.
 
-aishr sngh ne is ke bhre havaye kolhe pr zor se chtki bhri klont kor trp kar ek trf ht gaye, ’’nh kar aishr seam, mere dard hota he.‘‘ aishr sngh ne age brh kar klont kor ka balaye hont apne danton tle dba liya aur kchkchane lga klont kor balkl pghl gaye. aishr sngh ne apna krth atar ke phink diya aur kha ’’lo, phrho jaye trp chal‘‘
+aishar sangh ne is ke bharay hoay kolhay parr zoor se chatki bharee. klonat coor tadap kar ek taraf hutt gayee, naha kar aishar seeyan, mere dard hotaa hay. aishar sangh ne aagay badh kar klonat coor ka balayi hont apne daanaton talay dabaa liya aur kachakchanay lagaa. klonat coor balkal pighal gayee. aishar sangh ne apna kartah ataar ke phaink diya aur kahaa, low, phirho jaaye tarap chaal...
 
-klont kor ka balaye hont kpkpane lga aishr sngh ne donom hathom se klont kor ki qmis ka ghera pkra aur js trh bkre ki khal atarte hem, ase trh is ko atar kar ek trf rkh dea, phras ne ghor ke is ke nnge bdn ko dekha aur zor se is ke bazo prchtki bhrte havaye kha ’’klont qsm vahgoro ke, badi krari aurat hai to.‘‘ klont kor apne bazo pr abhrte havaye lal dhbe ko dikhne lgi ’’bada zalm hai to aishr seam.‘‘
+klonat coor ka balayi hont kapkapane lagaa, aishar sangh ne donon haathon se klonat coor ki qamis ka gahira pakda aur jiss tarah bakray ki khaal atartay haine, asee tarah is ko ataar kar ek taraf rakh diyaa, phiraas ne ghoor ke is ke nangay badan ko dekha aur zoor se is ke baazo parchatki bhartay hoay kahaa, klonat, qasm wahgoro kii, badi karaari aurat hai tuu. klonat coor apne baazo parr ubharte hoay laal dhabay ko dekhnay lagee, bada zaalim hai tuu aishar seeyan.
 
-aishr sngh apni ghni kale monchhon mein mskraia ’’hone de aaj zlm‘‘ aur yeh khh kar is ne mzid zlm dhane shro kee. klont kor ka balaye hont danton tle kchkchaia kan ki loom ko kata, abhre havaye sene ko bhnbhora abhre havaye kolhon pr aaoaz peda krne vale chante mare. galom ke mnh bhr bhr ke bose lee. chos chos kar is ka sara sinh thokom se lthir dea. klont kor tiz aanch pr chrhi havaye handi ki trh ablne lgi
+aishar sangh apni gahnee kaali monchhon mein maskaraya, honay day aaj zulam? aur yeh kahah kar is ne mazeed zulam dahanay sharoo kiye. klonat coor ka balayi hont daanaton talay kachkachaya. kaan ki lowon ko kaataa, ubhray hoay seenay ko bhanbhoda, ubhray hoay kolhon parr aawaz paida karnay waalay chaantay maaray. gaalon ke manah bhar bhar ke bosay liye. choos choos kar is ka saaraa seenah thokon se latheed diyaa. klonat coor teez aanch parr chadhi hoyee haandi ki tarah abalnay lagee.
 
-lekin aishr sngh un tmam helom ke baojod khod mein hrart peda nh krska jtne gr aur jtne dava use iad thesb ke sab is ne pt jane vale phloan ki trh astmal krdieprkoii kargr nh hoa. klont kor ne, js ke bdn ke sare tar tn kar khod bkhod bj rahe theghir zaroori chhir chhar se tng aakr kha ’’aishr seam, kafe phint chka he, ab pta phink!‘‘
+lekin aishar sangh un tamaam hailon ke bawajood khood mein hararat paida naha karsaka. jitnay girr aur jitnay daao use yaad thay,sabb ke sab is ne putt jaanay waalay pahelwan ki tarah istemaal kardiye,parkoyi kaargar naha hawaa. klonat coor nay, jiss ke badan ke saaray taar tunn kar khood bakhud bujj rahe thay,ghair zaroori chhed chhaad se tung aakar kahaa, aishar seeyan, kaafi phaint chakaa hay, ab pataa phaink!
 
-yeh snte hi aishr sngh ke hath se jese tash ki sare gdi neche phsl gaye. hanpta hoa woh klont kor ke phlo mein lit gaya aur is ke mathe pr srd psine ke lip hone lge klont kor ne use grmane ki bahut koshsh ke. magar nakam rhi ab tk sab kuchh mnh se khe bghir hota raha tha lekin jab klont kor ke mntzr bh ml aaza ko skht naamede havaye to woh jhla kar plng se neche atr gaye. samne khonti pr chadr pri the, is ko atar kar is ne jldi jldi aorh kar aur nthne phla kr bphre havaye lhje mein kaha ’’aishr seam, woh kaun hram zade he, js ke pas to atne din rh kar aaya he. js ne tjhe nchor dala he?‘‘ aishr sngh plng pr leta hanpta raha aur is ne koi jawab nh dea.
+yeh santay hi aishar sangh ke haath se jeesay taash ki saaree guddi neechey phisal gayee. hanpta hawaa woh klonat coor ke pehlu mein lait gaya aur is ke maathay parr sard pasinay ke leep honay lagay. klonat coor ne use garmanay ki bahut koshish kii. magar nakaam rahee, ab takk sab kuchh manah se kahay baghair hotaa raha tha lekin jab klonat coor ke muntazir bahh amal aazaa ko sakht naamidi hoyee tuu woh jhalaa kar plung se neechey utar gayee. saamney khonti parr chaadar padee thee, is ko ataar kar is ne jaldi jaldi audh kar aur nathnay phalaa kirr, biphre hoay lehjay mein kaha aishar seeyan, woh kaun haraam zaadi hay, jiss ke paas tuu atnay din rahh kar aaya hay. jiss ne tajhay nichod daala hay? aishar sangh plung parr leeta hanpta raha aur is ne koi jawab naha diyaa.
 
-klont kor ghse se ablne lgi ’’mein pochhti hom? kaun hai chdo kaun hai woh alfti kaun hai woh chorpta‘‘
+klonat coor ghasey se abalnay lagee. mein poochti hoan? kaun hai chado... kaun hai woh alfati... kaun hai woh chorpata?
 
-aishr sngh ne thke havaye lhje mein jawab dea, ’’koi bhi nahin klont koi bhi nhin‘‘
+aishar sangh ne thakay hoay lehjay mein jawab diyaa, koi bhi nahin klonat, koi bhi nahein.
 
-klont kor ne apne bhre havaye kolhon pr hath rkh kar ek zm ke sath kha ’’aishr seam, mein aaj jhot sch jan ke rhon ge...kha vahgoro je ki qsmkia is ki thh mein koi aurat nhin‘‘
+klonat coor ne apne bharay hoay kolhon parr haath rakh kar ek azam ke saath kahaa, aishar seeyan, mein aaj jhoot sach jaan ke rehon gee...khaa wahgoro jee ki qasm...kiyaa is ki tehah mein koi aurat nahein?
 
-aishr sngh ne kuchh khna chaha, mgrklont kor ne is ki ajazt nh de. ’’qsm khane se phle soch le ki mein srdar nhal sngh ki bete hom... tka bote krdon ge, agar to ne jhot bola... le ab kha vahgoro je ki qsm kya is ki thh mein koi aurat nhin‘‘
+aishar sangh ne kuchh kehna chaaha, magarkalonat coor ne is ki ajazat naha dee. qasm khaaney se pehley soch lay ki mein sardaar nahaal sangh ki betty hoan... takaa boaty kardon gee, agar tuu ne jhoot bolaa... lay ab khaa wahgoro jee ki qasm... kya is ki tehah mein koi aurat nahein?
 
-aishr sngh ne bre dkh ke sath asbat mein sr hlaia klont kor balkl doane hogaye. lpk kar kone mein se krpan athaiimian ko kele ke chhlke ki trh atar kar ek trf phinka aur aishr sngh pr oarkrdia aan ki aan mein lho ke foare chhot pre klont kor ki is se bhi tsli nh havaye to is ne ohshe blion ki trh aishr sngh ke kis nochne shro kar dee. sath hi sath woh apni namlom sot komote mote galeam dete rhin aishr sngh ne thore dir ke bd nqaht bhri altja ke, ’’jane de ab klont! jane de.‘‘
+aishar sangh ne baday dikh ke saath asbaat mein sarr halaya, klonat coor balkal dawani hogayi. lapak kar konay mein se karpaan uthayi,miyaan ko kailay ke chhalkay ki tarah ataar kar ek taraf phainka aur aishar sangh parr waarkardiya. aann ki aann mein lahoo ke fawaray chhot paray. klonat coor ki is se bhi tasli naha hoyee tuu is ne wahshi baliyon ki tarah aishar sangh ke kees nochnay sharoo kar diye. saath hi saath woh apni namalum suut komoti motee gaaliyan deeti rahein. aishar sangh ne thodi deer ke baad nqahat bharee altaja kii, jaanay day ab klonat! jaanay day.
 
-aaoaz mein bla ka dard tha, klont kor pechhe ht gaye.
+aawaz mein blaa ka dard thaa, klonat coor peeche hutt gayee.
 
-khon aishr sngh ke gle se ar ar kar is ki monchhon pr grrha tha, is ne apne lrzan hont khole aur klont kor ki trf shkrie aur gile ki mli jli ngahon se dekha. ’’meri jan! tum ne bahut jldi ke... lekin jo hoa thik he.‘‘
+khoon, aishar sangh ke gulay se urh urh kar is ki monchhon parr garraha thaa, is ne apne larzaan hont kholay aur klonat coor ki taraf shakriye aur gilay ki milly jalee nigahon se dekha. meri jaan! tum ne bahut jaldi kii... lekin jo hawaa theek hay.
 
-klont kor ka hsd phir bhrka ’’magar woh kaun hai tmhari mam?‘‘
+klonat coor ka hasd phir bhadka. magar woh kaun hai tumhari maan?
 
-lho aishr sngh ki zban tk phnch gea, jab is ne is ka zaiqh chkha to is ke bdn pr jhrjhri se dor gaye.
+lahoo, aishar sangh ki zabaan takk pahunch gayaa, jab is ne is ka zaiqah chakhaa tuu is ke badan parr jharjhari see dodh gayee.
 
-’’aur mem... aur mem... bhene ya chh aadmion ko qtl krchka hom... ase krpan se...‘‘
+aur mein... aur mein... bheni yaa chh aadmiyon ko qatal karchaka hoan... asee karpaan say...
 
-klont kor ke dmagh mein srf dosri aurat the.’’mem pochhti hom, kaun hai woh hram zade?‘‘
+klonat coor ke dimagh mein sarf dosri aurat thee.''mein poochti hoan, kaun hai woh haraam zaadi?
 
-aishr sngh ki aankhin dhndlarhi them, ek hlki se chmk un mein peda havaye aur is ne klont kor se kha ’’gale nh de is bhroi ko.‘‘
+aishar sangh ki aankhein dhandlarahi thein, ek halki see chamak un mein paida hoyee aur is ne klonat coor se kahaa, gaali naha day is bhadwi kuu.
 
-klont chlaii ’’mein pochhti hom, woh hai kon‘‘
+klonat chalayi, mein poochti hoan, woh hai coone?
 
-aishr sngh ke gle mein aaoaz rndh gaye. ’’btata hom.‘‘ yeh khh kar is ne apni grdn pr hath phera aur is pr apna jeta jeta khon dikh kar mskraiaansan maa ya bhi ek jib chiz he.‘‘
+aishar sangh ke gulay mein aawaz randh gayee. batata hoan. yeh kahah kar is ne apni girdan parr haath phaira aur is parr apna jeeta jeeta khoon deekh kar maskaraya.''ansaan maa yaa bhi ek ajeeb cheez hay.
 
-klont kor is ke jawab ki mntzr the. ’’aishr seam, to mtlb ki baat kr‘‘
+klonat coor is ke jawab ki muntazir thee. aishar seeyan, tuu matlab ki baat kirr.
 
-aishr sngh ki mskraht is ki lho bhri monchhon mein aur zyada phil gaye. ’’mtlb hi ki baat krrha hom... gla chrahe maa ya mera... ab dhere dhere hi sare baat btaon ga.‘‘
+aishar sangh ki maskarahat is ki lahoo bharee monchhon mein aur zyada phail gayee. matlab hi ki baat karraha hoan... gulla charahay maa yaa miraa... ab dheray dheray hi saaree baat bataon gaa.
 
-aur jab woh baat bnane lga to is ke mathe pr thnde psine ke lip hone lge
+aur jab woh baat bananay lagaa tuu is ke maathay parr thanday pasinay ke leep honay lagay.
 
-’’klont! meri jan mein tumhe nahin bta skta mere sath kya hoa...? insaan kri ya bhi ek jib chiz he... shhr mein lot mchi to sab ki trh mein ne bhi is mein hsh lea... ghne pate aur rope pese jo bhi hath lge woh mein ne tumhe de dee... lekin ek baat tumhe nh btaii‘‘
+klonat! meri jaan... mein tumhe nahin bataa saktaa, mere saath kya hawaa...? insaan kadee yaa bhi ek ajeeb cheez hay... shehar mein loat machee tuu sab ki tarah mein ne bhi is mein hasah liyaa... gehnay paatay aur rupay paisay jo bhi haath lagay woh mein ne tumhe day diye... lekin ek baat tumhe naha batayi.
 
-aishr sngh ne ghava mein dard mhsos kya aur krahne lgaklont kor ne is ki trf tojh nh de. aur badi be rhmi se pochhakon se bat‘‘
+aishar sangh ne gahao mein dard mahsus kya aur karahne lagaa.klonat coor ne is ki taraf taujah naha dee. aur badi bay rahmi se poocha.''coone see baath?
 
-aishrsngh ne monchhon pr jmte havaye lho ko phonk ke zrie se arate havaye kha ’’js mkan pr mein ne dhaoa bola tha... is mein sat is mein sat aadmi the... chh mein ne... qtl kar dee... ase krpan se js se to ne mjhe chhor ase... sn ek ladki thi bahut sndr is ko atha mein apne sath le aya.‘‘
+aisharsingh ne monchhon parr jamtey hoay lahoo ko phunk ke zariye se udatay hoay kahaa, jiss makaan parr... mein ne dhawa bola thaa... is mein saat... is mein saat aadmi thay... chh mein nay... qatal kar diye... asee karpaan se jiss se tuu ne majhay... chhod asay... sunn... ek ladki thi bahut sandar... is ko uthaa mein apne saath lay aayaa.
 
-klont kor khamosh snti rhi aishr sngh ne ek bar phir phonk mar ke monchhon pr se lho araiaklont jane, mein tum se kya khon ktni sndr the... mein use bhi mar dalta pr mein ne kha ’’nhin aishr seam, klont kor ke to hr roz mze leta he, yeh meoh bhi chkh dikh‘‘
+klonat coor, khamush sunti rahee. aishar sangh ne ek baar phir phunk maar ke monchhon parr se lahoo adaya.''klonat jaanee, mein tum se kya kahoon, katni sandar thee... mein use bhi maar daalta, parr mein ne kahaa, nahein, aishar seeyan, klonat coor ke tuu harr roz mazay leeta hay, yeh mewah bhi chakh deekh.
 
-klont kor ne srf is qdr kha ’’hom...!‘‘
+klonat coor ne sarf is qadr kahaa, hoan...!
 
-’’aur mein use kndhe pr dal kar chl dea... raste mem... kya khh raha tha mem?... ham raste mem... nhr ki ptri ke pas thohrki jhareom tle mein ne use lta dea... phle socha ki phinton lekin phir khayal aaya ki nhin‘‘ yeh kehte kehte aishr sngh ki zban sokh gaye.
+aur mein use kandhay parr ddaal kar chull diyaa... raastay mein... kya kahah raha tha mein?... haan raastay mein... nehar ki patri ke paas, thohadki jhaadiyon talay mein ne use lataa diyaa... pehley socha ki phainton, lekin phir khayal aaya ki nahein... yeh kehte kehte aishar sangh ki zabaan sookh gayee.
 
-klont kor ne thok ngl kar apna hlq tr kya aur pochha, ’’phir kya hoa?‘‘
+klonat coor ne thok nigal kar apna halq tarr kya aur poocha, phir kya hawaa?
 
-aishr sngh ke hlq se bmshkl yeh alfaz nkle ’’mein ne... mein ne pta phinka liknlikn‘‘
+aishar sangh ke halq se bamashkal yeh alfaz niklay, mein nay... mein ne pataa phainka... leakin...leakin.
 
-is ki aaoaz dob gaye.
+is ki aawaz dob gayee.
 
-klont kor ne use jhnjhora: ’’phir kya hoa?‘‘
+klonat coor ne use jhanjhoda: phir kya hawaa?
 
-aishr sngh ne apni bnd hote havaye aankhin kholem aur klont kor kejsm ki trf dekha, js ki bote bote thrk rahi the. ’’oh... woh mri havaye the... lash thibalkl thnda gosht jane mujhe apna hath de...‘‘
+aishar sangh ne apni bund hoti hoyee aankhein khoolein aur klonat coor kejasam ki taraf dekha, jiss ki boaty boaty tharak rahi thee. wah... woh murry hoyee thee... laash thee...balkal thandaa gosht... jaanee mujhe apna haath day...
 
-klont kor ne apna hath aishr sngh ke hath pr rkha jo brf se bhi zyada thnda tha.
+klonat coor ne apna haath aishar sangh ke haath parr rakhaa, jo barf se bhi zyada thandaa thaa.

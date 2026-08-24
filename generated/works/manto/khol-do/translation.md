@@ -2,50 +2,50 @@
 
 **Saadat Hasan Manto**
 
-amrtsr se aspishl trin dophr do bje ko chali aur aath ghnton ke bd mghl porh phnchi raste mein kaye aadmi mare gee. mtdd zkhmi havaye aur kuchh adhr adhr bhtk gee.
+amritsar se special train dopahar do bajay ko chali aur aath ghanton ke baad mughal purah pahunchi. raastay mein kayee aadmi maaray gayey. mutadid zakhmi hoay aur kuchh adhar adhar bhatak gayey.
 
-sbh ds bje kimp ki thndi zmin pr jab sraj aldin ne aankhin kholem aur apne charom trf mrdon orton aur bchon ka ek mtlatm smndr dekha to is ki sochne smjhne ki qotem aur bhi zif hogayem. woh dir tk gdle aasman ko tktki bandhe dikhta rha yom to kimp mein hr trf shor brpa tha. lekin borhe sraj aldin ke kan jese bnd the. use kuchh snaii nahin deta tha. koi use dikhta to yeh khayal karta ki woh ksi ghri fikr mein ghrq hai magar esa nahin tha. is ke hosh o hoas shl the. is ka sara ojod khla mein mlq tha.
+sabah duss bajay... camp ki thandi zameen parr jab saraaj aldeen ne aankhein khoolein aur apne chaaron taraf mardon, auraton aur bachon ka ek mutlatim samandar dekha tuu is ki soochney samajhne ki quwatein aur bhi zayef hogayein. woh deer takk gadlay aasman ko tiktaki baandhay dekhta rehaa. yuon tuu camp mein harr taraf shoar barpa thaa. lekin bodhay saraaj aldeen ke kaan jeesay bund thay. use kuchh sanayi nahin deeta thaa. koi use dekhta tuu yeh khayal karta ki woh kasee gehri fikr mein gharaq hai magar aisa nahin thaa. is ke hosh woo hawaas shull thay. is ka saaraa wajood khalaa mein mualiq thaa.
 
-gdle aasman ki trf bghir ksi arade ke dekhte dekhte sraj aldin ki ngahin sorj se tkraiin tiz roshni is ke ojod ke rg o reshe mein atr gayi aur woh jag atha. aopr tle is ke dmagh pr kaye tsoirin dor gayem. lot aag bhagm bhag astishn goleam... raat aur skinh sraj aldin ek dm ath khra hoa aur paglon ki trh is ne apne charom trf phele havaye ansanon ke smndr ko khngalna shro kea.
+gadlay aasman ki taraf baghair kasee araday ke dekhte dekhte saraaj aldeen ki nigahein soraj se takrayein. teez roshni is ke wajood ke rugg woo reshey mein utar gayi aur woh jaag uthaa. oopar talay is ke dimagh parr kayee tasveerein dodh gayein. loat... aag... bhagam bhaag... station... goliyan... raat aur skinah... saraaj aldeen ek dumm utth khadaa hawaa aur paaglon ki tarah is ne apne chaaron taraf phailay hoay insaanon ke samandar ko khangalna sharoo kiyaa.
 
-pore teen ghnte ohskinh skinh‘‘ pkarta kimp mein khak chhanta rha magar use apni joan akloti bete ka koi pta nh mla charom trf ek dhandli se mchi the. koi apna bachcha dhond raha tha, koi mam, koi beve aur koi bete. sraj aldin thk har kar ek trf bith gaya aur hafze pr zor de kar sochne lga ki skinh is se kab aur kahan jda havaye. lekin sochte sochte is ka dmagh skinh ki maa ki lash pr jm jata. js ki sare antrian bahr nkli havaye them. is se age woh aur kuchh nh soch skta
+puray teen ghantay wah''skinah, skinah pakarta camp mein khaak chhanta rehaa. magar use apni jawaan akloti betty ka koi pataa naha milaa. chaaron taraf ek dhandli see machee thee. koi apna bachcha dhond raha thaa, koi maan, koi bewi aur koi betty. saraaj aldeen thakk haar kar ek taraf beeth gaya aur hafizay parr zoor day kar soochney lagaa ki skinah is se kab aur kahan jadaa hoyee. lekin soochtay soochtay is ka dimagh skinah ki maa ki laash parr jumm jaataa. jiss ki saaree antadiyan baahir nikli hoyee thein. is se aagay woh aur kuchh naha soch saktaa.
 
-skinh ki maa mr chki the. is ne sraj aldin ki aankhon ke samne dm tora tha. lekin skinh kahan thi js ke mtlq is ki maa ne mrte havaye kaha tha, ’’mujhe chhoro aur skinh ko le kar jldi yahan se bhag java.‘‘
+skinah ki maa marr chaki thee. is ne saraaj aldeen ki aankhon ke saamney dumm todaa thaa. lekin skinah kahan thi jiss ke mutaliq is ki maa ne martay hoay kaha thaa, mujhe chhodo aur skinah ko lay kar jaldi yahan se bhaag jaao.
 
-skinh is ke sath hi the. donom nnge pavam bhag rahe the. skinh ka dopth gr pra tha. use athane ke lee is ne rkna chaha tha magar skinh ne chala kar kaha tha, ’’aba je... chhoree.‘‘ lekin is ne dopth atha liya tha... yeh sochte sochte is ne apne kot ki abhri havaye jib ki trf dekha aur is mein hath dal kar ek kpra nkala skinh ka ohe dopth tha... lekin skinh kahan the?
+skinah is ke saath hi thee. donon nangay paaon bhaag rahe thay. skinah ka doptah girr padaa thaa. use uthanay ke liye is ne rakna chaaha tha magar skinah ne chala kar kaha thaa, abaa jee... chhodiye. lekin is ne doptah uthaa liya thaa... yeh soochtay soochtay is ne apne coat ki ubhri hoyee jeeb ki taraf dekha aur is mein haath ddaal kar ek kapda nikala... skinah ka wahee doptah thaa... lekin skinah kahan thee?
 
-sraj aldin ne apne thke havaye dmagh pr bahut zor diya magar woh ksi ntijh pr nh phnch ska kya woh skinh ko apne sath astishn tk le aaya tha...? kya woh is ke sath hi gare mein soar the...? rasth mein jab gare roke gayi thi aur bloaii andr ghs aaye the to kya woh be hosh hogea tha jo woh skinh ko atha krle gee?
+saraaj aldeen ne apne thakay hoay dimagh parr bahut zoor diya magar woh kasee natijah parr naha pahunch sakaa. kya woh skinah ko apne saath station takk lay aaya thaa...? kya woh is ke saath hi gaadi mein sawaar thee...? raastah mein jab gaadi rooki gayi thi aur balwai andar ghas aaye the tuu kya woh bay hosh hogiya tha jo woh skinah ko uthaa karlay gayey?
 
-sraj aldin ke dmagh mein sawal hi sawal the, jawab koi bhi nahin tha. is ko hmdrdi ki zrort thi lekin charom trf jtne bhi insaan phele havaye the sab ko hmdrdi ki zrort the. sraj aldin ne rona chaha magar aankhon ne is ki madad nh ke. aanso jane kahan ghaib hogee thechh roz ke bd jab hosh o hoas ksi qdr drst havaye to sraj aldin un logom se mla jo is ki madad krne ke lee tiar the. aath nojoan the. jn ke pas lare the, bndoqin them. sraj aldin ne un ko lakh lakh daiin dem aur skinh ka hleh btaia ’’gorarng hai aur bahut hi khobsort he... mjh pr nahin apni maa pr the... mr strh brs ke qrib he... aankhin badi bri bal seah, dahne gal pr mota sa tl meri akloti ladki he. dhond lava. tmhara Khuda bhla kre ga.‘‘
+saraaj aldeen ke dimagh mein sawal hi sawal thay, jawab koi bhi nahin thaa. is ko humdardi ki zarurat thi lekin chaaron taraf jitnay bhi insaan phailay hoay the sab ko humdardi ki zarurat thee. saraaj aldeen ne ronaa chaaha magar aankhon ne is ki madad naha kii. aanso jaanay kahan ghaib hogiye thay.chh roz ke baad jab hosh woo hawaas kasee qadr darsat hoay tuu saraaj aldeen un logon se milaa jo is ki madad karnay ke liye tayaar thay. aath naujawan thay. jinn ke paas laari thee, bandoqein thein. saraaj aldeen ne un ko laakh laakh duayein dain aur skinah ka haliyah bataya, goraring hai aur bahut hi khubsurat hay... majh parr nahin apni maa parr thee... amar satrah burse ke qareeb hay... aankhein badi bury... baal seeyah, dahnay gaal parr motaa saa tall... meri akloti ladki hay. dhond laao. tumhara Khuda bhalaa karay gaa.
 
-rza kar nojoanom ne bre jzbe ke sath borhe sraj aldin ko iqin dlaia ki agar is ki bete zndh havaye to chnd hi dnon mein is ke pas hoge.
+razaa kaar naujawanon ne baday jazbay ke saath bodhay saraaj aldeen ko yaqeen dilaya ki agar is ki betty zindah hoyee tuu chand hi dunon mein is ke paas hogi.
 
-athom nojoanom ne koshsh ke. jan htheleom pr rkh kar woh amrtsr gee. kaye orton kaye mrdon aur kaye bchon ko nkal nkal kar anhon ne mhfoz mqamon pr phnchaia ds roz gzr gee magar anhin skinh khin nh mli
+aathon naujawanon ne koshish kii. jaan hatheliyon parr rakh kar woh amritsar gayey. kayee auraton, kayee mardon aur kayee bachon ko nikaal nikaal kar unhon ne mahfuz maqamon parr pahunchaya. duss roz guzar gayey magar anhein skinah kahein naha milly.
 
-ek roz woh ase khdmt ke lee lare pr amrtsr jarhe the ki chh hrth ke pas srk pr anhin ek ladki dkhaii de. lare ki aaoaz sn kroh bdki aur bhagna shro krdia rza karom ne motr roke aur sab ke sab is ke pechhe bhage. ek khit mein anhon ne ladki ko pkr lea. dekha to bahut khobsort the. dahne gal pr mota tl tha. ek lrke ne is se kha ’’ghbrao nhin kya tmhara naam skinh he?‘‘
+ek roz woh asee khadmat ke liye laari parr amritsar jaarhay the ki chh hertah ke paas sadak parr anhein ek ladki dikhayi dee. laari ki aawaz sunn karwah badki aur bhagna sharoo kardiya. razaa kaaron ne motor rooki aur sab ke sab is ke peeche bhagay. ek kheet mein unhon ne ladki ko pakad liyaa. dekha tuu bahut khubsurat thee. dahnay gaal parr motaa tall thaa. ek ladkay ne is se kahaa, ghabrao nahein... kya tumhara naam skinah hay?
 
-ladki ka rng aur bhi zrd hogea. is ne koi jawab nh dea. lekin jab tmam lrkon ne use dm dlasa diya to is ki ohsht dor havaye aur is ne man liya ki woh sraj aldin ki bete skinh he.
+ladki ka rung aur bhi zard hogiya. is ne koi jawab naha diyaa. lekin jab tamaam ladkon ne use dumm dilasa diya tuu is ki wahshat door hoyee aur is ne maan liya ki woh saraaj aldeen ki betty skinah hay.
 
-aath rza kar nojoanom ne hr trh skinh ki dljoii ke. use khana khlaia dodh plaia aur lare mein btha dea. ek ne apna ko t atar kar use de dea. kionkh dopth nh hone ke bas woh bahut aljhn mhsos krrhi the. aur bar bar banhon se apne sene ko dhankne ki nakam koshsh mein msrof the.
+aath razaa kaar naujawanon ne harr tarah skinah ki diljoyi kii. use khaana khilaya. dodh playa aur laari mein bathaa diyaa. ek ne apna ko teat ataar kar use day diyaa. keunkah doptah naha honay ke baais woh bahut aljhan mahsus karrahi thee. aur baar baar baanhon se apne seenay ko dhanknay ki nakaam koshish mein masruf thee.
 
-kaye din gzr gee... sraj aldin ko skinh ki koi khabar nh mli woh din bhr mkhtlf kimpon aur dftron ke chkr katta rhta lekin khin se bhi is ki bete ka pth nh chla raat ko woh bahut dir tk un rza kar nojoanom ki kameabe ke lee daiin mangta rhta jnhon ne is ko iqin dlaia tha ki agar skinh zndh havaye to chnd dnon hi mein woh use dhond nkalin ge.
+kayee din guzar gayey... saraaj aldeen ko skinah ki koi khabar naha milly. woh din bhar mukhtalif campon aur daftaron ke chakar kaatta rehta. lekin kahein se bhi is ki betty ka patah naha chalaa. raat ko woh bahut deer takk un razaa kaar naujawanon ki kamiyabi ke liye duayein maangta rehta. jinhon ne is ko yaqeen dilaya tha ki agar skinah zindah hoyee tuu chand dunon hi mein woh use dhond nikalein gay.
 
-ek roz sraj aldin ne kimp mein un nojoan rza karom ko dekha. lare mein bethe the. sraj aldin bhaga bhaga un ke pas gea. lare chlne hi vale thi ki is ne pochha, ’’beta, meri skinh ka pth chla‘‘
+ek roz saraaj aldeen ne camp mein un naujawan razaa kaaron ko dekha. laari mein bethay thay. saraaj aldeen bhaga bhaga un ke paas gayaa. laari chalnay hi waali thi ki is ne poocha, betaa, meri skinah ka patah chalaa?
 
-sab ne ik zban ho kar kha ’’chl jaye ga, chl jaye ga.‘‘ aur lare chala disraj aldin ne ek bar phir un nojoanom ki kameabe ke lee da mangi aur is ka je ksi qdr hlka hogea.
+sab ne yakk zabaan how kar kahaa, chull jaaye gaa, chull jaaye gaa. aur laari chala dee.saraaj aldeen ne ek baar phir un naujawanon ki kamiyabi ke liye duaa maangi aur is ka jee kasee qadr halka hogiya.
 
-sham ke qrib kimp mein jhan sraj aldin betha tha, is ke pas hi kuchh grbrsi havaye. char aadmi kuchh atha kar larhe the. is ne driaft kya to mlom hoa ki ek ladki reloe lain ke pas behosh pri the. log use atha kar laye hem. sraj aldin un ke pechhe pechhe holea. logom ne ladki ko hsptal valom ke sprd kya aur chale gee. kuchh dir woh ese hi hsptal ke bahr gre havaye lkri ke khmbe ke sath lg kar khra rha phir aahsth aahsth andr chala gea. kmre mein koi bhi nahin tha. ek astrichr tha js pr ek lash pri the. sraj aldin chhote chhote qdm athata is ki trf brha kmre mein dfta roshni havaye. sraj aldin ne lash ke zrd chhre pr chmkta hoa tl dekha aur chlaia
+shaam ke qareeb camp mein jehaan saraaj aldeen betha thaa, is ke paas hi kuchh garbadsi hoyee. chaar aadmi kuchh uthaa kar laarhay thay. is ne driyafat kya tuu maloom hawaa ki ek ladki railway line ke paas behush padee thee. loag use uthaa kar laaye haine. saraaj aldeen un ke peeche peeche holiya. logon ne ladki ko hospital waalon ke spard kya aur chale gayey. kuchh deer woh aisey hi hospital ke baahir garay hoay lakdi ke khambe ke saath lugg kar khadaa rehaa. phir aahista aahista andar chala gayaa. kamray mein koi bhi nahin thaa. ek strature tha jiss parr ek laash padee thee. saraaj aldeen chhotay chhotay qadm uthata is ki taraf badhaa. kamray mein dafatan roshni hoyee. saraaj aldeen ne laash ke zard chehrey parr chamakta hawaa tall dekha aur chalaya.
 
-’’skinh!‘‘
+skinah!
 
-daktr ne js ne kmre mein roshni ki thi sraj aldin se pochha, ’’kya he?‘‘
+doctor ne jiss ne kamray mein roshni ki thi saraaj aldeen se poocha, kya hay?
 
-sraj aldin ke hlq se srf is qdr nkl ska ’’je mem... je mem... is ka baap hoon!‘‘
+saraaj aldeen ke halq se sarf is qadr nikal sakaa, jee mein... jee mein... is ka baap hoon!
 
-daktr ne astrichr pr pri havaye lash ki trf dekha. is ki nbz ttoli aur sraj aldin se kha ’’khrki khol do.‘‘
+doctor ne strature parr padee hoyee laash ki taraf dekha. is ki nabz tatoli aur saraaj aldeen se kahaa, khidki khool duu.
 
-skinh ke mrdh jsm mein jnbsh peda havaye. be jan hathom se is ne azar bnd khola aur shloar neche srka de.
+skinah ke mardah jasm mein janbash paida hoyee. bay jaan haathon se is ne azaar bund khola aur shalwaar neechey sarka dee.
 
-borha sraj aldin khoshe se chlaia ’’zndh he... meri bete zndh he...‘‘
+bodha saraaj aldeen khushi se chalaya, zindah hay... meri betty zindah hay...
 
-daktr sr se pir tk psine mein ghrq hogea...
+doctor sarr se peer takk pasinay mein gharaq hogiya...

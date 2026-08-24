@@ -1,3 +1,18 @@
+Loading AI4Bharat Urdu transliteration model
+MB  0% (0 of 119.0) |                       | Elapsed Time: 0:00:00 ETA: --:--:--
+MB  6% (7 of 119.0) |#                       | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB 21% (25 of 119.0) |####                   | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB 46% (55 of 119.0) |##########             | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB 70% (83 of 119.0) |################       | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB 76% (91 of 119.0) |#################      | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB 84% (100 of 119.0) |##################    | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB 99% (118 of 119.0) |##################### | Elapsed Time: 0:00:00 ETA: 0:00:00
+MB100% (119.0 of 119.0) |####################| Elapsed Time: 0:00:00 ETA: 0:00:00
+Downloading Multilingual model for transliteration
+Succefully Downloaded to: /opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/ai4bharat/transliteration/transformer/models/indic2en/v1.0/model.zip
+Models downloaded to: /opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/ai4bharat/transliteration/transformer/models/indic2en/v1.0
+NOTE: When uninstalling this library, REMEMBER to delete the models manually
+Initializing Multilingual model for transliteration
 Building Nirmala
 Wikisource 01/24: निर्मला/१
 Wikisource 02/24: निर्मला/२
@@ -9,7 +24,6 @@ Wikisource 07/24: निर्मला/७
 Wikisource 08/24: निर्मला/८
 Wikisource 09/24: निर्मला/९
 Wikisource 10/24: निर्मला/१०
-retry 429 https://hi.wikisource.org/w/api.php after 24s
 Wikisource 11/24: निर्मला/११
 Wikisource 12/24: निर्मला/१२
 Wikisource 13/24: निर्मला/१३
@@ -19,8 +33,8 @@ Wikisource 16/24: निर्मला/१६
 Wikisource 17/24: निर्मला/१७
 Wikisource 18/24: निर्मला/१८
 Wikisource 19/24: निर्मला/१९
-Wikisource 20/24: निर्मला/२०
 retry 429 https://hi.wikisource.org/w/api.php after 29s
+Wikisource 20/24: निर्मला/२०
 Wikisource 21/24: निर्मला/२१
 Wikisource 22/24: निर्मला/२२
 Wikisource 23/24: निर्मला/२३
@@ -29,18 +43,15 @@ Building Godaan
 Building Manto
 Urdu Wikisource candidate Toba Tek Singh: ٹوبہ ٹیک سنگھ: 13129 chars / 10109 Urdu
 Urdu Wikisource candidate Khol Do: کھول دو: 5936 chars / 4581 Urdu
-retry 429 https://ur.wikisource.org/w/api.php after 25s
 Urdu Wikisource candidate Thanda Gosht: ٹھنڈا گوشت (افسانہ): 10597 chars / 8050 Urdu
 Urdu Wikisource candidate Thanda Gosht: ٹھنڈا گوشت: 71 chars / 54 Urdu
 Traceback (most recent call last):
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 317, in <module>
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder_ai4bharat.py", line 114, in <module>
     b.main()
   File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 226, in main
     print("Building Manto",flush=True);qs.extend(build_manto())
-                                                 ^^^^^^^^^^^^^
   File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 278, in build_manto_from_wikisource
     source, url, page_title = fetch_urdu_wikisource_story(title, minimum)
-                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 204, in fetch_urdu_wikisource_story
     raise RuntimeError(f"no Urdu Wikisource candidate resolved for {title}")
 RuntimeError: no Urdu Wikisource candidate resolved for Bu
