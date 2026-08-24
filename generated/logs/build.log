@@ -9,7 +9,7 @@ Wikisource 07/24: निर्मला/७
 Wikisource 08/24: निर्मला/८
 Wikisource 09/24: निर्मला/९
 Wikisource 10/24: निर्मला/१०
-retry 429 https://hi.wikisource.org/w/api.php after 24s
+retry 429 https://hi.wikisource.org/w/api.php after 8s
 Wikisource 11/24: निर्मला/११
 Wikisource 12/24: निर्मला/१२
 Wikisource 13/24: निर्मला/१३
