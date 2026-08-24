@@ -7,6 +7,16 @@ on:
     paths:
       - automation/build_all_classics.py
       - .github/workflows/build-classics-artifact.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - automation/build_all_classics.py
+      - .github/workflows/build-classics-artifact.yml
   workflow_dispatch:
 
 permissions:
@@ -15,6 +25,7 @@ permissions:
 
 jobs:
   build:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'automation/classics-builder'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -54,6 +65,7 @@ jobs:
           git add -- generated
           if ! git diff --cached --quiet; then
             git commit -m 'content: generate complete classics first passes and QA'
+            git pull --rebase origin automation/classics-builder
             git push origin HEAD:automation/classics-builder
           fi
 
