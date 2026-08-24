@@ -1,0 +1,63 @@
+name: Build Roman Long Classics
+
+on:
+  push:
+    branches:
+      - automation/roman-classics-long-builder
+    paths:
+      - tools/build_long_classics.py
+      - .github/workflows/build-roman-long-classics.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out generator branch
+        uses: actions/checkout@v4
+        with:
+          ref: automation/roman-classics-long-builder
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
+
+      - name: Build complete long-work first passes
+        run: python tools/build_long_classics.py
+
+      - name: Validate expected outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f generated/long-classics/manifest-fragment.json
+          test -f generated/long-classics/QA.md
+          test "$(find generated/long-classics/works/premchand/godaan/chapters -type f -name '*.md' | wc -l)" -eq 36
+          test "$(find generated/long-classics/works/premchand/nirmala/chapters -type f -name '*.md' | wc -l)" -ge 20
+          test "$(find generated/long-classics/works/ghalib/urdu-e-mualla/parts -type f -name '*.md' | wc -l)" -ge 8
+          if grep -R -n -P '[\x{0900}-\x{097F}\x{0600}-\x{06FF}]' generated/long-classics/works --include='*.md'; then
+            echo 'Residual Indic script found in reader files.' >&2
+            exit 1
+          fi
+
+      - name: Commit generated corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'SyllabuswithRohit editorial bot'
+          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
+          git add -- generated/long-classics
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'content: generate complete Roman long-classics first passes'
+          git push origin HEAD:automation/roman-classics-long-builder
