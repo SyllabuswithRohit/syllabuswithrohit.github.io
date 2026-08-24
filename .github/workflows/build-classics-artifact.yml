@@ -6,6 +6,7 @@ on:
       - automation/classics-builder
     paths:
       - automation/build_all_classics.py
+      - automation/run_builder.py
       - .github/workflows/build-classics-artifact.yml
   pull_request:
     branches:
@@ -16,6 +17,7 @@ on:
       - reopened
     paths:
       - automation/build_all_classics.py
+      - automation/run_builder.py
       - .github/workflows/build-classics-artifact.yml
   workflow_dispatch:
 
@@ -50,7 +52,7 @@ jobs:
         run: |
           mkdir -p generated/logs
           set +e
-          python automation/build_all_classics.py > generated/logs/build.log 2>&1
+          python automation/run_builder.py > generated/logs/build.log 2>&1
           code=$?
           echo "$code" > generated/logs/exit-code.txt
           cat generated/logs/build.log
