@@ -9,7 +9,7 @@ Wikisource 07/24: निर्मला/७
 Wikisource 08/24: निर्मला/८
 Wikisource 09/24: निर्मला/९
 Wikisource 10/24: निर्मला/१०
-retry 429 https://hi.wikisource.org/w/api.php after 8s
+retry 429 https://hi.wikisource.org/w/api.php after 24s
 Wikisource 11/24: निर्मला/११
 Wikisource 12/24: निर्मला/१२
 Wikisource 13/24: निर्मला/१३
@@ -29,7 +29,7 @@ Building Godaan
 Building Manto
 Urdu Wikisource candidate Toba Tek Singh: ٹوبہ ٹیک سنگھ: 13129 chars / 10109 Urdu
 Urdu Wikisource candidate Khol Do: کھول دو: 5936 chars / 4581 Urdu
-retry 429 https://ur.wikisource.org/w/api.php after 26s
+retry 429 https://ur.wikisource.org/w/api.php after 25s
 Urdu Wikisource candidate Thanda Gosht: ٹھنڈا گوشت (افسانہ): 10597 chars / 8050 Urdu
 Urdu Wikisource candidate Thanda Gosht: ٹھنڈا گوشت: 71 chars / 54 Urdu
 Traceback (most recent call last):
