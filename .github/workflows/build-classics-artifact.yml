@@ -1,88 +1,78 @@
 name: Build Classics Artifact
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+      - automation/classics-builder
     paths:
-      - tools/classics_builder.py
-      - tools/classics_builder_patched.py
+      - automation/build_all_classics.py
       - .github/workflows/build-classics-artifact.yml
-  issues:
-    types:
-      - opened
-      - reopened
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   build:
-    if: >-
-      (github.event_name == 'issues' && startsWith(github.event.issue.title, '[run-classics-artifact]')) ||
-      (github.event_name == 'workflow_dispatch') ||
-      (github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'automation/classics-artifact-20260823')
     runs-on: ubuntu-latest
-    timeout-minutes: 90
-
+    timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out builder branch
+        uses: actions/checkout@v4
         with:
-          ref: automation/classics-artifact-20260823
+          ref: automation/classics-builder
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install text tools
-        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 lxml indic-transliteration
 
-      - name: Run normalized complete long-work build and capture outcome
+      - name: Build all remaining classics
         id: build
+        continue-on-error: true
         shell: bash
         run: |
+          mkdir -p generated/logs
           set +e
-          python tools/classics_builder_patched.py > /tmp/classics-build.log 2>&1
+          python automation/build_all_classics.py > generated/logs/build.log 2>&1
           code=$?
-          cat /tmp/classics-build.log
-          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
-          exit 0
+          echo "$code" > generated/logs/exit-code.txt
+          cat generated/logs/build.log
+          exit "$code"
 
-      - name: Persist generated corpus, log and status on temporary branch
+      - name: Commit generated files and logs
+        if: always()
         shell: bash
         run: |
-          mkdir -p .github/workflow-status
-          cp /tmp/classics-build.log .github/workflow-status/classics-build.log 2>/dev/null || echo 'Build log missing.' > .github/workflow-status/classics-build.log
-          {
-            echo "exit_code=${{ steps.build.outputs.exit_code }}"
-            echo "source_commit=${GITHUB_SHA}"
-            echo "run=${GITHUB_RUN_ID}"
-            echo "recorded_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          } > .github/workflow-status/classics-build.status
-
-          git config user.name 'SWR temporary classics builder'
+          git config user.name 'SyllabuswithRohit editorial bot'
           git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
-          git add -- generated .github/workflow-status/classics-build.log .github/workflow-status/classics-build.status
-          if git diff --cached --quiet; then
-            echo 'No generated or status changes to commit.'
-          else
-            git commit -m 'chore: record classics artifact build outcome'
-            git pull --rebase origin automation/classics-artifact-20260823
-            git push origin HEAD:automation/classics-artifact-20260823
+          git add -- generated
+          if ! git diff --cached --quiet; then
+            git commit -m 'content: generate complete classics first passes and QA'
+            git push origin HEAD:automation/classics-builder
           fi
 
-      - name: Upload generated corpus when present
+      - name: Package generated tree
+        if: always()
+        run: tar -czf classics-generated.tar.gz generated
+
+      - name: Upload generated artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: classics-generated-20260823
-          path: generated
-          if-no-files-found: warn
+          name: classics-generated
+          path: classics-generated.tar.gz
+          if-no-files-found: error
           retention-days: 7
+
+      - name: Fail when builder failed
+        if: always()
+        shell: bash
+        run: |
+          code=$(cat generated/logs/exit-code.txt 2>/dev/null || echo 1)
+          test "$code" = "0"
