@@ -1,0 +1,144 @@
+name: Build Long Classics Bundle
+
+on:
+  push:
+    branches:
+      - automation/long-classics-bundle-20260823
+    paths:
+      - tools/long_bundle_builder.py
+      - .github/workflows/build-long-classics-bundle.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - tools/long_bundle_builder.py
+      - .github/workflows/build-long-classics-bundle.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: automation/long-classics-bundle-20260823
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests beautifulsoup4 indic-transliteration
+      - name: Normalize source and OCR variants
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/long_bundle_builder.py')
+          s = p.read_text(encoding='utf-8')
+          old = '.replace("ऑ","ओ").replace("ॉ","ो").replace("ऍ","ए").replace("ॅ","े").replace("़","")'
+          new = old + '.replace("ऩ","न").replace("ऱ","र").replace("ऴ","ळ")'
+          if old not in s:
+              raise SystemExit('normalization target not found')
+          s = s.replace(old, new)
+          old_line = 'out = transliterate(text,sanscript.DEVANAGARI,sanscript.ITRANS)'
+          new_line = old_line + '\n    out = out.translate(str.maketrans({"ऩ":"n","ऱ":"r","ऴ":"l","ॉ":"o","ॅ":"e","़":""}))'
+          if old_line not in s:
+              raise SystemExit('post-transliteration cleanup target not found')
+          s = s.replace(old_line, new_line)
+          old_urdu = '''    raw,url=archive_ocr("urduemualla")
+    if len(raw)<100000:
+        raw,url=archive_ocr("in.ernet.dli.2015.435597")'''
+          new_urdu = '''    raw = ""
+    url = ""
+    last_error = None
+    for identifier in ("kitaburduemualla00ghal", "urduimualla01ghaluoft", "in.ernet.dli.2015.435597"):
+        try:
+            candidate, candidate_url = archive_ocr(identifier)
+            if len(candidate) > len(raw):
+                raw, url = candidate, candidate_url
+            if len(raw) >= 100000:
+                break
+        except Exception as exc:
+            last_error = exc
+    if len(raw) < 80000:
+        raise RuntimeError(f"No usable Urdu-e-Mualla OCR; last error: {last_error}")'''
+          if old_urdu not in s:
+              raise SystemExit('Urdu source target not found')
+          p.write_text(s.replace(old_urdu, new_urdu), encoding='utf-8')
+          PY
+      - name: Build complete long-work bundle
+        run: python tools/long_bundle_builder.py
+      - name: Split long reader files into transfer-safe ordered parts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, re
+
+          root = Path('generated_bundle')
+          specs = [
+              ('premchand/nirmala', 'Nirmala', 'Munshi Premchand'),
+              ('premchand/godaan', 'Godaan', 'Munshi Premchand'),
+              ('ghalib/urdu-e-mualla', 'Urdu-e-Mualla', 'Mirza Ghalib'),
+          ]
+          report = {}
+          for rel, title, author in specs:
+              work = root / rel
+              text = (work / 'translation.md').read_text(encoding='utf-8')
+              paragraphs = [p.strip() for p in re.split(r'\n\s*\n', text) if p.strip()]
+              if len(paragraphs) < 10:
+                  raise SystemExit(f'too few paragraphs in {rel}')
+              parts = []
+              current = []
+              length = 0
+              for paragraph in paragraphs:
+                  needed = len(paragraph) + 2
+                  if current and length + needed > 30000:
+                      parts.append(current)
+                      current = []
+                      length = 0
+                  current.append(paragraph)
+                  length += needed
+              if current:
+                  parts.append(current)
+              part_dir = work / 'parts'
+              part_dir.mkdir(parents=True, exist_ok=True)
+              index = [f'# {title}', '', f'**{author}**', '', 'Complete ordered first-pass reader files.', '']
+              for number, block in enumerate(parts, 1):
+                  body = '\n\n'.join(block).rstrip() + '\n'
+                  if re.search(r'[\u0900-\u097f\u0600-\u06ff]', body):
+                      raise SystemExit(f'Indic script in {rel} part {number}')
+                  path = part_dir / f'{number:03d}.md'
+                  path.write_text(body, encoding='utf-8')
+                  index.append(f'- [Part {number}](parts/{number:03d}.md)')
+              (work / 'translation.md').write_text('\n'.join(index) + '\n', encoding='utf-8')
+              report[rel] = {
+                  'parts': len(parts),
+                  'total_chars': sum(len((part_dir / f'{n:03d}.md').read_text(encoding='utf-8')) for n in range(1, len(parts)+1)),
+                  'largest_part_chars': max(len((part_dir / f'{n:03d}.md').read_text(encoding='utf-8')) for n in range(1, len(parts)+1)),
+              }
+          (root / 'TRANSFER_QA.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps(report, indent=2))
+          PY
+      - name: Upload generated bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: long-classics-bundle-20260823
+          path: generated_bundle
+          if-no-files-found: error
+          retention-days: 2
+      - name: Persist generated bundle on temporary branch
+        run: |
+          set -euo pipefail
+          git config user.name 'SWR long classics builder'
+          git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
+          git add -- generated_bundle
+          git commit -m 'chore: persist long classics bundle'
+          git pull --rebase origin automation/long-classics-bundle-20260823
+          git push origin HEAD:automation/long-classics-bundle-20260823
