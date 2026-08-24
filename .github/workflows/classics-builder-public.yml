@@ -1,0 +1,45 @@
+name: Public Classics Builder
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - automation/classics-builder/**
+      - scripts/classics_builder.py
+      - requirements-classics.txt
+      - .github/workflows/classics-builder-public.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out PR merge
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-classics.txt
+      - name: Build complete corpus
+        run: python scripts/classics_builder.py
+      - name: Upload generated corpus
+        uses: actions/upload-artifact@v4
+        with:
+          name: easy-roman-hindustani-classics
+          path: generated
+          if-no-files-found: error
+          retention-days: 3
