@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/rebuild_premchand_quality.py", line 202, in <module>
+    main()
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/rebuild_premchand_quality.py", line 196, in main
+    raise RuntimeError(f"non-ASCII content remains in {path}")
+RuntimeError: non-ASCII content remains in generated/works/premchand/nirmala/chapters/01.md
