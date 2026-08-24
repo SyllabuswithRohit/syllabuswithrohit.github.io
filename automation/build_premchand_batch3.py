@@ -86,6 +86,10 @@ WORD_REPAIRS = {
 
 
 def romanize(text: str) -> str:
+    text = text.translate(str.maketrans({
+        "ऩ":"न", "ऱ":"र", "ऴ":"ल", "क़":"क", "ख़":"ख", "ग़":"ग",
+        "ज़":"ज", "ड़":"ड", "ढ़":"ढ", "फ़":"फ", "य़":"य",
+    }))
     text = (text.replace("ऑ", "ओ").replace("ऍ", "ए").replace("ऒ", "ओ")
                 .replace("ऎ", "ए").replace("ॉ", "ो").replace("ॅ", "े"))
     output = base.romanize(text)
