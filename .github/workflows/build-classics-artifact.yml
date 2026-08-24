@@ -7,6 +7,7 @@ on:
     paths:
       - automation/build_all_classics.py
       - automation/run_builder.py
+      - automation/diagnose_rekhta.py
       - .github/workflows/build-classics-artifact.yml
   pull_request:
     branches:
@@ -18,6 +19,7 @@ on:
     paths:
       - automation/build_all_classics.py
       - automation/run_builder.py
+      - automation/diagnose_rekhta.py
       - .github/workflows/build-classics-artifact.yml
   workflow_dispatch:
 
@@ -45,6 +47,10 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 lxml indic-transliteration
 
+      - name: Diagnose Rekhta page data
+        continue-on-error: true
+        run: python automation/diagnose_rekhta.py
+
       - name: Build all remaining classics
         id: build
         continue-on-error: true
@@ -66,7 +72,7 @@ jobs:
           git config user.email '274160084+SyllabuswithRohit@users.noreply.github.com'
           git add -- generated
           if ! git diff --cached --quiet; then
-            git commit -m 'content: generate complete classics first passes and QA'
+            git commit -m 'content: generate complete classics first passes and diagnostics'
             git pull --rebase origin automation/classics-builder
             git push origin HEAD:automation/classics-builder
           fi
