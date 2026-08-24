@@ -1,1 +1,1 @@
-RuntimeError: Godaan chapter 1 failed Roman-only validation: Devanagari=2, Urdu=0
+RuntimeError: Godaan 04.txt has suspiciously few paragraphs: 4

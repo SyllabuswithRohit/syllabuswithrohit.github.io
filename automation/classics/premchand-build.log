@@ -1,4 +1,4 @@
-BUILD FAILED: RuntimeError: Godaan chapter 1 failed Roman-only validation: Devanagari=2, Urdu=0
+BUILD FAILED: RuntimeError: Godaan 04.txt has suspiciously few paragraphs: 4
 Nirmala 01/25: निर्मला/१ — 7271 chars
 Nirmala 02/25: निर्मला/२ — 11445 chars
 Nirmala 03/25: निर्मला/३ — 24473 chars
@@ -8,7 +8,7 @@ Nirmala 06/25: निर्मला/६ — 9282 chars
 Nirmala 07/25: निर्मला/७ — 22668 chars
 Nirmala 08/25: निर्मला/८ — 14095 chars
 Nirmala 09/25: निर्मला/९ — 5417 chars
-Rate limited by https://hi.wikisource.org/w/api.php; sleeping 13s (attempt 1/10)
+Rate limited by https://hi.wikisource.org/w/api.php; sleeping 10s (attempt 1/10)
 Nirmala 10/25: निर्मला/१० — 21649 chars
 Nirmala 11/25: निर्मला/११ — 11439 chars
 Nirmala 12/25: निर्मला/१२ — 7633 chars
@@ -19,7 +19,7 @@ Nirmala 16/25: निर्मला/१६ — 7003 chars
 Nirmala 17/25: निर्मला/१७ — 11914 chars
 Nirmala 18/25: निर्मला/१८ — 11614 chars
 Nirmala 19/25: निर्मला/१९ — 5708 chars
-Rate limited by https://hi.wikisource.org/w/api.php; sleeping 43s (attempt 1/10)
+Rate limited by https://hi.wikisource.org/w/api.php; sleeping 38s (attempt 1/10)
 Nirmala 20/25: निर्मला/२० — 15171 chars
 Nirmala 21/25: निर्मला/२१ — 10684 chars
 Nirmala 22/25: निर्मला/२२ — 5005 chars
@@ -29,36 +29,3 @@ Nirmala 25/25: निर्मला/२५ — 15547 chars
 Godaan 01/36: 15746 chars, 65 paragraphs
 Godaan 02/36: 9943 chars, 14 paragraphs
 Godaan 03/36: 21698 chars, 126 paragraphs
-Godaan 04/36: 41853 chars, 136 paragraphs
-Godaan 05/36: 13753 chars, 25 paragraphs
-Godaan 06/36: 51240 chars, 127 paragraphs
-Godaan 07/36: 55468 chars, 257 paragraphs
-Godaan 08/36: 15769 chars, 34 paragraphs
-Godaan 09/36: 15845 chars, 81 paragraphs
-Godaan 10/36: 15689 chars, 48 paragraphs
-Godaan 11/36: 17618 chars, 34 paragraphs
-Godaan 12/36: 16357 chars, 58 paragraphs
-Godaan 13/36: 21467 chars, 87 paragraphs
-Godaan 14/36: 15346 chars, 54 paragraphs
-Godaan 15/36: 27793 chars, 136 paragraphs
-Godaan 16/36: 20312 chars, 10 paragraphs
-Godaan 17/36: 24128 chars, 101 paragraphs
-Godaan 18/36: 25324 chars, 85 paragraphs
-Godaan 19/36: 8337 chars, 20 paragraphs
-Godaan 20/36: 26468 chars, 110 paragraphs
-Godaan 21/36: 26378 chars, 117 paragraphs
-Godaan 22/36: 31420 chars, 136 paragraphs
-Godaan 23/36: 24684 chars, 49 paragraphs
-Godaan 24/36: 19649 chars, 83 paragraphs
-Godaan 25/36: 13201 chars, 35 paragraphs
-Godaan 26/36: 10198 chars, 61 paragraphs
-Godaan 27/36: 26122 chars, 78 paragraphs
-Godaan 28/36: 18939 chars, 44 paragraphs
-Godaan 29/36: 23157 chars, 44 paragraphs
-Godaan 30/36: 25259 chars, 81 paragraphs
-Godaan 31/36: 23867 chars, 83 paragraphs
-Godaan 32/36: 7747 chars, 25 paragraphs
-Godaan 33/36: 28545 chars, 69 paragraphs
-Godaan 34/36: 9967 chars, 59 paragraphs
-Godaan 35/36: 17781 chars, 48 paragraphs
-Godaan 36/36: 13001 chars, 23 paragraphs
