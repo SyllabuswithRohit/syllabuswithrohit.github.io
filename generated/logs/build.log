@@ -20,23 +20,27 @@ Wikisource 17/24: निर्मला/१७
 Wikisource 18/24: निर्मला/१८
 Wikisource 19/24: निर्मला/१९
 Wikisource 20/24: निर्मला/२०
-retry 429 https://hi.wikisource.org/w/api.php after 28s
+retry 429 https://hi.wikisource.org/w/api.php after 29s
 Wikisource 21/24: निर्मला/२१
 Wikisource 22/24: निर्मला/२२
 Wikisource 23/24: निर्मला/२३
 Wikisource 24/24: निर्मला/२४
 Building Godaan
 Building Manto
+Urdu Wikisource candidate Toba Tek Singh: ٹوبہ ٹیک سنگھ: 13129 chars / 10109 Urdu
+Urdu Wikisource candidate Khol Do: کھول دو: 5936 chars / 4581 Urdu
+retry 429 https://ur.wikisource.org/w/api.php after 26s
+Urdu Wikisource candidate Thanda Gosht: ٹھنڈا گوشت (افسانہ): 10597 chars / 8050 Urdu
+Urdu Wikisource candidate Thanda Gosht: ٹھنڈا گوشت: 71 chars / 54 Urdu
 Traceback (most recent call last):
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 146, in <module>
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 317, in <module>
     b.main()
   File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 226, in main
     print("Building Manto",flush=True);qs.extend(build_manto())
                                                  ^^^^^^^^^^^^^
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 177, in build_manto
-    src,url=extract_rekhta(f"https://www.rekhta.org/stories/{slug}?lang=hi",title,minc);rom=devanagari_to_roman(src);root=WORKS/"manto"/wid
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/build_all_classics.py", line 163, in extract_rekhta
-    if not cands:write(LOGS/(re.sub(r"[^a-z0-9]+","-",title.lower())+".html"),raw);raise RuntimeError(f"Rekhta extraction too short: {title}")
-                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Rekhta extraction too short: Toba Tek Singh
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 278, in build_manto_from_wikisource
+    source, url, page_title = fetch_urdu_wikisource_story(title, minimum)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/syllabuswithrohit.github.io/syllabuswithrohit.github.io/automation/run_builder.py", line 204, in fetch_urdu_wikisource_story
+    raise RuntimeError(f"no Urdu Wikisource candidate resolved for {title}")
+RuntimeError: no Urdu Wikisource candidate resolved for Bu
